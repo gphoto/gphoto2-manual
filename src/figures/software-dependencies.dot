@@ -58,9 +58,9 @@ digraph "software dependencies" {
 	libexif -> libgphoto2 [style=dashed];
 	libusb -> libgphoto2 [style=dashed];
 
-	libgphoto2 -> gtkam;
 	libexif -> gtkam [style=dashed];
 	libgtk -> gtkam;
+	libgphoto2 -> gtkam;
 
 	libpopt -> gphoto2 [style=dashed];
 	libexif -> gphoto2 [style=dashed];
