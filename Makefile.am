@@ -3,7 +3,8 @@ if HAVE_SCROLLKEEPER
 scrollkeeper_subdirs = help
 endif
 
-SUBDIRS = src $(scrollkeeper_subdirs)
+# we have our own macros in m4/, so do not remove it, OK?
+SUBDIRS = src m4 $(scrollkeeper_subdirs)
 
 ACLOCAL_AMFLAGS = -I m4
 AUTOMAKE_OPTIONS = gnu
