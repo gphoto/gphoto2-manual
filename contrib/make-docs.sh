@@ -9,7 +9,7 @@
 
 srcdir="$HOME/src/photo/gphoto2-manual"
 builddir="$HOME/src/photo/build-docs"
-prefixdir="$HOME/tmp/The_gPhoto2_Manual-prefix"
+prefixdir="$HOME/root"
 docdir="${builddir}/The_gPhoto2_Manual"
 
 msg() {
@@ -40,7 +40,9 @@ timeout() {
     echo "Continuing."
 }
 
-cmd rm -rf "${builddir}" "${prefixdir}" "${docdir}"
+cmd rm -rf "${builddir}"
+# cmd rm -rf "${prefixdir}"
+cmd rm -rf "${docdir}"
 cmd mkdir -p "${builddir}"
 cmd cd "${builddir}"
 
@@ -77,7 +79,9 @@ cmd chmod -R g-rwx "${docdir}"
 cmd chmod -R o+r "${docdir}"
 cmd rsync -avz -e ssh --delete "${docdir}" "h:n-dimensional.de/digicam/"
 
-cmd rm -rf "${prefixdir}" "${builddir}" "${docdir}"
+# cmd rm -rf "${prefixdir}"
+cmd rm -rf "${builddir}"
+# "${docdir}"
 
 msg "$(basename $0) finished."
 exit 0
