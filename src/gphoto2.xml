@@ -324,7 +324,10 @@ About this file:
 	    <listitem>
 	      <simpara>
 		The KDE IO slave interface.
-		FIXME: URL, words, info
+		Using kamera is simple: Just open 
+		<ulink url="camera:/">camera:/</ulink> 
+		in Konqueror.
+		That's it.
 	      </simpara>
 	    </listitem>
 	  </varlistentry>
