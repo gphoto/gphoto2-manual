@@ -15,6 +15,7 @@ if $try_xmlto; then
 	if test -n "${XMLTO}"; then
 		have_xmlto=true
 		manual_msg="yes"
+		XMLTO="${XMLTO} -m \$(top_srcdir)/src/xsl/docbook-params.xsl"
         else
                 # in case anybody runs $(XMLTO) somewhere, we return false
                 XMLTO=false
