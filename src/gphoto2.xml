@@ -2791,9 +2791,12 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  <arg>-a</arg>
 	  <arg>--abilities</arg>
 	</group>
-	<arg choice="opt">--folder <replaceable>FOLDER</replaceable></arg><sbr/>
 	<group choice="opt">
-	  <group>
+	  <arg>--folder <replaceable>FOLDER</replaceable></arg>
+	  <arg>-f <replaceable>FOLDER</replaceable></arg>
+	</group>
+	<group>
+	  <group choice="opt">
 	    <arg>-R</arg>
 	    <arg>--recurse</arg>
 	  </group>
@@ -2835,13 +2838,11 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  <arg>-T</arg>
 	  <arg>--get-all-thumbnails</arg>
 	</group><sbr/>
-	<group choice="opt">
-	  <arg>-r <replaceable>RANGE</replaceable></arg>
-	  <arg>--get-raw-data <replaceable>RANGE</replaceable></arg>
-	</group>
+	<arg choice="opt">--get-raw-data <replaceable>RANGE</replaceable></arg>
 	<arg choice="opt">--get-all-raw-data</arg><sbr/>
 	<arg choice="opt">--get-audio-data <replaceable>RANGE</replaceable></arg>
 	<arg choice="opt">--get-all-audio-data</arg><sbr/>
+	<arg choice="opt">--force-overwrite</arg><sbr/>
 	<group choice="opt">
 	  <arg>-d <replaceable>RANGE</replaceable></arg>
 	  <arg>--delete-file <replaceable>RANGE</replaceable></arg>
@@ -2854,11 +2855,24 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  <arg>-u <replaceable>FILENAME</replaceable></arg>
 	  <arg>--upload-file <replaceable>FILENAME</replaceable></arg>
 	</group>
+	<arg choice="opt">--config</arg><sbr/>
+	<arg choice="opt">--list-config</arg><sbr/>
+	<arg choice="opt">--get-config <replaceable>CONFIGENTRY</replaceable></arg><sbr/>
+	<arg choice="opt">--set-config <replaceable>CONFIGENTRY=CONFIGVALUE</replaceable></arg><sbr/>
 	<arg choice="opt">--capture-preview</arg><sbr/>
+	<group choice="opt">
+	  <arg>-F <replaceable>COUNT</replaceable></arg> 
+	  <arg>--frames <replaceable>COUNT</replaceable></arg> 
+	</group>
+	<group choice="opt">
+	  <arg>-I <replaceable>SECONDS</replaceable></arg> 
+	  <arg>--interval <replaceable>SECONDS</replaceable></arg> 
+	</group>
 	<arg choice="opt">--capture-image</arg>
 	<arg choice="opt">--capture-movie</arg>
 	<arg choice="opt">--capture-sound</arg><sbr/>
-	<arg choice="opt">--capture-show-info <replaceable>RANGE</replaceable></arg><sbr/>
+	<arg choice="opt">--show-info <replaceable>RANGE</replaceable></arg><sbr/>
+	<arg choice="opt">--show-exif <replaceable>RANGE</replaceable></arg><sbr/>
 	<arg choice="opt">--summary</arg>
 	<arg choice="opt">--manual</arg>
 	<arg choice="opt">--about</arg>
@@ -2948,11 +2962,10 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<varlistentry>
 	  <term><option>--port</option> <replaceable>PATH</replaceable></term>
 	  <listitem>
-	      <para>Specify port device. The 
-		<link linkend="gphoto2-cli--list-ports"><option>--list-ports</option></link> 
-		prints a list of valid, usable ports. In case of multiple USB cameras, the
-		<link linkend="gphoto2-cli--auto-detect"><option>--auto-detect</option></link> 
-		shows you the specific port each camera is connected to.
+	      <para>Specify port device. The <link linkend="gphoto2-cli--list-ports">
+		<option>--list-ports</option></link> prints a list of valid, usable ports.
+		In case of multiple USB cameras, the <link linkend="gphoto2-cli--auto-detect">
+		<option>--auto-detect</option></link> shows you the specific port each camera is connected to.
 	      </para>
 	  </listitem>
 	</varlistentry>
@@ -2968,23 +2981,19 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  <term><option>--camera</option> <replaceable>MODEL</replaceable></term>
 	  <listitem>
 	    <para>
-		Specify camera model. The 
-		<link linkend="gphoto2-cli--list-cameras"><option>--list-cameras</option></link> 
-		option prints a list of all explicitly supported cameras.
+		Specify camera model. The <link linkend="gphoto2-cli--list-cameras">
+		<option>--list-cameras</option></link> option prints a list of all explicitly
+		supported cameras.
 	    </para>
 	    <para>
 	     Most model names contain
 	     spaces: remember to enclose the name in quotes so that
 	     the shell knows it is one parameter.  For example:
-	     <userinput><option>--camera</option> "Kodak
-	     DC240"</userinput>.</para>
-	      <para>Note that if you specify 
-		<userinput><option>--camera</option></userinput>, you
-		must also specify
-		<userinput><option>--port</option></userinput>. 
-		Otherwise the 
-		<userinput><option>--camera</option></userinput>
-		option will be silently ignored.
+	     <userinput><option>--camera</option> "Kodak DC240"</userinput>.</para>
+	      <para>Note that if you specify <userinput><option>--camera</option></userinput>,
+		you must also specify <userinput><option>--port</option></userinput>.
+		Otherwise the <userinput><option>--camera</option></userinput> option will
+		be silently ignored.
 	      </para>
 	  </listitem>
 	</varlistentry>
@@ -3007,12 +3016,10 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  <term><option>--usbid</option> <parameter><replaceable>USBIDS</replaceable></parameter></term>
 	  <listitem>
 	    <para>
-		(Expert only) Override <acronym>USB</acronym> IDs.
-		<parameter><replaceable>USBIDS</replaceable></parameter>
-		must be of the form		
-		<parameter><replaceable>DetectedVendorID</replaceable>:<replaceable>DetectedProductID</replaceable>=<replaceable>TreatAsVendorID</replaceable>:<replaceable>TreatAsProductID</replaceable></parameter>
-		to treat any USB device detected as 
-		<parameter><replaceable>DetectedVendorID</replaceable>:<replaceable>DetectedProductID</replaceable></parameter>
+		(Expert only) Override <acronym>USB</acronym> IDs. <parameter>
+		<replaceable>USBIDS</replaceable></parameter>must be of the form <parameter>
+		<replaceable>DetectedVendorID</replaceable>:<replaceable>DetectedProductID</replaceable>=<replaceable>TreatAsVendorID</replaceable>:<replaceable>TreatAsProductID</replaceable></parameter>
+		to treat any USB device detected as <parameter><replaceable>DetectedVendorID</replaceable>:<replaceable>DetectedProductID</replaceable></parameter>
 		as 
 		<parameter><replaceable>TreatAsVendorID</replaceable>:<replaceable>TreatAsProductID</replaceable></parameter>
 		instead.
@@ -3021,7 +3028,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 		'0x'.
 	      </para>
 	      <para>
-		Example: <parameter>--usbid <replaceable>0x4a9:0x306b=0x4a9:0x306c</replaceable></parameter>
+		Example: <option>--usbid <replaceable>0x4a9:0x306b=0x4a9:0x306c</replaceable></option>
 	      </para>
 	  </listitem>
 	</varlistentry>
@@ -3038,6 +3045,16 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
            <replaceable>FOLDER</replaceable></term>
 	  <listitem>
 	    <para>Specify camera folder (default="/").</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--filename</option> <replaceable>FILENAME</replaceable></term>
+	  <listitem>
+	    <para>Specify the filename to use when saving downloaded files. The <option>--filename</option> option
+		accepts %a, %A, %b, %B, %d, %H, %k, %I, %l, %j, %m, %M, %S, %y, %%, (see date(1)) and, in addition,
+		%n for the number, %C for the filename suffix, and %f for the filename without suffix.
+	    </para>
 	  </listitem>
 	</varlistentry>
 
@@ -3123,7 +3140,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>-r</option>, <option>--get-raw-data</option>
+	  <term><option>--get-raw-data</option>
 	   <replaceable>RANGE</replaceable></term>
 	  <listitem>
 	    <para>Get raw data given in range.</para>
@@ -3153,7 +3170,14 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>--delete-files</option>
+	  <term><option>--force-overwrite</option></term>
+	  <listitem>
+	    <para>Overwrite files without asking.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>-d</option>, <option>--delete-files</option>
 	   <replaceable>RANGE</replaceable></term>
 	  <listitem>
 	    <para>Delete files given in range.</para>
@@ -3161,7 +3185,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>--delete-all-files</option></term>
+	  <term><option>-D</option>, <option>--delete-all-files</option></term>
 	  <listitem>
 	    <para>Delete all files in folder.</para>
 	  </listitem>
@@ -3179,6 +3203,20 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  <term><option>--capture-preview</option></term>
 	  <listitem>
 	    <para>Capture a quick preview.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>-F <replaceable>COUNT</replaceable></option>, <option>--frames <replaceable>COUNT</replaceable></option></term>
+	  <listitem>
+	    <para>Number of frames to capture in one run. Default is infinite number of frames.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>-I <replaceable>SECONDS</replaceable></option>, <option>--interval <replaceable>SECONDS</replaceable></option></term>
+	  <listitem>
+	    <para>Time between capture of multiple frames.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -3275,17 +3313,18 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
         </varlistentry>
 
         <varlistentry>
-          <term>lcd</term>
+          <term>ls</term>
           <listitem>
-            <para>Change to a directory on the local
-              machine.</para>
+            <para>List the contents of the current directory on
+              the camera.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>exit, quit, q</term>
+          <term>lcd</term>
           <listitem>
-            <para>Exit the gphoto2 shell.</para>
+            <para>Change to a directory on the local
+              machine.</para>
           </listitem>
         </varlistentry>
 
@@ -3327,8 +3366,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
         <varlistentry>
           <term>show-exif</term>
           <listitem>
-            <para>Show EXIF information (only if compiled with
-              EXIF support).</para>
+            <para>Show EXIF information (only if compiled with EXIF support).</para>
           </listitem>
         </varlistentry>
 
@@ -3340,12 +3378,12 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
         </varlistentry>
 
         <varlistentry>
-          <term>ls</term>
+          <term>exit, quit, q</term>
           <listitem>
-            <para>List the contents of the current directory on
-              the camera.</para>
+            <para>Exit the gphoto2 shell.</para>
           </listitem>
         </varlistentry>
+
       </variablelist>
     </refsect1>
 
