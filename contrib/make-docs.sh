@@ -18,7 +18,7 @@ msg() {
 
 cmd() {
     msg "Executing [$@]..."
-    $@
+    "${@}"
     status=$?
     if [ $status -ne 0 ]
     then
@@ -50,6 +50,7 @@ cmd "${srcdir}/configure" --prefix="${prefixdir}" \
     --with-doc-dir='$(top_builddir)/The_gPhoto2_Manual' \
     --with-screenshots-dir='$(docdir)/zgraphics/screenshots' \
     --with-figure-dir='$(docdir)/zgraphics/figures' \
+    --with-doc-formats="html txt pdf man" \
     --enable-maintainer-mode
 
 cmd make install
