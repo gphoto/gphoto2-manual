@@ -20,6 +20,7 @@ src/xhtml-nochunks/Makefile
 src/pdf/Makefile
 src/ps/Makefile
 src/man/Makefile
+src/txt/Makefile
 src/figures/Makefile
 src/screenshots/Makefile
 src/screenshots/gtkam/Makefile

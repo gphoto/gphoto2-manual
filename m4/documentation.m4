@@ -139,6 +139,17 @@ AC_SUBST(xmldir)
 xmlcssdir="${xmldir}/css"
 AC_SUBST(xmlcssdir)
 
+AC_ARG_WITH(txt-dir, [  --with-txt-dir=PATH      Where to install txt docs [default=autodetect]])
+AC_MSG_CHECKING([for txt dir])
+if test "x${with_txt_dir}" = "x" ; then
+    txtdir="${DOC_DIR}/txt"
+    AC_MSG_RESULT([${txtdir} (default)])
+else
+    txtdir="${with_txt_dir}"
+    AC_MSG_RESULT([${txtdir} (from parameter)])
+fi
+AC_SUBST(txtdir)
+
 AC_ARG_WITH(pdf-dir, [  --with-pdf-dir=PATH      Where to install pdf docs [default=autodetect]])
 AC_MSG_CHECKING([for pdf dir])
 if test "x${with_pdf_dir}" = "x" ; then
@@ -185,7 +196,7 @@ AC_SUBST(screenshotsdir)
 screenshotsgtkamdir="${screenshotsdir}/gtkam"
 AC_SUBST(screenshotsgtkamdir)
 
-doc_formats_list='man html ps pdf'
+doc_formats_list='man html txt ps pdf'
 
 # initialize have_xmlto* to false
 for i in $doc_formats_list; do
@@ -199,7 +210,7 @@ AC_ARG_WITH(doc_formats,
   [                            'all' build all doc formats; ]
   [                            possible formats are: ]
   [                            man, html, ps, pdf ],
-  doc_formats="$withval", doc_formats="man html")
+  doc_formats="$withval", doc_formats="man html txt")
 
 if test "$doc_formats" = "all"; then
   doc_formats=$doc_formats_list
