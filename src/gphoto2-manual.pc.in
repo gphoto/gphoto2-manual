@@ -1,0 +1,15 @@
+prefix=@prefix@
+datadir=@datadir@
+libdir=@libdir@
+docdir=@docdir@
+htmldir=@htmldir@
+xhtmldir=@xhtmldir@
+htmlnochunksdir=@htmlnochunksdir@
+xhtmlnochunksdir=@xhtmlnochunksdir@
+pdfdir=@pdfdir@
+txtdir=@txtdir@
+
+Name: gphoto2-manual
+Description: The gPhoto2 Manual (covers libgphoto2, gphoto2, gtkam)
+Requires:
+Version: @VERSION@
