@@ -1039,10 +1039,10 @@ usb:                             Universal Serial Bus
         </para>
 
         <para>
-          You can find out if your kernel has hotplug support by
-	  looking for the file
+          To find out whether your kernel has hotplug support,
+	  look for the file
 	  <filename>/proc/sys/kernel/hotplug</filename>.
-          If it exists, you have a hotplug enabled kernel. If 
+          If it exists, your kernel is hotplug enabled. If 
           <screen>
 
 <prompt>&prompt;</prompt><userinput>cat <parameter>/proc/sys/kernel/hotplug</parameter></userinput>
@@ -1088,6 +1088,27 @@ usb:                             Universal Serial Bus
           </listitem>
 
           <listitem>
+	    <para>
+FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX 
+<![CDATA[
+> SuSE peculiarity.
+
+SuSE 8.2 (possibly earlier) supports something like this aswell.
+/etc/hotplug/usb.agent looks for *.usermap files in the /etc/hotplug/usb/ subdirectory.
+So you can do this:
+`/usr/local/lib/libgphoto2/print-usb-usermap > /etc/hotplug/usb/gphoto2.usermap`
+or usbcam.usermap or whatever suits you.
+
+<snip id="excerpt from SuSE's usb.agent">
+# for purely user mode drivers, scripts $HOTPLUG_DIR/usb/NAME should be
+# installed with usermap files in $HOTPLUG_DIR/usb/NAME.usermap instead
+# of continuing to use/modify $MAP_USERMAP
+#
+MAP_USERMAP=$HOTPLUG_DIR/usb.usermap
+</snip>
+]]>
+FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX 
+	    </para>	      
             <para>
 	      In the file <filename>/etc/hotplug/usb.usermap</filename> 
 	      remove all lines beginning with <quote><replaceable>&usbcam;</replaceable></quote>.
