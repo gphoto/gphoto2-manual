@@ -30,6 +30,7 @@ After that, you should have the manual in all built formats in
 
 E.g., you may use something like
 
+	./autogen.sh
 	./configure --prefix=$PWD/tmp \
 		--with-doc-dir=$HOME/web/gphoto2-manual \
 		--enable-maintainer-mode \
