@@ -20,6 +20,8 @@ About this file:
    system, but you're free to use any other adequate processing tool,
    of course :-)
 
+ - please use id="xxx" attributes for all qandaentry elements
+
 ================================================================= -->
 
 <?xml-stylesheet type="text/css" href="docbook-xml.css"?>
@@ -32,7 +34,7 @@ About this file:
 
 <qandaset>
 
-  <qandaentry>
+  <qandaentry id="FAQ-could-not-find-usb">
     <question>
       <simpara>What can I do about the error message "Could not find USB device"?</simpara>
     </question>
@@ -51,7 +53,7 @@ sure this device is connected to the computer
     </answer>
   </qandaentry>
 
-  <qandaentry>
+  <qandaentry id="FAQ-find-camera">
     <question>
       <simpara>gphoto2 does not find my camera. What shall I do?</simpara>
     </question>
@@ -90,7 +92,7 @@ sure this device is connected to the computer
     </answer>
   </qandaentry>
 
-  <qandaentry>
+  <qandaentry id="FAQ-could-not-claim-USB">
     <question>
       <simpara>Why do I get the error message "Could not claim the USB device"?</simpara>
     </question>
@@ -114,7 +116,7 @@ device and you have read/write access to the device.
     </answer>
   </qandaentry>
 
-  <qandaentry>
+  <qandaentry id="FAQ-Canon-AC">
     <question>
       <simpara>
 	Why does my Canon PowerShot G1/G2/Pro 90 IS not work with gphoto2
@@ -157,7 +159,7 @@ device and you have read/write access to the device.
     </answer>
   </qandaentry>
 
-  <qandaentry>
+  <qandaentry id="FAQ-SuSE-serial">
     <question>
       <simpara>I've got a serial camera, but gphoto2 doesn't work on SuSE 7.0
    (or greater). You told me that my camera is supported! Fix
@@ -187,7 +189,7 @@ device and you have read/write access to the device.
     </answer>
   </qandaentry>
 
-  <qandaentry>
+  <qandaentry id="FAQ-Windows">
     <question>
       <simpara>Dudes, Windows is the way to go. How do I compile
 	gphoto2 for that environment?</simpara>
@@ -217,7 +219,7 @@ device and you have read/write access to the device.
     </answer>
   </qandaentry>
 
-  <qandaentry>
+  <qandaentry id="FAQ-CVS-get-access">
     <question>
       <simpara>I wanna have CVS write access. How do I get one?</simpara>
     </question>
@@ -235,7 +237,7 @@ device and you have read/write access to the device.
     </answer>
   </qandaentry>
 
-  <qandaentry>
+  <qandaentry id="FAQ-CVS-lost-access">
     <question>
       <simpara>You took away my CVS write access! What did I do
 	wrong?</simpara>
