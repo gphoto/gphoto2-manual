@@ -5,7 +5,7 @@ dnl determines documentation "root directory", i.e. the directory
 dnl where all documentation will be placed in
 dnl
 
-AC_DEFUN(GP_CHECK_DOC_DIR,
+AC_DEFUN(GP_CHECK_DOCDIR,
 [
 
 AC_ARG_WITH(doc-dir, [  --with-doc-dir=PATH       Where to install docs  [default=autodetect]])dnl
@@ -15,8 +15,8 @@ AC_MSG_CHECKING([main docdir])
 
 if test "x${with_doc_dir}" != "x"
 then # docdir is given as parameter
-    DOC_DIR="${with_doc_dir}"
-    AC_MSG_RESULT([${DOC_DIR} (from parameter)])
+    docdir="${with_doc_dir}"
+    AC_MSG_RESULT([${docdir} (from parameter)])
 else # otherwise invent a docdir hopefully compatible with system policy
     if test -d "/usr/share/doc"
     then
@@ -35,15 +35,15 @@ else # otherwise invent a docdir hopefully compatible with system policy
     # FIXME: doesn't work properly.
     if ls -d /usr/{share/,}doc/*-[[]0-9[]]* > /dev/null 2>&1
     then
-        DOC_DIR="${maindocdir}/${PACKAGE}-${VERSION}"
-        AC_MSG_RESULT([${DOC_DIR} (redhat style)])
+        docdir="${maindocdir}/${PACKAGE}-${VERSION}"
+        AC_MSG_RESULT([${docdir} (redhat style)])
     else
-        DOC_DIR="${maindocdir}/${PACKAGE}"
-        AC_MSG_RESULT([${DOC_DIR} (default style)])
+        docdir="${maindocdir}/${PACKAGE}"
+        AC_MSG_RESULT([${docdir} (default style)])
     fi
 fi
 
-AC_SUBST(DOC_DIR)
+AC_SUBST(docdir)
 
 ])dnl
 
@@ -69,7 +69,7 @@ dnl
 AC_DEFUN(GP_BUILD_DOCS,
 [
 # doc dir has to be determined in advance
-AC_REQUIRE([GP_CHECK_DOC_DIR])
+AC_REQUIRE([GP_CHECK_DOCDIR])
 AC_REQUIRE([GP_CHECK_GTK_DOC])
 AC_REQUIRE([GP_CHECK_FIG2DEV])
 AC_REQUIRE([GP_CHECK_DOCBOOK_XML])
@@ -85,7 +85,7 @@ dnl ---------------------------------------------------------------------------
 AC_ARG_WITH(html-dir, [  --with-html-dir=PATH      Where to install html docs [default=autodetect]])
 AC_MSG_CHECKING([for html dir])
 if test "x${with_html_dir}" = "x" ; then
-    htmldir="${DOC_DIR}/html"
+    htmldir="${docdir}/html"
     AC_MSG_RESULT([${htmldir} (default)])
 else
     htmldir="${with_html_dir}"
@@ -96,7 +96,7 @@ AC_SUBST(htmldir)
 AC_ARG_WITH(xhtml-dir, [  --with-xhtml-dir=PATH     Where to install xhtml docs [default=autodetect]])
 AC_MSG_CHECKING([for xhtml dir])
 if test "x${with_xhtml_dir}" = "x" ; then
-    xhtmldir="${DOC_DIR}/xhtml"
+    xhtmldir="${docdir}/xhtml"
     AC_MSG_RESULT([${xhtmldir} (default)])
 else
     xhtmldir="${with_xhtml_dir}"
@@ -107,7 +107,7 @@ AC_SUBST(xhtmldir)
 AC_ARG_WITH(html-nochunks-dir, [  --with-html-nochunks-dir=PATH      Where to install html-nochunks docs [default=autodetect]])
 AC_MSG_CHECKING([for html-nochunks dir])
 if test "x${with_html_nochunks_dir}" = "x" ; then
-    htmlnochunksdir="${DOC_DIR}/html-nochunks"
+    htmlnochunksdir="${docdir}/html-nochunks"
     AC_MSG_RESULT([${htmlnochunksdir} (default)])
 else
     htmlnochunksdir="${with_html_nochunks_dir}"
@@ -118,7 +118,7 @@ AC_SUBST(htmlnochunksdir)
 AC_ARG_WITH(xhtml-nochunks-dir, [  --with-xhtml-nochunks-dir=PATH      Where to install xhtml-nochunks docs [default=autodetect]])
 AC_MSG_CHECKING([for xhtml-nochunks dir])
 if test "x${with_xhtml_nochunks_dir}" = "x" ; then
-    xhtmlnochunksdir="${DOC_DIR}/xhtml-nochunks"
+    xhtmlnochunksdir="${docdir}/xhtml-nochunks"
     AC_MSG_RESULT([${xhtmlnochunksdir} (default)])
 else
     xhtmlnochunksdir="${with_xhtml_nochunks_dir}"
@@ -129,7 +129,7 @@ AC_SUBST(xhtmlnochunksdir)
 AC_ARG_WITH(xml-dir, [  --with-xml-dir=PATH      Where to install xml docs [default=autodetect]])
 AC_MSG_CHECKING([for xml dir])
 if test "x${with_xml_dir}" = "x" ; then
-    xmldir="${DOC_DIR}/xml"
+    xmldir="${docdir}/xml"
     AC_MSG_RESULT([${xmldir} (default)])
 else
     xmldir="${with_xml_dir}"
@@ -142,7 +142,7 @@ AC_SUBST(xmlcssdir)
 AC_ARG_WITH(txt-dir, [  --with-txt-dir=PATH      Where to install txt docs [default=autodetect]])
 AC_MSG_CHECKING([for txt dir])
 if test "x${with_txt_dir}" = "x" ; then
-    txtdir="${DOC_DIR}/txt"
+    txtdir="${docdir}/txt"
     AC_MSG_RESULT([${txtdir} (default)])
 else
     txtdir="${with_txt_dir}"
@@ -153,7 +153,7 @@ AC_SUBST(txtdir)
 AC_ARG_WITH(pdf-dir, [  --with-pdf-dir=PATH      Where to install pdf docs [default=autodetect]])
 AC_MSG_CHECKING([for pdf dir])
 if test "x${with_pdf_dir}" = "x" ; then
-    pdfdir="${DOC_DIR}/pdf"
+    pdfdir="${docdir}/pdf"
     AC_MSG_RESULT([${pdfdir} (default)])
 else
     pdfdir="${with_pdf_dir}"
@@ -164,7 +164,7 @@ AC_SUBST(pdfdir)
 AC_ARG_WITH(ps-dir, [  --with-ps-dir=PATH      Where to install ps docs [default=autodetect]])
 AC_MSG_CHECKING([for ps dir])
 if test "x${with_ps_dir}" = "x" ; then
-    psdir="${DOC_DIR}/ps"
+    psdir="${docdir}/ps"
     AC_MSG_RESULT([${psdir} (default)])
 else
     psdir="${with_ps_dir}"
@@ -175,7 +175,7 @@ AC_SUBST(psdir)
 AC_ARG_WITH(figure-dir, [  --with-figure-dir=PATH      Where to install figures [default=autodetect]])
 AC_MSG_CHECKING([for figure dir])
 if test "x${with_figure_dir}" = "x" ; then
-    figuredir="${DOC_DIR}/figures"
+    figuredir="${docdir}/figures"
     AC_MSG_RESULT([${figuredir} (default)])
 else
     figuredir="${with_figure_dir}"
@@ -186,7 +186,7 @@ AC_SUBST(figuredir)
 AC_ARG_WITH(screenshots-dir, [  --with-screenshots-dir=PATH      Where to install screenshotss [default=autodetect]])
 AC_MSG_CHECKING([for screenshots dir])
 if test "x${with_screenshots_dir}" = "x" ; then
-    screenshotsdir="${DOC_DIR}/screenshots"
+    screenshotsdir="${docdir}/screenshots"
     AC_MSG_RESULT([${screenshotsdir} (default)])
 else
     screenshotsdir="${with_screenshots_dir}"
