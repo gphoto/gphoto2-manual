@@ -297,15 +297,16 @@ About this file:
 	    line should start the application.</para>
 	</listitem>
       </orderedlist>
-      <para>If all is well, you should see your camera listed in the left frame with a plus sign in a box to the left.</para>
+      <para>If all is well, and your camera has been added previously, you should see your camera listed in the left frame with a plus sign in a box to the left.</para>
+
       <screenshot>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="screenshots/gtkam/gtkam.png" format="PNG"/>
-	  </imageobject>
+	    <imagedata fileref="screenshots/gtkam/gtkam.png" format="PNG"/></imageobject>
 	</mediaobject>
       </screenshot>
-      <para>Click on the plus sign to expand the listings of directories. The number in brackets to the right of the directory name is the number of images detected in that directory.</para>
+
+      <para>Click on the plus sign (v.0.1.3) or the arrow (v.0.1.9) to expand the listings of directories. The number in brackets to the right of the directory name is the number of images detected in that directory.</para>
       <para>Click on directory containing images, and you should see a listing of the images in the right frame.</para>
       <screenshot>
 	<mediaobject>
@@ -314,6 +315,7 @@ About this file:
 	  </imageobject>
 	</mediaobject>
       </screenshot>
+
       <sidebar>
 	<title>Troubleshooting</title>
 	<para>If you do not see any images listed, be sure that there are images in the camera. If there are, then you need to do some troubleshooting. Start with the FAQ.</para>
@@ -751,9 +753,11 @@ Saving file as MVI_5418.AVI                                                     
 		update the
 		<filename>/etc/hotplug/usb.usermap</filename> file:
 		<screen>
+
 <prompt>[root@home ~]# </prompt><command>mkdir <parameter>/usr/lib/hotplug/libgphoto2</parameter></command>
 <prompt>[root@home ~]# </prompt><command>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap > <filename>/usr/lib/hotplug/libgphoto2/usb.usermap</filename></command>
 <prompt>[root@home ~]# </prompt><command>update-usb.usermap</command>
+
 		</screen>
 	      </para>
 	    </formalpara>
@@ -1938,30 +1942,33 @@ Saving file as MVI_5418.AVI                                                     
       </refnamediv>
       <refsect1>
 	<title>Commands</title>
-      <screenshot>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="screenshots/gtkam/gtkam.png" format="PNG"/>
-	  </imageobject>
-	</mediaobject>
-      </screenshot>
+	<warning>
+	  <simpara>New as it is, this man reference is already under revision to reflect the changes from gtkam v 0.1.3 to v.0.1.9. As such, there are several discrepancies and errors. There are also a number of screenshots which came from gtkam 0.1.3. Bear with us as we edit...</simpara>
+	</warning>
 
+	<screenshot>
+	  <mediaobject>
+	    <imageobject>
+	      <imagedata fileref="screenshots/gtkam/exp.png" format="PNG"/>
+	    </imageobject>
+	  </mediaobject>
+	</screenshot>
+	
 	<refsect2>
 	  <title><guimenu>File Menu</guimenu></title>
-      <screenshot>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="screenshots/gtkam/file.png" format="PNG"/>
-	  </imageobject>
-	</mediaobject>
-      </screenshot>
+	  <screenshot>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="screenshots/gtkam/file.png" format="PNG"/>
+	      </imageobject>
+	    </mediaobject>
+	  </screenshot>
+	  
 	  <variablelist>
 	    <varlistentry>
 	      <term><menuchoice>
 		  <guimenu>File</guimenu>
-		  <guimenuitem>Save Selected Photos...</guimenuitem>
-		</menuchoice>
-	      </term>
+		  <guimenuitem>Save Photos</guimenuitem></menuchoice></term>
 	      <listitem>
 		<para>Opens the dialog for saving the selected photos.</para>
 		<screenshot>
@@ -1971,6 +1978,7 @@ Saving file as MVI_5418.AVI                                                     
 		    </imageobject>
 		  </mediaobject>
 		</screenshot>
+		
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2000,74 +2008,25 @@ Saving file as MVI_5418.AVI                                                     
 	    <varlistentry>
 	      <term><menuchoice>
 		  <guimenu>File</guimenu>
-		  <guimenuitem>Exit</guimenuitem>
+		  <guimenuitem>Quit</guimenuitem>
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para>Exits gtkam.</para>
+		<para>Quits gtkam.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
 	</refsect2>
 
 	<refsect2>
-	  <title>Folder Menu</title>
+	  <title>View Menu</title>
 	  <screenshot>
 	    <mediaobject>
 	      <imageobject>
-		<imagedata fileref="screenshots/gtkam/fol.png" format="PNG"/>
+		<imagedata fileref="screenshots/gtkam/view.png" format="PNG"/>
 	      </imageobject>
 	    </mediaobject>
 	  </screenshot>
-	  <variablelist>
-	    <varlistentry>
-	      <term>
-		<menuchoice>
-		  <guimenu>Folder</guimenu>
-		  <guimenuitem>Create</guimenuitem>
-		</menuchoice>
-	      </term>
-	      <listitem>
-		<para>Opens dialog to create new folder (directory).</para>
-		<screenshot>
-		  <mediaobject>
-		    <imageobject>
-		      <imagedata fileref="screenshots/gtkam/fol_create.png" format="PNG"/>
-		    </imageobject>
-		  </mediaobject>
-		</screenshot>
-	      </listitem>
-	    </varlistentry> 
-	  <varlistentry>
-	    <term>
-		<menuchoice>
-		  <guimenu>Folder</guimenu>
-		  <guimenuitem>Remove</guimenuitem>
-		</menuchoice>
-	      </term>
-	    <listitem>
-		<para>Opens a dialog to remove (delete) an existing folder (directory).</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	    <term>
-		<menuchoice>
-		  <guimenu>Folder</guimenu>
-		  <guimenuitem>Upload File...</guimenuitem>
-		</menuchoice>
-	      </term>
-	      <listitem>
-		<para>Opens a dialog to identify an image file for uploading to the camera.</para>
-      <screenshot>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="screenshots/gtkam/fol_uploadfile.png" format="PNG"/>
-	  </imageobject>
-	</mediaobject>
-      </screenshot>
-	      </listitem>
-	    </varlistentry>
-	  </variablelist>
 	</refsect2>
 	<refsect2>
 	  <title>Select Menu</title>
@@ -2078,7 +2037,6 @@ Saving file as MVI_5418.AVI                                                     
 	      </imageobject>
 	    </mediaobject>
 	  </screenshot>
-
 	  <variablelist>
 	    <varlistentry>
 	      <term>
@@ -2132,7 +2090,7 @@ Saving file as MVI_5418.AVI                                                     
 	      <term>
 		<menuchoice>
 		  <guimenu>Camera</guimenu>
-		  <guimenuitem>Select Camera...</guimenuitem>
+		  <guimenuitem>Add Camera...</guimenuitem>
 		</menuchoice>
 	      </term>
 	      <listitem>
@@ -2165,97 +2123,6 @@ Saving file as MVI_5418.AVI                                                     
 		    <caption>
 		      <para>Dialog for explicitly adding a path to the port to which the camera is attached.</para>
 		    </caption>
-		  </mediaobject>
-		</screenshot>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>
-		<menuchoice>
-		  <guimenu>Camera</guimenu>
-		  <guimenuitem>Capture...</guimenuitem>
-		</menuchoice>
-	      </term>
-	      <listitem>
-		<para>Opens a window to allow the user to trigger the camera to acquire an image. (This feature is not available on my camera, so I would appreciate some input on this item. -mjr)</para></listitem></varlistentry>
-	    <varlistentry>
-	      <term>
-		<menuchoice>
-		  <guimenu>Camera</guimenu>
-		  <guimenuitem>Configure Camera...</guimenuitem>
-		</menuchoice>
-	      </term>
-	      <listitem>
-		<para>Opens a window with configurable options for the camers. This includes the name of the camera, it's owner, the date and time, firmware version, and power status..</para>
-		<screenshot>
-		  <mediaobject>
-		    <imageobject>
-		      <imagedata fileref="screenshots/gtkam/cam_conf_cam.png" format="PNG"/>
-		    </imageobject>
-		    <caption>
-		      <para>Camera configuration tab.</para>
-		    </caption>
-		  </mediaobject>
-		</screenshot>
-		<screenshot>
-		  <mediaobject>
-		    <imageobject>
-		      <imagedata fileref="screenshots/gtkam/cam_conf_driver.png" format="PNG"/>
-		    </imageobject>
-		    <caption>
-		      <para>Driver configuration tab.</para>
-		    </caption>
-		  </mediaobject>
-		</screenshot>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>
-		<menuchoice>
-		  <guimenu>Camera</guimenu>
-		  <guimenuitem>Information</guimenuitem>
-		</menuchoice>
-	      </term>
-	      <listitem>
-		<para>Displays a window with information about the camera and its memory.</para>
-      <screenshot>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="screenshots/gtkam/cam_info.png" format="PNG"/>
-	  </imageobject>
-	</mediaobject>
-      </screenshot>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>
-		<menuchoice>
-		  <guimenu>Camera</guimenu>
-		  <guimenuitem>Manual</guimenuitem>
-		</menuchoice>
-	      </term>
-	      <listitem>
-		<para>I'm not sure what this should contain. Anyone? - mjr</para>
-		<sidebar>
-		  <para>FIXME: need useful image</para>
-		</sidebar>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term>
-		<menuchoice>
-		  <guimenu>Camera</guimenu>
-		  <guimenuitem>About the Driver...</guimenuitem>
-		</menuchoice>
-	      </term>
-	      <listitem>
-		<para>Displays a window with information about the camera driver and its authors.</para>
-		<para>This should include contact information for the maintainers of the drivers for your camera.</para>
-		<screenshot>
-		  <mediaobject>
-		    <imageobject>
-		      <imagedata fileref="screenshots/gtkam/cam_driver.png" format="PNG"/>
-		    </imageobject>
 		  </mediaobject>
 		</screenshot>
 	      </listitem>
@@ -2340,6 +2207,152 @@ Saving file as MVI_5418.AVI                                                     
 	    </varlistentry>
 	  </variablelist>
 	</refsect2>
+	<refsect2>
+	  <title>Right Click Menu</title>
+	  <variablelist>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>Folder</guimenu>
+		  <guimenuitem>Create</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para>Opens dialog to create new folder (directory).</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/fol_create.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
+	      </listitem>
+	    </varlistentry> 
+	  <varlistentry>
+	    <term>
+		<menuchoice>
+		  <guimenu>Folder</guimenu>
+		  <guimenuitem>Remove</guimenuitem>
+		</menuchoice>
+	      </term>
+	    <listitem>
+		<para>Opens a dialog to remove (delete) an existing folder (directory).</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	    <term>
+		<menuchoice>
+		  <guimenu>Folder</guimenu>
+		  <guimenuitem>Upload File...</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para>Opens a dialog to identify an image file for uploading to the camera.</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/fol_uploadfile.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>Camera</guimenu>
+		  <guimenuitem>Capture...</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para>Opens a window to allow the user to trigger the camera to acquire an image. (This feature is not available on my camera, so I would appreciate some input on this item. -mjr)</para></listitem></varlistentry>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>Camera</guimenu>
+		  <guimenuitem>Configure Camera...</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para>Opens a window with configurable options for the camers. This includes the name of the camera, it's owner, the date and time, firmware version, and power status..</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/cam_conf_cam.png" format="PNG"/>
+		    </imageobject>
+		    <caption>
+		      <para>Camera configuration tab.</para>
+		    </caption>
+		  </mediaobject>
+		</screenshot>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/cam_conf_driver.png" format="PNG"/>
+		    </imageobject>
+		    <caption>
+		      <para>Driver configuration tab.</para>
+		    </caption>
+		  </mediaobject>
+		</screenshot>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>Camera</guimenu>
+		  <guimenuitem>Information</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para>Displays a window with information about the camera and its memory.</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/cam_info.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>Camera</guimenu>
+		  <guimenuitem>Manual</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para>I'm not sure what this should contain. Anyone? - mjr</para>
+		<sidebar>
+		  <para>FIXME: need useful image</para>
+		</sidebar>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>Camera</guimenu>
+		  <guimenuitem>About the Driver...</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para>Displays a window with information about the camera driver and its authors.</para>
+		<para>This should include contact information for the maintainers of the drivers for your camera.</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/cam_driver.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
+	      </listitem>
+	    </varlistentry>
+
+	  </variablelist>
+
+	</refsect2>
+
       </refsect1>
     </refentry>
   </reference>
