@@ -8,7 +8,7 @@ Until then, this is work in progress which doesn't work yet. :-)
 
 Details:
 
-- no build system yet
+- only basic build system (only builds images as of yet)
 - pathes not yet adapted to directory structure
 - if we keep ChangeLog as created by cvs2cl we can save us a lot of hassle
 - etc. pp.

@@ -1,3 +1,46 @@
+2002-08-19 03:19  hun
+
+	* .cvsignore, AUTHORS, ChangeLog, Makefile.am, NEWS, configure.in,
+	m4/.cvsignore, m4/docbook-xml.m4, m4/documentation.m4,
+	m4/fig2dev.m4, m4/gtk-doc.m4, src/.cvsignore, src/Makefile.am,
+	src/figures/.cvsignore, src/figures/architecture.png,
+	src/figures/gphotofs.png, src/figures/libgphoto2-api.png,
+	src/figures/libgphoto2-camlib.png, src/figures/libgphoto2_port.png,
+	src/screenshots/.cvsignore, src/screenshots/Makefile.am,
+	src/screenshots/gtkam/.cvsignore,
+	src/screenshots/gtkam/Makefile.am: added build system, stolen from
+	libgphoto2
+
+2002-08-19 03:10  hun
+
+	* src/gphoto2.xml: added a few more web links
+
+2002-08-18 06:45  mrensing
+
+	* src/gphoto2.xml: Changes to add screenshots to gtkam docs.
+
+2002-08-18 06:38  mrensing
+
+	* src/figures/: architecture.png, gphotofs.png, libgphoto2-api.png,
+	libgphoto2-camlib.png, libgphoto2_port.png: Added .png files needed
+
+2002-08-18 06:22  mrensing
+
+	* src/screenshots/gtkam/: cam_conf_cam.png, cam_conf_driver.png,
+	cam_driver.png, cam_info.png, cam_sel.png, cam_sel_enh.png,
+	cam_sel_portadd.png, exp.png, file.png, file_save.png, fol.png,
+	fol_create.png, fol_uploadfile.png, gtkam.png, help.png,
+	help_about.png, help_debug.png, sel.png: Adding screen shots of
+	gtkam for the docs.
+
+2002-08-18 06:20  mrensing
+
+	* src/screenshots/gtkam/cam.png: Test addition of cam.png
+
+2002-08-18 01:15  hun
+
+	* README: notice about cvs2cl
+
 2002-08-18 01:09  hun
 
 	* src/figures/: Makefile.am, architecture.fig, gphotofs.fig,
