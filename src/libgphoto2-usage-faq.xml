@@ -33,10 +33,9 @@ About this file:
   "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
 -->
 
-<qandadiv id="FAQ-generic">
+<qandadiv id="FAQ-support">
 
-  <title>Generic libgphoto2 FAQs (frontend-independent)</title>
-
+  <title>Questions about camera support</title>
 
   <qandaentry id="FAQ-camera-support">
     <question>
@@ -131,6 +130,12 @@ About this file:
     </answer>
   </qandaentry>
 
+</qandadiv>
+
+<qandadiv id="FAQ-generic">
+
+  <title>Generic libgphoto2 FAQs (frontend-independent)</title>
+
   <qandaentry id="FAQ-could-not-find-usb">
     <question>
       <simpara>What can I do about the error message "Could not find USB device"?</simpara>
@@ -146,6 +151,41 @@ sure this device is connected to the computer
       <para>
 	You have to set up the permissions on your USB device correctly.
 	See <xref linkend="permissions-usb"/>.
+      </para>
+    </answer>
+  </qandaentry>
+
+  <qandaentry id="FAQ-could-not-claim-USB">
+    <question>
+      <simpara>Why do I get the error message "Could not claim the USB device"?</simpara>
+    </question>
+    <answer>
+      <para>
+	The exact message looks like
+      </para>
+      <screen>
+*** Error ('Could not claim the USB device') ***
+
+Could not claim interface 0 (Operation not permitted). Make sure no
+other program or kernel module (e.g. dc2xx or stv680) is using the 
+device and you have read/write access to the device. 
+      </screen>
+      <para>
+	You have to make sure that no such kernel module is loaded and that
+	you have set up the permissions on your USB device correctly,
+	such that you have (non-root) write access to the camera device.
+	How to set this up, is described at <xref linkend="permissions-usb"/>.
+      </para>
+      <para>
+	This can also happen with cameras that works as USB Mass Storage devices.
+	A notable example is if you have an Olympus Camera that gets auto-
+	detected as an Olympus C-2040Z. In this case, you can try, if you run 
+	Linux, to remove the usb-storage kernel module and attempt to use
+	libgphoto2 with it. But, unless you want to control the camera (not all
+	the model supports it), it is not a recommended solution. Keeps using USB
+	Mass Storage. Some of these Olympus supports to be switched to "PC Control"
+	mode in order to be remote controlled with an external program like one using 
+	libgphoto2.
       </para>
     </answer>
   </qandaentry>
@@ -213,6 +253,51 @@ sure this device is connected to the computer
     </answer>
   </qandaentry>
 
+  <qandaentry id="FAQ-USB-bulk-fail">
+    <question>
+      <para>
+	I run Linux 2.4.x and I can't get USB to work at all. I keep getting
+	this error message in the syslog:
+      </para>
+      <screen>
+kernel: usb_control/bulk_msg: timeout
+kernel: usbdevfs: USBDEVFS_BULK failed dev 3 ep 0x81 len 64 ret -110
+      </screen>
+      <para>How can I make USB work?</para>
+    </question>
+    <answer>
+      <para>
+	No idea. Sometimes it works and sometimes it doesn't. If you
+	know a solution, please let us know.
+      </para>
+    </answer>
+  </qandaentry>
+
+</qandadiv>
+
+<qandadiv id="FAQ-camera-specific">
+
+  <title>Questions about specific cameras</title>
+
+  <qandaentry id="FAQ-camlib-readme">
+    <question>
+      <simpara>
+	I have a special problem with CameraXYZ. Where can I find information
+	about it?
+      </simpara>
+    </question>
+    <answer>
+      <para>
+	You can look into the <filename>README</filename> file of your
+	driver <replaceable>driver</replaceable>. It is located in 
+	<filename class="directory">camlibs/<replaceable>driver</replaceable>/</filename>
+	in your source tree. If you do not have a source tree, that is
+	bad luck up to and including release 2.1.1 - we will install
+	the <filename>README</filename> files in a future release, though.
+      </para>
+    </answer>
+  </qandaentry>
+
   <qandaentry id="FAQ-easyshare-dock">
     <question>
       <simpara>I have a Kodak EasyShare&trade; camera, and gphoto2 can't detect it. What shall I do ?</simpara>
@@ -221,41 +306,6 @@ sure this device is connected to the computer
       <para>
       Just press the button on the dock so that the <acronym>USB</acronym> device gets detected by the system 
       and that gphoto2 software can detect it.
-      </para>
-    </answer>
-  </qandaentry>
-
-  <qandaentry id="FAQ-could-not-claim-USB">
-    <question>
-      <simpara>Why do I get the error message "Could not claim the USB device"?</simpara>
-    </question>
-    <answer>
-      <para>
-	The exact message looks like
-      </para>
-      <screen>
-*** Error ('Could not claim the USB device') ***
-
-Could not claim interface 0 (Operation not permitted). Make sure no
-other program or kernel module (e.g. dc2xx or stv680) is using the 
-device and you have read/write access to the device. 
-      </screen>
-      <para>
-	You have to make sure that no such kernel module is loaded and that
-	you have set up the permissions on your USB device correctly,
-	such that you have (non-root) write access to the camera device.
-	How to set this up, is described at <xref linkend="permissions-usb"/>.
-      </para>
-      <para>
-	This can also happen with cameras that works as USB Mass Storage devices.
-	A notable example is if you have an Olympus Camera that gets auto-
-	detected as an Olympus C-2040Z. In this case, you can try, if you run 
-	Linux, to remove the usb-storage kernel module and attempt to use
-	libgphoto2 with it. But, unless you want to control the camera (not all
-	the model supports it), it is not a recommended solution. Keeps using USB
-	Mass Storage. Some of these Olympus supports to be switched to "PC Control"
-	mode in order to be remote controlled with an external program like one using 
-	libgphoto2.
       </para>
     </answer>
   </qandaentry>
@@ -350,35 +400,11 @@ device and you have read/write access to the device.
     </answer>
   </qandaentry>
 
-  <qandaentry id="FAQ-Windows">
-    <question>
-      <simpara>Dudes, Windows is the way to go. How do I compile
-	gphoto2 for that environment?</simpara>
-    </question>
-    <answer>
-      <para>
-	We don't have the money to buy Windows and something like Visual C.
-	Therefore, we can't provide you a gphoto2 for Windows. You have two 
-	choices (at least):
-      </para>
-      <itemizedlist>
-	<listitem>
-	  <simpara>
-	    Buy a fast computer, buy Windows and Visual C and some manuals on
-	    how to access USB or serial ports on Windows. Send all that
-	    including a blank cheque to us (ask for the address on
-	    <email>gphoto-devel@lists.sourceforge.net</email>).
-	  </simpara>
-	</listitem>
-	<listitem>
-	  <simpara>
-	    Try to figure out how to get gphoto2 working on Windows
-	    and send us the patches.
-	  </simpara>
-	</listitem>
-      </itemizedlist>
-    </answer>
-  </qandaentry>
+</qandadiv>
+
+<qandadiv id="FAQ-administrativa">
+
+  <title>Questions about administrativa</title>
 
   <qandaentry id="FAQ-CVS-get-access">
     <question>
@@ -416,44 +442,11 @@ device and you have read/write access to the device.
     </answer> 
   </qandaentry>
 
-  <qandaentry id="FAQ-camlib-readme">
-    <question>
-      <simpara>
-	I have a special problem with CameraXYZ. Where can I find information
-	about it?
-      </simpara>
-    </question>
-    <answer>
-      <para>
-	You can look into the <filename>README</filename> file of your
-	driver <replaceable>driver</replaceable>. It is located in 
-	<filename class="directory">camlibs/<replaceable>driver</replaceable>/</filename>
-	in your source tree. If you do not have a source tree, that is
-	bad luck up to and including release 2.1.1 - we will install
-	the <filename>README</filename> files in a future release, though.
-      </para>
-    </answer>
-  </qandaentry>
+</qandadiv>
 
-  <qandaentry id="FAQ-USB-bulk-fail">
-    <question>
-      <para>
-	I run Linux 2.4.x and I can't get USB to work at all. I keep getting
-	this error message in the syslog:
-      </para>
-      <screen>
-kernel: usb_control/bulk_msg: timeout
-kernel: usbdevfs: USBDEVFS_BULK failed dev 3 ep 0x81 len 64 ret -110
-      </screen>
-      <para>How can I make USB work?</para>
-    </question>
-    <answer>
-      <para>
-	No idea. Sometimes it works and sometimes it doesn't. If you
-	know a solution, please let us know.
-      </para>
-    </answer>
-  </qandaentry>
+<qandadiv id="FAQ-misc">
+
+  <title>Miscellanous Questions</title>
 
   <qandaentry id="FAQ-rotate-jpeg">
     <question>
@@ -474,6 +467,36 @@ kernel: usbdevfs: USBDEVFS_BULK failed dev 3 ep 0x81 len 64 ret -110
 	You can get the jpegtran from the <ulink url="http://www.ijb.org/">libjpeg package</ulink> and jhead from 
 	<ulink url="http://www.sentex.net/~mwandel/jhead/">http://www.sentex.net/~mwandel/jhead</ulink>.
       </para>
+    </answer>
+  </qandaentry>
+
+  <qandaentry id="FAQ-Windows">
+    <question>
+      <simpara>Dudes, Windows is the way to go. How do I compile
+	gphoto2 for that environment?</simpara>
+    </question>
+    <answer>
+      <para>
+	We don't have the money to buy Windows and something like Visual C.
+	Therefore, we can't provide you a gphoto2 for Windows. You have two 
+	choices (at least):
+      </para>
+      <itemizedlist>
+	<listitem>
+	  <simpara>
+	    Buy a fast computer, buy Windows and Visual C and some manuals on
+	    how to access USB or serial ports on Windows. Send all that
+	    including a blank cheque to us (ask for the address on
+	    <email>gphoto-devel@lists.sourceforge.net</email>).
+	  </simpara>
+	</listitem>
+	<listitem>
+	  <simpara>
+	    Try to figure out how to get gphoto2 working on Windows
+	    and send us the patches.
+	  </simpara>
+	</listitem>
+      </itemizedlist>
     </answer>
   </qandaentry>
 
