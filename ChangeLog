@@ -1,3 +1,41 @@
+2002-08-19 03:52  hun
+
+	* src/figures/Makefile.am: replaced HTML_DIR by htmldir
+
+2002-08-19 03:48  hun
+
+	* src/screenshots/gtkam/Makefile.am: added png files to
+	distribution
+
+2002-08-19 03:48  hun
+
+	* src/gphoto2.xml: adapted to canonical faq.xml location
+
+2002-08-19 03:47  hun
+
+	* src/Makefile.am: build and install non-chunked HTML
+
+2002-08-19 03:46  hun
+
+	* m4/documentation.m4: htmldir instead of HTML_DIR - allows
+	html_DATA. Removed API_DIR.
+
+2002-08-19 03:46  hun
+
+	* configure.in: no extra maintainer mode
+
+2002-08-19 03:26  hun
+
+	* Makefile.am: added aclocal and automake options
+
+2002-08-19 03:26  hun
+
+	* autogen.sh: added rudimentary autogen.sh file
+
+2002-08-19 03:21  hun
+
+	* ChangeLog, README: Changes of the day
+
 2002-08-19 03:19  hun
 
 	* .cvsignore, AUTHORS, ChangeLog, Makefile.am, NEWS, configure.in,
