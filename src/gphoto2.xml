@@ -28,10 +28,8 @@ About this file:
 <?xml-stylesheet type="text/css" href="css/docbook-xml.css"?>
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
-"file:///usr/share/sgml/docbook/dtd/xml/4.2/docbookx.dtd" [
-<!-- "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [ -->
-
-
+ "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+<!-- "file:///usr/share/sgml/docbook/dtd/xml/4.2/docbookx.dtd" [ -->
 
 <!ENTITY themanual "The gPhoto2 Manual">
 
@@ -657,9 +655,7 @@ Saving file as MVI_5418.AVI                                                     
 	Well, that's about it.
 	You may also want to have a look at the
 	<link linkend="cli-examples">command line examples</link> from
-	the <xref linkend="ref-gphoto2-cli"/> man page and the examples
-	described on 
-	<ulink url="http://www.gphoto.org/gphoto2/cli.html">http://www.gphoto.org/gphoto2/cli.html</ulink>.
+	the <xref linkend="ref-gphoto2-cli"/> man page.
       </para>
     </sect1>
     
@@ -1446,12 +1442,12 @@ usb:                             Universal Serial Bus
 	<title>Software dependencies</title>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="figures/software-dependencies.png"
-	      format="PNG"/>
-	  </imageobject>
-	  <imageobject>
 	    <imagedata fileref="figures/software-dependencies.ps"
 	      format="PS"/>	    
+	  </imageobject>
+	  <imageobject>
+	    <imagedata fileref="figures/software-dependencies.png"
+	      format="PNG"/>
 	  </imageobject>
 	  <imageobject>
 	    <imagedata fileref="figures/software-dependencies.jpg"
@@ -2689,17 +2685,12 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 		<variablelist>
 		  <varlistentry>
 		    <term>What to save:</term>
-		    <listitem>  
-		      <variablelist>
-			<varlistentry>
-			  <term></term>
-			  <listitem>
+		    <listitem>
 			    <para>This is a set of checkboxes which allows the user 
 			      to select the forms in which data for the selected 
 			      image(s) will be saved. Any or all of these options 
 			      may be selected at once.</para>
-			  </listitem>
-			</varlistentry>
+		      <variablelist>
 			<varlistentry>
 			  <term>Save photos</term>
 			  <listitem>
@@ -3214,6 +3205,8 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	      </term>
 	      <listitem>
 		<para>I'm not sure what this should contain. Anyone? - mjr</para>
+		<!--
+		Image doesn't exist
 		<screenshot>
 		  <mediaobject>
 		    <imageobject>
@@ -3221,6 +3214,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 		    </imageobject>
 		  </mediaobject>
 		</screenshot>
+		-->
 		<sidebar>
 		  <para>FIXME: need useful image</para>
 		</sidebar>
