@@ -3,6 +3,20 @@ dnl try to find xmlto (required for generation of man pages and html docs)
 dnl ------------------------------------------------------------------------
 AC_DEFUN(GP_CHECK_DOCBOOK_XML,
 [
+
+AC_MSG_CHECKING([for XML catalogs])
+XML_CATALOG_FILES="`find /etc/xml /usr/share/xml /usr/share/sgml -type f -iname 'catalog.xml' -print 2> /dev/null | while read file; do echo -n "$file "; done`"
+if test "x$XML_CATALOG_FILES" = "x"
+then
+	AC_MSG_RESULT([none found.])
+else
+	AC_MSG_RESULT([found ${XML_CATALOG_FILES}])
+fi
+AC_SUBST(XML_CATALOG_FILES)
+
+XML_DEBUG_CATALOG=0
+AC_SUBST(XML_DEBUG_CATALOG)
+
 manual_msg="no (http://cyberelk.net/tim/xmlto/)"
 try_xmlto=true
 have_xmlto=false
@@ -15,7 +29,7 @@ if $try_xmlto; then
 	if test -n "${XMLTO}"; then
 		have_xmlto=true
 		manual_msg="yes"
-		XMLTO="${XMLTO} -m \$(top_srcdir)/src/xsl/docbook-params.xsl"
+		XMLTO="env XML_CATALOG_FILES=\"${XML_CATALOG_FILES}\" XML_DEBUG_CATALOG=${XML_DEBUG_CATALOG} ${XMLTO} -m \$(top_srcdir)/src/xsl/docbook-params.xsl"
         else
                 # in case anybody runs $(XMLTO) somewhere, we return false
                 XMLTO=false
