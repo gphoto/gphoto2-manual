@@ -719,20 +719,23 @@ Saving file as MVI_5418.AVI                                                     
           <listitem>
             <para>
 	      In the file <filename>/etc/hotplug/usb.usermap</filename> 
-	      remove all lines beginning with <quote>usbcam</quote>,
-	      as we are going to add new lines there and don't want to
-	      get an inconsistent state.
+	      remove all lines beginning with <quote>usbcam</quote>.
+	      We are going to add new lines there and don't want to
+	      have the old ones get in the way.
             </para>
 	    <para>
-              Then add the output of
-              <screen>
-<prompt>[root@home ~]# </prompt><command>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap</command>
-              </screen>
+              Add the output of
+	      <command>packaging/linux-hotplug/print-usb-usermap</command>
 	      (this output is installed as
 	      <filename>/usr/share/doc/libgphoto2-VERSION/linux-hotplug/gphoto2-usb.usermap</filename>
 	      since 2.1.1dev5)
-              to that file
-              (<filename>/etc/hotplug/usb.usermap</filename>).
+              to the <filename>/etc/hotplug/usb.usermap</filename> file:
+              <screen>
+# EITHER this
+<prompt>[root@home ~]#</prompt><command>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap</command> >> <filename>/etc/hotplug/usb.usermap</filename>
+# OR that
+<prompt>[root@home ~]#</prompt><command>cat <parameter>/usr/share/doc/libgphoto2-VERSION/linux-hotplug/gphoto2-usb.usermap</parameter></command> >> <filename>/etc/hotplug/usb.usermap</filename>
+              </screen>
             </para>
 	    <note>
 	      <para>
@@ -747,19 +750,20 @@ Saving file as MVI_5418.AVI                                                     
 	    <formalpara>
 	      <title>Debian peculiarity</title>
 	      <para>
-		As Debian uses a structured method for setting up
-		linux-hotplug, you should also use this mechanism in
-		order to enjoy its benefits. 
+		Debian uses a well-structured method for setting up
+		linux-hotplug. You should use this mechanism in
+		order to enjoy its benefits.
 
 		Instead of modifying
 		<filename>/etc/hotplug/usb.usermap</filename>
 		directly, we set up a special file
 		<filename>/usr/lib/hotplug/libgphoto2/usb.usermap</filename> 
-		and let <command>update-usb.usermap</command>
-		update the
+		and let Debian's <command>update-usb.usermap</command>
+		script update the
 		<filename>/etc/hotplug/usb.usermap</filename> file:
 		<screen>
 
+# This is only for Debian, OK?
 <prompt>[root@home ~]# </prompt><command>mkdir <parameter>/usr/lib/hotplug/libgphoto2</parameter></command>
 <prompt>[root@home ~]# </prompt><command>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap > <filename>/usr/lib/hotplug/libgphoto2/usb.usermap</filename></command>
 <prompt>[root@home ~]# </prompt><command>update-usb.usermap</command>
@@ -854,6 +858,19 @@ Saving file as MVI_5418.AVI                                                     
                     the script you have to change.</simpara>
                 </listitem>
               </varlistentry>  
+              <varlistentry>
+                <term><filename>usbcam.x11-app</filename></term>
+                <listitem>
+                  <simpara>
+                    If you want only one user to have access to the
+		    camera and you favourite X11 libgphoto2 frontend
+		    launched automatically, use
+		    <filename>usbcam.x11-app</filename> and change it 
+                    accordingly. There are a few specially marked
+		    lines in the script you have to change.
+                  </simpara> 
+                </listitem>
+              </varlistentry>
             </variablelist>
           </listitem>
 
