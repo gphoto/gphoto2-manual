@@ -20,7 +20,8 @@ About this file:
    system, but you're free to use any other adequate processing tool,
    of course :-)
 
- - please use id="xxx" attributes for all qandaentry elements
+ - Please use id="xxx" attributes for all qandaentry elements.
+   These IDs are used in the URLs for the respective questions.
 
 ================================================================= -->
 
@@ -28,29 +29,82 @@ About this file:
 
 <!--
   leave DOCTYPE commented out for easy inclusion as external entity 
+<!DOCTYPE qandadiv PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" 
+  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
 -->
-<!--DOCTYPE qandaset PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" 
-  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd"-->
 
 <qandadiv id="FAQ-generic">
 
   <title>Generic libgphoto2 FAQs (frontend-independent)</title>
 
-  <qandaentry id="FAQ-library-revision">
+
+  <qandaentry id="FAQ-camera-support">
     <question>
-      <simpara>
-        I just downloaded the libgphoto2-2.1.1 distribution off
-	sourceforge and it builds "libgphoto2.so.2.0.3". Has anyone
-	else reported this?
-      </simpara>
+      <simpara>Is my camera supported?</simpara>
     </question>
     <answer>
+      <para>Possible answers:</para>
+      <variablelist>
+	<varlistentry>
+	  <term>yes</term>
+	  <listitem>
+	    <simpara>Very nice. Have fun!</simpara>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>not yet</term>
+	  <listitem>
+	    <simpara>
+	      Not so good. You'll have to write your own driver or
+	      modify an existing one. You should contact the
+	      developers at <email>&devellist;</email> to coordinate
+	      your efforts with others who may already working it.
+	    </simpara>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>not any more</term>
+	  <listitem>
+	    <simpara>
+	      There have been few drivers in gphoto 0.x.x which
+	      haven't been ported to libgphoto2 because there was
+	      no one to test them. But now that you have entered the
+	      stage, you can either port the driver yourself or ask
+	      whether a developers wants to do it. In either case,
+	      please coordinate your efforts with the rest of the 
+	      world at 
+	      <email>&devellist;</email>.
+	    </simpara>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term>no (and will never be)</term>
+	  <listitem>
+	    We will not support cameras in USB mass storage
+	    mode. Your operating system already has drivers for
+	    these. Just use the cameras like you would use a USB disk
+	    drive or USB flash disk.
+	  </listitem>
+	</varlistentry>
+
+      </variablelist>
       <para>
-        Yes, many times. The release number ("2.1.1") and the
-	library version ("2.0.3") are by their respective definitions 
-	<emphasis>completely unrelated</emphasis>. As we won't
-	<quote>fix</quote> a problem which is not there,
-	please stop bugging us with that <quote>problem</quote>.
+	Check
+	<ulink
+	url="http://www.teaser.fr/~hfiguiere/linux/digicam.html">http://www.teaser.fr/~hfiguiere/linux/digicam.html</ulink>
+	for general information about digicam support under Linux,
+	BSD, and others.
+      </para>
+      <para>
+	Check
+	<ulink
+	url="http://gphoto.org/proj/libgphoto2/support.php">http://gphoto.org/proj/libgphoto2/support.php</ulink>
+	for camera support in the latest libgphoto2 release and 
+	<ulink
+	  url="http://n-dimensional.de/projects/digicam/software/snapshots/SUPPORTED-CAMERAS">http://n-dimensional.de/projects/digicam/software/snapshots/SUPPORTED-CAMERAS</ulink> for supported cameras in the lates CVS snapshot.
       </para>
     </answer>
   </qandaentry>
@@ -69,7 +123,7 @@ About this file:
 	remote control the camera to take pictures, it the camera has support 
 	for it and if the driver can do it. But not at all libgphoto2 has been
 	designed to be tool to operate webcams nor do we support these devices. 
-	There are other solutions about that. Try searching
+	There are other solutions for that. Try searching
 	<ulink url="http://www.google.com/">Google</ulink>.
       </para>
     </answer>
@@ -99,9 +153,14 @@ sure this device is connected to the computer
       <simpara>gphoto2 does not find my camera. What shall I do?</simpara>
     </question>
     <answer>
+      <para>
+	  First <link linkend="FAQ-camera-support"></simpara>check that your camera is supported</link>.
+      </para>
       <para>      
-	First try to run <userinput>gphoto2 <parameter>--list-ports</parameter></userinput> and look whether the ports 
-	you want to use are listed there:
+	  Then try to run 
+	  <userinput>gphoto2 <parameter>--list-ports</parameter></userinput>
+	  and look whether the ports  
+	  you want to use are listed there:
       </para>
       <itemizedlist>
 	<listitem>
@@ -129,6 +188,25 @@ sure this device is connected to the computer
       </para>
       <para>
 	AND DO NOT RUN gphoto2 AS ROOT. And no other libgphoto2 frontend either.
+      </para>
+    </answer>
+  </qandaentry>
+
+  <qandaentry id="FAQ-library-revision">
+    <question>
+      <simpara>
+        I just downloaded the libgphoto2-2.1.1 distribution off
+	sourceforge and it builds "libgphoto2.so.2.0.3". Has anyone
+	else reported this?
+      </simpara>
+    </question>
+    <answer>
+      <para>
+        Yes, many times. The release number ("2.1.1") and the
+	library version ("2.0.3") are by their respective definitions 
+	<emphasis>completely unrelated</emphasis>. As we won't
+	<quote>fix</quote> a problem which is not there,
+	please stop bugging us with that <quote>problem</quote>.
       </para>
     </answer>
   </qandaentry>
