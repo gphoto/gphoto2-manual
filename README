@@ -28,6 +28,14 @@ Then configure and build The gPhoto2 Manual:
 After that, you should have the manual in all built formats in
 /path/to/The_gPhoto2_Manual
 
+E.g., you may use something like
+
+	./configure --prefix=$PWD/tmp \
+		--with-doc-dir=$HOME/web/gphoto2-manual \
+		--enable-maintainer-mode \
+		--with-doc-formats=man,html,txt
+	make install
+
 And BTW, you can build in a different directory if you wish.
 
 
