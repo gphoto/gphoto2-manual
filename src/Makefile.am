@@ -1,10 +1,12 @@
-SUBDIRS = figures screenshots
+SUBDIRS = figures screenshots css
 
 EXTRA_DIST = gphoto2.xml
 
 CLEANFILES = gphoto2.html
 
 html_DATA = gphoto2.html
+
+xml_DATA = gphoto2.xml
 
 if XMLTOHTML
 
