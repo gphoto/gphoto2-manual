@@ -514,7 +514,7 @@ About this file:
 	  If you do not see any images listed, be sure that there are
 	  images in the camera. If there are, then you need to do some
 	  troubleshooting. Start with the 
-	  <link linkend="FAQ-generic">FAQ</link>.
+	  <link linkend="FAQ">FAQ</link> <!-- FAQ-generic -->.
 	</para>
       </sidebar>
     </sect1>
@@ -684,15 +684,38 @@ Saving file as MVI_5418.AVI                                                     
   <chapter id="FAQ">
     <title>Frequently Asked Questions (FAQ)</title>
 
-    <sect1 id="FAQ-generic">
-      <title>Generic libgphoto2 FAQs (frontend-independent)</title>
+    <qandaset>
       &libgphoto2usagefaq;
-    </sect1>
-
-    <sect1 id="FAQ-install">
-      <title>Installation FAQs</title>
       &installfaq;
-    </sect1>
+      <qandadiv>
+	<qandaentry>
+	  <question>
+	    <para>
+	      I just sucessfully compiled and installed libgphoto2-2.2.1.
+	      But when configuring gphoto2-2.1.1 I get 
+	      <computeroutput>Library requirements (libgphoto2 >= 2.1.1) not met</computeroutput>
+	    </para>
+	  </question>
+	  <answer>
+	    <para>If you don't have pkg-config installed yet, then please install it.</para>
+	    <para>
+	      Otherwise, your PKG_CONFIG_PATH variable doesn't contain the 
+	      <filename class="directory">pkgconfig/</filename>
+	      directory in the 
+	      <filename class="directory">lib/</filename>
+	      directory of
+	      your libgphoto2 installation.
+	    </para>
+	    <para>For a default installation, run
+	      <screen><prompt>&prompt;</prompt><userinput>PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig</userinput>
+<prompt>&prompt;</prompt><userinput>export PKG_CONFIG_PATH</userinput></screen>
+	      and now run the gphoto2
+	      <userinput>./configure</userinput> again.
+	    </para>
+	  </answer>
+	</qandaentry>
+      </qandadiv>
+    </qandaset>
 
     <!--
     FAQ-gphoto2 (CLI)
@@ -1308,8 +1331,29 @@ usb:                             Universal Serial Bus
 
       </sect2>
 
+      <!-- ================================================== -->
+      <!--
       <sect2 id="usb-on-BSD">
-	<title>USB ports on BSD, MacOS X, OS/2</title>
+
+        <title><acronym>USB</acronym> ports on BSD</title>
+
+	<note>
+	  <simpara>
+	    This primarily deals with FreeBSD 5 for now, but
+	    updates for other BSD systems will follow.
+	  </simpara>
+	</note>
+
+	<para>
+	  Plug your camera in, and switch it on. Have a look at the
+	  kernel messages (dmesg). You will see something like:
+	</para>
+
+      </sect2>
+      -->
+
+      <sect2 id="usb-on-others">
+	<title>USB ports on other systems (BSD, MacOS X, OS/2)</title>
 	<para>FIXME: Still to be written</para>
       </sect2>
 
@@ -1666,7 +1710,7 @@ usb:                             Universal Serial Bus
 	<arg choice="opt">--speed <replaceable>SPEED</replaceable></arg>
 	<arg choice="opt">--camera <replaceable>MODEL</replaceable></arg>
 	<arg choice="opt">--filename <replaceable>FILENAME</replaceable></arg><sbr/>
-	<arg choice="opt">--usbid <replaceable>USBID</replaceable></arg>
+	<arg choice="opt">--usbid <replaceable>USBIDS</replaceable></arg>
 	<group choice="opt">
 	  <arg>-a</arg>
 	  <arg>--abilities</arg>
@@ -1854,19 +1898,35 @@ usb:                             Universal Serial Bus
 	  <term><option>--filename</option> <replaceable>FILENAME</replaceable></term>
 	  <listitem>
 	      <para>
-		Specify a the name to save downloaded files as. The
-		<option>--filename</option> option accepts
-		%a %A %b %B %d %H %k %I %l %j %m %S %y (see date(1)) and, 
+		Specify the filename to use when saving downloaded files.
+		The <option>--filename</option> option accepts
+		%a, %A, %b, %B, %d, %H, %k, %I, %l, %j, %m, %M, %S,
+		%y, %%, (see date(1)) and, 
 		in addition, %n for the number, %C for the filename
-		suffix %f for filename without suffix.
+		suffix, and %f for the filename without suffix.
 	      </para>
 	  </listitem>
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>--usbid</option> <replaceable>USBID</replaceable></term>
+	  <term><option>--usbid</option> <replaceable>USBIDS</replaceable></term>
 	  <listitem>
-	    <para>(Expert only) Override <acronym>USB</acronym> IDs.</para>
+	    <para>
+		(Expert only) Override <acronym>USB</acronym> IDs.
+		<replaceable>USBIDS</replaceable> must be of the form	
+		<replaceable>DetectedVendorID</replaceable>:<replaceable>DetectedProductID</replaceable>=<replaceable>TreatAsVendorID</replaceable>:<replaceable>TreatAsProductID</replaceable>
+		to treat any USB device detected as 
+		<replaceable>DetectedVendorID</replaceable>:<replaceable>DetectedProductID</replaceable>
+		as 
+		<replaceable>TreatAsVendorID</replaceable>:<replaceable>TreatAsProductID</replaceable>
+		instead.
+		All the VendorIDs and ProductIDs should be hexadecimal
+		numbers beginning in C notation, i.e. beginning with
+		'0x'.
+	      </para>
+	      <para>
+		Example: <parameter>--usbid <replaceable>0x4a9:0x306b=0x4a9:0x306c</replaceable></parameter>
+	      </para>
 	  </listitem>
 	</varlistentry>
 
@@ -2232,7 +2292,7 @@ usb:                             Universal Serial Bus
     </refmeta>
 
     <refnamediv>
-      <refname>gphoto2</refname>
+      <refname>libgphoto2</refname>
       <refpurpose>cross-platform digital camera library</refpurpose>
     </refnamediv>
 
@@ -2299,7 +2359,7 @@ usb:                             Universal Serial Bus
       </refmeta>
 
       <refnamediv>
-        <refname>gphoto2_port</refname>
+        <refname>libgphoto2_port</refname>
         <refpurpose>cross-platform port access library</refpurpose>
       </refnamediv>
 
