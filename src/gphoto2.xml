@@ -187,7 +187,11 @@ About this file:
   <chapter id="what-you-need">
     <title>Finding what you need</title>
     <abstract>
-      <para>This chapter lists information about what you need to run gphoto2.This information is intended to assist you in setting up your computer so that you can connect a camera and use libgphoto2 software to download images.</para>
+      <para>This chapter lists information about what you need to run
+	gphoto2. This information is intended to assist you in setting
+	up your computer so that you can connect a camera and use
+	libgphoto2 software to download images.
+      </para>
     </abstract>
     <para>What you need:</para>
     <orderedlist>
@@ -342,9 +346,9 @@ About this file:
 	    <term>CVS sources</term>
 	    <listitem>
 	      <simpara>
-		Building requires several special build tools
-		(automake, autoconf, gettext, libtool), possibly even 
-		in specialversions
+		Building requires a certain set of build tools
+		(automake, autoconf, gettext, libtool), and possibly
+		even a combination of certain releases.
 	      </simpara>
 	    </listitem>
 	  </varlistentry>
@@ -493,7 +497,7 @@ About this file:
 	your computer:
       </para>
       <screen>
-<prompt>$uli@mir:~$ </prompt><command>gphoto2 <parameter>--list-ports</parameter></command>
+<prompt>$uli@machine:~$ </prompt><command>gphoto2 <parameter>--list-ports</parameter></command>
 <computeroutput>Devices found: 4
 Path                             Description
 --------------------------------------------------------------
@@ -501,7 +505,7 @@ serial:/dev/ttyS0                Serial Port 0
 serial:/dev/ttyS2                Serial Port 2                   
 serial:/dev/ttyS3                Serial Port 3                   
 usb:                             Universal Serial Bus	  </computeroutput>
-<prompt>uli@mir:~$ </prompt>
+<prompt>uli@machine:~$ </prompt>
       </screen>
       <para>
 	In this example, we see that we have the three serial devices
@@ -523,11 +527,11 @@ usb:                             Universal Serial Bus	  </computeroutput>
 	<acronym>RS232</acronym> cameras help me on this issue?)
       </para>
       <screen>
-<prompt>uli@mir:~$ </prompt><command>gphoto2 <parameter>--auto-detect</parameter></command>
+<prompt>uli@machine:~$ </prompt><command>gphoto2 <parameter>--auto-detect</parameter></command>
 <computeroutput>Model                          Port                                             
 ----------------------------------------------------------
 Canon PowerShot G2             usb:            </computeroutput>
-<prompt>uli@mir:~$ </prompt>
+<prompt>uli@machine:~$ </prompt>
       </screen>
       <para>
 	In this case, a camera called 
@@ -539,7 +543,7 @@ Canon PowerShot G2             usb:            </computeroutput>
 	OK, so now let's see what we can find out about the camera:
       </para>
       <screen>
-<prompt>uli@mir:~$ </prompt><command>gphoto2 <parameter>--summary</parameter></command>
+<prompt>uli@machine:~$ </prompt><command>gphoto2 <parameter>--summary</parameter></command>
 <computeroutput>Detected a 'Canon PowerShot G2'.                                                
 Camera Summary:
 
@@ -556,7 +560,7 @@ Flash disk information:
 
 Time: 2002-07-09 20:45:15 (host time +0 seconds)
 </computeroutput>
-<prompt>uli@mir:~$ </prompt>
+<prompt>uli@machine:~$ </prompt>
       </screen>
       <para>
 	The actual result of 
@@ -572,7 +576,7 @@ Time: 2002-07-09 20:45:15 (host time +0 seconds)
 	stored there:
       </para>
       <screen>
-<prompt>uli@mir:~$ </prompt><command>gphoto2 <parameter>--list-files</parameter></command>
+<prompt>uli@machine:~$ </prompt><command>gphoto2 <parameter>--list-files</parameter></command>
 <computeroutput>Detected a 'Canon PowerShot G2'.                                                
 There are no files in folder '/'.
 There are no files in folder '/DCIM'.
@@ -582,7 +586,7 @@ There are 4 files in folder '/DCIM/154CANON':
 #3     IMG_5416.JPG               rd    31 KB image/jpeg
 #4     MVI_5418.AVI               rd   682 KB video/x-msvideo
 There are no files in folder '/DCIM/CANONMSC'.</computeroutput>
-<prompt>uli@mir:~$ </prompt>
+<prompt>uli@machine:~$ </prompt>
       </screen>
       <para>
 	There are multiple folders on the camera, and there are several
@@ -598,7 +602,7 @@ There are no files in folder '/DCIM/CANONMSC'.</computeroutput>
 	that:
       </para>
       <screen>
-<prompt>uli@mir:~/tmp$ </prompt><command>gphoto2 <parameter>--get-all-files</parameter></command>
+<prompt>uli@machine:~/tmp$ </prompt><command>gphoto2 <parameter>--get-all-files</parameter></command>
 <computeroutput>Detected a 'Canon PowerShot G2'.                                                
 Downloading 'CRW_5417.CRW' from folder '/DCIM/154CANON'...
 Saving file as CRW_5417.CRW                                                     
@@ -608,7 +612,7 @@ Downloading 'IMG_5416.JPG' from folder '/DCIM/154CANON'...
 Saving file as IMG_5416.JPG                                                     
 Downloading 'MVI_5418.AVI' from folder '/DCIM/154CANON'...
 Saving file as MVI_5418.AVI                                                     </computeroutput>
-<prompt>uli@mir:~/tmp$ </prompt>
+<prompt>uli@machine:~/tmp$ </prompt>
       </screen>
       <para>
 	And now we have all the files in our current directory (in
