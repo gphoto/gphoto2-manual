@@ -1,3 +1,13 @@
+2002-08-18 01:09  hun
+
+	* src/figures/: Makefile.am, architecture.fig, gphotofs.fig,
+	libgphoto2-api.fig, libgphoto2-camlib.fig, libgphoto2_port.fig:
+	moved figure here from libgphoto2/doc/figures
+
+2002-08-18 01:01  hun
+
+	* ChangeLog: and we gotta have a ChangeLog (created by cvs2cl)
+
 2002-08-18 00:39  hun
 
 	* README: nothing is working yet
