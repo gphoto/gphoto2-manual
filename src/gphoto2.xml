@@ -888,6 +888,14 @@ Saving file as MVI_5418.AVI                                                     
             <para>Your <filename>/var/log/messages</filename> syslog
               file will contain some messages to that effect.
             </para>
+	    <para>You will probably want to check whether the
+	      respective device file has its permissions set up
+	      correctly. Have a look at 
+	      <filename class="directory">/proc/bus/usb</filename>
+	      with <command>ls -lR /proc/bus/usb</command>. There
+	      should be at least one device file with the permissions
+	      set according to your wishes.
+	    </para>
           </listitem>
 
           <listitem>
