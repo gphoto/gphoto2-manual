@@ -10,4 +10,5 @@ Details:
 
 - no build system yet
 - pathes not yet adapted to directory structure
+- if we keep ChangeLog as created by cvs2cl we can save us a lot of hassle
 - etc. pp.
