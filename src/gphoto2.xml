@@ -2800,7 +2800,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	    <arg>-R</arg>
 	    <arg>--recurse</arg>
 	  </group>
-	  <arg choice="opt">--norecurse</arg>
+	  <arg choice="opt">--no-recurse</arg>
 	</group>
 	<group choice="opt">
 	  <arg>-l</arg>
