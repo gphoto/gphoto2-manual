@@ -1024,23 +1024,15 @@ usb:                             Universal Serial Bus
           user/group to interfere with or eavesdrop on any other
 	  <acronym>USB</acronym> devices which might be attached, such
 	  as <acronym>USB</acronym> keyboards, fingerprint reader or
-	  similar. The following paragraphs thus describe setting up 
+	  similar. The following section thus describe setting up 
           <xref linkend="hotplug"/>.
         </para>
 
-	<note>
-	  <para>The fact that we are using the name 
-	    <quote><replaceable>&usbcam;</replaceable></quote> for
-	    setting up permissions for gphoto2 has a reason. In fact,
-	    the permission setup you're doing here has nothing to do
-	    with gphoto2 specifically - any user space software
-	    wanting to access your USB camera will be able to make use
-	    of your camera only if the permissions are correctly set
-	    up. So I (hun) chose the identifier and script name
-	    <quote><replaceable>&usbcam;</replaceable></quote> and 
-	    not <quote>gphoto2cam</quote> something similar. 
-	  </para>
-	</note>
+      </sect2>
+
+      <sect2 id="setting-up-linux-hotplug">
+
+	<title>Setting up linux-hotplug</title>
 
         <para>
           On Linux systems, from the 2.4 kernel series on, the kernel supports
@@ -1081,9 +1073,16 @@ usb:                             Universal Serial Bus
               <filename>devices</filename> and 
               <filename>drivers</filename> in your
               <filename class="directory">/proc/bus/usb</filename>
-              directory. If not, check the following paragraph for
+              directory. Please check this.
+	    </para>
+
+	    <para>
+	      If everything is OK, proceed with step
+	      <xref linkend="step-create-usermap"/>.
+	      If not, check the following paragraph for
               hints.
             </para>
+
             <para>
               Load your <acronym>USB</acronym> driver (e.g. OHCI or UHCI) and 
 	      mount the <acronym>USB</acronym> device filesystem, i.e. e.g.
@@ -1100,16 +1099,11 @@ usb:                             Universal Serial Bus
             </para>
           </listitem>
 
-          <listitem>
+          <listitem id="step-create-usermap">
             <para>
-              This step makes hotplug recognise all
+              Make hotplug recognise all
               <acronym>USB</acronym> cameras which your version
-              of <xref linkend="ref-libgphoto2"/> supports and makes
-              <command>hotplug</command> run the
-              <command><replaceable>&usbcam;</replaceable></command>
-              script you choose in 
-	      step <xref linkend="chooseusbcamscript"/> 
-	      whenever one of these cameras is attached.
+              of <xref linkend="ref-libgphoto2"/> supports.
             </para>
 
 	    <para>
@@ -1174,7 +1168,8 @@ usb:                             Universal Serial Bus
               Example scripts are found in 
               <filename class="directory">packaging/linux-hotplug/</filename> 
               in the source tree and in the doc dir (usually
-	      /usr/share/doc/gphoto2/ or something similar) under 
+	      <filename class="directory">/usr/share/doc/gphoto2/</filename>
+	      or something similar) under 
               <filename class="directory">linux-hotplug/</filename>
               after installation.
 	    </para>
@@ -1269,20 +1264,22 @@ usb:                             Universal Serial Bus
 <prompt>&rprompt;</prompt><userinput>chmod <parameter>+x</parameter> <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename></userinput>
 	      </screen>
 	    </para>
-	    <note>
+
+	    <important>
 	      <para>
 		Please do not forget that the script name is
 		<filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename>,
 		<emphasis>not</emphasis>
 		<filename>/etc/hotplug/usb/usbcam.whatever</filename>!
 	      </para>
-	    </note>
+	    </important>
+
           </listitem>
 
           <listitem>
 
 	    <para>
-	      Now we are going to test your setup.
+	      Test your setup.
 	    </para>
 
             <para>
@@ -1340,6 +1337,20 @@ usb:                             Universal Serial Bus
           </listitem>
 
         </orderedlist>
+
+	<note>
+	  <para>The fact that we are using the name 
+	    <quote><replaceable>&usbcam;</replaceable></quote> for
+	    setting up permissions for gphoto2 has a reason. In fact,
+	    the permission setup you're doing here has nothing to do
+	    with gphoto2 specifically - any user space software
+	    wanting to access your USB camera will be able to make use
+	    of your camera only if the permissions are correctly set
+	    up. So I (hun) chose the identifier and script name
+	    <quote><replaceable>&usbcam;</replaceable></quote> and 
+	    not <quote>gphoto2cam</quote> something similar. 
+	  </para>
+	</note>
 
       </sect2>
 
