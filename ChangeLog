@@ -1,3 +1,39 @@
+2002-08-21 22:47  hun
+
+	* m4/documentation.m4: forgot txt in XMLTOformat
+
+2002-08-21 22:41  hun
+
+	* src/gphoto2.xml: incorporated info found missing by Christophe
+
+2002-08-21 22:40  hun
+
+	* src/.cvsignore: removed man and html
+
+2002-08-21 22:17  hun
+
+	* configure.in, m4/documentation.m4, src/Makefile.am,
+	src/txt/.cvsignore, src/txt/Makefile.am: added TXT format
+
+2002-08-21 16:02  hun
+
+	* src/: html/.cvsignore, html-nochunks/.cvsignore,
+	xhtml/.cvsignore, man/.cvsignore, pdf/.cvsignore,
+	xhtml-nochunks/.cvsignore, css/.cvsignore, ps/.cvsignore: ignore
+	standard
+
+2002-08-21 15:54  hun
+
+	* autogen.sh: made autogen.sh work for $(srcdir) != $(builddir)
+
+2002-08-21 15:53  hun
+
+	* README: updated text to current state of universe
+
+2002-08-21 15:23  hun
+
+	* ChangeLog: COTD
+
 2002-08-21 15:22  hun
 
 	* Makefile.am: build ChangeLog if $(srcdir) != $(builddir)
