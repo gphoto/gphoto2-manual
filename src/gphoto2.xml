@@ -2419,7 +2419,6 @@ Saving file as MVI_5418.AVI                                                     
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para>Opens a window with configurable options for the camers. This includes the name of the camera, it's owner, the date and time, firmware version, and power status..</para>
 		<screenshot>
 		  <mediaobject>
 		    <imageobject>
