@@ -29,3 +29,15 @@ After that, you should have the manual in all built formats in
 /path/to/The_gPhoto2_Manual
 
 And BTW, you can build in a different directory if you wish.
+
+
+Web site build instruction:
+===========================
+
+If your local copy of the gphoto website CVS module is in $(pwd)/../website,
+just run
+
+	./configure --with-xhtml-dir=$(pwd)/../website/doc/manual
+	make -C src/xhtml clean install
+
+to rebuild the manual for the website.
