@@ -1002,12 +1002,14 @@ usb:                             Universal Serial Bus
 
         <orderedlist numeration="loweralpha">
 
-          <listitem id="usbdevfs">
+          <listitem id="usbfs">
             <simpara>
               allow a certain user and/or group or the whole world
 	      access to <emphasis>all</emphasis> <acronym>USB</acronym> devices
               by mounting 
-              <filename class="directory">/proc/bus/usb</filename>
+              <filename class="directory">/proc/bus/usb</filename><footnote id="usbdevfs">
+		<simpara>The filesystem is called <systemitem class="filesystem">usbdevfs</systemitem> in 2.2 and older 2.4 kernels.</simpara>
+	      </footnote>
               with adequate user and/or group permissions (default
               is world-readable and root-only-writable, which is good)
             </simpara>
@@ -1029,7 +1031,7 @@ usb:                             Universal Serial Bus
 
         <para>    
           Solution <xref linkend="hotplug"/> has a huge advantage over 
-          solution <xref linkend="usbdevfs"/>: It doesn't allow the
+          solution <xref linkend="usbfs"/>: It doesn't allow the
           user/group to interfere with or eavesdrop on any other
 	  <acronym>USB</acronym> devices which might be attached, such
 	  as <acronym>USB</acronym> keyboards, fingerprint reader or
@@ -1094,12 +1096,12 @@ usb:                             Universal Serial Bus
 
             <para>
               Load your <acronym>USB</acronym> driver (e.g. OHCI or UHCI) and 
-	      mount the <acronym>USB</acronym> device filesystem, i.e. e.g.
+	      mount the <acronym>USB</acronym> device filesystem<footnoteref linkend="usbdevfs"/>, i.e. e.g.
               <screen>
 
 <prompt>&rprompt;</prompt><userinput>modprobe</userinput> <parameter>usb-uhci</parameter>
 <prompt>&rprompt;</prompt><userinput>modprobe</userinput> <parameter>usb-ohci</parameter>
-<prompt>&rprompt;</prompt><userinput>mount <parameter>-t usbdevfs</parameter> <parameter>usb</parameter> <parameter>/proc/bus/usb</parameter></userinput>
+<prompt>&rprompt;</prompt><userinput>mount <parameter>-t usbfs</parameter> <parameter>usb</parameter> <parameter>/proc/bus/usb</parameter></userinput>
               </screen>
               Modern distributions like Redhat 7.2 handle this
               automatically if you have your <acronym>USB</acronym> hardware enabled.
