@@ -1,3 +1,28 @@
+2002-08-21 23:54  hun
+
+	* README: CVS build instructions
+
+2002-08-21 23:49  hun
+
+	* contrib/: README, make-docs.sh: added contrib/ stuff
+
+2002-08-21 23:39  hun
+
+	* src/gphoto2.xml: added publication date
+
+2002-08-21 23:39  hun
+
+	* src/html/Makefile.am: added note about relative paths for
+	symlinks
+
+2002-08-21 23:37  hun
+
+	* m4/documentation.m4: s/DOC_DIR/docdir/g
+
+2002-08-21 22:48  hun
+
+	* ChangeLog: COTD
+
 2002-08-21 22:47  hun
 
 	* m4/documentation.m4: forgot txt in XMLTOformat
