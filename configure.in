@@ -5,6 +5,7 @@ GP_BUILD_DOCS()
 
 AC_OUTPUT([
 Makefile
+m4/Makefile
 src/Makefile
 src/figures/Makefile
 src/screenshots/Makefile
