@@ -5,9 +5,9 @@ AUTOMAKE_OPTIONS = gnu
 
 if MAINTAINER_MODE
 
-CVS_ENTRIES := $(shell find . -type d -name CVS | while read dir; do echo "$${dir}/Entries"; done)
+CVS_ENTRIES := $(shell find $(top_srcdir) -type d -name CVS | while read dir; do echo "$${dir}/Entries"; done)
 
 ChangeLog: $(CVS_ENTRIES)
-	cvs2cl --utc
+	cd $(top_srcdir) && cvs2cl --utc
 
 endif
