@@ -2974,6 +2974,62 @@ Saving file as MVI_5418.AVI                                                     
 
   <!-- =========================================================== --> 
   <!-- =========================================================== --> 
+  <!-- =========================================================== --> 
+
+  <glossary id="glossary">
+    <!-- FIXME: Where in the book should the glossary be? -->
+    <title>Glossary</title>
+    <para>
+      This is not a real glossary (yet), it's just an example.
+    </para>
+    <!-- FIXME: text stolen from
+         http://www.pima.net/standards/it10/PIMA15740/exif.htm 
+         somebody please write a non-copyrighted text with similar
+         content.
+    <glossentry id="gloss-EXIF">
+      <glossterm><acronym>EXIF</acronym>: Exchangeable Image File</glossterm>
+
+      <glossdef>
+	<para>
+	  Most current digital camera store images using Exif
+	  compressed files.  Exif compressed files use the baseline
+	  JPEG DCT format specified in ISO/IEC 10918-1. This means the
+	  image data can be read by any application supporting "JPEG",
+	  including essentially all web browsers and image editing,
+	  desktop presentation, and document creation applications. In
+	  addition, Exif/JPEG stores metadata within application
+	  segments at the beginning of the file, and uses sRGB as the
+	  default color space.
+	</para>
+      </glossdef>
+    </glossentry>
+    -->
+    <glossentry id="gloss-gphoto">
+      <!-- FIXME: this is just an example entry :-) -->
+      <glossterm>gphoto</glossterm>
+      <glossdef>
+	<para>
+	  The glorious application by Scott Fritzinger 
+	  which started everything.
+	</para>
+      </glossdef>
+    </glossentry>
+    <glossentry id="gloss-gphoto2">
+      <!-- FIXME: this is just an example entry :-) -->
+      <glossterm>gphoto2</glossterm>
+      <glossdef>
+	<para>
+	  Glorious successor of 
+	  <link linkend="gloss-gphoto">gphoto</link>.
+	  Can make use of 
+	  <link linkend="gloss-EXIF">EXIF</link>.
+	</para>
+      </glossdef>
+    </glossentry>
+  </glossary>
+
+  <!-- =========================================================== --> 
+  <!-- =========================================================== --> 
   <!-- =========================================================== -->
 
 </book>
