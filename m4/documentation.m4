@@ -76,8 +76,8 @@ AC_REQUIRE([GP_CHECK_DOCBOOK_XML])
 AC_REQUIRE([GP_CHECK_TR])
 
 dnl ---------------------------------------------------------------------------
-dnl Give the user the possibility to install html documentation in a 
-dnl user-defined location.
+dnl Give the user the possibility to install documentation in
+dnl user-defined locations.
 dnl ---------------------------------------------------------------------------
 AC_ARG_WITH(html-dir, [  --with-html-dir=PATH      Where to install html docs [default=autodetect]])
 AC_MSG_CHECKING([for html dir])
@@ -89,6 +89,19 @@ else
     AC_MSG_RESULT([${htmldir} (from parameter)])
 fi
 AC_SUBST(htmldir)
+
+AC_ARG_WITH(xml-dir, [  --with-xml-dir=PATH      Where to install xml docs [default=autodetect]])
+AC_MSG_CHECKING([for xml dir])
+if test "x${with_xml_dir}" = "x" ; then
+    xmldir="${DOC_DIR}/xml"
+    AC_MSG_RESULT([${xmldir} (default)])
+else
+    xmldir="${with_xml_dir}"
+    AC_MSG_RESULT([${xmldir} (from parameter)])
+fi
+AC_SUBST(xmldir)
+xmlcssdir="${xmldir}/css"
+AC_SUBST(xmlcssdir)
 
 
 doc_formats_list='man html ps pdf'
