@@ -15,8 +15,17 @@ Detailed information:
 Short build instructions:
 =========================
 
-./configure --with-doc-dir="/path/to/The_gPhoto2_Manual"
-make install
+If you use CVS, run autogen.sh first.
 
-And you should have the manual in all built formats in
+If you are a developer, add --enable-maintainer-mode to your configure
+parameters.
+
+Then configure and build The gPhoto2 Manual:
+
+	./configure --with-doc-dir="/path/to/The_gPhoto2_Manual"
+	make install
+
+After that, you should have the manual in all built formats in
 /path/to/The_gPhoto2_Manual
+
+And BTW, you can build in a different directory if you wish.
