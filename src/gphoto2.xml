@@ -448,7 +448,12 @@ About this file:
 	      <guimenuitem>Graphics</guimenuitem>
 	      <guimenuitem>gtKam</guimenuitem>
 	    </menuchoice>
-	    ). Otherwise, typing <command>gtkam</command> from the command 
+	    )(in Debian, it's
+	    <menuchoice>
+	      <guimenu>Debian Menu</guimenu>
+	      <guimenuitem>Viewers</guimenuitem>
+	      <guimenuitem>gtKam</guimenuitem>
+	    </menuchoice>). Otherwise, typing <command>gtkam</command> from the command 
 	    line should start the application.</para>
 	</listitem>
       </orderedlist>
@@ -2330,10 +2335,6 @@ usb:                             Universal Serial Bus
       </refnamediv>
       <refsect1>
 	<title>Commands</title>
-	<warning>
-	  <simpara>New as it is, this man reference is already under revision to reflect the changes from gtkam v 0.1.3 to v.0.1.9. As such, there are several discrepancies and errors. There are also a number of screenshots which came from gtkam 0.1.3. Bear with us as we edit...</simpara>
-	</warning>
-
 	<screenshot>
 	  <mediaobject>
 	    <imageobject>
@@ -2870,7 +2871,9 @@ usb:                             Universal Serial Bus
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para>Opens a window to allow the user to trigger the camera to acquire an image. (This feature is not available on my camera, so I would appreciate some input on this item. -mjr)</para></listitem></varlistentry>
+		<para>Opens a window to allow the user to trigger the camera to acquire an image 
+		  if the camera and its gphoto2 driver supports this feature.. (This feature is 
+		  not available on my camera, so I would appreciate some input on this item. -mjr)</para></listitem></varlistentry>
 	    <varlistentry>
 	      <term>
 		<menuchoice>
