@@ -10,12 +10,7 @@ if ENABLE_FIGURES
 
 figure_DATA = \
 	architecture.png libgphoto2-api.png libgphoto2-camlib.png libgphoto2_port.png gphotofs.png
-#	architecture.eps libgphoto2-api.eps libgphoto2-camlib.eps libgphoto2_port.eps gphotofs.eps \
-
-# we are currently not using either of these
-#noinst_DATA = \
-#	architecture.eps libgphoto2-api.eps libgphoto2-camlib.eps libgphoto2_port.eps gphotofs.eps \
-#	architecture.jpg libgphoto2-api.jpg libgphoto2-camlib.jpg libgphoto2_port.jpg gphotofs.jpg#
+#	architecture.eps libgphoto2-api.eps libgphoto2-camlib.eps libgphoto2_port.eps gphotofs.eps
 
 %.eps: %.fig
 	fig2dev -L eps $< $@
