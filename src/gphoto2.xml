@@ -1927,7 +1927,8 @@ Saving file as MVI_5418.AVI                                                     
       </refsect1>
     </refentry>
 
-      <!-- &camera; -->
+  <!-- &camera; -->
+  <!-- =========================================================== --> 
 
     <refentry id="ref-gtkam">
       <refentryinfo>
@@ -1967,6 +1968,8 @@ Saving file as MVI_5418.AVI                                                     
 	    </imageobject>
 	  </mediaobject>
 	</screenshot>
+
+  <!-- =========================================================== --> 
 	
 	<refsect2>
 	  <title><guimenu>File Menu</guimenu></title>
@@ -2075,6 +2078,8 @@ Saving file as MVI_5418.AVI                                                     
 	  </variablelist>
 	</refsect2>
 
+  <!-- =========================================================== --> 
+
 	<refsect2>
 	  <title>View Menu</title>
 	  <screenshot>
@@ -2084,7 +2089,56 @@ Saving file as MVI_5418.AVI                                                     
 	      </imageobject>
 	    </mediaobject>
 	  </screenshot>
+	  <variablelist>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>View</guimenu>
+		  <guimenuitem>View Thumbnails</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para></para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>View</guimenu>
+		  <guimenuitem>Zoom In</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para></para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>View</guimenu>
+		  <guimenuitem>Zoom 100</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para></para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>View</guimenu>
+		  <guimenuitem>Zoom Out</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para></para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
 	</refsect2>
+
+  <!-- =========================================================== --> 
+
 	<refsect2>
 	  <title>Select Menu</title>
 	  <screenshot>
@@ -2132,6 +2186,9 @@ Saving file as MVI_5418.AVI                                                     
 	    </varlistentry>
 	  </variablelist>
 	</refsect2>
+
+  <!-- =========================================================== --> 
+
 	<refsect2>
 	  <title>Camera Menu</title>
 	  <screenshot>
@@ -2186,6 +2243,9 @@ Saving file as MVI_5418.AVI                                                     
 	    </varlistentry>
 	  </variablelist>
 	</refsect2>
+
+  <!-- =========================================================== --> 
+
 	<refsect2>
 	  <title>Help Menu</title>
 	  <screenshot>
@@ -2264,6 +2324,9 @@ Saving file as MVI_5418.AVI                                                     
 	    </varlistentry>
 	  </variablelist>
 	</refsect2>
+
+  <!-- =========================================================== --> 
+
 	<refsect2>
 	  <title>Right Click (over directory pane) Menu</title>
 	  <screenshot>
@@ -2442,10 +2505,31 @@ Saving file as MVI_5418.AVI                                                     
 		<para>Removes the camera from the directory pane.</para>
 	      </listitem>
 	    </varlistentry>
-
 	  </variablelist>
-
 	</refsect2>
+
+  <!-- =========================================================== --> 
+
+	<refsect2>
+	  <title>Right Click (over list pane) Menu</title>
+	  <screenshot>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="screenshots/gtkam/rt_click_list.png" format="PNG"/>
+	      </imageobject>
+	    </mediaobject>
+	  </screenshot>
+	  <variablelist>
+	    <varlistentry>
+	      <term>First choice</term>
+	      <listitem>
+		<para></para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</refsect2>
+
+  <!-- =========================================================== --> 
 
       </refsect1>
     </refentry>
