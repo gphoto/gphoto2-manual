@@ -2449,11 +2449,11 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 
     <refsect1>
       <title>See also</title>
-      <para><xref linkend="ref-libgphoto2"/>,
+      <para>
+	  <xref linkend="ref-libgphoto2"/>,
 	  &themanual;,
-        <filename path="doc/">gphoto2-cli.txt</filename>, 
-	  <ulink url="http://www.gphoto.org/">http://www.gphoto.org/</ulink>,
-	  <ulink url="http://www.gphoto.org/gphoto2/cli.html">http://www.gphoto.org/gphoto2/cli.html</ulink>
+	  <!--xref linkend="using-gphoto2"/-->
+	  <ulink url="http://www.gphoto.org/">http://www.gphoto.org/</ulink>
       </para>
     </refsect1>
 
