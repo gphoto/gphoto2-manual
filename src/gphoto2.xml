@@ -1522,8 +1522,8 @@ usb:                             Universal Serial Bus
 	  for each and every package? No problem. Use gphoto-meta.
 	  You just have to run one script which fetches and updates
 	  all required packages from CVS, fetches some build tools if
-	  necessary and then builds and all software packages in the
-	  correct sequence.
+	  necessary and then builds and installs all software packages
+	  in the correct sequence.
 	</simpara>
       </abstract>
       <screen>
