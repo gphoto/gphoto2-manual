@@ -14,8 +14,8 @@ else
 fi
 AC_SUBST(XML_CATALOG_FILES)
 
-XML_DEBUG_CATALOG=0
-AC_SUBST(XML_DEBUG_CATALOG)
+#XML_DEBUG_CATALOG=0
+#AC_SUBST(XML_DEBUG_CATALOG)
 
 manual_msg="no (http://cyberelk.net/tim/xmlto/)"
 try_xmlto=true
@@ -29,7 +29,7 @@ if $try_xmlto; then
 	if test -n "${XMLTO}"; then
 		have_xmlto=true
 		manual_msg="yes"
-		XMLTO="env XML_CATALOG_FILES=\"${XML_CATALOG_FILES}\" XML_DEBUG_CATALOG=${XML_DEBUG_CATALOG} ${XMLTO} -m \$(top_srcdir)/src/xsl/docbook-params.xsl"
+		XMLTO="env XML_CATALOG_FILES=\"${XML_CATALOG_FILES}\" ${XMLTO} -m \$(top_srcdir)/src/xsl/docbook-params.xsl"
         else
                 # in case anybody runs $(XMLTO) somewhere, we return false
                 XMLTO=false
