@@ -234,6 +234,7 @@ fi
 
 AM_CONDITIONAL(XMLTOHTML,$have_xmltohtml)
 AM_CONDITIONAL(XMLTOMAN,$have_xmltoman)
+AM_CONDITIONAL(XMLTOTXT,$have_xmltotxt)
 AM_CONDITIONAL(XMLTOPDF,$have_xmltopdf)
 AM_CONDITIONAL(XMLTOPS,$have_xmltops)
 
