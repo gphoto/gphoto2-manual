@@ -1331,7 +1331,10 @@ Saving file as MVI_5418.AVI                                                     
 	  </question>
 	  <answer>
 	    <simpara>I don't know what stow is, but have a look at 
-	      <ulink url="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=553647&amp;group_id=8874&amp;atid=108874">#553647</ulink>.
+	      <!--ulink url="-->
+	      https://sourceforge.net/tracker/index.php?func=detail&amp;aid=553647&amp;group_id=8874&amp;atid=108874"
+	      Sourceforge bug #553647
+	      <!--/ulink-->.
 	    </simpara>
 	  </answer>
 	</qandaentry>
@@ -2733,7 +2736,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	</affiliation>
       </editor>
 
-      <date>February 2002</date>
+      <date>September 2004</date>
     </refentryinfo>
 
     <refmeta>
@@ -3031,7 +3034,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  <listitem>
 	    <para>Recursion (default for download).</para>
 	  </listitem>
-	</varlistentry>
+	</varlistentry>	
 
 	<varlistentry>
 	  <term><option>--no-recurse</option></term>
@@ -3415,8 +3418,9 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
         <para><xref linkend="ref-gphoto2-cli"/>,
           <xref linkend="ref-libgphoto2_port"/>,
 	  &themanual;,
-	  the automatically generated <acronym>API</acronym> docs,
-          <ulink url="http://www.gphoto.org/">http://www.gphoto.org/</ulink> 
+	  automatically generated <acronym>API</acronym> docs,
+          <ulink url="http://www.gphoto.org/">gphoto website</ulink>
+	  .
       </para>
     </refsect1>
 
@@ -3475,9 +3479,10 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
         <title>See also</title>
         <para><xref linkend="ref-libgphoto2"/>,
           &themanual;,
-          <ulink url="http://www.gphoto.org/">http://www.gphoto.org/</ulink>,
-	  the automatically generated <acronym>API</acronym> docs,
-          <ulink url="http://libusb.sourceforge.net/">http://libusb.sourceforge.net/</ulink>
+          <ulink url="http://www.gphoto.org/">gphoto website</ulink>,
+	  automatically generated <acronym>API</acronym> docs,
+          <ulink url="http://libusb.sourceforge.net/">libusb website</ulink>
+	  .
         </para>
       </refsect1>
     </refentry>
