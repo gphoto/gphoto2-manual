@@ -7,6 +7,9 @@ html_DATA = index.html
 index.html: $(gphoto2xml)
 	$(XMLTO) html -o . $<
 
+# FIXME: We should calculate relative paths for the symlinks
+#       OK, admittedly you can work around absolute symlinks
+#       by giving configure cleverly designed path names, but still...
 install-data-local: index.html
 	$(INSTALL_DATA) *.html $(DESTDIR)$(htmldir)/
 	cd $(DESTDIR)$(htmldir) && rm -f figures && $(LN_S) -f $(figuredir) figures
