@@ -11,6 +11,7 @@ index.html: $(gphoto2xml)
 #       OK, admittedly you can work around absolute symlinks
 #       by giving configure cleverly designed path names, but still...
 install-data-local: index.html
+	$(INSTALL) -d $(DESTDIR)$(htmldir)/
 	$(INSTALL_DATA) *.html $(DESTDIR)$(htmldir)/
 	cd $(DESTDIR)$(htmldir) && rm -f figures && $(LN_S) -f $(figuredir) figures
 	cd $(DESTDIR)$(htmldir) && rm -f screenshots && $(LN_S) -f $(screenshotsdir) screenshots
@@ -19,6 +20,7 @@ uninstall-local:
 	rm -f $(DESTDIR)$(htmldir)/*.html
 	rm -f $(DESTDIR)$(htmldir)/figures
 	rm -f $(DESTDIR)$(htmldir)/screenshots
+	-rmdir $(DESTDIR)$(htmldir)
 
 else
 
