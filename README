@@ -37,7 +37,7 @@ Web site build instruction:
 If your local copy of the gphoto website CVS module is in $(pwd)/../website,
 just run
 
-	./configure --with-xhtml-dir=$(pwd)/../website/doc/manual
-	make -C src/xhtml clean install
+	./configure --with-html-dir=$(pwd)/../website/doc/manual
+	make -C src/html clean install
 
 to rebuild the manual for the website.
