@@ -5,10 +5,10 @@
                 version='1.0'>
 
   <xsl:param name="use.id.as.filename" select="'1'"/>
-  <xsl:param name="make.valid.html"    select="true"/>
-  <xsl:param name="navig.graphics"     select="true"/>
-  <xsl:param name="chapter.autolabel"  select="true"/>
-  <xsl:param name="section.autolabel"  select="true"/>
-  <xsl:param name="section.label.includes.component.label" select="true"/>
+  <xsl:param name="make.valid.html"    select="'1'"/>
+  <xsl:param name="navig.graphics"     select="'0'"/>
+  <xsl:param name="chapter.autolabel"  select="'1'"/>
+  <xsl:param name="section.autolabel"  select="'1'"/>
+  <xsl:param name="section.label.includes.component.label" select="'1'"/>
 
 </xsl:stylesheet>
