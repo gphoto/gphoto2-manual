@@ -34,7 +34,7 @@ E.g., you may use something like
 	./configure --prefix=$PWD/tmp \
 		--with-doc-dir=$HOME/web/gphoto2-manual \
 		--enable-maintainer-mode \
-		--with-doc-formats=man,html,txt,pdf
+		--with-doc-formats=man,html,txt
 	make install
 
 And BTW, you can build in a different directory if you wish.
