@@ -90,6 +90,14 @@ About this file:
     <title>About this document</title>
     <subtitle>Mission statement, history and options for the future</subtitle>
 
+    <epigraph>
+      <attribution>Calvin, in one of Bill Watterson's <quote>Calvin and Hobbes</quote> comic strips</attribution>
+      <para>
+	The purpose of writing is to inflate weak ideas, obscure poor
+	reasoning, and inhibit clarity.
+      </para>      
+    </epigraph>
+
     <para>
       This document is called <quote>&docname;</quote>. You can get it
       from the gphoto homepage, found in at least one of these places:
