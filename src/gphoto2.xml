@@ -168,12 +168,12 @@ About this file:
       <para>
 	The editors want to thank all those who gave us feedback and
 	suggestions about this manual, including (but not limited to)
-	<!-- UNCOMMENT THIS LIST IF YOU HAVE A FEW MORE NAMES
-	(names in alphabetical occurence, list surely is not complete):
-	-->
+
 	Mikko Hänninen, 
 	Andreas Klemm,
+	Matthias Schuendehuette,
 	Cosmin Stroe,
+
 	and all the others whom we didn't list here (mail us if
 	you want your name mentioned here).
       </para>
@@ -1767,7 +1767,7 @@ usb:                             Universal Serial Bus
             </para>
 
 	    <para>
-	      On most of the modern<footnote id="FN-how-to-find-out-about-usb.usermap">
+	      Many of the modern<footnote id="FN-how-to-find-out-about-usb.usermap">
 		<simpara>FIXME: how can you determine whether a
 		specific system is "modern" in this sense? If you know
 		how, please tell us.</simpara>
@@ -1798,7 +1798,9 @@ usb:                             Universal Serial Bus
 	    <para>
 	      However, if your distribution is an older one which
 	      still wants you to modify 
-	      <filename>/etc/hotplug/usb.usermap</filename>, read on.
+	      <filename>/etc/hotplug/usb.usermap</filename>, or if modifying
+	      <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable>.usermap</filename>
+	      hasn't been enough, read on.
 	    </para>	      
 
             <para>
