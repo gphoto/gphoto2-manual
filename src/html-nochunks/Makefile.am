@@ -9,8 +9,8 @@ gphoto2.html: $(gphoto2xml)
 
 install-data-local:
 	$(INSTALL) -d $(DESTDIR)$(htmlnochunksdir)
-	(cd $(DESTDIR)$(htmlnochunksdir) && [ ! -L figures ]) || (rm -f figures && $(LN_S) -f $(figuredir) figures)
-	(cd $(DESTDIR)$(htmlnochunksdir) && [ ! -L screenshots ]) || (rm -f screenshots && $(LN_S) -f $(screenshotsdir) screenshots)
+	cd $(DESTDIR)$(htmlnochunksdir) && ( [ -d figures ] || (rm -f figures && $(LN_S) -f $(figuredir) figures))
+	cd $(DESTDIR)$(htmlnochunksdir) && ( [ -d screenshots ] || (rm -f screenshots && $(LN_S) -f $(screenshotsdir) screenshots))
 
 uninstall-local:
 	rm -f $(DESTDIR)$(htmlnochunksdir)/figures

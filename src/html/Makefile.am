@@ -13,8 +13,8 @@ index.html: $(gphoto2xml)
 install-data-local: index.html
 	$(INSTALL) -d $(DESTDIR)$(htmldir)/
 	$(INSTALL_DATA) *.html $(DESTDIR)$(htmldir)/
-	(cd $(DESTDIR)$(htmldir) && [ ! -L figures ]) || (rm -f figures && $(LN_S) -f $(figuredir) figures)
-	(cd $(DESTDIR)$(htmldir) && [ ! -L screenshots ]) || (rm -f screenshots && $(LN_S) -f $(screenshotsdir) screenshots)
+	cd $(DESTDIR)$(htmldir) && ( [ -d figures ] || (rm -f figures && $(LN_S) -f $(figuredir) figures))
+	cd $(DESTDIR)$(htmldir) && ( [ -d screenshots ] || (rm -f screenshots && $(LN_S) -f $(screenshotsdir) screenshots))
 
 uninstall-local:
 	rm -f $(DESTDIR)$(htmldir)/*.html
