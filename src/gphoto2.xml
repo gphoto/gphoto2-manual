@@ -2354,7 +2354,8 @@ Saving file as MVI_5418.AVI                                                     
 		      <para>Both of these menu items open a dialog to confirm the 
 			deletion of the photos. A list of photos is presented with 
 			a checkbox beside each photo name. Uncheck the box to 
-			prevent a specific file from being deleted.</para>		    </listitem>
+			prevent a specific file from being deleted.</para>
+		    </listitem>
 		  </varlistentry>
 		</variablelist>
 
@@ -2758,6 +2759,13 @@ Saving file as MVI_5418.AVI                                                     
 	      </term>
 	      <listitem>
 		<para>I'm not sure what this should contain. Anyone? - mjr</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/rt_click_list_man.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
 		<sidebar>
 		  <para>FIXME: need useful image</para>
 		</sidebar>
@@ -2790,14 +2798,7 @@ Saving file as MVI_5418.AVI                                                     
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para>Selects the camera FIXME: what does this really do??</para>
-		<screenshot>
-		  <mediaobject>
-		    <imageobject>
-		      <imagedata fileref="screenshots/gtkam/cam_driver.png" format="PNG"/>
-		    </imageobject>
-		  </mediaobject>
-		</screenshot>
+		<para>Opens the Add Camera dialog.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2847,6 +2848,13 @@ Saving file as MVI_5418.AVI                                                     
 	      </term>
 	      <listitem>
 		<para>Presents file name, type, size, date and permissions information about the image under the cursor.</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/rt_click_list_info.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
