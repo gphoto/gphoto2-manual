@@ -1339,8 +1339,10 @@ usb:                             Universal Serial Bus
 
 	<note>
 	  <simpara>
-	    This primarily deals with FreeBSD 5 for now, but
-	    updates for other BSD systems will follow.
+	    This primarily deals with FreeBSD 5 for now as I don't
+            have any other BSD system to test, but either these
+            instructions will also help for other BSD systems or 
+            updates will follow.
 	  </simpara>
 	</note>
 
@@ -1447,17 +1449,40 @@ usb:                             Universal Serial Bus
   <!-- =========================================================== --> 
   <!-- =========================================================== --> 
   
-  <!--
   <chapter id="compilation">
     <title>Compiling and installing</title>
 
-    <sect1>
+    <sect1 id="compilation-overview">
+      <title>Overview, requirements and dependencies</title>
+      <figure id="software-dependencies">
+	<title>Software dependencies</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="figures/software-dependencies.png"
+	      format="PNG"/>
+	  </imageobject>
+	  <imageobject>
+	    <imagedata fileref="figures/software-dependencies.ps"
+	      format="PS"/>	    
+	  </imageobject>
+	  <imageobject>
+	    <imagedata fileref="figures/software-dependencies.jpg"
+	      format="JPG"/>
+	  </imageobject>
+	  <imageobject>
+	    <imagedata fileref="figures/software-dependencies.svg"
+	      format="SVG"/>
+	  </imageobject>
+	</mediaobject>
+      </figure>
+    </sect1>
+
+    <sect1 id="compilation-from-cvs">
       <title>Starting from CVS</title>
       <screen></screen>
     </sect1>
 
   </chapter>
-  -->
 
   <!-- =========================================================== --> 
   <!-- =========================================================== --> 
