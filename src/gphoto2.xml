@@ -1892,7 +1892,9 @@ Saving file as MVI_5418.AVI                                                     
 	</author>
 	<editor>
 	  <firstname>Michael</firstname>
-	  <othername>J.</othername>
+	  <!-- FIXME: workaround for bug in xmlto man 
+	    <othername>J.</othername>
+	  -->
 	  <surname>Rensing</surname>
 	  <affiliation>
 	    <address><email>michael.rensing@shaw.ca</email></address>
