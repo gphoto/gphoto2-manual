@@ -75,7 +75,7 @@ AC_REQUIRE([GP_CHECK_FIG2DEV])
 AC_REQUIRE([GP_CHECK_DOCBOOK_XML])
 AC_REQUIRE([GP_CHECK_TR])
 
-gphoto2xml='$(top_srcdir)/src/gphoto2.xml $(top_srcdir)/src/libgphoto2-faq.xml $(top_srcdir)/src/libgphoto2-FAQ'
+gphoto2xml='$(top_srcdir)/src/gphoto2.xml $(top_srcdir)/src/libgphoto2-usage-faq.xml $(top_srcdir)/src/install-faq.xml'
 AC_SUBST(gphoto2xml)
 
 dnl ---------------------------------------------------------------------------
@@ -221,7 +221,7 @@ AC_ARG_WITH(doc_formats,
   [                            'all' build all doc formats; ]
   [                            possible formats are: ]
   [                            man, html, ps, pdf ],
-  doc_formats="$withval", doc_formats="man html txt")
+  doc_formats="$withval", doc_formats="man html txt pdf")
 
 if test "$doc_formats" = "all"; then
   doc_formats=$doc_formats_list
