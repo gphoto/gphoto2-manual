@@ -1463,7 +1463,7 @@ ugen1: Canon Inc. Canon Digital Camera, rev 1.10/0.01, addr 2
 		  <screen>
 
 /sbin/devfs rule add path 'ugen1*' mode 666
-		  <screen>
+		  </screen>
 		</listitem>
 	      </orderedlist>
 	    </listitem>
