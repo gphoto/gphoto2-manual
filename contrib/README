@@ -1,0 +1,9 @@
+This contrib/ directory contains some scripts which may or
+may not be useful for people building and dealing with
+gphoto2-manual.
+
+They are not closely related to gphoto2-manual, and they make only
+work on a specific machine.
+
+The idea is that people can get ideas from these scripts on how to
+facilitate their tasks.
