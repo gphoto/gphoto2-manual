@@ -3,3 +3,11 @@ This is
    The gPhoto2 Manual
 
 More info in a few (days).
+
+Until then, this is work in progress which doesn't work yet. :-)
+
+Details:
+
+- no build system yet
+- pathes not yet adapted to directory structure
+- etc. pp.
