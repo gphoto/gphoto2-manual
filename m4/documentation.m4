@@ -74,6 +74,8 @@ AC_REQUIRE([GP_CHECK_GTK_DOC])
 AC_REQUIRE([GP_CHECK_FIG2DEV])
 AC_REQUIRE([GP_CHECK_DOCBOOK_XML])
 AC_REQUIRE([GP_CHECK_TR])
+AC_REQUIRE([GP_CHECK_PSTOIMG])
+AC_REQUIRE([GP_CHECK_DOT])
 
 gphoto2xml='$(top_srcdir)/src/gphoto2.xml $(top_srcdir)/src/libgphoto2-usage-faq.xml $(top_srcdir)/src/install-faq.xml'
 AC_SUBST(gphoto2xml)
