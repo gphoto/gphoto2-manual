@@ -76,6 +76,7 @@ AC_REQUIRE([GP_CHECK_DOCBOOK_XML])
 AC_REQUIRE([GP_CHECK_TR])
 AC_REQUIRE([GP_CHECK_PSTOIMG])
 AC_REQUIRE([GP_CHECK_DOT])
+AC_REQUIRE([GP_CHECK_W3M])
 
 gphoto2xml='$(top_srcdir)/src/gphoto2.xml'
 AC_SUBST(gphoto2xml)
@@ -245,9 +246,47 @@ else
   AC_MSG_RESULT([deactivated (requires xmlto)])
 fi
 
+# Make sure that xmltopdf actually works
+if $have_xmltopdf; then
+	AC_MSG_CHECKING([whether pdf creation works])
+	oldcwd="$(pwd)"
+	top_srcdir() { echo "$srcdir"; }
+	mkdir test-pdf
+	cd test-pdf
+	cat>test-db.xml<<EOF
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+ "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+<book id="foobook">
+	<bookinfo>
+		<title>Foo Title</title>
+	</bookinfo>
+	<chapter id="foochapter">
+		<title>Foo Chapter</title>
+		<para>
+			Foo bar blah blah
+		      <!--ulink url="https://www.hypothetical-url.invalid/with&amp;ersand">ampersand</ulink-->.
+		</para>
+	</chapter>
+</book>
+EOF
+	${PURE_XMLTO} pdf -o . test-db.xml --searchpath ..
+	if test -s test-db.pdf; then
+		AC_MSG_RESULT([yes, look at $(pwd)/test-db.pdf to verify])
+	else
+		if $have_xmltopdf; then
+			AC_MSG_ERROR([PDF creation requested, but failed. See $(pwd) ...])
+		else
+			AC_MSG_RESULT([no, but not requested])
+		fi
+	fi
+	cd "$oldcwd"
+	unset top_srcdir
+fi
+
 AM_CONDITIONAL(XMLTOHTML,$have_xmltohtml)
 AM_CONDITIONAL(XMLTOMAN,$have_xmltoman)
 AM_CONDITIONAL(XMLTOTXT,$have_xmltotxt)
+AM_CONDITIONAL(XMLTOTXT2,$have_xmltotxt && $have_w3m)
 AM_CONDITIONAL(XMLTOPDF,$have_xmltopdf)
 AM_CONDITIONAL(XMLTOPS,$have_xmltops)
 
