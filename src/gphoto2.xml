@@ -236,8 +236,12 @@ About this file:
 	    For information on how to use a USB mass storage
 	    camera with Linux, see the
 	    <ulink
-		   url="http://www.tldp.org/HOWTO/USB-Digital-Camera-HOWTO/">USB Digital Camera HOWTO</ulink>
-	    (which is more a USB mass storage camera HOWTO).
+	    url="http://www.tldp.org/HOWTO/USB-Digital-Camera-HOWTO/">USB Digital Camera HOWTO</ulink>
+	    (which is more a USB mass storage camera HOWTO). There is
+	    another nice description at the
+	    <ulink
+	     url="http://digikam.sourceforge.net/docs.html#q3">digicam
+	     web site</ulink>.
 	  </para>
 	</important>
       </listitem>
@@ -756,7 +760,12 @@ Saving file as MVI_5418.AVI                                                     
 		    We will not support cameras in USB mass storage
 		    mode. Your operating system already has drivers for
 		    these. Just use the cameras like you would use a USB disk
-		    drive or USB flash disk.
+		    drive or USB flash disk. See the
+		    <ulink
+		    url="http://www.tldp.org/HOWTO/USB-Digital-Camera-HOWTO/">USB Digital Camera HOWTO</ulink>
+		    and the <ulink
+		    url="http://digikam.sourceforge.net/docs.html#q3">digicam
+		    web site</ulink>.
 		  </simpara>
 		</listitem>
 	      </varlistentry>
@@ -2880,7 +2889,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  </listitem>
 	</varlistentry>
 
-	<varlistentry>
+	<varlistentry id="gphoto2-cli--list-cameras">
 	  <term><option>--list-cameras</option></term>
 	  <listitem>
 	    <para>List supported camera models.</para>
@@ -2919,7 +2928,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  <term><option>--port</option> <replaceable>PATH</replaceable></term>
 	  <listitem>
 	      <para>Specify port device. The 
-		<link linkend="gphoto2-cli--list-ports"><option>--list-ports</link> 
+		<link linkend="gphoto2-cli--list-ports"><option>--list-ports</option></link> 
 		prints a list of valid, usable ports.
 	      </para>
 	  </listitem>
@@ -2937,7 +2946,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  <listitem>
 	    <para>
 		Specify camera model. The 
-		<link linkend="gphoto2-cli--list-cameras"><option>--list-cameras</link> 
+		<link linkend="gphoto2-cli--list-cameras"><option>--list-cameras</option></link> 
 		option prints a list of all explicitly supported cameras.
 	    </para>
 	    <para>
