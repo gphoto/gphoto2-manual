@@ -184,72 +184,193 @@ About this file:
     <para>What you need:</para>
     <orderedlist>
       <listitem>
-	<para>A camera</para>
+	<para>A camera and whatever cables (serial RS232, USB, ...) 
+	  you need to connect your camera to your computer</para>
 	<para>A list of currently supported cameras is maintained
 	  at 
 	  <ulink url="http://www.teaser.fr/~hfiguiere/linux/digicam.html">http://www.teaser.fr/~hfiguiere/linux/digicam.html</ulink>
 	</para>
+	<important>
+	  <para>
+	    If you want to use a camera using the USB mass storage
+	    protocol, libgphoto2 will not help you. Your operating
+	    system already contains an USB mass storage driver, so
+	    there is no need to write another one.
+	  </para>
+	  <para>
+	    For information on how to use a USB mass storage
+	    camera with Linux, see the
+	    <ulink
+		   url="http://www.tldp.org/HOWTO/USB-Digital-Camera-HOWTO/">USB Digital Camera HOWTO</ulink>
+	    (which is more a USB mass storage camera HOWTO).
+	  </para>
+	</important>
       </listitem>
       <listitem>
-	<para>A computer running a Unix-like operating system:</para>
+	<para>A computer with the right kind of port (serial RS232,
+	  USB, ...) running a Unix-like operating system:</para>
 	<itemizedlist>
 	  <listitem>
-	    <para>BSD (FreeBSD, OpenBSD, NetBSD, ...)</para>
+	    <simpara>BSD (FreeBSD, OpenBSD, NetBSD, ...)</simpara>
 	  </listitem>
 	  <listitem>
-	    <para>Linux (RedHat 7.3, SuSE 8.x, Mandrake 8.x, 
-	      Debian 3.0 Woody, Debian Unstable Sid, Gentoo, ...)</para>
+	    <simpara>Linux (RedHat 7.3, SuSE 8.x, Mandrake 8.x, 
+	      Debian 3.0 Woody, Debian Unstable Sid, Gentoo, ...)</simpara>
 	  </listitem>
 	  <listitem>
-	    <para>OS/2 (yes, there is an OS/2 port, and there are
-	      people who use gphoto2 2.1.0 under OS/2)</para>
+	    <simpara>OS/2 (yes, there is an OS/2 port, and there are
+	      people who use gphoto2 2.1.0 under OS/2)</simpara>
 	  </listitem>
 	  <listitem>
-	    <para>MacOS X (several people are working on that, exact
-	      status is unknown as of 2002-10-16)</para>
+	    <simpara>MacOS X (several people are working on that, exact
+	      status is unknown as of 2002-10-16)</simpara>
 	  </listitem>
 	  <listitem>
-	    <para>FIXME: Is there a list somewhere, or can we get
-	      contributions of verified OS's?</para>
+	    <simpara>FIXME: Is there a list somewhere, or can we get
+	      contributions of verified OS's?</simpara>
 	  </listitem>
 	</itemizedlist>
-	<para>For USB cameras, your OS must be supported by
+	<para>
+	  The hardware architecture (x86, PowerPC, Sparc ) doesn't
+	  matter. Or at least, it shouldn't.
+	</para>
+	<para>
+	  For USB cameras, your Unix OS must be supported by
 	  <systemitem class="library">libusb</systemitem>. At
 	  2002-08-29, this is the case for Linux 2.2 and 2.4, FreeBSD
-	  and OpenBSD.
+	  and OpenBSD. FIXME: Is the USB support for OS/2 independent
+	  of libusb?
 	</para>
       </listitem>
+
       <listitem>
-	<para>libgphoto2 software and some libgphoto2 frontend</para>
-	<itemizedlist>
-	  <listitem>
-	    <para>source tarballs - require mainly make and a C compiler</para>
-	  </listitem>
-	  <listitem>
-	    <para>CVS sources - require several special build tools
-	      (automake, autoconf, gettext, libtool), possibly in special
-	      versions</para>
-	  </listitem>
-	  <listitem>
-	    <para>(binary) packages for your system 
-	      (RPMs, DEBs, ports, ebuilds, whatever) - this is
-	      the easiest way to install the software for most people
-	    </para>
-	  </listitem>
-	  <listitem>
-	    <para>FIXME: Need improved descriptions and lists of
-	      various forms of source code and binaries.</para>
-	  </listitem>
-	</itemizedlist>
+	<para>libgphoto2, some libgphoto2 frontend and (if you want to
+	  use USB cameras) libusb
+	</para>
+
+	<variablelist>
+	  <title>libgphoto2 frontends</title>
+	  <varlistentry>
+	    <term>gphoto2</term>
+	    <listitem>
+	      <simpara>
+		Official command line interface (CLI) frontend.
+		Simple command line interface and kind of a reference
+		implementation. This libgphoto2 frontend i very useful
+		for debugging camera drivers and other problems.
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>gtkam</term>
+	    <listitem>
+	      <simpara>	   
+		Official GUI frontend using GTK+ 2.
+		Shows
+		thumbnails of pictures on the camera, and supports
+		upload, download, capturing of pictures.
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>gnocam</term>
+	    <listitem>
+	      <simpara>
+		The Gnome VFS interface.
+		Still has to be ported to Gnome 2. 
+		Volunteers are welcome.
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>kamera</term>
+	    <listitem>
+	      <simpara>
+		The KDE IO slave interface.
+		FIXME: URL, words, info
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>digikam</term>
+	    <listitem>
+	      <simpara>
+		3rd party software available from 
+		<ulink url="http://digikam.sourceforge.net/">http://digikam.sourceforge.net/</ulink>.
+		Digikam is a standalone KDE frontend.
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>flPhoto</term>
+	    <listitem>
+	      <simpara>
+		3rd party software available from 
+		<ulink url="http://www.easysw.com/~mike/flphoto/">http://www.easysw.com/~mike/flPhoto/</ulink>.
+		FLTK-based frontend for gPhoto called
+		"flphoto" which provides some nice functionality
+		beyond the current GTK-based frontend.  Aside from
+		downloading images from a camera, you can also
+		"import" you existing files on disk, adjust/transform
+		the images, print them, and do slideshows.  The final
+		version will also offer a web export to a directory or
+		uploaded to a web server.
+	      </simpara> 
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+
+	<variablelist>
+	  <title>Available software formats</title>
+	  <varlistentry>
+	    <term>source tarballs</term>
+	    <listitem>
+	      <simpara>
+		Building requires mainly make and a C compiler.
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>CVS sources</term>
+	    <listitem>
+	      <simpara>
+		Building requires several special build tools
+		(automake, autoconf, gettext, libtool), possibly even 
+		in specialversions
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>system-specific packages</term>
+	    <listitem>
+	      <simpara>
+		As packages are specifically created for your system,
+		this is probably the easiest way to install the
+		software.
+		Packages for your system can be source packages or
+		binary packages, depending on your system. 
+		They have names like RPM (Redhat, SuSE), DEB (Debian),
+		port (BSD), ebuild (Gentoo). 
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>FIXME</term>
+	    <listitem>
+	      <simpara>Need improved descriptions and lists of
+		various forms of source code and binaries.</simpara>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
       </listitem>
-      <listitem>
-	<para>Whatever cables you need to connect your camera to your computer.</para>
-      </listitem>
-      <listitem>
+
+      <!--listitem>
 	<para>FIXME: What else do you need to get
 	  started?</para>
-      </listitem>
+      </listitem-->
+
     </orderedlist>
+
   </chapter>
 
   <!-- =========================================================== --> 
@@ -280,9 +401,10 @@ About this file:
       first. 
     </para>
 
-    <para>FIXME: We need examples using <acronym>RS232</acronym>
-      cameras, gtkam and the gphoto2 shell.</para>
-
+    <para>
+      FIXME: We need examples using <acronym>RS232</acronym>
+      cameras and the gphoto2 shell.
+    </para>
 
     <sect1 id="using-gtkam">
       <title>Using gtkam</title>
@@ -318,7 +440,12 @@ About this file:
 	    line should start the application.</para>
 	</listitem>
       </orderedlist>
-      <para>If all is well, and your camera has been added previously, you should see your camera listed in the left frame with a plus sign in a box to the left.</para>
+
+      <para>
+	If all is well, and your camera has been added previously, you
+	should see your camera listed in the left frame with a plus
+	sign in a box to the left.
+      </para>
 
       <screenshot>
 	<mediaobject>
@@ -1020,7 +1147,7 @@ Saving file as MVI_5418.AVI                                                     
               <para>
                 As <acronym>USB</acronym> works with auto detection, you do not have to specify a device
                 file. Therefore you just use the gphoto2 port 
-                <systemitem class="resource">usb:</systemitem>.
+		<systemitem class="resource">usb:</systemitem>.
               </para>
             </listitem>
           </varlistentry>
@@ -2798,26 +2925,6 @@ Saving file as MVI_5418.AVI                                                     
 	    produce.
 	  </simpara>
         </listitem>
-      </varlistentry>
-      <varlistentry>
-	<term><ulink url="http://digikam.sourceforge.net/">http://digikam.sourceforge.net/</ulink></term>
-	<listitem>
-	  <simpara>Digikam is a standalon KDE frontend.</simpara>
-	</listitem>
-      </varlistentry>
-      <varlistentry>
-	<term><ulink url="http://www.easysw.com/~mike/flphoto/">http://www.easysw.com/~mike/flphoto/</ulink></term>
-	<listitem>
-	  <simpara>
-	    FLTK-based frontend for gPhoto called
-	    "flphoto" which provides some nice functionality beyond the current
-	    GTK-based frontend.  Aside from downloading images from a camera,
-	    you can also "import" you existing files on disk, adjust/transform
-	    the images, print them, and do slideshows.  The final version will
-	    also offer a web export to a directory or uploaded to a
-	    web server.
-	  </simpara>
-	</listitem>
       </varlistentry>
       <varlistentry>
 	<term><ulink url="http://www.teaser.fr/~hfiguiere/linux/digicam.html">http://www.teaser.fr/~hfiguiere/linux/digicam.html</ulink></term>
