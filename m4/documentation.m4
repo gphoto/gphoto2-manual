@@ -161,6 +161,29 @@ else
 fi
 AC_SUBST(psdir)
 
+AC_ARG_WITH(figure-dir, [  --with-figure-dir=PATH      Where to install figures [default=autodetect]])
+AC_MSG_CHECKING([for figure dir])
+if test "x${with_figure_dir}" = "x" ; then
+    figuredir="${DOC_DIR}/figures"
+    AC_MSG_RESULT([${figuredir} (default)])
+else
+    figuredir="${with_figure_dir}"
+    AC_MSG_RESULT([${figuredir} (from parameter)])
+fi
+AC_SUBST(figuredir)
+
+AC_ARG_WITH(screenshots-dir, [  --with-screenshots-dir=PATH      Where to install screenshotss [default=autodetect]])
+AC_MSG_CHECKING([for screenshots dir])
+if test "x${with_screenshots_dir}" = "x" ; then
+    screenshotsdir="${DOC_DIR}/screenshots"
+    AC_MSG_RESULT([${screenshotsdir} (default)])
+else
+    screenshotsdir="${with_screenshots_dir}"
+    AC_MSG_RESULT([${screenshotsdir} (from parameter)])
+fi
+AC_SUBST(screenshotsdir)
+screenshotsgtkamdir="${screenshotsdir}/gtkam"
+AC_SUBST(screenshotsgtkamdir)
 
 doc_formats_list='man html ps pdf'
 
