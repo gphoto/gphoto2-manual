@@ -2344,10 +2344,35 @@ Saving file as MVI_5418.AVI                                                     
 	<term><ulink url="http://n-dimensional.de/projects/digicam/">http://n-dimensional.de/projects/digicam/</ulink></term>
 	<listitem>
 	  <simpara>Hans Ulrich Niedermann's home page (one of the
-	    developers), with current issues of &docname;,
-	    daily CVS snapshot tarballs and patches, and packages
+	    developers), with current issues of 
+	    <ulink url="http://n-dimensional.de/projects/digicam/The_gPhoto2_Manual/">&docname;</ulink>, 
+	    daily CVS snapshot 
+	    <ulink url="http://n-dimensional.de/projects/digicam/software/snapshots/">tarballs</ulink> 
+	    and 
+	    <ulink url="http://n-dimensional.de/projects/digicam/software/snapshots/patches/">patches</ulink>, 
+	    and 
+	    <ulink url="http://n-dimensional.de/projects/digicam/software/">packages</ulink>
 	    which are updated from time to time.
 	  </simpara>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><ulink url="http://aamot.org/ole/photography.html">http://aamot.org/ole/photography.html</ulink></term>
+	<listitem>
+	  <simpara>Ole Aamot's page about "Using Digital Still Photography Devices with GNU/Linux". The next two links were stolen from there.</simpara>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><ulink url="http://www.deater.net/weave/vmwprod/agfa/">http://www.deater.net/weave/vmwprod/agfa/</ulink></term>
+	<listitem>
+	  <simpara>Vince's page about support of Agfa cameras</simpara>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><ulink url="http://www.jedi.com/obiwan/linux-digicam.html">http://www.jedi.com/obiwan/linux-digicam.html</ulink></term>
+	<listitem>
+	  <simpara>Obi-Wan's page about "Supporting a Canon S110 Elph Digital Camera under Debian Linux
+(with a review of the camera and sample photos)"</simpara>
 	</listitem>
       </varlistentry>
     </variablelist>
