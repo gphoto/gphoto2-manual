@@ -58,32 +58,34 @@ About this file:
     <title>&themanual;</title>
     <pubdate>$Date$</pubdate>
     <authorgroup>
-      <author>
+      <!--author>
         <firstname>The gPhoto2</firstname>
         <surname>Team</surname>
-      </author>
-      <editor>
+      </author-->
+      <!--+
+          | some people's mail addresses commented out because they
+          | currently don't seem to be active
+          +-->
+      <author>
         <firstname>Tim</firstname>
         <surname>Waugh</surname>
-        <affiliation>
-	  <address><email>twaugh@redhat.com</email></address>
-	</affiliation>
-      </editor>
-      <editor>
+	<email>twaugh@redhat.com</email>
+      </author>
+      <author>
         <firstname>Hans Ulrich</firstname>
         <surname>Niedermann</surname>
-        <affiliation>
-	  <address><email>gp@n-dimensional.de</email></address>
-	</affiliation>
-      </editor>
-      <editor>
+	<lineage>current maintainer</lineage>
+	<email>gp@n-dimensional.de</email>
+      </author>
+      <author>
 	<firstname>Michael</firstname>
 	<othername>J.</othername>
 	<surname>Rensing</surname>
-	<affiliation>
-	  <address><email>michael.rensing@shaw.ca</email></address>
-	</affiliation>
-      </editor>
+	<email>michael.rensing@shaw.ca</email>
+      </author>
+      <othercredit>
+	<honorific>Miscellanous Contributors</honorific>
+      </othercredit>
     </authorgroup>
   </bookinfo>
  
@@ -4377,7 +4379,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 
 <!--
 Local Variables:
-mode: xml
+mode: nxml
 sgml-indent-data: t
 End:
 -->
