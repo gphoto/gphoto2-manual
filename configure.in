@@ -9,6 +9,13 @@ Makefile
 m4/Makefile
 src/Makefile
 src/css/Makefile
+src/html/Makefile
+src/html-nochunks/Makefile
+src/xhtml/Makefile
+src/xhtml-nochunks/Makefile
+src/pdf/Makefile
+src/ps/Makefile
+src/man/Makefile
 src/figures/Makefile
 src/screenshots/Makefile
 src/screenshots/gtkam/Makefile
