@@ -32,7 +32,9 @@ About this file:
 <!--DOCTYPE qandaset PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" 
   "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd"-->
 
-<qandaset>
+<qandadiv id="FAQ-generic">
+
+  <title>Generic libgphoto2 FAQs (frontend-independent)</title>
 
   <qandaentry id="FAQ-library-revision">
     <question>
@@ -352,4 +354,4 @@ kernel: usbdevfs: USBDEVFS_BULK failed dev 3 ep 0x81 len 64 ret -110
     </answer>
   </qandaentry>
 
-</qandaset>
+</qandadiv>
