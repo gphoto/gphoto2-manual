@@ -2933,6 +2933,14 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	     the shell knows it is one parameter.  For example:
 	     <userinput><option>--camera</option> "Kodak
 	     DC240"</userinput>.</para>
+	      <para>Note that if you specify 
+		<userinput><option>--camera</option></userinput>, you
+		must also specify
+		<userinput><option>--port</option></userinput>. 
+		Otherwise the 
+		<userinput><option>--camera</option></userinput>
+		option will be silently ignored.
+	      </para>
 	  </listitem>
 	</varlistentry>
 
