@@ -6,15 +6,30 @@
   version="1.0">
 
   <xsl:param name="use.id.as.filename" select="1"/>
+
+  <!-- make valid HTML (with DTD and stuff) -->
   <xsl:param name="make.valid.html"    select="1"/>
+
+  <!-- location of CSS stylesheet for HTML files -->
+  <xsl:param name="html.stylesheet"    select="'../../styles.css'"/>
+  
+  <!-- use navigation graphics? -->
   <xsl:param name="navig.graphics"     select="0"/>
+
+  <!-- automatically enumerate and label chapters/sections? -->
   <xsl:param name="chapter.autolabel"  select="1"/>
   <xsl:param name="section.autolabel"  select="1"/>
+
+  <!-- -->
+  <xsl:param name="section.label.includes.component.label" select="1"/>
+
+  <!-- generate text in English -->
   <xsl:param name="l10n.gentext.language" select="'en'"/>
-  <xsl:param name="section.label.includes.component.label" select="0"/>
-  <xsl:param name="html.stylesheet"    select="'../../styles.css'"/>
+
+  <!-- -->
   <xsl:param name="qanda.inherit.numeration" select="1"/>
 
+  <!-- HTML page header -->
   <xsl:template name="user.header.navigation">
     <xsl:param name="node"/>
     <!-- ==================================================================
