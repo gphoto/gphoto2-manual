@@ -1,4 +1,5 @@
 *~ .*~
+config.h.in
 *.bak
 Makefile
 Makefile.in
