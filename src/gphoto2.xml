@@ -1459,15 +1459,16 @@ usb:                             Universal Serial Bus
 	<simpara>
 	  This section wants to give you an overview about software
 	  packages, software requirements and the dependencies between
-	  them. This should make you able to decide what packages you
-	  have to install and in what sequence.
+	  them. It should prepare you for the decision what packages
+	  you want to install and what sequence.
 	</simpara>
       </abstract>
       <para>
 	As you can see in 
 	<xref linkend="software-dependencies"/>,
 	multiple software packages are required for using digital
-	cameras. 
+	cameras. If you find this picture a little complicated, then
+	you may want to consider using pre-compiled binary packages.
       </para>
       <figure id="software-dependencies">
 	<title>Software dependencies</title>
@@ -1489,17 +1490,42 @@ usb:                             Universal Serial Bus
 	      format="SVG"/>
 	  </imageobject>
 	</mediaobject>
+	<synopsis>
+	  Arrows mean <quote>required for</quote>, dashed lines mean
+	  <quote>can optionally be used with</quote>.
+	</synopsis>
       </figure>
       <para>
-	Nowadays, most people will want to have gphoto2 and
-	gtkam for use with USB cameras delivering EXIF images. So
-	you'll have to compile libexif, libusb, libgphoto2, gphoto2,
-	and gtkam.
+	Nowadays, most people will want to use gphoto2 on the command
+	line and the gtkam GUI with contemporary USB cameras
+	delivering EXIF images. So you'll have to get and compile
+	libexif, libusb, libgphoto2, gphoto2, and gtkam.
+      </para>
+      <para>
+	You can see that this quite some work to do. This is why we
+	created gphoto-meta, which lets you build everything in just
+	one step. Continue reading in 
+	<xref linkend="compile-gphoto-meta"/> 
+	for a quick demonstration of gphoto-meta. If you want to do
+	everything manually, skip that chapter and continue with
+	<xref linkend="compilation-from-cvs"/>.
       </para>
     </sect1>
 
-    <sect1>
-      <title>Using CVS code via gphoto-meta</title>
+    <sect1 id="compile-gphoto-meta">
+      <title>Using CVS sources via gphoto-meta</title>
+      <abstract>
+	<simpara>
+	  Fed up with typing 
+	  <command>cvs up &amp;&amp; ./autogen.sh &amp;&amp;
+	    ./configure &amp;&amp; make install</command> 
+	  for each and every package? No problem. Use gphoto-meta.
+	  You just have to run one script which fetches and updates
+	  all required packages from CVS, fetches some build tools if
+	  necessary and then builds and all software packages in the
+	  correct sequence.
+	</simpara>
+      </abstract>
       <screen>
 <prompt>&prompt;</prompt><userinput>cvs -d :pserver:anonymous@cvs.sourceforge.net:/cvsroot/gphoto login</userinput>
 <computeroutput>Logging in to :pserver:anonymous@cvs.sourceforge.net:2401/cvsroot/gphoto
@@ -1573,11 +1599,77 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<filename class="directory"><replaceable>$HOME/root</replaceable></filename>
 	directory.
       </para>
+      <para>
+	If you want to update an existing installation of gphoto-meta,
+	you run the following to update your packages:
+      </para>
+      <screen>
+<prompt>&mprompt;</prompt><userinput>cvs up</userinput>
+<computeroutput><replaceable>output snipped</replaceable></computeroutput>
+<prompt>&mprompt;</prompt><userinput>./bootstrap.sh --tools --update</userinput>
+<computeroutput><replaceable>output snipped</replaceable></computeroutput>
+<prompt>&mprompt;</prompt>
+      </screen>
+      <para>
+	Run <command>compileinstall.sh</command> if you want to
+	install the newly created packages somewhere.
+      </para>
+      
     </sect1>
 
     <sect1 id="compilation-from-cvs">
       <title>Starting from CVS</title>
-      <screen></screen>
+      <para>
+	First find out what software packages you want. Fetch all
+	these software packages with the packages they depend on,
+	according to <xref linkend="software-dependencies"/>.
+      </para>
+      <para>
+	You can get these programs via CVS. Detailed instructions
+	are available from the project pages (
+	<ulink url="http://sf.net/projects/libusb">libusb</ulink>,
+	<ulink url="http://sf.net/projects/libexif">libexif</ulink>,
+	<ulink url="http://sf.net/projects/gphoto">gphoto</ulink>).
+      </para>
+      <para>
+	All the software modules libusb, libexif, libexif-gtk, exif,
+	gexif, libgphoto2, gphoto2, and gtkam use an automake-based
+	build system. This build system has to be initialized before
+	you can use it in the 
+	<command>./configure &amp;&amp; make &amp;&amp; make install</command>
+	manner you know.
+      </para>
+      <para>
+	This initialization requires a few specialized build tools
+	like <command>libtoolize</command>,
+	<command>gettextize</command> and 
+	<command>pkg-config</command>. Make sure you have these
+	installed. Then run the
+	<command>./autogen.sh</command> script contained in each of
+	the CVS modules which does the build system initialization for
+	you.
+      </para>
+      <note>
+	<simpara>If <command>autogen.sh</command> (or rather 
+	  the <command>gettextize</command> script it calls) asks you
+	  to acknowledge a few paragraphs and press
+	  <keysym>enter</keysym>, just press <keysym>enter</keysym>.
+	  <command>autogen.sh</command> already does the setup for you.	 
+	</simpara>
+      </note>
+      <para>
+	When the build system of all modules is initialized, you can
+	start configuring and building the source, as described in
+	<xref linkend="configure-make-install"/>
+      </para>
+    </sect1>
+
+    <sect1 id="configure-make-install">
+      <title>Configuring, building, and installing</title>
+      <para>
+	WRITEME :-P (PKG_CONFIG_PATH, ./configure, make, make
+	install, /etc/ld.so.conf, LD_LIBRARY_PATH, PATH, yadda yadda)
+      </para>
     </sect1>
 
   </chapter>
