@@ -8,6 +8,7 @@ AC_OUTPUT([
 Makefile
 m4/Makefile
 src/Makefile
+src/css/Makefile
 src/figures/Makefile
 src/screenshots/Makefile
 src/screenshots/gtkam/Makefile
