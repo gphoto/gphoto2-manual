@@ -731,9 +731,10 @@ Saving file as MVI_5418.AVI                                                     
             </para>
 	    <note>
 	      <para>
-		In older versions of gphoto2/libgphoto2 (up to and
-		including 2.1.0), the functionality of
-		<filename>packaging/linux-hotplug/print-usb-usermap</filename> 
+		In older versions of gphoto2 (gphoto2 2.0, gphoto2
+		2.1.0, and the CVS versions in between and shortly
+		after 2.1.0), the functionality of
+		<filename>packaging/linux-hotplug/print-usb-usermap</filename>
 		was contained in the command 
 		<command>gphoto <parameter>--print-usb-usermap</parameter></command>.
 	      </para>
