@@ -1,5 +1,3 @@
-# $Id$
-
 CLEANFILES = *.pdf *.eps *.ps *.png *.jpg
 
 EXTRA_DIST = architecture.fig libgphoto2-api.fig libgphoto2-camlib.fig libgphoto2_port.fig gphotofs.fig
