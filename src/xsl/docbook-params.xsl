@@ -29,6 +29,9 @@
   <!-- -->
   <xsl:param name="qanda.inherit.numeration" select="1"/>
 
+  <!-- obfuscate mail address -->
+  <xsl:param name="obfuscate-email-address" select="true()"/>
+
   <!-- HTML page header -->
   <xsl:template name="user.header.navigation">
     <xsl:param name="node"/>
