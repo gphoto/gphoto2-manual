@@ -150,6 +150,17 @@ else
 fi
 AC_SUBST(txtdir)
 
+AC_ARG_WITH(man-dir, [  --with-man-dir=PATH      Where to install man docs [default=autodetect]])
+AC_MSG_CHECKING([for man dir])
+if test "x${with_man_dir}" = "x" ; then
+    manmandir="${docdir}/man"
+    AC_MSG_RESULT([${manmandir} (default)])
+else
+    manmandir="${with_man_dir}"
+    AC_MSG_RESULT([${manmandir} (from parameter)])
+fi
+AC_SUBST(manmandir)
+
 AC_ARG_WITH(pdf-dir, [  --with-pdf-dir=PATH      Where to install pdf docs [default=autodetect]])
 AC_MSG_CHECKING([for pdf dir])
 if test "x${with_pdf_dir}" = "x" ; then
