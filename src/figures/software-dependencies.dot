@@ -1,0 +1,68 @@
+/* software-dependencies.dot
+ * dependency graph of the software from the gphoto and libexif
+ * projects
+ */
+
+digraph "software dependencies" {
+
+	/* end user programs (frontends) */
+	{
+		rank=same;
+		node [shape=box];
+		gphoto2;gtkam;
+		exif;gexif;
+	}
+
+	/* external libraries */
+	{
+		rank=same;
+		node [shape=polygon,skew=.4];
+		libgtk; libpopt;
+	}
+	
+	/* colors */
+
+	/* software from gphoto project */
+	gphoto2 [style=filled,color=".7 .3 1.0"];
+	gtkam [style=filled,color=".7 .3 1.0"];
+	libgphoto2 [style=filled,color=".7 .3 1.0"];
+
+	/* software from libexif project */
+	exif [style=filled,color=".0 .3 1.0"];
+	gexif [style=filled,color=".0 .3 1.0"];
+	libexif [style=filled,color=".0 .3 1.0"];
+	libmnote [style=filled,color=".0 .3 1.0"];
+	libexifgtk [style=filled,color=".0 .3 1.0"];
+
+	/* naming */
+	libexifgtk [label="libexif-gtk"];
+	libgtk [label="libgtk-2.0"];
+	libusb [label="libusb\n(required for\nUSB cameras)"];
+	
+	/* software from libusb project */
+	libusb [style=filled,color=".3 .3 .9"];
+
+	/* edges */
+	/* dashed edges denote optional stuff */
+	libgtk -> gexif;
+	libexifgtk -> gexif;
+
+	libmnote -> libexif [style=dashed];
+
+	libgtk -> libexifgtk;
+	libexif -> libexifgtk;
+
+	libpopt -> exif;
+	libexif -> exif;
+
+	libexif -> libgphoto2 [style=dashed];
+	libusb -> libgphoto2 [style=dashed];
+
+	libgphoto2 -> gtkam;
+	libexif -> gtkam [style=dashed];
+	libgtk -> gtkam;
+
+	libpopt -> gphoto2 [style=dashed];
+	libexif -> gphoto2 [style=dashed];
+	libgphoto2 -> gphoto2;
+}
