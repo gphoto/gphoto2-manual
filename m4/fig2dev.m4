@@ -18,6 +18,7 @@ if $try_fig2dev; then
 	fi
 fi
 if $have_fig2dev; then
+	AC_SUBST(FIG2DEV)
         ${FIG2DEV} -L ps > /dev/null <<EOF
 #FIG 3.2
 Landscape
