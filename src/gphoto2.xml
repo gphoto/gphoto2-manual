@@ -28,8 +28,8 @@ About this file:
 <?xml-stylesheet type="text/css" href="css/docbook-xml.css"?>
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
-"http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
-<!-- "file:///usr/share/sgml/docbook/dtd/xml/4.2/docbookx.dtd" [ -->
+"file:///usr/share/sgml/docbook/dtd/xml/4.2/docbookx.dtd" [
+<!-- "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [ -->
 
 
 
@@ -43,6 +43,7 @@ About this file:
 <!ENTITY host "host">
 <!ENTITY promptdir "~">
 <!ENTITY prompt "&user;@&host;:&promptdir;$ ">
+<!ENTITY mprompt "&user;@&host;:&promptdir;/gphoto-meta$ ">
 <!ENTITY rprompt "&host;:~# ">
 
 <!-- external FAQ files -->
@@ -1454,6 +1455,20 @@ usb:                             Universal Serial Bus
 
     <sect1 id="compilation-overview">
       <title>Overview, requirements and dependencies</title>
+      <abstract>
+	<simpara>
+	  This section wants to give you an overview about software
+	  packages, software requirements and the dependencies between
+	  them. This should make you able to decide what packages you
+	  have to install and in what sequence.
+	</simpara>
+      </abstract>
+      <para>
+	As you can see in 
+	<xref linkend="software-dependencies"/>,
+	multiple software packages are required for using digital
+	cameras. 
+      </para>
       <figure id="software-dependencies">
 	<title>Software dependencies</title>
 	<mediaobject>
@@ -1475,6 +1490,89 @@ usb:                             Universal Serial Bus
 	  </imageobject>
 	</mediaobject>
       </figure>
+      <para>
+	Nowadays, most people will want to have gphoto2 and
+	gtkam for use with USB cameras delivering EXIF images. So
+	you'll have to compile libexif, libusb, libgphoto2, gphoto2,
+	and gtkam.
+      </para>
+    </sect1>
+
+    <sect1>
+      <title>Using CVS code via gphoto-meta</title>
+      <screen>
+<prompt>&prompt;</prompt><userinput>cvs -d :pserver:anonymous@cvs.sourceforge.net:/cvsroot/gphoto login</userinput>
+<computeroutput>Logging in to :pserver:anonymous@cvs.sourceforge.net:2401/cvsroot/gphoto
+CVS password:</computeroutput><userinput><keycap>ENTER</keycap></userinput>
+<prompt>&prompt;</prompt><userinput>cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/gphoto co gphoto-meta</userinput>
+<computeroutput>co gphoto-meta
+cvs server: Updating gphoto-meta
+U gphoto-meta/.htaccess
+U gphoto-meta/.htfixupload
+U gphoto-meta/AUTHORS
+U gphoto-meta/ChangeLog
+U gphoto-meta/Makefile.am
+U gphoto-meta/NEWS
+U gphoto-meta/README
+U gphoto-meta/autogen.sh
+U gphoto-meta/bootstrap.sh
+U gphoto-meta/build-tool-list
+U gphoto-meta/clean.sh
+U gphoto-meta/compileinstall.sh
+U gphoto-meta/configure.in
+U gphoto-meta/cvs-module-list
+U gphoto-meta/cvs-module-list-candidates
+U gphoto-meta/gettextize.patch
+U gphoto-meta/upload-dist
+cvs server: Updating gphoto-meta/utils
+U gphoto-meta/utils/Makefile.am
+U gphoto-meta/utils/common.sh
+</computeroutput><prompt>&prompt;</prompt><userinput>cd gphoto-meta</userinput>
+<prompt>&mprompt;</prompt><userinput>./bootstrap.sh --tools</userinput>
+<computeroutput><replaceable>a few 10000 lines deleted</replaceable></computeroutput>
+<computeroutput>##########################################################################
+# Installed test versions of everything into $HOME/gphoto-meta/dist-root
+# You may want to set the following variables to use the gphoto suite
+# installed there:
+##########################################################################
+export PATH="$HOME/gphoto-meta/dist-root/bin:$HOME/gphoto-meta/tool-root/bin:$PATH"
+export LD_LIBRARY_PATH="$HOME/gphoto-meta/dist-root/lib:$HOME/gphoto-meta/tool-root/lib:"
+export PKG_CONFIG_PATH="$HOME/gphoto-meta/dist-root/lib/pkgconfig:/usr/lib/pkgconfig"
+########################################################################
+#> cd $HOME/gphoto-meta/dist-files
+Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
+ really work, run
+      $HOME/gphoto-meta/compileinstall.sh</computeroutput>
+<prompt>&mprompt;</prompt>
+      </screen>
+      <para>
+	That's it :-) Read the last few lines. If you just want to
+	use what you just compiled, then just execute the three export
+	statements given:
+      </para>
+      <screen>
+<prompt>&mprompt;</prompt><userinput>export PATH="$HOME/gphoto-meta/dist-root/bin:$HOME/gphoto-meta/tool-root/bin:$PATH"</userinput>
+<prompt>&mprompt;</prompt><userinput>export LD_LIBRARY_PATH="$HOME/gphoto-meta/dist-root/lib:$HOME/gphoto-meta/tool-root/lib:"</userinput>
+<prompt>&mprompt;</prompt><userinput>export PKG_CONFIG_PATH="$HOME/gphoto-meta/dist-root/lib/pkgconfig:/usr/lib/pkgconfig"</userinput>
+      </screen>
+      <para>
+	However, if you want to install the software into another
+	directory (called 
+	<filename class="directory"><replaceable>$HOME/root</replaceable></filename>
+	here), then use <command>compileinstall.sh</command>:
+      </para>
+      <screen>
+<prompt>&mprompt;</prompt><userinput>./compileinstall.sh <replaceable>$HOME/root</replaceable></userinput>
+<computeroutput><replaceable>another few 10000 lines deleted</replaceable></computeroutput>
+<prompt>&mprompt;</prompt><userinput>export PATH=<replaceable>$HOME/root</replaceable>/bin:$PATH</userinput>
+<prompt>&mprompt;</prompt><userinput>export LD_LIBRARY_PATH=<replaceable>$HOME/root</replaceable>/lib:$LD_LIBRARY_PATH</userinput>
+<prompt>&mprompt;</prompt>
+      </screen>
+      <para>
+	You now have installed everything into the 
+	<filename class="directory"><replaceable>$HOME/root</replaceable></filename>
+	directory.
+      </para>
     </sect1>
 
     <sect1 id="compilation-from-cvs">
