@@ -2885,7 +2885,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  </listitem>
 	</varlistentry>
 
-	<varlistentry>
+	<varlistentry id="gphoto2-cli--list-ports">
 	  <term><option>--list-ports</option></term>
 	  <listitem>
 	    <para>List supported port devices.</para>
@@ -2916,7 +2916,10 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<varlistentry>
 	  <term><option>--port</option> <replaceable>PATH</replaceable></term>
 	  <listitem>
-	    <para>Specify port device.</para>
+	      <para>Specify port device. The 
+		<link linkend="gphoto2-cli--list-ports"><option>--list-ports</link> 
+		prints a list of valid, usable ports.
+	      </para>
 	  </listitem>
 	</varlistentry>
 
@@ -2930,7 +2933,13 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<varlistentry>
 	  <term><option>--camera</option> <replaceable>MODEL</replaceable></term>
 	  <listitem>
-	    <para>Specify camera model.  Most model names contain
+	    <para>
+		Specify camera model. The 
+		<link linkend="gphoto2-cli--list-cameras"><option>--list-cameras</link> 
+		option prints a list of all explicitly supported cameras.
+	    </para>
+	    <para>
+	     Most model names contain
 	     spaces: remember to enclose the name in quotes so that
 	     the shell knows it is one parameter.  For example:
 	     <userinput><option>--camera</option> "Kodak
