@@ -43,6 +43,7 @@ About this file:
 <!ENTITY prompt "&user;@&host;:&promptdir;$ ">
 <!ENTITY mprompt "&user;@&host;:&promptdir;/gphoto-meta$ ">
 <!ENTITY rprompt "&host;:~# ">
+<!ENTITY devellist "gphoto-devel@lists.sourceforge.net">
 
 <!-- external FAQ files -->
 <!ENTITY libgphoto2usagefaq SYSTEM "libgphoto2-usage-faq.xml">
@@ -437,7 +438,7 @@ About this file:
       <title>Using gtkam</title>
       <para>FIXME: gtkam docs under construction. Please report errors, 
 	omissions, and constructive suggestions about the gtkam
-	documentation to michael.rensing@shaw.ca</para>
+	documentation to <email>michael.rensing@shaw.ca</email></para>
       <abstract>
 	<para>gtkam is a graphical front end for the gphoto2 library. 
 	  It does not communicate directly with the camera, but uses gphoto2 
@@ -670,8 +671,11 @@ Saving file as MVI_5418.AVI                                                     
     <sect1 id="using-gnome">
       <title>Using Gnome VFS</title>
       <para>FIXME: We need to write this section</para>
-      <para>This still has to be ported to the new Gnome
-	2 VFS. If you can help, please contact us.</para>
+      <para>
+	This still has to be ported to the new Gnome
+	2 VFS. If you can help, please contact the developers at
+	<email>&devellist;</email>.
+      </para>
     </sect1>
 
     <sect1 id="using-kde">
@@ -960,8 +964,8 @@ usb:                             Universal Serial Bus
         <title><acronym>USB</acronym> ports on Linux</title>
 
         <para>
-          As gphoto2 provides a user space driver, in order to have gphoto2
-          access your camera, you have to disable all kernel drivers which want
+          libgphoto2 provides a user space driver for cameras, which conflicts with having a kernel driver for the camera.
+	  So in order to use libgphoto2, you have to disable all kernel drivers which want
           to handle the camera themselves (e.g. the Linux
           <systemitem class="resource">dc2xx</systemitem> or
           <systemitem class="resource">stv680</systemitem>
@@ -970,13 +974,14 @@ usb:                             Universal Serial Bus
         </para>
 
 	<para>We will not cover basic <acronym>USB</acronym> setup
-	  here. For how to get <acronym>USB</acronym> working on your
+	  in detail here. For more information on how to get 
+	  <acronym>USB</acronym> working on your
 	  hardware and your system at all, we'd like to refer you to
 	  <ulink url="http://www.linux-usb.org/USB-guide/">http://www.linux-usb.org/USB-guide/</ulink>
 	  and especially
 	  <ulink url="http://www.linux-usb.org/USB-guide/c122.html">http://www.linux-usb.org/USB-guide/c122.html</ulink>
 	  .
-	  This page explains the USB basics in a better way than we
+	  These pages explains the USB basics in a better way than we
 	  could do.
 	</para>
 
@@ -1024,15 +1029,16 @@ usb:                             Universal Serial Bus
         </para>
 
 	<note>
-	  <para>The fact that we are using the name <quote><replaceable>&usbcam;</replaceable></quote> for
+	  <para>The fact that we are using the name 
+	    <quote><replaceable>&usbcam;</replaceable></quote> for
 	    setting up permissions for gphoto2 has a reason. In fact,
 	    the permission setup you're doing here has nothing to do
 	    with gphoto2 specifically - any user space software
 	    wanting to access your USB camera will be able to make use
 	    of your camera only if the permissions are correctly set
 	    up. So I (hun) chose the identifier and script name
-	    <quote><replaceable>&usbcam;</replaceable></quote> and not <quote>gphoto2cam</quote> or
-	    somethink similar. 
+	    <quote><replaceable>&usbcam;</replaceable></quote> and 
+	    not <quote>gphoto2cam</quote> something similar. 
 	  </para>
 	</note>
 
@@ -1095,91 +1101,74 @@ usb:                             Universal Serial Bus
           </listitem>
 
           <listitem>
+            <para>
+              This step makes hotplug recognise all
+              <acronym>USB</acronym> cameras which your version
+              of <xref linkend="ref-libgphoto2"/> supports and makes
+              <command>hotplug</command> run the
+              <command><replaceable>&usbcam;</replaceable></command>
+              script you choose in 
+	      step <xref linkend="chooseusbcamscript"/> 
+	      whenever one of these cameras is attached.
+            </para>
+
 	    <para>
-FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX 
-<![CDATA[
-> SuSE peculiarity.
+	      On most of the modern (as of mid-2003) distributions,
+              you don't have to do much.
+              Just write the output of
+	      <command>/usr/lib/libgphoto2/print-usb-usermap</command>
+	      <footnote>
+		<para>
+		  In older versions of gphoto2 (gphoto2 2.0, gphoto2
+		  2.1.0, and the CVS versions in between and shortly
+		  after 2.1.0), the functionality of
+		  <command>print-usb-usermap</command>
+		  was contained in the command 
+		  <userinput>gphoto2 <parameter>--print-usb-usermap</parameter></userinput>.
+		</para>
+	      </footnote>
+              to the <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable>.usermap</filename> file:
+              <screen>
 
-SuSE 8.2 (possibly earlier) supports something like this aswell.
-/etc/hotplug/usb.agent looks for *.usermap files in the /etc/hotplug/usb/ subdirectory.
-So you can do this:
-`/usr/local/lib/libgphoto2/print-usb-usermap > /etc/hotplug/usb/gphoto2.usermap`
-or usbcam.usermap or whatever suits you.
-
-<snip id="excerpt from SuSE's usb.agent">
-# for purely user mode drivers, scripts $HOTPLUG_DIR/usb/NAME should be
-# installed with usermap files in $HOTPLUG_DIR/usb/NAME.usermap instead
-# of continuing to use/modify $MAP_USERMAP
-#
-MAP_USERMAP=$HOTPLUG_DIR/usb.usermap
-</snip>
-]]>
-FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX 
+<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-usb-usermap</userinput> > <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable>.usermap</filename>
+              </screen>
+	      That's it. Proceed with step
+	      <xref linkend="chooseusbcamscript"/>.
+            </para>
+	      
+	    <para>
+	      However, if your distribution is an older one which
+	      still wants you to modify 
+	      <filename>/etc/hotplug/usb.usermap</filename>, read on.
 	    </para>	      
+
             <para>
 	      In the file <filename>/etc/hotplug/usb.usermap</filename> 
-	      remove all lines beginning with <quote><replaceable>&usbcam;</replaceable></quote>.
+	      remove all lines beginning with 
+	      <quote><replaceable>&usbcam;</replaceable></quote>.
 	      We are going to add new lines there and don't want to
 	      have the old ones get in the way.
             </para>
+	   
 	    <para>
-              Add the output of
+	      Add the output of
 	      <command>/usr/lib/libgphoto2/print-usb-usermap</command>
-              to the <filename>/etc/hotplug/usb.usermap</filename> file:
+              to the <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable>.usermap</filename> file:
               <screen>
-# EITHER this
-<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-usb-usermap</userinput> >> <filename>/etc/hotplug/usb.usermap</filename>
+
+<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-usb-usermap</userinput> >> <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable>.usermap</filename>
               </screen>
-            </para>
-	    <note>
-	      <para>
-		In older versions of gphoto2 (gphoto2 2.0, gphoto2
-		2.1.0, and the CVS versions in between and shortly
-		after 2.1.0), the functionality of
-		<command>print-usb-usermap</command>
-		was contained in the command 
-		<userinput>gphoto2 <parameter>--print-usb-usermap</parameter></userinput>.
-	      </para>
-	    </note>
-	    <formalpara>
-	      <title>Debian peculiarity</title>
-	      <para>
-		Debian uses a well-structured method for setting up
-		linux-hotplug. You should use this mechanism in
-		order to enjoy its benefits.
-
-		Instead of modifying
-		<filename>/etc/hotplug/usb.usermap</filename>
-		directly, we set up a special file
-		<filename>/usr/lib/hotplug/libgphoto2/usb.usermap</filename> 
-		and let Debian's <command>update-usb.usermap</command>
-		script update the
-		<filename>/etc/hotplug/usb.usermap</filename> file:
-		<screen>
-
-# This is only for Debian, OK?
-<prompt>&rprompt;</prompt><userinput>mkdir <parameter>/usr/lib/hotplug/libgphoto2</parameter></userinput>
-<prompt>&rprompt;</prompt><userinput>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap > <filename>/usr/lib/hotplug/libgphoto2/usb.usermap</filename></userinput>
-<prompt>&rprompt;</prompt><userinput>update-usb.usermap</userinput>
-		</screen>
-	      </para>
-	    </formalpara>
-            <para>
-              This makes hotplug recognise all <acronym>USB</acronym> cameras which your version 
-              of <xref linkend="ref-libgphoto2"/> supports and makes
-              <command>hotplug</command> run the
-              <command><replaceable>&usbcam;</replaceable></command> script you choose in step
-              <xref linkend="chooseusbcamscript"/> whenever one of these
-              cameras is attached.
             </para>
           </listitem>
 
           <listitem id="chooseusbcamscript">
+
             <para>
               Choose the right 
               <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename>
               script for you.
 	    </para>
+
 	    <para>
               Example scripts are found in 
               <filename class="directory">packaging/linux-hotplug/</filename> 
@@ -1188,24 +1177,41 @@ FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME
               <filename class="directory">linux-hotplug/</filename>
               after installation.
 	    </para>
-	    <para>Choose a script which fits your requirements best,
+
+	    <para>
+	      Choose a script which fits your requirements best,
 	      adapt it for your needs, and copy it to the file
 	      <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename>.
-	      The directory 
-              <filename class="directory">/etc/hotplug</filename>
-              should already exists, whereas it may be that you have
-              to create the directory 
-              <filename class="directory">/etc/hotplug/usb</filename>.
 	      The script <emphasis>must</emphasis> be called
 	      <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename>, not
 	      <filename>/etc/hotplug/usb/usbcam.user</filename> or
 	      something similar.
             </para>
+
             <para>
-              All three scripts shipped with gPhoto2 also have extensive
+              All the scripts shipped with gPhoto2 also have extensive
               commentary explaining their usage in more detail.
             </para>
+
             <variablelist>
+
+              <varlistentry>
+                <term><filename>usbcam.group</filename></term>
+                <listitem>
+                  <simpara>
+                    If you want multiple users to have access to the
+                    camera, add all of these users to one group -
+                    either a special group 
+                    <systemitem class="groupname">camera</systemitem>
+                    or a generic group 
+                    <systemitem class="groupname">users</systemitem>
+                    will do - and use that group in 
+                    <filename>usbcam.group</filename>. 
+                    There is a specially marked line in
+                    the script you have to change.</simpara>
+                </listitem>
+              </varlistentry>
+
               <varlistentry>
                 <term><filename>usbcam.console</filename></term>
                 <listitem>
@@ -1224,6 +1230,7 @@ FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME
                   </simpara>
                 </listitem>
               </varlistentry>
+
               <varlistentry>
                 <term><filename>usbcam.user</filename></term>
                 <listitem>
@@ -1235,22 +1242,7 @@ FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME
                   </simpara> 
                 </listitem>
               </varlistentry>
-              <varlistentry>
-                <term><filename>usbcam.group</filename></term>
-                <listitem>
-                  <simpara>
-                    If you want multiple users to have access to the camera, add all
-                    of these users to one group - either a special
-                    group 
-                    <systemitem class="groupname">camera</systemitem>
-                    or a generic group 
-                    <systemitem class="groupname">users</systemitem>
-                    will do - and use that group in 
-                    <filename>usbcam.group</filename>. 
-                    There is a specially marked line in
-                    the script you have to change.</simpara>
-                </listitem>
-              </varlistentry>  
+
               <varlistentry>
                 <term><filename>usbcam.x11-app</filename></term>
                 <listitem>
@@ -1265,55 +1257,77 @@ FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME
                 </listitem>
               </varlistentry>
             </variablelist>
+
           </listitem>
 
           <listitem>
             <para>
-              Make the script file you just created and possibly adapted
-              (<filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename>,
-	      <emphasis>not</emphasis>
-	      <filename>/etc/hotplug/usb/usbcam.whatever</filename>!)
-              executable:
-            </para>
-	    <screen>
+              Make the script file executable:
+	      <screen>
 
 <prompt>&rprompt;</prompt><userinput>chmod <parameter>+x</parameter> <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename></userinput>
-	    </screen>
+	      </screen>
+	    </para>
+	    <note>
+	      <para>
+		Please do not forget that the script name is
+		<filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename>,
+		<emphasis>not</emphasis>
+		<filename>/etc/hotplug/usb/usbcam.whatever</filename>!
+	      </para>
+	    </note>
           </listitem>
 
           <listitem>
+
+	    <para>
+	      Now we are going to test your setup.
+	    </para>
+
             <para>
               Plug in the camera and switch it on. If you already did so, please
               unplug and/or switch off first. The kernel will now notice that
-              your camera has been connected and, hopefully finding no kernel
-              driver for the device, will ask hotplug to do something about it.
+              your camera has been connected and, hopefully find no kernel
+              driver for the device, and will then ask hotplug to do
+              something about the new device file.
             </para>
+
             <para>
               Hotplug will then look into 
-              <filename>/etc/hotplug/usb.usermap</filename> and find that
-              the <command><replaceable>&usbcam;</replaceable></command> script is to be called for
+              <filename>/etc/hotplug/usb/*.usermap</filename> and find that
+              the
+              <command><replaceable>&usbcam;</replaceable></command>
+	      script is to be called for
               the newly attached device. Thus
               <command>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></command> is executed,
-              hopefully setting the device permissions correctly. 
+              hopefully setting the device permissions correctly.
             </para>
-            <para>Your <filename>/var/log/messages</filename> syslog
+
+            <para>
+	      Your <filename>/var/log/messages</filename> syslog
               file will contain some messages to that effect.
             </para>
-	    <para>You will probably want to check whether the
+
+	    <para>
+	      You will probably want to check whether the
 	      respective device file has its permissions set up
 	      correctly. Have a look at 
 	      <filename class="directory">/proc/bus/usb</filename>
 	      with <userinput>ls <parameter>-lR</parameter> <parameter><filename class="directory">/proc/bus/usb</filename></parameter></userinput>. There
-	      should be at least one device file with the permissions
-	      set according to your wishes.
+	      should be at least one device file (named something like
+	      <filename class="devicefile">015</filename>) with the
+	      permissions set according to your wishes.
 	    </para>
+
           </listitem>
 
           <listitem>
+
             <para>
               Run <xref linkend="ref-gphoto2-cli"/> or any other 
               <xref linkend="ref-libgphoto2"/> frontend and enjoy:
             </para>
+
             <screen>
 
 <prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--list-ports</parameter></userinput>
@@ -1353,7 +1367,12 @@ FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME TODO XXX FIXME
 
       <sect2 id="usb-on-others">
 	<title>USB ports on other systems (BSD, MacOS X, OS/2)</title>
-	<para>FIXME: Still to be written</para>
+	<para>
+	  FIXME: This chapter is still to be written. If you know
+	  about USB on these systems and/or are willing to contribute
+	  text or hints, please contact the developers at
+	  <email>&devellist;</email>.
+	</para>
       </sect2>
 
     </sect1>
