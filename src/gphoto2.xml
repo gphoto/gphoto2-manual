@@ -29,16 +29,25 @@ About this file:
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
 "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+<!-- "file:///usr/share/sgml/docbook/dtd/xml/4.2/docbookx.dtd" [ -->
 
 
-<!ENTITY docname "The gPhoto2 Manual">
+
+<!ENTITY themanual "The gPhoto2 Manual">
 
 <!-- change name of hotplug config script here -->
 <!ENTITY usbcam "usbcam">
 
+<!-- example prompts -->
+<!ENTITY user "alice">
+<!ENTITY host "host">
+<!ENTITY promptdir "~">
+<!ENTITY prompt "&user;@&host;:&promptdir;$ ">
+<!ENTITY rprompt "&host;:~# ">
+
 <!-- external FAQ files -->
-<!ENTITY libgphoto2faq SYSTEM "libgphoto2-faq.xml">
-<!ENTITY libgphoto2FAQ SYSTEM "libgphoto2-FAQ">
+<!ENTITY libgphoto2usagefaq SYSTEM "libgphoto2-usage-faq.xml">
+<!ENTITY installfaq SYSTEM "install-faq.xml">
 
 <!-- ENTITY camera SYSTEM "api/sgml/gphoto2-camera.sgml" -->
 
@@ -50,7 +59,7 @@ About this file:
   <!-- =========================================================== --> 
 
   <bookinfo>
-    <title>&docname;</title>
+    <title>&themanual;</title>
     <pubdate>$Date$</pubdate>
     <authorgroup>
       <author>
@@ -99,7 +108,7 @@ About this file:
     </epigraph>
 
     <para>
-      This document is called <quote>&docname;</quote>. You can get it
+      This document is called <quote>&themanual;</quote>. You can get it
       from the gphoto homepage, found in at least one of these places:
       <ulink url="http://gphoto.net/">http://gphoto.net/</ulink>,
       <ulink url="http://gphoto.org/">http://gphoto.org/</ulink>,
@@ -110,7 +119,7 @@ About this file:
     <formalpara>
       <title>Mission statement</title>
       <para>
-	&docname; intends to be a comprehensive source of
+	&themanual; intends to be a comprehensive source of
 	information helping users and developers to get more value out
 	of the gPhoto2 software suite (i.e. libgphoto2, gphoto2 CLI
 	interface, gtkam). 
@@ -326,7 +335,7 @@ About this file:
 	    <listitem>
 	      <simpara>
 		3rd party software available from 
-		<ulink url="http://www.easysw.com/~mike/flphoto/">http://www.easysw.com/~mike/flPhoto/</ulink>.
+		<ulink url="http://www.easysw.com/~mike/flphoto/">http://www.easysw.com/~mike/flphoto/</ulink>.
 		FLTK-based frontend for gPhoto called
 		"flphoto" which provides some nice functionality
 		beyond the current GTK-based frontend.  Aside from
@@ -429,8 +438,8 @@ About this file:
     <sect1 id="using-gtkam">
       <title>Using gtkam</title>
       <para>FIXME: gtkam docs under construction. Please report errors, 
-	omissions, and constructive suggestions to 
-	michael.rensing@shaw.ca</para>
+	omissions, and constructive suggestions about the gtkam
+	documentation to michael.rensing@shaw.ca</para>
       <abstract>
 	<para>gtkam is a graphical front end for the gphoto2 library. 
 	  It does not communicate directly with the camera, but uses gphoto2 
@@ -475,12 +484,22 @@ About this file:
       <screenshot>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="screenshots/gtkam/gtkam.png" format="PNG"/></imageobject>
+	    <imagedata fileref="screenshots/gtkam/gtkam.png" format="PNG"/>
+	  </imageobject>
 	</mediaobject>
       </screenshot>
 
-      <para>Click on the plus sign (v.0.1.3) or the arrow (v.0.1.9) to expand the listings of directories. The number in brackets to the right of the directory name is the number of images detected in that directory.</para>
-      <para>Click on directory containing images, and you should see a listing of the images in the right frame.</para>
+      <para>
+	Click on the plus sign (v.0.1.3) or the arrow (v.0.1.9) to
+	expand the listings of directories. The number in brackets to
+	the right of the directory name is the number of images
+	detected in that directory.
+      </para>
+      <para>
+	Click on directory containing images, and you should see a
+	listing of the images in the right frame.
+      </para> 
+
       <screenshot>
 	<mediaobject>
 	  <imageobject>
@@ -510,7 +529,7 @@ About this file:
 	your computer:
       </para>
       <screen>
-<prompt>$uli@machine:~$ </prompt><command>gphoto2 <parameter>--list-ports</parameter></command>
+<prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--list-ports</parameter></userinput>
 <computeroutput>Devices found: 4
 Path                             Description
 --------------------------------------------------------------
@@ -518,7 +537,7 @@ serial:/dev/ttyS0                Serial Port 0
 serial:/dev/ttyS2                Serial Port 2                   
 serial:/dev/ttyS3                Serial Port 3                   
 usb:                             Universal Serial Bus	  </computeroutput>
-<prompt>uli@machine:~$ </prompt>
+<prompt>&prompt;</prompt>
       </screen>
       <para>
 	In this example, we see that we have the three serial devices
@@ -540,12 +559,13 @@ usb:                             Universal Serial Bus	  </computeroutput>
 	<acronym>RS232</acronym> cameras help me on this issue?)
       </para>
       <screen>
-<prompt>uli@machine:~$ </prompt><command>gphoto2 <parameter>--auto-detect</parameter></command>
+<prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--auto-detect</parameter></userinput>
 <computeroutput>Model                          Port                                             
 ----------------------------------------------------------
 Canon PowerShot G2             usb:            </computeroutput>
-<prompt>uli@machine:~$ </prompt>
+<prompt>&prompt;</prompt>
       </screen>
+
       <para>
 	In this case, a camera called 
 	<quote>Canon PowerShot G2</quote> is connected
@@ -556,13 +576,13 @@ Canon PowerShot G2             usb:            </computeroutput>
 	OK, so now let's see what we can find out about the camera:
       </para>
       <screen>
-<prompt>uli@machine:~$ </prompt><command>gphoto2 <parameter>--summary</parameter></command>
+<prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--summary</parameter></userinput>
 <computeroutput>Detected a 'Canon PowerShot G2'.                                                
 Camera Summary:
 
 Camera identification:
   Model: Canon PowerShot G2
-  Owner: Hans Ulrich Niedermann
+  Owner: Alice Smith
 
 Power status: on battery (power OK)
 
@@ -573,11 +593,11 @@ Flash disk information:
 
 Time: 2002-07-09 20:45:15 (host time +0 seconds)
 </computeroutput>
-<prompt>uli@machine:~$ </prompt>
+<prompt>&prompt;</prompt>
       </screen>
       <para>
 	The actual result of 
-	<command>gphoto2 <parameter>--summary</parameter></command>
+	<userinput>gphoto2 <parameter>--summary</parameter></userinput>
 	may be different from camera to camera. However, we can see that
 	<command>gphoto2</command> obviously can talk to the camera, and
 	we get some information about the camera.
@@ -589,7 +609,7 @@ Time: 2002-07-09 20:45:15 (host time +0 seconds)
 	stored there:
       </para>
       <screen>
-<prompt>uli@machine:~$ </prompt><command>gphoto2 <parameter>--list-files</parameter></command>
+<prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--list-files</parameter></userinput>
 <computeroutput>Detected a 'Canon PowerShot G2'.                                                
 There are no files in folder '/'.
 There are no files in folder '/DCIM'.
@@ -599,7 +619,7 @@ There are 4 files in folder '/DCIM/154CANON':
 #3     IMG_5416.JPG               rd    31 KB image/jpeg
 #4     MVI_5418.AVI               rd   682 KB video/x-msvideo
 There are no files in folder '/DCIM/CANONMSC'.</computeroutput>
-<prompt>uli@machine:~$ </prompt>
+<prompt>&prompt;</prompt>
       </screen>
       <para>
 	There are multiple folders on the camera, and there are several
@@ -615,7 +635,7 @@ There are no files in folder '/DCIM/CANONMSC'.</computeroutput>
 	that:
       </para>
       <screen>
-<prompt>uli@machine:~/tmp$ </prompt><command>gphoto2 <parameter>--get-all-files</parameter></command>
+<prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--get-all-files</parameter></userinput>
 <computeroutput>Detected a 'Canon PowerShot G2'.                                                
 Downloading 'CRW_5417.CRW' from folder '/DCIM/154CANON'...
 Saving file as CRW_5417.CRW                                                     
@@ -625,11 +645,11 @@ Downloading 'IMG_5416.JPG' from folder '/DCIM/154CANON'...
 Saving file as IMG_5416.JPG                                                     
 Downloading 'MVI_5418.AVI' from folder '/DCIM/154CANON'...
 Saving file as MVI_5418.AVI                                                     </computeroutput>
-<prompt>uli@machine:~/tmp$ </prompt>
+<prompt>&prompt;</prompt>
       </screen>
       <para>
 	And now we have all the files in our current directory (in
-	this case ~/tmp) and can do something with them.
+	this case in directory <filename class="directory">&promptdir;</filename>) and can do something with them.
       </para>
 
       <para>
@@ -656,28 +676,36 @@ Saving file as MVI_5418.AVI                                                     
     </sect1>
 
   </chapter>
- 
+
   <!-- =========================================================== --> 
   <!-- =========================================================== --> 
   <!-- =========================================================== --> 
 
   <chapter id="FAQ">
     <title>Frequently Asked Questions (FAQ)</title>
+
     <sect1 id="FAQ-generic">
       <title>Generic libgphoto2 FAQs (frontend-independent)</title>
-      &libgphoto2faq;
+      &libgphoto2usagefaq;
     </sect1>
+
+    <sect1 id="FAQ-install">
+      <title>Installation FAQs</title>
+      &installfaq;
+    </sect1>
+
     <!--
     FAQ-gphoto2 (CLI)
     FAQ-gtkam
     FAQ-devel
     -->
-    <sect1 id="FAQ-unsorted">
+
+    <!--sect1 id="FAQ-unsorted">
       <title>Unsorted FAQs</title>
       <para>The following questions and answers still have to be worked
 	over:</para>
       &libgphoto2FAQ;
-    </sect1>
+    </sect1-->
   </chapter>
  
   <!-- =========================================================== --> 
@@ -770,24 +798,25 @@ Saving file as MVI_5418.AVI                                                     
       </para>
 
       <para>
-	You can use the <command>gphoto2 --list-ports</command>
+	You can use the 
+	<userinput>gphoto2 <parameter>--list-ports</parameter></userinput>
 	command to check whether you have permissions to access a
 	certain device:
       </para>
 
       <screen>
-<prompt>alice@machine:~$ </prompt><userinput>gphoto2 --list-ports</userinput>
+<prompt>&prompt;</prompt><userinput>gphoto2 --list-ports</userinput>
 <computeroutput>Devices found: 2
 Path                             Description
 --------------------------------------------------------------
 serial:/dev/ttyS0                Serial Port 0                   
 usb:                             Universal Serial Bus            
 </computeroutput>
-<prompt>alice@machine:~$ </prompt>
+<prompt>&prompt;</prompt>
       </screen>
       
       <para>
-	This shows that user alice (who seems to be running the
+	This shows that user &user; (who seems to be running the
 	command) has access to the serial device 
 	<filename class="devicefile">/dev/ttyS0</filename>.
       </para>
@@ -803,9 +832,9 @@ usb:                             Universal Serial Bus
 	</para>
 
 	<screen>
-<prompt>machine:~# </prompt><userinput>ls -l <filename class="devicefile">/dev/ttyS0</filename></userinput>
+<prompt>&rprompt;</prompt><userinput>ls -l <filename class="devicefile">/dev/ttyS0</filename></userinput>
 <computeroutput>crw-rw----    1 root     dialout    4,  64 Jul  5 12:05 /dev/ttyS0</computeroutput>
-<prompt>machine:~# </prompt>
+<prompt>&rprompt;</prompt>
 	</screen>
 
 	<para>
@@ -817,20 +846,20 @@ usb:                             Universal Serial Bus
 	<example id="ex-serial-exclusive-access">
 	  <title>Exclusive access to a serial camera for <emphasis>one</emphasis> user</title>
 	  <para>
-	    You want to give user alice exclusive access to the first
+	    You want to give user &user; exclusive access to the first
 	    serial port on your Linux machine:
 	  </para>
 	  <screen>
-<prompt>machine:~# </prompt># give alice exclusive access to the device file (you must be root)
-<prompt>machine:~# </prompt><userinput>chown alice /dev/ttyS0</userinput>
-<prompt>machine:~# </prompt><userinput>chmod 0600 /dev/ttyS0</userinput>
-<prompt>machine:~# </prompt><userinput>ls -l /dev/ttyS0</userinput>
-<computeroutput>crw-------    1 alice    dialout    4,  64 Jul  5 12:05 /dev/ttyS0</computeroutput>
-<prompt>machine:~# </prompt>
+<prompt>&rprompt;</prompt># give &user; exclusive access to the device file (you must be root)
+<prompt>&rprompt;</prompt><userinput>chown &user; /dev/ttyS0</userinput>
+<prompt>&rprompt;</prompt><userinput>chmod 0600 /dev/ttyS0</userinput>
+<prompt>&rprompt;</prompt><userinput>ls -l /dev/ttyS0</userinput>
+<computeroutput>crw-------    1 &user;    dialout    4,  64 Jul  5 12:05 /dev/ttyS0</computeroutput>
+<prompt>&rprompt;</prompt>
 	  </screen>
 	  <para>
 	    Test for access by running 
-	    <command>gphoto2 --list-ports</command>
+	    <userinput>gphoto2 <parameter>--list-ports</parameter></userinput>
 	    as the respective user. Look for
 	    <filename class="devicefile">/dev/ttyS0</filename>
 	    in the output.
@@ -841,26 +870,26 @@ usb:                             Universal Serial Bus
 	  <title>Access to serial camera for a group of users</title>
 	  
 	  <para>
-	    You could just add user alice to the group dialout, but this
+	    You could just add user &user; to the group dialout, but this
 	    will almost certainly cause confusion between dialing and
 	    using the camera. So you'd better create a group named
-	    "camera", add alice to that group and give the group access
+	    "camera", add &user; to that group and give the group access
 	    to the camera:
 	  </para>
 	  
 	  <screen>
-<prompt>machine:~# </prompt># give users in group "camera" access to this device (you must be root)
-<prompt>machine:~# </prompt><userinput>groupadd camera</userinput>
-<prompt>machine:~# </prompt><userinput>chgrp camera /dev/ttyS0</userinput>
-<prompt>machine:~# </prompt><userinput>chmod 0060 /dev/ttyS0</userinput>
-<prompt>machine:~# </prompt><userinput>ls -l /dev/ttyS0</userinput>
+<prompt>&rprompt;</prompt># give users in group "camera" access to this device (you must be root)
+<prompt>&rprompt;</prompt><userinput>groupadd camera</userinput>
+<prompt>&rprompt;</prompt><userinput>chgrp camera /dev/ttyS0</userinput>
+<prompt>&rprompt;</prompt><userinput>chmod 0060 /dev/ttyS0</userinput>
+<prompt>&rprompt;</prompt><userinput>ls -l /dev/ttyS0</userinput>
 <computeroutput>c---rw----    1 root     camera     4,  64 Jul  5 12:05 /dev/ttyS0</computeroutput>
-<prompt>machine:~# </prompt>
+<prompt>&rprompt;</prompt>
 	  </screen>
 	
 	  <para>
 	    Test for access by running 
-	    <command>gphoto2 --list-ports</command>
+	    <userinput>gphoto2 <parameter>--list-ports</parameter></userinput>
 	    as the respective user. Look for
 	    <filename class="devicefile">/dev/ttyS0</filename>
 	    in the output.
@@ -882,15 +911,15 @@ usb:                             Universal Serial Bus
 	    also make sense:
 	  </para>
 	  <screen>
-<prompt>machine:~# </prompt># give <emphasis>anybody</emphasis> access to this device (you must be root)
-<prompt>machine:~# </prompt><userinput>chmod a+rw /dev/ttyS0</userinput>
-<prompt>machine:~# </prompt><userinput>ls -l /dev/ttyS0</userinput>
+<prompt>&rprompt;</prompt># give <emphasis>anybody</emphasis> access to this device (you must be root)
+<prompt>&rprompt;</prompt><userinput>chmod a+rw /dev/ttyS0</userinput>
+<prompt>&rprompt;</prompt><userinput>ls -l /dev/ttyS0</userinput>
 <computeroutput>crw-rw-rw-    1 root     dialout    4,  64 Jul  5 12:05 /dev/ttyS0</computeroutput>
-<prompt>machine:~# </prompt>
+<prompt>&rprompt;</prompt>
 	  </screen>	  
 	  <para>
 	    Test for access by running 
-	    <command>gphoto2 --list-ports</command>
+	    <userinput>gphoto2 <parameter>--list-ports</parameter></userinput>
 	    as the respective user. Look for
 	    <filename class="devicefile">/dev/ttyS0</filename>
 	    in the output.
@@ -903,6 +932,7 @@ usb:                             Universal Serial Bus
 
     <sect1 id="permissions-usb">
       <title>Setting up permissions for <acronym>USB</acronym> ports</title>
+
       <para>
         As <acronym>USB</acronym> is designed for hotplugging of
 	devices, there is a mechanism that dynamically creates the
@@ -915,8 +945,14 @@ usb:                             Universal Serial Bus
         there have to be some helper applications.
       </para>
       <para>
-        The configuration of these helper applications is explained in the
-        following section.
+	If you are using pre-built packages (such as SuSE or Redhat
+	RPMs), these packages will already have done this
+	configuration for you.
+      </para>
+      <para>
+        If you are installing and setting up libgphoto2 yourself, then
+	the configuration of these helper applications is explained
+	for you the following section.
       </para>
 
       <!-- ================================================== -->
@@ -1017,7 +1053,7 @@ usb:                             Universal Serial Bus
           If it exists, you have a hotplug enabled kernel. If 
           <screen>
 
-<prompt>[user@system ~]$ </prompt><command>cat <parameter>/proc/sys/kernel/hotplug</parameter></command>
+<prompt>&prompt;</prompt><userinput>cat <parameter>/proc/sys/kernel/hotplug</parameter></userinput>
           </screen>
 	  prints the path to  your hotplug binary (usually 
           <command>/sbin/hotplug</command>) and this binary exists,
@@ -1048,9 +1084,9 @@ usb:                             Universal Serial Bus
 	      mount the <acronym>USB</acronym> device filesystem, i.e. e.g.
               <screen>
 
-<prompt>[root@home ~]# </prompt><command>modprobe</command> <parameter>usb-uhci</parameter>
-<prompt>[root@home ~]# </prompt><command>modprobe</command> <parameter>usb-ohci</parameter>
-<prompt>[root@home ~]# </prompt><command>mount <parameter>-t usbdevfs</parameter> <parameter>usb</parameter> <parameter>/proc/bus/usb</parameter></command>
+<prompt>&rprompt;</prompt><userinput>modprobe</userinput> <parameter>usb-uhci</parameter>
+<prompt>&rprompt;</prompt><userinput>modprobe</userinput> <parameter>usb-ohci</parameter>
+<prompt>&rprompt;</prompt><userinput>mount <parameter>-t usbdevfs</parameter> <parameter>usb</parameter> <parameter>/proc/bus/usb</parameter></userinput>
               </screen>
               Modern distributions like Redhat 7.2 handle this
               automatically if you have your <acronym>USB</acronym> hardware enabled.
@@ -1066,21 +1102,13 @@ usb:                             Universal Serial Bus
 	      We are going to add new lines there and don't want to
 	      have the old ones get in the way.
             </para>
-	    <!-- FIXME: print-usb-usermap is now installed on target
-	    system, but no gphoto2-usb.usermap file is created -->
 	    <para>
               Add the output of
-	      <command>packaging/linux-hotplug/print-usb-usermap</command>
-	      (this output is installed as
-	      <filename>/usr/share/doc/libgphoto2-VERSION/linux-hotplug/gphoto2-usb.usermap</filename>
-	      since 2.1.1dev5)
+	      <command>/usr/lib/libgphoto2/print-usb-usermap</command>
               to the <filename>/etc/hotplug/usb.usermap</filename> file:
               <screen>
-
 # EITHER this
-<prompt>[root@home ~]#</prompt><command>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap</command> >> <filename>/etc/hotplug/usb.usermap</filename>
-# OR that
-<prompt>[root@home ~]#</prompt><command>cat <parameter>/usr/share/doc/libgphoto2-VERSION/linux-hotplug/gphoto2-usb.usermap</parameter></command> >> <filename>/etc/hotplug/usb.usermap</filename>
+<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-usb-usermap</userinput> >> <filename>/etc/hotplug/usb.usermap</filename>
               </screen>
             </para>
 	    <note>
@@ -1088,9 +1116,9 @@ usb:                             Universal Serial Bus
 		In older versions of gphoto2 (gphoto2 2.0, gphoto2
 		2.1.0, and the CVS versions in between and shortly
 		after 2.1.0), the functionality of
-		<filename>packaging/linux-hotplug/print-usb-usermap</filename>
+		<command>print-usb-usermap</command>
 		was contained in the command 
-		<command>gphoto2 <parameter>--print-usb-usermap</parameter></command>.
+		<userinput>gphoto2 <parameter>--print-usb-usermap</parameter></userinput>.
 	      </para>
 	    </note>
 	    <formalpara>
@@ -1110,9 +1138,9 @@ usb:                             Universal Serial Bus
 		<screen>
 
 # This is only for Debian, OK?
-<prompt>[root@home ~]# </prompt><command>mkdir <parameter>/usr/lib/hotplug/libgphoto2</parameter></command>
-<prompt>[root@home ~]# </prompt><command>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap > <filename>/usr/lib/hotplug/libgphoto2/usb.usermap</filename></command>
-<prompt>[root@home ~]# </prompt><command>update-usb.usermap</command>
+<prompt>&rprompt;</prompt><userinput>mkdir <parameter>/usr/lib/hotplug/libgphoto2</parameter></userinput>
+<prompt>&rprompt;</prompt><userinput>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap > <filename>/usr/lib/hotplug/libgphoto2/usb.usermap</filename></userinput>
+<prompt>&rprompt;</prompt><userinput>update-usb.usermap</userinput>
 		</screen>
 	      </para>
 	    </formalpara>
@@ -1229,7 +1257,7 @@ usb:                             Universal Serial Bus
             </para>
 	    <screen>
 
-<prompt>[root@home ~]# </prompt><command>chmod <parameter>+x</parameter> <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename></command>
+<prompt>&rprompt;</prompt><userinput>chmod <parameter>+x</parameter> <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename></userinput>
 	    </screen>
           </listitem>
 
@@ -1255,7 +1283,7 @@ usb:                             Universal Serial Bus
 	      respective device file has its permissions set up
 	      correctly. Have a look at 
 	      <filename class="directory">/proc/bus/usb</filename>
-	      with <command>ls -lR /proc/bus/usb</command>. There
+	      with <userinput>ls <parameter>-lR</parameter> <parameter><filename class="directory">/proc/bus/usb</filename></parameter></userinput>. There
 	      should be at least one device file with the permissions
 	      set according to your wishes.
 	    </para>
@@ -1268,11 +1296,11 @@ usb:                             Universal Serial Bus
             </para>
             <screen>
 
-<prompt>[user@home ~]$ </prompt><command>gphoto2 <parameter>--list-ports</parameter></command>
-<prompt>[user@home ~]$ </prompt><command>gphoto2 <parameter>--auto-detect</parameter></command>
-<prompt>[user@home ~]$ </prompt><command>gphoto2 <parameter>--summary</parameter></command>
-<prompt>[user@home ~]$ </prompt><command>gphoto2 <parameter>--list-files</parameter></command>
-<prompt>[user@home ~]$ </prompt><command>gphoto2 <parameter>--get-all-images</parameter></command>
+<prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--list-ports</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--auto-detect</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--summary</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--list-files</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--get-all-images</parameter></userinput>
 	    </screen>
           </listitem>
 
@@ -1355,7 +1383,7 @@ usb:                             Universal Serial Bus
 
         <screen>
 
-<prompt>[user@home ~]$ </prompt><command>gphoto2 <parameter>--camera</parameter> <parameter>"<replaceable>Canon PowerShot G2</replaceable>"</parameter> <parameter>--list-files</parameter></command>
+<prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--camera</parameter> <parameter>"<replaceable>Canon PowerShot G2</replaceable>"</parameter> <parameter>--list-files</parameter></userinput>
         </screen>
 
 	<para>
@@ -2147,7 +2175,7 @@ usb:                             Universal Serial Bus
     <refsect1>
       <title>See also</title>
       <para><xref linkend="ref-libgphoto2"/>,
-	  &docname;,
+	  &themanual;,
         <filename path="doc/">gphoto2-cli.txt</filename>, 
 	  <ulink url="http://www.gphoto.org/">http://www.gphoto.org/</ulink>,
 	  <ulink url="http://www.gphoto.org/gphoto2/cli.html">http://www.gphoto.org/gphoto2/cli.html</ulink>
@@ -2158,25 +2186,25 @@ usb:                             Universal Serial Bus
       <title>Examples</title>
       <variablelist>
         <varlistentry>
-          <term><userinput><command>gphoto2</command> <option>--list-ports</option></userinput></term>
+          <term><userinput>gphoto2 <option>--list-ports</option></userinput></term>
           <listitem>
             <para>Shows what kinds of ports (<acronym>USB</acronym> and serial) you have.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
-          <term><userinput><command>gphoto2</command> <option>--auto-detect</option></userinput></term>
+          <term><userinput>gphoto2 <option>--auto-detect</option></userinput></term>
           <listitem>
             <para>Shows what camera(s) you have connected.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
-          <term><userinput><command>gphoto2</command> <option>--list-files</option></userinput></term>
+          <term><userinput>gphoto2 <option>--list-files</option></userinput></term>
           <listitem>
             <para>List files on camera.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
-          <term><userinput><command>gphoto2</command> <option>--get-file</option> <parameter>7-13</parameter></userinput></term>
+          <term><userinput>gphoto2 <option>--get-file</option> <parameter>7-13</parameter></userinput></term>
           <listitem>
             <para>Get files number 7 through 13 from the list output by <userinput><command>gphoto2</command> <option>--list-files</option></userinput>.</para>
           </listitem>
@@ -2199,7 +2227,7 @@ usb:                             Universal Serial Bus
     </refentryinfo>
 
     <refmeta>
-      <refentrytitle>gphoto2</refentrytitle>
+      <refentrytitle>libgphoto2</refentrytitle>
       <manvolnum>3</manvolnum>
     </refmeta>
 
@@ -2245,7 +2273,7 @@ usb:                             Universal Serial Bus
       <title>See also</title>
         <para><xref linkend="ref-gphoto2-cli"/>,
           <xref linkend="ref-libgphoto2_port"/>,
-	  &docname;,
+	  &themanual;,
 	  the automatically generated <acronym>API</acronym> docs,
           <ulink url="http://www.gphoto.org/">http://www.gphoto.org/</ulink> 
       </para>
@@ -2266,7 +2294,7 @@ usb:                             Universal Serial Bus
       </refentryinfo>
 
       <refmeta>
-        <refentrytitle>gphoto2_port</refentrytitle>
+        <refentrytitle>libgphoto2_port</refentrytitle>
         <manvolnum>3</manvolnum>
       </refmeta>
 
@@ -2305,7 +2333,7 @@ usb:                             Universal Serial Bus
       <refsect1>
         <title>See also</title>
         <para><xref linkend="ref-libgphoto2"/>,
-          &docname;,
+          &themanual;,
           <ulink url="http://www.gphoto.org/">http://www.gphoto.org/</ulink>,
 	  the automatically generated <acronym>API</acronym> docs,
           <ulink url="http://libusb.sourceforge.net/">http://libusb.sourceforge.net/</ulink>
@@ -3165,7 +3193,7 @@ usb:                             Universal Serial Bus
     <!-- FIXME: text stolen from
          http://www.pima.net/standards/it10/PIMA15740/exif.htm 
          somebody please write a non-copyrighted text with similar
-         content.
+         content. -->
     <glossentry id="gloss-EXIF">
       <glossterm><acronym>EXIF</acronym>: Exchangeable Image File</glossterm>
 
@@ -3183,7 +3211,7 @@ usb:                             Universal Serial Bus
 	</para>
       </glossdef>
     </glossentry>
-    -->
+
     <glossentry id="gloss-gphoto">
       <!-- FIXME: this is just an example entry :-) -->
       <glossterm>gphoto</glossterm>
