@@ -71,6 +71,14 @@ About this file:
 	  <address><email>gp@n-dimensional.de</email></address>
 	</affiliation>
       </editor>
+      <editor>
+	<firstname>Michael</firstname>
+	<othername>J.</othername>
+	<surname>Rensing</surname>
+	<affiliation>
+	  <address><email>michael.rensing@shaw.ca</email></address>
+	</affiliation>
+      </editor>
     </authorgroup>
   </bookinfo>
  
@@ -1922,13 +1930,13 @@ Saving file as MVI_5418.AVI                                                     
 	      </term>
 	      <listitem>
 		<para>Opens the dialog for saving the selected photos.</para>
-      <screenshot>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="screenshots/gtkam/file_save.png" format="PNG"/>
-	  </imageobject>
-	</mediaobject>
-      </screenshot>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/file_save.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -1987,13 +1995,13 @@ Saving file as MVI_5418.AVI                                                     
 	      </term>
 	      <listitem>
 		<para>Opens dialog to create new folder (directory).</para>
-      <screenshot>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="screenshots/gtkam/fol_create.png" format="PNG"/>
-	  </imageobject>
-	</mediaobject>
-      </screenshot>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/fol_create.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
 	      </listitem>
 	    </varlistentry> 
 	  <varlistentry>
@@ -2095,27 +2103,36 @@ Saving file as MVI_5418.AVI                                                     
 	      </term>
 	      <listitem>
 		<para>Opens a window to allow the user to define the camera and interface being used.</para>
-      <screenshot>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="screenshots/gtkam/cam_sel.png" format="PNG"/>
-	  </imageobject>
-	</mediaobject>
-      </screenshot>
-      <screenshot>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="screenshots/gtkam/cam_sel_enh.png" format="PNG"/>
-	  </imageobject>
-	</mediaobject>
-      </screenshot>
-      <screenshot>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="screenshots/gtkam/cam_sel_portadd.png" format="PNG"/>
-	  </imageobject>
-	</mediaobject>
-      </screenshot>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/cam_sel.png" format="PNG"/>
+		    </imageobject>
+		    <caption>
+		      <para>"Simple" Select Camera Dialog</para>
+		    </caption>
+		  </mediaobject>
+		</screenshot>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/cam_sel_enh.png" format="PNG"/>
+		    </imageobject>
+		    <caption>
+		      <para>"Enhanced" Select Camera Dialog</para>
+		    </caption>
+		  </mediaobject>
+		</screenshot>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/cam_sel_portadd.png" format="PNG"/>
+		    </imageobject>
+		    <caption>
+		      <para>Dialog for explicitly adding a path to the port to which the camera is attached.</para>
+		    </caption>
+		  </mediaobject>
+		</screenshot>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2136,20 +2153,26 @@ Saving file as MVI_5418.AVI                                                     
 	      </term>
 	      <listitem>
 		<para>Opens a window with configurable options for the camers. This includes the name of the camera, it's owner, the date and time, firmware version, and power status..</para>
-      <screenshot>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="screenshots/gtkam/cam_conf_cam.png" format="PNG"/>
-	  </imageobject>
-	</mediaobject>
-      </screenshot>
-      <screenshot>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="screenshots/gtkam/cam_conf_driver.png" format="PNG"/>
-	  </imageobject>
-	</mediaobject>
-      </screenshot>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/cam_conf_cam.png" format="PNG"/>
+		    </imageobject>
+		    <caption>
+		      <para>Camera configuration tab.</para>
+		    </caption>
+		  </mediaobject>
+		</screenshot>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/cam_conf_driver.png" format="PNG"/>
+		    </imageobject>
+		    <caption>
+		      <para>Driver configuration tab.</para>
+		    </caption>
+		  </mediaobject>
+		</screenshot>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2160,7 +2183,7 @@ Saving file as MVI_5418.AVI                                                     
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para>Displays a window with information about the camera and it's memory.</para>
+		<para>Displays a window with information about the camera and its memory.</para>
       <screenshot>
 	<mediaobject>
 	  <imageobject>
