@@ -1,4 +1,4 @@
-<?xml version='1.0'?>
+<?xml version='1.0' encoding='utf-8'?>
 
 <xsl:stylesheet
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -15,6 +15,10 @@
 
   <xsl:template name="user.header.navigation">
     <xsl:param name="node"/>
+    <!-- ==================================================================
+         the following <p></p> element was taken from the PHP code of the 
+         new gphoto2 web site 
+         ================================================================== -->
     <p align="center" class="menu">
       <a href="/">Home</a> :: 
       <a href="/news">News</a> :: 
