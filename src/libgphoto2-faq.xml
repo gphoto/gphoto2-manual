@@ -159,6 +159,21 @@ device and you have read/write access to the device.
     </answer>
   </qandaentry>
 
+  <qandaentry id="FAQ-ptp-linux-2.4.18">
+    <question>
+      <simpara>
+	The PTP driver crashes on my Linux 2.4.18 system. What should I do?
+      </simpara>
+    </question>
+    <answer>
+      <para>
+	There is a bug in the USB driver of Linux kernel 2.4.18 that 
+	may result in random crashes of the libgphoto2 PTP driver. 
+	Please upgrade to a more recent kernel.
+      </para>
+    </answer>
+  </qandaentry>
+
   <qandaentry id="FAQ-SuSE-serial">
     <question>
       <simpara>I've got a serial camera, but gphoto2 doesn't work on SuSE 7.0
