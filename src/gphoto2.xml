@@ -707,7 +707,7 @@ Saving file as MVI_5418.AVI                                                     
               <screen>
 <prompt>[root@home ~]# </prompt><command>modprobe</command> <parameter>usb-uhci</parameter>
 <prompt>[root@home ~]# </prompt><command>modprobe</command> <parameter>usb-ohci</parameter>
-<prompt>[root@home ~]# </prompt><command>mount <parameter>-t usbdevfs</parameter> <parameter>/proc/bus/usb</parameter></command>
+		<prompt>[root@home ~]# </prompt><command>mount <parameter>-t usbdevfs</parameter> <parameter>usb</parameter> <parameter>/proc/bus/usb</parameter></command>
               </screen>
               Modern distributions like Redhat 7.2 handle this
               automatically if you have your <acronym>USB</acronym> hardware enabled.
@@ -719,13 +719,18 @@ Saving file as MVI_5418.AVI                                                     
           <listitem>
             <para>
 	      In the file <filename>/etc/hotplug/usb.usermap</filename> 
-	      remove all lines beginning with <quote>usbcam</quote>.
+	      remove all lines beginning with <quote>usbcam</quote>,
+	      as we are going to add new lines there and don't want to
+	      get an inconsistent state.
             </para>
 	    <para>
               Then add the output of
               <screen>
 <prompt>[root@home ~]# </prompt><command>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap</command>
               </screen>
+	      (this output is installed as
+	      <filename>/usr/share/doc/libgphoto2-VERSION/linux-hotplug/gphoto2-usb.usermap</filename>
+	      since 2.1.1dev5)
               to that file
               (<filename>/etc/hotplug/usb.usermap</filename>).
             </para>
