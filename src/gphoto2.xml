@@ -483,7 +483,7 @@ Saving file as MVI_5418.AVI                                                     
   <!-- =========================================================== --> 
   <!-- =========================================================== --> 
 
-  <chapter id="FAQ">
+  <chapter id="faq">
     <title>Frequently Asked Questions</title>
     <subtitle>with answers, and not sorted yet</subtitle>
     <para>   FIXME: this needs to be added.</para>
@@ -535,7 +535,7 @@ Saving file as MVI_5418.AVI                                                     
         <xref linkend="ref-libgphoto2"/>
         frontend as root. So you have to set up the permissions of your camera
         device accordingly. This is described in the following two sections,
-	<xref linkend="permissions-RS232"/> and <xref linkend="permissions-USB"/>.
+	<xref linkend="permissions-serial"/> and <xref linkend="permissions-usb"/>.
       </para>
       <para>
         Then you can run your frontend. For the command line 
@@ -546,7 +546,7 @@ Saving file as MVI_5418.AVI                                                     
       </para>    
     </sect1>
 
-    <sect1 id="permissions-RS232">
+    <sect1 id="permissions-serial">
       <title>Setting up permissions for serial (<acronym>RS232</acronym>) ports</title>
       <note>
 	<simpara>
@@ -560,7 +560,7 @@ Saving file as MVI_5418.AVI                                                     
       </para>    
     </sect1>
 
-    <sect1 id="permissions-USB">
+    <sect1 id="permissions-usb">
       <title>Setting up permissions for <acronym>USB</acronym> ports</title>
       <para>
         As <acronym>USB</acronym> is designed for hotplugging of
