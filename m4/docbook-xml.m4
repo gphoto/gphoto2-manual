@@ -5,7 +5,7 @@ AC_DEFUN(GP_CHECK_DOCBOOK_XML,
 [
 
 AC_MSG_CHECKING([for XML catalogs])
-XML_CATALOG_FILES="`find /etc/xml /usr/share/xml /usr/share/sgml -type f -iname 'catalog.xml' -print 2> /dev/null | while read file; do echo -n "$file "; done`"
+XML_CATALOG_FILES="`find /etc/xml /usr/share/xml /usr/share/sgml -type f \( -iname 'catalog.xml' -or -iname 'catalog' \) -print 2> /dev/null | while read file; do echo -n "$file "; done`"
 if test "x$XML_CATALOG_FILES" = "x"
 then
 	AC_MSG_RESULT([none found.])
@@ -29,7 +29,13 @@ if $try_xmlto; then
 	if test -n "${XMLTO}"; then
 		have_xmlto=true
 		manual_msg="yes"
-		XMLTO="env XML_CATALOG_FILES=\"${XML_CATALOG_FILES}\" ${XMLTO} -m \$(top_srcdir)/src/xsl/custom.xsl"
+		PURE_XMLTO="$XMLTO"
+		if true || test "x$XML_CATALOG_FILES" = "x"; then
+			unset XML_CATALOG_FILES
+			XMLTO="${XMLTO} -m \$(top_srcdir)/src/xsl/custom.xsl"
+		else
+			XMLTO="env XML_CATALOG_FILES=\"${XML_CATALOG_FILES}\" ${XMLTO} -m ${top_srcdir}/src/xsl/custom.xsl"
+		fi
         else
                 # in case anybody runs $(XMLTO) somewhere, we return false
                 XMLTO=false
