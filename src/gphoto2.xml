@@ -52,6 +52,7 @@ About this file:
 
   <bookinfo>
     <title>&docname;</title>
+    <pubdate>$Date$</pubdate>
     <authorgroup>
       <author>
         <firstname>The gPhoto2</firstname>
