@@ -32,14 +32,18 @@ About this file:
 
 <?xml-stylesheet type="text/css" href="css/docbook-xml.css"?>
 
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
-"http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
 
-<!-- just to make all references to the name consistent -->
+
 <!ENTITY docname "The gPhoto2 Manual">
 
-<!-- external FAQ file -->
-<!ENTITY faq SYSTEM "../../libgphoto2/doc/faq.xml">
+<!-- change name of hotplug config script here -->
+<!ENTITY usbcam "usbcam">
+
+<!-- external FAQ files -->
+<!ENTITY libgphoto2faq SYSTEM "libgphoto2-faq.xml">
+<!ENTITY libgphoto2FAQ SYSTEM "libgphoto2-FAQ">
 
 <!-- ENTITY camera SYSTEM "api/sgml/gphoto2-camera.sgml" -->
 
@@ -193,7 +197,16 @@ About this file:
 	    <para>BSD (FreeBSD, OpenBSD, NetBSD, ...)</para>
 	  </listitem>
 	  <listitem>
-	    <para>Linux (RedHat 7.3, SuSE 8.x, Debian 3.0 Woody)</para>
+	    <para>Linux (RedHat 7.3, SuSE 8.x, Mandrake 8.x, 
+	      Debian 3.0 Woody, Debian Unstable Sid, Gentoo, ...)</para>
+	  </listitem>
+	  <listitem>
+	    <para>OS/2 (yes, there is an OS/2 port, and there are
+	      people who use gphoto2 2.1.0 under OS/2)</para>
+	  </listitem>
+	  <listitem>
+	    <para>MacOS X (several people are working on that, exact
+	      status is unknown as of 2002-10-16)</para>
 	  </listitem>
 	  <listitem>
 	    <para>FIXME: Is there a list somewhere, or can we get
@@ -207,17 +220,25 @@ About this file:
 	</para>
       </listitem>
       <listitem>
-	<para>libgphoto2 software</para>
+	<para>libgphoto2 software and some libgphoto2 frontend</para>
 	<itemizedlist>
 	  <listitem>
-	    <para>CVS</para>
+	    <para>source tarballs - require mainly make and a C compiler</para>
 	  </listitem>
 	  <listitem>
-	    <para>RPM's</para>
+	    <para>CVS sources - require several special build tools
+	      (automake, autoconf, gettext, libtool), possibly in special
+	      versions</para>
 	  </listitem>
 	  <listitem>
-	    <para>Need descriptions and lists of various forms of
-	      source code and binaries.</para>
+	    <para>(binary) packages for your system 
+	      (RPMs, DEBs, ports, ebuilds, whatever) - this is
+	      the easiest way to install the software for most people
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>FIXME: Need improved descriptions and lists of
+	      various forms of source code and binaries.</para>
 	  </listitem>
 	</itemizedlist>
       </listitem>
@@ -318,7 +339,12 @@ About this file:
 
       <sidebar>
 	<title>Troubleshooting</title>
-	<para>If you do not see any images listed, be sure that there are images in the camera. If there are, then you need to do some troubleshooting. Start with the FAQ.</para>
+	<para>
+	  If you do not see any images listed, be sure that there are
+	  images in the camera. If there are, then you need to do some
+	  troubleshooting. Start with the 
+	  <link linkend="FAQ-generic">FAQ</link>.
+	</para>
       </sidebar>
     </sect1>
 
@@ -352,7 +378,7 @@ usb:                             Universal Serial Bus	  </computeroutput>
 	Additionally, there is also a <acronym>USB</acronym>
 	bus. However, we cannot tell yet whether we will have write
 	access to the <acronym>USB</acronym> device file your camera
-	will be assigned from your operating system. 
+	will be assigned by your operating system. 
       </para>
 
       <para>
@@ -483,10 +509,18 @@ Saving file as MVI_5418.AVI                                                     
   <!-- =========================================================== --> 
   <!-- =========================================================== --> 
 
-  <chapter id="faq">
-    <title>Frequently Asked Questions</title>
-    <subtitle>with answers, and not sorted yet</subtitle>
-    <para>   FIXME: this needs to be added.</para>
+  <chapter id="FAQ">
+    <title>Frequently Asked Questions (FAQ)</title>
+    <sect1 id="FAQ-generic">
+      <title>Generic libgphoto2 FAQs (frontend-independent)</title>
+      &libgphoto2faq;
+    </sect1>
+    <sect1 id="FAQ-unsorted">
+      <title>Unsorted FAQs</title>
+      <para>The following questions and answers still have to be worked
+	over:</para>
+      &libgphoto2FAQ;
+    </sect1>
   </chapter>
  
   <!-- =========================================================== --> 
@@ -648,14 +682,14 @@ Saving file as MVI_5418.AVI                                                     
         </para>
 
 	<note>
-	  <para>The fact that we are using the name <quote>usbcam</quote> for
+	  <para>The fact that we are using the name <quote><replaceable>&usbcam;</replaceable></quote> for
 	    setting up permissions for gphoto2 has a reason. In fact,
 	    the permission setup you're doing here has nothing to do
 	    with gphoto2 specifically - any user space software
 	    wanting to access your USB camera will be able to make use
 	    of your camera only if the permissions are correctly set
 	    up. So I (hun) chose the identifier and script name
-	    <quote>usbcam</quote> and not <quote>gphoto2cam</quote> or
+	    <quote><replaceable>&usbcam;</replaceable></quote> and not <quote>gphoto2cam</quote> or
 	    somethink similar. 
 	  </para>
 	</note>
@@ -675,6 +709,7 @@ Saving file as MVI_5418.AVI                                                     
 	  <filename>/proc/sys/kernel/hotplug</filename>.
           If it exists, you have a hotplug enabled kernel. If 
           <screen>
+
 <prompt>[user@system ~]$ </prompt><command>cat <parameter>/proc/sys/kernel/hotplug</parameter></command>
           </screen>
 	  prints the path to  your hotplug binary (usually 
@@ -687,7 +722,7 @@ Saving file as MVI_5418.AVI                                                     
           <emphasis>not</emphasis> 
           provide absolute security and that you should definitely
 	  know the security implications of the respective
-	  <command>usbcam</command> script you are going to use.
+	  <command><replaceable>&usbcam;</replaceable></command> script you are going to use.
         </para>
 
         <orderedlist>
@@ -702,9 +737,10 @@ Saving file as MVI_5418.AVI                                                     
               hints.
             </para>
             <para>
-              Load your <acronym>USB</acronym> driver and mount the <acronym>USB</acronym> device filesystem,
-              i.e. e.g.
+              Load your <acronym>USB</acronym> driver (e.g. OHCI or UHCI) and 
+	      mount the <acronym>USB</acronym> device filesystem, i.e. e.g.
               <screen>
+
 <prompt>[root@home ~]# </prompt><command>modprobe</command> <parameter>usb-uhci</parameter>
 <prompt>[root@home ~]# </prompt><command>modprobe</command> <parameter>usb-ohci</parameter>
 <prompt>[root@home ~]# </prompt><command>mount <parameter>-t usbdevfs</parameter> <parameter>usb</parameter> <parameter>/proc/bus/usb</parameter></command>
@@ -719,7 +755,7 @@ Saving file as MVI_5418.AVI                                                     
           <listitem>
             <para>
 	      In the file <filename>/etc/hotplug/usb.usermap</filename> 
-	      remove all lines beginning with <quote>usbcam</quote>.
+	      remove all lines beginning with <quote><replaceable>&usbcam;</replaceable></quote>.
 	      We are going to add new lines there and don't want to
 	      have the old ones get in the way.
             </para>
@@ -731,6 +767,7 @@ Saving file as MVI_5418.AVI                                                     
 	      since 2.1.1dev5)
               to the <filename>/etc/hotplug/usb.usermap</filename> file:
               <screen>
+
 # EITHER this
 <prompt>[root@home ~]#</prompt><command>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap</command> >> <filename>/etc/hotplug/usb.usermap</filename>
 # OR that
@@ -744,7 +781,7 @@ Saving file as MVI_5418.AVI                                                     
 		after 2.1.0), the functionality of
 		<filename>packaging/linux-hotplug/print-usb-usermap</filename>
 		was contained in the command 
-		<command>gphoto <parameter>--print-usb-usermap</parameter></command>.
+		<command>gphoto2 <parameter>--print-usb-usermap</parameter></command>.
 	      </para>
 	    </note>
 	    <formalpara>
@@ -767,7 +804,6 @@ Saving file as MVI_5418.AVI                                                     
 <prompt>[root@home ~]# </prompt><command>mkdir <parameter>/usr/lib/hotplug/libgphoto2</parameter></command>
 <prompt>[root@home ~]# </prompt><command>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap > <filename>/usr/lib/hotplug/libgphoto2/usb.usermap</filename></command>
 <prompt>[root@home ~]# </prompt><command>update-usb.usermap</command>
-
 		</screen>
 	      </para>
 	    </formalpara>
@@ -775,8 +811,8 @@ Saving file as MVI_5418.AVI                                                     
               This makes hotplug recognise all <acronym>USB</acronym> cameras which your version 
               of <xref linkend="ref-libgphoto2"/> supports and makes
               <command>hotplug</command> run the
-              <command>usbcam</command> script you choose in step
-              <xref linkend="chooseusbcamscript"/>whenever one of these
+              <command><replaceable>&usbcam;</replaceable></command> script you choose in step
+              <xref linkend="chooseusbcamscript"/> whenever one of these
               cameras is attached.
             </para>
           </listitem>
@@ -784,7 +820,7 @@ Saving file as MVI_5418.AVI                                                     
           <listitem id="chooseusbcamscript">
             <para>
               Choose the right 
-              <filename>/etc/hotplug/usb/usbcam</filename>
+              <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename>
               script for you.
 	    </para>
 	    <para>
@@ -797,14 +833,14 @@ Saving file as MVI_5418.AVI                                                     
 	    </para>
 	    <para>Choose a script which fits your requirements best,
 	      adapt it for your needs, and copy it to the file
-	      <filename>/etc/hotplug/usb/usbcam</filename>.
+	      <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename>.
 	      The directory 
               <filename class="directory">/etc/hotplug</filename>
               should already exists, whereas it may be that you have
               to create the directory 
               <filename class="directory">/etc/hotplug/usb</filename>.
 	      The script <emphasis>must</emphasis> be called
-	      <filename>/etc/hotplug/usb/usbcam</filename>, not
+	      <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename>, not
 	      <filename>/etc/hotplug/usb/usbcam.user</filename> or
 	      something similar.
             </para>
@@ -863,7 +899,7 @@ Saving file as MVI_5418.AVI                                                     
                 <listitem>
                   <simpara>
                     If you want only one user to have access to the
-		    camera and you favourite X11 libgphoto2 frontend
+		    camera and your favourite X11 libgphoto2 frontend
 		    launched automatically, use
 		    <filename>usbcam.x11-app</filename> and change it 
                     accordingly. There are a few specially marked
@@ -877,13 +913,14 @@ Saving file as MVI_5418.AVI                                                     
           <listitem>
             <para>
               Make the script file you just created and possibly adapted
-              (<filename>/etc/hotplug/usb/usbcam</filename>,
+              (<filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename>,
 	      <emphasis>not</emphasis>
 	      <filename>/etc/hotplug/usb/usbcam.whatever</filename>!)
               executable:
             </para>
 	    <screen>
-<prompt>[root@home ~]# </prompt><command>chmod <parameter>+x</parameter> <filename>/etc/hotplug/usb/usbcam</filename></command>
+
+<prompt>[root@home ~]# </prompt><command>chmod <parameter>+x</parameter> <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename></command>
 	    </screen>
           </listitem>
 
@@ -897,9 +934,9 @@ Saving file as MVI_5418.AVI                                                     
             <para>
               Hotplug will then look into 
               <filename>/etc/hotplug/usb.usermap</filename> and find that
-              the <command>usbcam</command> script is to be called for
+              the <command><replaceable>&usbcam;</replaceable></command> script is to be called for
               the newly attached device. Thus
-              <command>/etc/hotplug/usb/usbcam</command> is executed,
+              <command>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></command> is executed,
               hopefully setting the device permissions correctly. 
             </para>
             <para>Your <filename>/var/log/messages</filename> syslog
@@ -921,6 +958,7 @@ Saving file as MVI_5418.AVI                                                     
               <xref linkend="ref-libgphoto2"/> frontend and enjoy:
             </para>
             <screen>
+
 <prompt>[user@home ~]$ </prompt><command>gphoto2 <parameter>--list-ports</parameter></command>
 <prompt>[user@home ~]$ </prompt><command>gphoto2 <parameter>--auto-detect</parameter></command>
 <prompt>[user@home ~]$ </prompt><command>gphoto2 <parameter>--summary</parameter></command>
@@ -931,6 +969,11 @@ Saving file as MVI_5418.AVI                                                     
 
         </orderedlist>
 
+      </sect2>
+
+      <sect2>
+	<title>USB ports on BSD, MacOS X, OS/2</title>
+	<para>FIXME: Still to be written</para>
       </sect2>
 
     </sect1>
@@ -1002,7 +1045,8 @@ Saving file as MVI_5418.AVI                                                     
         </para>
 
         <screen>
-          <prompt>[user@home ~]$ </prompt><command>gphoto2 <parameter>--camera</parameter> <parameter>"<replaceable>Canon PowerShot G2</replaceable>"</parameter> <parameter>--list-files</parameter></command>
+
+<prompt>[user@home ~]$ </prompt><command>gphoto2 <parameter>--camera</parameter> <parameter>"<replaceable>Canon PowerShot G2</replaceable>"</parameter> <parameter>--list-files</parameter></command>
         </screen>
 
 	<para>
@@ -1017,6 +1061,22 @@ Saving file as MVI_5418.AVI                                                     
     </sect1>
 
   </chapter>
+
+  <!-- =========================================================== --> 
+  <!-- =========================================================== --> 
+  <!-- =========================================================== --> 
+  
+  <!--
+  <chapter id="compilation">
+    <title>Compiling and installing</title>
+
+    <sect1>
+      <title>Starting from CVS</title>
+      <screen></screen>
+    </sect1>
+
+  </chapter>
+  -->
 
   <!-- =========================================================== --> 
   <!-- =========================================================== --> 
@@ -2741,6 +2801,20 @@ Saving file as MVI_5418.AVI                                                     
 	</listitem>
       </varlistentry>
       <varlistentry>
+	<term><ulink url="http://www.easysw.com/~mike/flphoto/">http://www.easysw.com/~mike/flphoto/</ulink></term>
+	<listitem>
+	  <simpara>
+	    FLTK-based frontend for gPhoto called
+	    "flphoto" which provides some nice functionality beyond the current
+	    GTK-based frontend.  Aside from downloading images from a camera,
+	    you can also "import" you existing files on disk, adjust/transform
+	    the images, print them, and do slideshows.  The final version will
+	    also offer a web export to a directory or uploaded to a
+	    web server.
+	  </simpara>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
 	<term><ulink url="http://www.teaser.fr/~hfiguiere/linux/digicam.html">http://www.teaser.fr/~hfiguiere/linux/digicam.html</ulink></term>
 	<listitem>
 	  <simpara>Hubert Figuiere's digicam support list</simpara>
@@ -2750,9 +2824,8 @@ Saving file as MVI_5418.AVI                                                     
 	<term><ulink url="http://n-dimensional.de/projects/digicam/">http://n-dimensional.de/projects/digicam/</ulink></term>
 	<listitem>
 	  <simpara>Hans Ulrich Niedermann's home page (one of the
-	    developers), with current issues of 
-	    <ulink url="http://n-dimensional.de/projects/digicam/The_gPhoto2_Manual/">&docname;</ulink>, 
-	    daily CVS snapshot 
+	    developers), 
+	    non-daily CVS snapshot 
 	    <ulink url="http://n-dimensional.de/projects/digicam/software/snapshots/">tarballs</ulink> 
 	    and 
 	    <ulink url="http://n-dimensional.de/projects/digicam/software/snapshots/patches/">patches</ulink>, 
