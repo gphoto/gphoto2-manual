@@ -47,6 +47,7 @@ src/pdf/Makefile
 src/ps/Makefile
 src/man/Makefile
 src/txt/Makefile
+src/txt2/Makefile
 src/figures/Makefile
 src/screenshots/Makefile
 src/screenshots/gtkam/Makefile
