@@ -12,11 +12,21 @@ AUTOMAKE_OPTIONS = gnu
 
 EXTRA_DIST = xmldocs.make
 
+.PHONY: update-webserver
+
 if MAINTAINER_MODE
 
 CVS_ENTRIES := $(shell find $(top_srcdir) -type d -name CVS | while read dir; do echo "$${dir}/Entries"; done)
 
 ChangeLog: $(CVS_ENTRIES)
 	cd $(top_srcdir) && cvs2cl --utc
+
+update-webserver:
+	cd src/html && $(MAKE) $@
+
+else
+
+update-webserver:
+	@echo "Dummy $@ target"
 
 endif
