@@ -7,6 +7,9 @@
 
   <xsl:param name="use.id.as.filename" select="1"/>
 
+  <!--xsl:param name="paper.type" select="'USLetter'"/-->
+  <xsl:param name="paper.type" select="'A4'"/>
+
   <!-- make valid HTML (with DTD and stuff) -->
   <xsl:param name="make.valid.html"    select="1"/>
 
