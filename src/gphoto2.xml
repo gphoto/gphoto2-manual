@@ -2032,12 +2032,23 @@ Saving file as MVI_5418.AVI                                                     
 		<variablelist>
 		  <varlistentry>
 		    <term>What to save:</term>
-		    <listitem>
+		    <listitem>  
 		      <variablelist>
+			<varlistentry>
+			  <term></term>
+			  <listitem>
+			    <para>This is a set of checkboxes which allows the user 
+			      to select the forms in which data for the selected 
+			      image(s) will be saved. Any or all of these options 
+			      may be selected at once.</para>
+			  </listitem>
+			</varlistentry>
 			<varlistentry>
 			  <term>Save photos</term>
 			  <listitem>
-			    <para>This is the default. It causes the photos being saved to be downloaded from the camera and saved to the identified folder.</para>
+			    <para>This is the default. It causes the photos 
+			      being saved to be downloaded from the camera and 
+			      saved to the identified folder.</para>
 			  </listitem>
 			</varlistentry>
 			<varlistentry>
@@ -2066,7 +2077,31 @@ Saving file as MVI_5418.AVI                                                     
 			  </listitem>
 			</varlistentry>
 		      </variablelist>
-</listitem>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>Open image(s) with:</term>
+		    <listitem>
+		      <para>This allows the user to specify FIXME ??</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>Use filename(s) provided by the camera.</term>
+		    <listitem>
+		      <para>Causes the saved files to have the names provided by the camera.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>Filename prefix:</term>
+		    <listitem>
+		      <para>Defines a prefix to be used when creating filenames. This prefix is combined with the number starting with the number defined in:</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>Start numbering with:</term>
+		    <listitem>
+		      <para>Defines the first number of the sequence of photos to be stored.</para>
+		    </listitem>
 		  </varlistentry>
 		</variablelist>
 	      </listitem>
@@ -2093,31 +2128,39 @@ Saving file as MVI_5418.AVI                                                     
 			<guimenuitem>Selected</guimenuitem>
 		      </menuchoice>
 		    </term>
-		  <listitem>
-		    <para>Deletes selected photos from the camera.</para>
-		  </listitem>
-		</varlistentry>
-		<varlistentry>
-		  <term>
-		    <menuchoice>
-		      <guimenu>File</guimenu>
-		      <guisubmenu>Delete Photos</guisubmenu>
-		      <guimenuitem>All</guimenuitem>
-		    </menuchoice>
-		  </term>
-		  <listitem>
-		    <para>Deletes all photos in the camera</para>
-		    <screenshot>
-		      <mediaobject>
-			<imageobject>
-			  <imagedata fileref="screenshots/gtkam/file_del_dia.png" format="PNG"/>
-			</imageobject>
-		      </mediaobject>
-		    </screenshot>
-		    
+		    <listitem>
+		      <para>Deletes selected photos from the camera.</para>
 		    </listitem>
 		  </varlistentry>
+		  <varlistentry>
+		    <term>
+		      <menuchoice>
+			<guimenu>File</guimenu>
+			<guisubmenu>Delete Photos</guisubmenu>
+			<guimenuitem>All</guimenuitem>
+		      </menuchoice>
+		    </term>
+		    <listitem>
+		      <para>Deletes all photos in the camera.</para>  
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term></term>
+		    <listitem>
+		      <para>Both of these menu items open a dialog to confirm the 
+			deletion of the photos. A list of photos is presented with 
+			a checkbox beside each photo name. Uncheck the box to 
+			prevent a specific file from being deleted.</para>		    </listitem>
+		  </varlistentry>
 		</variablelist>
+
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/file_del_dia.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
 	      </listitem>
 	    </varlistentry>
 
@@ -2138,6 +2181,8 @@ Saving file as MVI_5418.AVI                                                     
 
 	<refsect2>
 	  <title>View Menu</title>
+	  <para>Gives options for previewing photos before downloading them 
+	    from the camera.</para>
 	  <screenshot>
 	    <mediaobject>
 	      <imageobject>
@@ -2154,7 +2199,9 @@ Saving file as MVI_5418.AVI                                                     
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para></para>
+		<para>This is the same command as the checkbox on the main 
+		  gtkam window. It allows the user to select whether thumbnails
+		  of the photos are displayed, or just the file names.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2165,7 +2212,7 @@ Saving file as MVI_5418.AVI                                                     
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para></para>
+		<para>Enlarges the thumbnails.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2176,7 +2223,7 @@ Saving file as MVI_5418.AVI                                                     
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para></para>
+		<para>Returns the thumbnails to default size.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2187,7 +2234,7 @@ Saving file as MVI_5418.AVI                                                     
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para></para>
+		<para>Reduces the thumbnails.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
@@ -2271,7 +2318,7 @@ Saving file as MVI_5418.AVI                                                     
 		      <imagedata fileref="screenshots/gtkam/cam_sel.png" format="PNG"/>
 		    </imageobject>
 		    <caption>
-		      <para>"Simple" Select Camera Dialog</para>
+		      <para>"Simple" Select Camera Dialog.</para>
 		    </caption>
 		  </mediaobject>
 		</screenshot>
@@ -2281,7 +2328,7 @@ Saving file as MVI_5418.AVI                                                     
 		      <imagedata fileref="screenshots/gtkam/cam_sel_enh.png" format="PNG"/>
 		    </imageobject>
 		    <caption>
-		      <para>"Enhanced" Select Camera Dialog</para>
+		      <para>"Enhanced" Select Camera Dialog.</para>
 		    </caption>
 		  </mediaobject>
 		</screenshot>
