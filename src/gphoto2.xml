@@ -251,8 +251,7 @@ About this file:
 
     <para>FIXME: We need examples using <acronym>RS232</acronym>
       cameras, gtkam and the gphoto2 shell.</para>
-
-    <section id="using_gtkam">
+    <sect1 id="using_gtkam">
       <title>Using gtkam</title>
       <para>FIXME: gtkam docs under construction. Please report errors, 
 	omissions, and constructive suggestions to 
@@ -287,14 +286,28 @@ About this file:
 	</listitem>
       </orderedlist>
       <para>If all is well, you should see your camera listed in the left frame with a plus sign in a box to the left.</para>
+      <screenshot>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshots/gtkam/gtkam.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
       <para>Click on the plus sign to expand the listings of directories. The number in brackets to the right of the directory name is the number of images detected in that directory.</para>
       <para>Click on directory containing images, and you should see a listing of the images in the right frame.</para>
+      <screenshot>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshots/gtkam/exp.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
       <sidebar>
 	<title>Troubleshooting</title>
-	<para>If you do not see any images listed, be sure that there are images in the camera. If there are, then you need to do some troubleshooting. Start with <link linkend="FAQ">the FAQ</link>.</para>
+	<para>If you do not see any images listed, be sure that there are images in the camera. If there are, then you need to do some troubleshooting. Start with the FAQ.</para>
       </sidebar>
-    </section>
-    <section id="using-gphoto2">
+    </sect1>
+    <sect1 id="using-gphoto2">
       <title>Using the <command>gphoto2</command> command line
 	interface (<acronym>CLI</acronym>)</title>
 
@@ -433,17 +446,17 @@ Saving file as MVI_5418.AVI                                                     
 	described on 
 	<ulink url="http://www.gphoto.org/">www.gphoto.org</ulink>.
       </para>
-    </section>
+    </sect1>
     
-    <section id="using-gnome">
+    <sect1 id="using-gnome">
       <title>Using Gnome VFS</title>
       <para>FIXME: We need to write this section</para>
-    </section>
+    </sect1>
 
-    <section id="using-kde">
+    <sect1 id="using-kde">
       <title>Using kioslave</title>
       <para>FIXME: We need to write this section</para>
-    </section>
+    </sect1>
 
   </chapter>
  
@@ -454,7 +467,7 @@ Saving file as MVI_5418.AVI                                                     
   <chapter id="FAQ">
     <title>Frequently Asked Questions</title>
     <subtitle>with answers, and not sorted yet</subtitle>
-    &faq;
+    <para>   FIXME: this needs to be added.</para>
   </chapter>
  
   <!-- =========================================================== --> 
@@ -1864,7 +1877,6 @@ Saving file as MVI_5418.AVI                                                     
 	  <firstname>The gPhoto2</firstname><surname>Team</surname>
 	</author>
 	<editor>
-	  <!-- one of (contrib authorblurb affiliation othername lineage surname firstname honorific) -->
 	  <firstname>Michael</firstname>
 	  <othername>J.</othername>
 	  <surname>Rensing</surname>
@@ -1874,14 +1886,33 @@ Saving file as MVI_5418.AVI                                                     
 	</editor>
 	<date>August 2002</date>
       </refentryinfo>
+      <refmeta>
+	<refentrytitle>gtkam</refentrytitle>
+	<manvolnum>1</manvolnum>
+      </refmeta>
       <refnamediv>
 	<refname>gtkam</refname>
 	<refpurpose>Graphical front end for gphoto2</refpurpose>
       </refnamediv>
       <refsect1>
 	<title>Commands</title>
+      <screenshot>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshots/gtkam/gtkam.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
+
 	<refsect2>
 	  <title><guimenu>File Menu</guimenu></title>
+      <screenshot>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshots/gtkam/file.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
 	  <variablelist>
 	    <varlistentry>
 	      <term><menuchoice>
@@ -1891,6 +1922,13 @@ Saving file as MVI_5418.AVI                                                     
 	      </term>
 	      <listitem>
 		<para>Opens the dialog for saving the selected photos.</para>
+      <screenshot>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshots/gtkam/file_save.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -1932,6 +1970,13 @@ Saving file as MVI_5418.AVI                                                     
 
 	<refsect2>
 	  <title>Folder Menu</title>
+	  <screenshot>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="screenshots/gtkam/fol.png" format="PNG"/>
+	      </imageobject>
+	    </mediaobject>
+	  </screenshot>
 	  <variablelist>
 	    <varlistentry>
 	      <term>
@@ -1942,6 +1987,13 @@ Saving file as MVI_5418.AVI                                                     
 	      </term>
 	      <listitem>
 		<para>Opens dialog to create new folder (directory).</para>
+      <screenshot>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshots/gtkam/fol_create.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
 	      </listitem>
 	    </varlistentry> 
 	  <varlistentry>
@@ -1964,12 +2016,27 @@ Saving file as MVI_5418.AVI                                                     
 	      </term>
 	      <listitem>
 		<para>Opens a dialog to identify an image file for uploading to the camera.</para>
+      <screenshot>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshots/gtkam/fol_uploadfile.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
 	</refsect2>
 	<refsect2>
 	  <title>Select Menu</title>
+	  <screenshot>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="screenshots/gtkam/sel.png" format="PNG"/>
+	      </imageobject>
+	    </mediaobject>
+	  </screenshot>
+
 	  <variablelist>
 	    <varlistentry>
 	      <term>
@@ -2010,6 +2077,14 @@ Saving file as MVI_5418.AVI                                                     
 	</refsect2>
 	<refsect2>
 	  <title>Camera Menu</title>
+	  <screenshot>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="screenshots/gtkam/cam.png" format="PNG"/>
+	      </imageobject>
+	    </mediaobject>
+	  </screenshot>
+
 	  <variablelist>
 	    <varlistentry>
 	      <term>
@@ -2020,6 +2095,27 @@ Saving file as MVI_5418.AVI                                                     
 	      </term>
 	      <listitem>
 		<para>Opens a window to allow the user to define the camera and interface being used.</para>
+      <screenshot>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshots/gtkam/cam_sel.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
+      <screenshot>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshots/gtkam/cam_sel_enh.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
+      <screenshot>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshots/gtkam/cam_sel_portadd.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2035,11 +2131,25 @@ Saving file as MVI_5418.AVI                                                     
 	      <term>
 		<menuchoice>
 		  <guimenu>Camera</guimenu>
-		  <guimenuitem>Configure</guimenuitem>
+		  <guimenuitem>Configure Camera...</guimenuitem>
 		</menuchoice>
 	      </term>
 	      <listitem>
 		<para>Opens a window with configurable options for the camers. This includes the name of the camera, it's owner, the date and time, firmware version, and power status..</para>
+      <screenshot>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshots/gtkam/cam_conf_cam.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
+      <screenshot>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshots/gtkam/cam_conf_driver.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2051,6 +2161,13 @@ Saving file as MVI_5418.AVI                                                     
 	      </term>
 	      <listitem>
 		<para>Displays a window with information about the camera and it's memory.</para>
+      <screenshot>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshots/gtkam/cam_info.png" format="PNG"/>
+	  </imageobject>
+	</mediaobject>
+      </screenshot>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2062,6 +2179,9 @@ Saving file as MVI_5418.AVI                                                     
 	      </term>
 	      <listitem>
 		<para>I'm not sure what this should contain. Anyone? - mjr</para>
+		<sidebar>
+		  <para>FIXME: need useful image</para>
+		</sidebar>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2072,14 +2192,28 @@ Saving file as MVI_5418.AVI                                                     
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para>Displays a window with information about the camera driver and it's authors.</para>
+		<para>Displays a window with information about the camera driver and its authors.</para>
 		<para>This should include contact information for the maintainers of the drivers for your camera.</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/cam_driver.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
 	</refsect2>
 	<refsect2>
 	  <title>Help Menu</title>
+	  <screenshot>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="screenshots/gtkam/help.png" format="PNG"/>
+	      </imageobject>
+	    </mediaobject>
+	  </screenshot>
 	  <variablelist>
 	    <varlistentry>
 	      <term>
@@ -2092,6 +2226,13 @@ Saving file as MVI_5418.AVI                                                     
 		<para>
 		  Opens the logging window which allows the user to select the
 		  type of messages to log.</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/help_debug.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
 		<variablelist>
 		  
 		  <varlistentry>
@@ -2130,16 +2271,14 @@ Saving file as MVI_5418.AVI                                                     
 	      </term>
 	      <listitem>
 		<para>
-		  Opens the about gtKam window. This gives the current version,
-		  and tells you that:</para>
-		<para>
-		  gtKam was written by:</para>
-		<para>- Scott Fritzinger &lt;scottf@unr.edu&gt;,</para>
-		<para>- Lutz Mueller &lt;urc8@rz.uni-carlsruhe.de&gt;,</para>
-		<para>- and many others</para>
-		<para>gtKam uses libgphoto2, a library to access a multitude of digital
-		  cameras. More information is available at http://www.gphoto.net.</para>
-		<para>Enjoy the wonderful world of gphoto!</para>
+		  Opens the about gtKam window. This gives the current version, author credits, and contact information.</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/help_about.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
