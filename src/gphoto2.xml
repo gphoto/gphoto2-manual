@@ -1566,6 +1566,14 @@ usb:                             Universal Serial Bus
 	  in the correct sequence.
 	</simpara>
       </abstract>
+      <important>
+	<para>
+	  Beginning in the summer of 2003, sourceforge.net anonymous
+	  CVS began severely lagging behind developer CVS. Until that
+	  problem is fixed, using gphoto-meta won't be of much use for
+	  non-developers.
+	</para>
+      </important>
       <screen>
 <prompt>&prompt;</prompt><userinput>cvs -d :pserver:anonymous@cvs.sourceforge.net:/cvsroot/gphoto login</userinput>
 <computeroutput>Logging in to :pserver:anonymous@cvs.sourceforge.net:2401/cvsroot/gphoto
@@ -1595,7 +1603,7 @@ U gphoto-meta/utils/Makefile.am
 U gphoto-meta/utils/common.sh
 </computeroutput><prompt>&prompt;</prompt><userinput>cd gphoto-meta</userinput>
 <prompt>&mprompt;</prompt><userinput>./bootstrap.sh --tools</userinput>
-<computeroutput><replaceable>a few 10000 lines deleted</replaceable></computeroutput>
+<computeroutput><replaceable>[ ... a few 10000 lines deleted ... ]</replaceable></computeroutput>
 <computeroutput>##########################################################################
 # Installed test versions of everything into $HOME/gphoto-meta/dist-root
 # You may want to set the following variables to use the gphoto suite
