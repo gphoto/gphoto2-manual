@@ -515,6 +515,11 @@ Saving file as MVI_5418.AVI                                                     
       <title>Generic libgphoto2 FAQs (frontend-independent)</title>
       &libgphoto2faq;
     </sect1>
+    <!--
+    FAQ-gphoto2 (CLI)
+    FAQ-gtkam
+    FAQ-devel
+    -->
     <sect1 id="FAQ-unsorted">
       <title>Unsorted FAQs</title>
       <para>The following questions and answers still have to be worked
