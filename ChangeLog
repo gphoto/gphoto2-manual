@@ -1,3 +1,105 @@
+2002-08-21 15:22  hun
+
+	* Makefile.am: build ChangeLog if $(srcdir) != $(builddir)
+
+2002-08-21 15:15  hun
+
+	* src/gphoto2.xml: workaround for broken xmlto man
+
+2002-08-21 15:13  hun
+
+	* src/xhtml-nochunks/Makefile.am: install symlinks to figures and
+	screenshots directory
+
+2002-08-21 15:09  hun
+
+	* src/gphoto2.xml: workaround for broken xmlto man
+
+2002-08-21 15:06  hun
+
+	* src/: html/Makefile.am, xhtml/Makefile.am,
+	html-nochunks/Makefile.am: install symlinks to figures and
+	screenshots directory
+
+2002-08-21 15:06  hun
+
+	* src/screenshots/gtkam/Makefile.am: install screenshots
+
+2002-08-21 15:06  hun
+
+	* src/figures/Makefile.am: figuredir is defined somewhere else
+
+2002-08-21 15:02  hun
+
+	* src/Makefile.am: added comment about subdir sequence
+
+2002-08-21 15:02  hun
+
+	* m4/documentation.m4: added figures and screenshots dirs
+
+2002-08-21 15:01  hun
+
+	* configure.in: we require ln -s
+
+2002-08-21 14:15  hun
+
+	* src/: Makefile.am, html/Makefile.am, html-nochunks/Makefile.am,
+	man/Makefile.am, pdf/Makefile.am, ps/Makefile.am,
+	xhtml/Makefile.am, xhtml-nochunks/Makefile.am: moved generated docs
+	to seperate directories
+
+2002-08-21 14:12  hun
+
+	* configure.in: added new directories
+
+2002-08-21 14:12  hun
+
+	* m4/documentation.m4: added gphoto2xml var pointing to xml source,
+	added lots of specific doc dirs
+
+2002-08-21 14:10  hun
+
+	* .cvsignore: more precise *.patch pattern
+
+2002-08-20 02:54  hun
+
+	* src/css/Makefile.am: added Makefile.am for css dir
+
+2002-08-19 12:42  hun
+
+	* src/css/docbook-xml.css, configure.in: CSS stylesheet for Docbook
+	XML
+
+2002-08-19 12:42  hun
+
+	* src/gphoto2.xml: css stylesheet is in subdir, and gphoto2 CLI
+	docs at another URI
+
+2002-08-19 12:41  hun
+
+	* src/Makefile.am: added css/ dir, install XML docs
+
+2002-08-19 12:41  hun
+
+	* src/.cvsignore: ignore generated man pages
+
+2002-08-19 12:40  hun
+
+	* m4/documentation.m4: install path for XML docs
+
+2002-08-19 11:57  hun
+
+	* src/gphoto2.xml: added format descriptions for --filename option
+
+2002-08-19 05:33  mrensing
+
+	* src/gphoto2.xml: Added my name as an editor :-) (Couldn't resist)
+	 Also added some captions.
+
+2002-08-19 03:22  hun
+
+	* ChangeLog: COTD - with times in UTC
+
 2002-08-19 03:18  hun
 
 	* Makefile.am: Added rule for creation of ChangeLog
