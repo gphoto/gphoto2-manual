@@ -133,6 +133,18 @@ sure this device is connected to the computer
     </answer>
   </qandaentry>
 
+  <qandaentry id="FAQ-easyshare-dock">
+    <question>
+      <simpara>I have a Kodak EasyShare&trade; camera, and gphoto2 can't detect it. What shall I do ?</simpara>
+    </question>
+    <answer>
+      <para>
+      Just press the button on the dock so that the <acronym>USB</acronym> device gets detected by the system 
+      and that gphoto2 software can detect it.
+      </para>
+    </answer>
+  </qandaentry>
+
   <qandaentry id="FAQ-could-not-claim-USB">
     <question>
       <simpara>Why do I get the error message "Could not claim the USB device"?</simpara>

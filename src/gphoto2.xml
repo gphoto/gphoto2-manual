@@ -552,9 +552,11 @@ usb:                             Universal Serial Bus	  </computeroutput>
 
       <para>
 	The next step is to connect you camera and find out whether
-	<command>gphoto2</command> can find it. This may only work with
-	<acronym>USB</acronym>. (FIXME: can any of the people with
-	<acronym>RS232</acronym> cameras help me on this issue?)
+	<command>gphoto2</command> can find it. This only work with
+	<acronym>USB</acronym>. If you are using a camera that connect over
+	<acronym>RS232</acronym> then you need to specify the model
+	explicitly as <command>gphoto2</command> can't detect serial 
+	cameras (serial port is dumb, unlike <acronym>USB</acronym>).
       </para>
       <screen>
 <prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--auto-detect</parameter></userinput>
@@ -568,6 +570,12 @@ Canon PowerShot G2             usb:            </computeroutput>
 	In this case, a camera called 
 	<quote>Canon PowerShot G2</quote> is connected
 	to your system's <acronym>USB</acronym> bus.
+      </para>
+
+      <para>
+        If you camera is a Kodak EasyShare&trade; and if you use the dock, then
+	you need to press the button to have the camera be detected by the 
+	computer.
       </para>
 
       <para>
