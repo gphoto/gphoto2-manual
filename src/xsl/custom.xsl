@@ -90,4 +90,20 @@
     </xsl:choose>
   </xsl:template>
 
+  <!--xsl:template match="sect3/authorblurb">
+    <div class="authorblurb" 
+      style="left-margin:3em;right-margin:3em;top-margin:1ex;bottom-margin:1ex;">
+      <xsl:apply-templates/>
+    </div>
+  </xsl:template-->
+
+  <!--xsl:template match="editor/affiliation" mode="x">
+    <xsl:apply-templates/>
+  </xsl:template-->
+
+  <xsl:template match="affiliation/address" mode="titlepage.mode">
+    <xsl:apply-templates/>
+    <xsl:text>[[]]</xsl:text>
+  </xsl:template>
+
 </xsl:stylesheet>
