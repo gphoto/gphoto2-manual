@@ -167,7 +167,7 @@ device and you have read/write access to the device.
     </question>
     <answer>
       <para>
-	There is a bug in the USB driver of Linux kernel 2.4.18 that 
+	There is a bug in the Linux 2.4.18 USB driver which 
 	may result in random crashes of the libgphoto2 PTP driver. 
 	Please upgrade to a more recent kernel.
       </para>
