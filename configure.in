@@ -38,6 +38,7 @@ help/C/Makefile
 src/Makefile
 src/gphoto2-manual.pc
 src/css/Makefile
+src/xsl/Makefile
 src/html/Makefile
 src/html-nochunks/Makefile
 src/xhtml/Makefile

@@ -1,6 +1,6 @@
 # Keep figures at the beginning of this list, as the generated
 # images may be required when building other subdirectories
-SUBDIRS = figures screenshots css man pdf html txt xhtml html-nochunks xhtml-nochunks ps
+SUBDIRS = figures screenshots css man html pdf txt xhtml html-nochunks xhtml-nochunks ps xsl
 
 EXTRA_DIST = gphoto2.xml gphoto2-manual.pc.in
 
