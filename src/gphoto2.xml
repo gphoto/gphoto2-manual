@@ -3225,6 +3225,13 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	</varlistentry>
 
 	<varlistentry>
+	  <term><option>--set-config</option> <replaceable>CONFIGENTRY=CONFIGVALUE</replaceable></term>
+	  <listitem>
+	    <para>Get the specified configuration entry.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
 	  <term><option>--summary</option></term>
 	  <listitem>
 	    <para>Summary of camera status.</para>
