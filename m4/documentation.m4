@@ -75,6 +75,9 @@ AC_REQUIRE([GP_CHECK_FIG2DEV])
 AC_REQUIRE([GP_CHECK_DOCBOOK_XML])
 AC_REQUIRE([GP_CHECK_TR])
 
+gphoto2xml='$(top_srcdir)/src/gphoto2.xml'
+AC_SUBST(gphoto2xml)
+
 dnl ---------------------------------------------------------------------------
 dnl Give the user the possibility to install documentation in
 dnl user-defined locations.
@@ -90,6 +93,39 @@ else
 fi
 AC_SUBST(htmldir)
 
+AC_ARG_WITH(xhtml-dir, [  --with-xhtml-dir=PATH     Where to install xhtml docs [default=autodetect]])
+AC_MSG_CHECKING([for xhtml dir])
+if test "x${with_xhtml_dir}" = "x" ; then
+    xhtmldir="${DOC_DIR}/xhtml"
+    AC_MSG_RESULT([${xhtmldir} (default)])
+else
+    xhtmldir="${with_xhtml_dir}"
+    AC_MSG_RESULT([${xhtmldir} (from parameter)])
+fi
+AC_SUBST(xhtmldir)
+
+AC_ARG_WITH(html-nochunks-dir, [  --with-html-nochunks-dir=PATH      Where to install html-nochunks docs [default=autodetect]])
+AC_MSG_CHECKING([for html-nochunks dir])
+if test "x${with_html_nochunks_dir}" = "x" ; then
+    htmlnochunksdir="${DOC_DIR}/html-nochunks"
+    AC_MSG_RESULT([${htmlnochunksdir} (default)])
+else
+    htmlnochunksdir="${with_html_nochunks_dir}"
+    AC_MSG_RESULT([${htmlnochunksdir} (from parameter)])
+fi
+AC_SUBST(htmlnochunksdir)
+
+AC_ARG_WITH(xhtml-nochunks-dir, [  --with-xhtml-nochunks-dir=PATH      Where to install xhtml-nochunks docs [default=autodetect]])
+AC_MSG_CHECKING([for xhtml-nochunks dir])
+if test "x${with_xhtml_nochunks_dir}" = "x" ; then
+    xhtmlnochunksdir="${DOC_DIR}/xhtml-nochunks"
+    AC_MSG_RESULT([${xhtmlnochunksdir} (default)])
+else
+    xhtmlnochunksdir="${with_xhtml_nochunks_dir}"
+    AC_MSG_RESULT([${xhtmlnochunksdir} (from parameter)])
+fi
+AC_SUBST(xhtmlnochunksdir)
+
 AC_ARG_WITH(xml-dir, [  --with-xml-dir=PATH      Where to install xml docs [default=autodetect]])
 AC_MSG_CHECKING([for xml dir])
 if test "x${with_xml_dir}" = "x" ; then
@@ -102,6 +138,28 @@ fi
 AC_SUBST(xmldir)
 xmlcssdir="${xmldir}/css"
 AC_SUBST(xmlcssdir)
+
+AC_ARG_WITH(pdf-dir, [  --with-pdf-dir=PATH      Where to install pdf docs [default=autodetect]])
+AC_MSG_CHECKING([for pdf dir])
+if test "x${with_pdf_dir}" = "x" ; then
+    pdfdir="${DOC_DIR}/pdf"
+    AC_MSG_RESULT([${pdfdir} (default)])
+else
+    pdfdir="${with_pdf_dir}"
+    AC_MSG_RESULT([${pdfdir} (from parameter)])
+fi
+AC_SUBST(pdfdir)
+
+AC_ARG_WITH(ps-dir, [  --with-ps-dir=PATH      Where to install ps docs [default=autodetect]])
+AC_MSG_CHECKING([for ps dir])
+if test "x${with_ps_dir}" = "x" ; then
+    psdir="${DOC_DIR}/ps"
+    AC_MSG_RESULT([${psdir} (default)])
+else
+    psdir="${with_ps_dir}"
+    AC_MSG_RESULT([${psdir} (from parameter)])
+fi
+AC_SUBST(psdir)
 
 
 doc_formats_list='man html ps pdf'
