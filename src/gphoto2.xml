@@ -91,7 +91,12 @@ About this file:
     <subtitle>Mission statement, history and options for the future</subtitle>
 
     <para>
-      This document is <quote>&docname;</quote>.
+      This document is called <quote>&docname;</quote>. You can get it
+      from the gphoto homepage, found in at least one of these places:
+      <ulink url="http://gphoto.net/">http://gphoto.net/</ulink>,
+      <ulink url="http://gphoto.org/">http://gphoto.org/</ulink>,
+      <ulink url="http://gphoto.com/">http://gphoto.com/</ulink>,
+      <ulink url="http://gphoto.sf.net/">http://gphoto.sf.net/</ulink>.
     </para>
 
     <formalpara>
@@ -144,6 +149,14 @@ About this file:
 	</simpara>
       </listitem>
     </orderedlist>
+
+    <para>
+      The editors want to thank all those who gave us feedback and
+      suggestions about this manual
+      <!-- UNCOMMENT THIS LIST IF YOU HAVE A FEW MORE NAMES
+      (names in alphabetical occurence, list surely is not complete):
+      Cosmin Stroe-->.
+    </para>
 
     <!--
     <variablelist>
@@ -708,17 +721,167 @@ Saving file as MVI_5418.AVI                                                     
     </sect1>
 
     <sect1 id="permissions-serial">
-      <title>Setting up permissions for serial (<acronym>RS232</acronym>) ports</title>
-      <note>
-	<simpara>
-	  I don't have any experience with serial ports for user
-	  processes. So take this section with a grain of salt.
-	</simpara>
-      </note>
+
+      <title>Setting up permissions for serial
+	(<acronym>RS232</acronym>) ports</title>
+
       <para>
-        If you have a serial port reserved for the camera, you may just chown
-        the device file to the user you want to run gphoto2 as.
-      </para>    
+	On Unix systems, serial ports usually are represented by device files.
+	The serial port device files are e.g.:
+      </para>
+
+      <variablelist>
+	<varlistentry>
+	  <term>for Linux</term>
+	  <listitem>
+	    <simpara><filename class="devicefile">/dev/ttyS<replaceable>?</replaceable></filename> starting with <filename class="devicefile">/dev/ttyS0</filename></simpara>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term>for FreeBSD</term>
+	  <listitem>
+	    <simpara><filename class="devicefile">/dev/cuaa<replaceable>?</replaceable></filename> starting with <filename class="devicefile">/dev/cuaa0</filename></simpara>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+
+      <para>
+        If you have a serial port reserved for the camera, you can
+	just use <command>chown</command>, <command>chgrp</command>,
+	<command>chmod</command> on its device file to provide a
+	certain user or group or everybody with access to it.
+      </para>
+
+      <para>
+	You can use the <command>gphoto2 --list-ports</command>
+	command to check whether you have permissions to access a
+	certain device:
+      </para>
+
+      <screen>
+<prompt>alice@machine:~$ </prompt><userinput>gphoto2 --list-ports</userinput>
+<computeroutput>Devices found: 2
+Path                             Description
+--------------------------------------------------------------
+serial:/dev/ttyS0                Serial Port 0                   
+usb:                             Universal Serial Bus            
+</computeroutput>
+<prompt>alice@machine:~$ </prompt>
+      </screen>
+      
+      <para>
+	This shows that user alice (who seems to be running the
+	command) has access to the serial device 
+	<filename class="devicefile">/dev/ttyS0</filename>.
+      </para>
+
+      <sect2>
+	<title>A few examples</title>
+
+	<para>
+	  Let's make a few examples with the first serial port 
+	  on a Linux system, called 
+	  <filename class="devicefile">/dev/ttyS0</filename>. 
+	  You start with having a look at the device file: 
+	</para>
+
+	<screen>
+<prompt>machine:~# </prompt><userinput>ls -l <filename class="devicefile">/dev/ttyS0</filename></userinput>
+<computeroutput>crw-rw----    1 root     dialout    4,  64 Jul  5 12:05 /dev/ttyS0</computeroutput>
+<prompt>machine:~# </prompt>
+	</screen>
+
+	<para>
+	  OK, so user root and all users of the group dialout can access
+	  the device /dev/ttyS0. You now have a few choices of what to
+	  do.
+	</para>
+
+	<example id="ex-serial-exclusive-access">
+	  <title>Exclusive access to a serial camera for <emphasis>one</emphasis> user</title>
+	  <para>
+	    You want to give user alice exclusive access to the first
+	    serial port on your Linux machine:
+	  </para>
+	  <screen>
+<prompt>machine:~# </prompt># give alice exclusive access to the device file (you must be root)
+<prompt>machine:~# </prompt><userinput>chown alice /dev/ttyS0</userinput>
+<prompt>machine:~# </prompt><userinput>chmod 0600 /dev/ttyS0</userinput>
+<prompt>machine:~# </prompt><userinput>ls -l /dev/ttyS0</userinput>
+<computeroutput>crw-------    1 alice    dialout    4,  64 Jul  5 12:05 /dev/ttyS0</computeroutput>
+<prompt>machine:~# </prompt>
+	  </screen>
+	  <para>
+	    Test for access by running 
+	    <command>gphoto2 --list-ports</command>
+	    as the respective user. Look for
+	    <filename class="devicefile">/dev/ttyS0</filename>
+	    in the output.
+	  </para>
+	</example>
+
+	<example id="ex-serial-group-access">
+	  <title>Access to serial camera for a group of users</title>
+	  
+	  <para>
+	    You could just add user alice to the group dialout, but this
+	    will almost certainly cause confusion between dialing and
+	    using the camera. So you'd better create a group named
+	    "camera", add alice to that group and give the group access
+	    to the camera:
+	  </para>
+	  
+	  <screen>
+<prompt>machine:~# </prompt># give users in group "camera" access to this device (you must be root)
+<prompt>machine:~# </prompt><userinput>groupadd camera</userinput>
+<prompt>machine:~# </prompt><userinput>chgrp camera /dev/ttyS0</userinput>
+<prompt>machine:~# </prompt><userinput>chmod 0060 /dev/ttyS0</userinput>
+<prompt>machine:~# </prompt><userinput>ls -l /dev/ttyS0</userinput>
+<computeroutput>c---rw----    1 root     camera     4,  64 Jul  5 12:05 /dev/ttyS0</computeroutput>
+<prompt>machine:~# </prompt>
+	  </screen>
+	
+	  <para>
+	    Test for access by running 
+	    <command>gphoto2 --list-ports</command>
+	    as the respective user. Look for
+	    <filename class="devicefile">/dev/ttyS0</filename>
+	    in the output.
+	  </para>
+
+	  <para>
+	    BTW, it makes sense to also set the permissions for USB
+	    camera devices to allow the "camera" group access. Then any
+	    user in the "camera" group will have access to any camera.
+	  </para>
+	</example>
+
+	<example id="ex-serial-anybody-access">
+	  <title>Access to serial camera for <emphasis>anybody</emphasis></title>
+	  <para>
+	    Allowing <emphasis>anybody</emphasis> access to
+	    something is considered bad security. However, for quick
+	    testing or for non-networked single-user systems, this can
+	    also make sense:
+	  </para>
+	  <screen>
+<prompt>machine:~# </prompt># give <emphasis>anybody</emphasis> access to this device (you must be root)
+<prompt>machine:~# </prompt><userinput>chmod a+rw /dev/ttyS0</userinput>
+<prompt>machine:~# </prompt><userinput>ls -l /dev/ttyS0</userinput>
+<computeroutput>crw-rw-rw-    1 root     dialout    4,  64 Jul  5 12:05 /dev/ttyS0</computeroutput>
+<prompt>machine:~# </prompt>
+	  </screen>	  
+	  <para>
+	    Test for access by running 
+	    <command>gphoto2 --list-ports</command>
+	    as the respective user. Look for
+	    <filename class="devicefile">/dev/ttyS0</filename>
+	    in the output.
+	  </para>
+	</example>
+
+      </sect2>
+
     </sect1>
 
     <sect1 id="permissions-usb">
