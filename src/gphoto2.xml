@@ -331,6 +331,9 @@ About this file:
 		in Konqueror.
 		That's it.
 	      </simpara>
+              <simpara>
+		It also features a configuration frontend in the KDE control center..
+	      </simpara>
 	    </listitem>
 	  </varlistentry>
 	  <varlistentry>
@@ -340,6 +343,15 @@ About this file:
 		3rd party software available from 
 		<ulink url="http://digikam.sourceforge.net/">http://digikam.sourceforge.net/</ulink>.
 		Digikam is a standalone KDE frontend.
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>kipi-plugins</term>
+	    <listitem>
+	      <simpara>
+		gPhoto support integrated into KDE image plugins architecture, originating
+		from the former digikam.
 	      </simpara>
 	    </listitem>
 	  </varlistentry>
@@ -3195,6 +3207,20 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  <term><option>--show-info</option> <replaceable>RANGE</replaceable></term>
 	  <listitem>
 	    <para>Show info.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--list-config</option></term>
+	  <listitem>
+	    <para>List all configuration entries.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--get-config</option> <replaceable>CONFIGENTRY</replaceable></term>
+	  <listitem>
+	    <para>Get the specified configuration entry.</para>
 	  </listitem>
 	</varlistentry>
 
