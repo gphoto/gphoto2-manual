@@ -1,14 +1,22 @@
-This is
+========================================================================
+====== The gPhoto2 Manual ==============================================
+========================================================================
 
-   The gPhoto2 Manual
 
-More info in a few (days).
+Detailed information:
+=====================
 
-Until then, this is work in progress which doesn't work yet. :-)
-
-Details:
-
-- only basic build system (only builds images as of yet)
-- pathes not yet adapted to directory structure
+- this package depends on data from other packages
+- this package depends on xmlto
 - if we keep ChangeLog as created by cvs2cl we can save us a lot of hassle
 - etc. pp.
+
+
+Short build instructions:
+=========================
+
+./configure --with-doc-dir="/path/to/The_gPhoto2_Manual"
+make install
+
+And you should have the manual in all built formats in
+/path/to/The_gPhoto2_Manual
