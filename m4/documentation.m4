@@ -259,6 +259,10 @@ if $have_xmltops; then
         manual_ps=gphoto2.ps
         xxx="${xxx} ps($manual_ps)"
 fi
+if $have_xmltotxt; then 
+        manual_txt=gphoto2.txt
+        xxx="${xxx} txt($manual_txt)"
+fi
 AC_SUBST(manual_html)
 AC_SUBST(manual_pdf)
 AC_SUBST(manual_ps)
