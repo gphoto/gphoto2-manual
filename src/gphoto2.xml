@@ -1123,8 +1123,8 @@ usb:                             Universal Serial Bus
 	      (as of mid-2003) distributions,
               you don't have to do much. 
               Just write the output of
-	      <command>/usr/lib/libgphoto2/print-usb-usermap</command>	      
-	      <footnote id="FOOTNOTE-gphoto2-print-usb-usermap">
+	      <command>/usr/lib/libgphoto2/print-usb-usermap</command><footnote
+		id="FOOTNOTE-gphoto2-print-usb-usermap">
 		<para>
 		  In older versions of gphoto2 (gphoto2 2.0, gphoto2
 		  2.1.0, and the CVS versions in between and shortly
@@ -1159,12 +1159,12 @@ usb:                             Universal Serial Bus
 	   
 	    <para>
 	      Add the output of
-	      <command>/usr/lib/libgphoto2/print-usb-usermap</command>
-	      <footnoteref linkend="FOOTNOTE-gphoto2-print-usb-usermap"/>
+	      <command>/usr/lib/libgphoto2/print-usb-usermap</command><footnoteref 
+		linkend="FOOTNOTE-gphoto2-print-usb-usermap"/>
               to the <filename>/etc/hotplug/usb.usermap</filename> file:
               <screen>
 
-<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-usb-usermap</userinput> >> <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable>.usermap</filename>
+<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-usb-usermap</userinput> >> <filename>/etc/hotplug/usb.usermap</filename>
               </screen>
             </para>
           </listitem>
