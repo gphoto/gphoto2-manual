@@ -102,4 +102,31 @@ About this file:
     </answer>
   </qandaentry>
 
+	<qandaentry id="FAQ-pkg-config">
+	  <question>
+	    <para>
+	      I just sucessfully compiled and installed libgphoto2-2.2.1.
+	      But when configuring gphoto2-2.1.1 I get 
+	      <computeroutput>Library requirements (libgphoto2 >= 2.1.1) not met</computeroutput>
+	    </para>
+	  </question>
+	  <answer>
+	    <para>If you don't have pkg-config installed yet, then please install it.</para>
+	    <para>
+	      Otherwise, your PKG_CONFIG_PATH variable doesn't contain the 
+	      <filename class="directory">pkgconfig/</filename>
+	      directory in the 
+	      <filename class="directory">lib/</filename>
+	      directory of
+	      your libgphoto2 installation.
+	    </para>
+	    <para>For a default installation, run
+	      <screen><prompt>&prompt;</prompt><userinput>PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig</userinput>
+<prompt>&prompt;</prompt><userinput>export PKG_CONFIG_PATH</userinput></screen>
+	      and now run the gphoto2
+	      <userinput>./configure</userinput> again.
+	    </para>
+	  </answer>
+	</qandaentry>
+
 </qandadiv>
