@@ -2521,7 +2521,46 @@ Saving file as MVI_5418.AVI                                                     
 	  </screenshot>
 	  <variablelist>
 	    <varlistentry>
-	      <term>First choice</term>
+	      <term>
+		<menuchoice>
+		  <guimenu>Right Click</guimenu>
+		  <guisubmenu>View with...</guisubmenu>
+		  <guimenuitem>Built-in viewer</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para></para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>Right Click</guimenu>
+		  <guimenuitem>Info</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para></para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>		
+		<menuchoice>
+		  <guimenu>Right Click</guimenu>
+		  <guimenuitem>Save</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para></para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>		
+		<menuchoice>
+		  <guimenu>Right Click</guimenu>
+		  <guimenuitem>Delete</guimenuitem>
+		</menuchoice>
+	      </term>
 	      <listitem>
 		<para></para>
 	      </listitem>
