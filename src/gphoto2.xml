@@ -722,7 +722,7 @@ Saving file as MVI_5418.AVI                                                     
 	    <para>
               Then add the output of
               <screen>
-<prompt>[root@home ~]# </prompt><command>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap</parameter></command>
+<prompt>[root@home ~]# </prompt><command>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap</command>
               </screen>
               to that file
               (<filename>/etc/hotplug/usb.usermap</filename>).
