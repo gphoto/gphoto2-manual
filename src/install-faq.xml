@@ -85,7 +85,8 @@ About this file:
 	Above applies especially if you used packaged and CVS versions.
       </para>
       <para>
-	After that install newest libgphoto2 and gphoto2 and test
+	After that, install the newest version of 
+	libgphoto2 and gphoto2 and test
 	whether it works now. 
       </para>
     </answer>
