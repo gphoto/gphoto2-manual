@@ -176,6 +176,7 @@ About this file:
 	(names in alphabetical occurence, list surely is not complete):
 	-->
 	Mikko Hänninen, 
+	Andreas Klemm,
 	Cosmin Stroe,
 	and all the others whom we didn't list here (mail us if
 	you want your name mentioned here).
@@ -1368,27 +1369,146 @@ usb:                             Universal Serial Bus
       </sect2>
 
       <!-- ================================================== -->
-      <!--
-      <sect2 id="usb-on-BSD">
+      <!-- -->
+      <sect2 id="usb-on-FreeBSD">
 
-        <title><acronym>USB</acronym> ports on BSD</title>
+        <title><acronym>USB</acronym> ports on FreeBSD</title>
 
 	<note>
 	  <simpara>
-	    This primarily deals with FreeBSD 5 for now as I don't
-            have any other BSD system to test, but either these
-            instructions will also help for other BSD systems or 
-            updates will follow.
+	    This section only deals with FreeBSD 5 for now as long as
+            no one contributes information about other BSDs.
 	  </simpara>
 	</note>
 
-	<para>
-	  Plug your camera in, and switch it on. Have a look at the
-	  kernel messages (dmesg). You will see something like:
-	</para>
+	<sect3>
+	  <title>FreeBSD 5.x</title>
+
+	  <authorblurb>
+	    <simpara>
+	      Contributed by Andreas Klemm <email>andreas@klemm.apsfilter.org</email>
+	    </simpara>
+	  </authorblurb>
+
+	  <para>
+	    FreeBSD uses a dynamically created devices filesystem (devfs).
+	  </para>
+
+	  <para>
+	    If you want to be able to use gphoto2 as non-root user, you need
+	    to tell the devfs framework, what permissions have to be used when
+	    creating these dynamically created USB devices.
+	  </para>
+
+	  <orderedlist>
+	    <listitem>
+	      <para>
+		look what USB driver is in use for you camera
+	      </para>
+
+	      <orderedlist>
+		<listitem>
+		  <para>by using <command>dmesg | grep -i ugen</command></para>
+		</listitem>
+		<listitem>
+		  <simpara>by watching console or xconsole if you plug in the camera</simpara>
+		</listitem>
+	      </orderedlist>
+
+	      <para>
+		Lets assume a ugen1 interface has been created
+		dynamically:
+		<screen>
+
+ugen1: Canon Inc. Canon Digital Camera, rev 1.10/0.01, addr 2
+		</screen>
+	      </para>
+	    </listitem>
+
+	    <listitem>
+	      <para>
+		Configure the permissions using the 
+		<command>devfs</command> command.
+	      </para>
+	      <orderedlist>
+		<listitem>
+		  <para>
+		    create a new ruleset (best start with 10, some numbers might
+		    already be in use)
+		  </para>
+		  <screen>
+
+/sbin/devfs ruleset 10
+		  </screen>
+		</listitem>
+		<listitem>
+		  <para>
+		    Tell the system this rules should be in effect immediately:
+		  </para>
+		  <screen>
+
+/sbin/devfs rule applyset
+		  </screen>
+		</listitem>
+		<listitem>
+		  <para>
+		    Change the permissions to <quote>rw</quote> for
+		    everybody. 
+		    Please note the <quote>'</quote>,
+		    since your interactive shell should not expand the
+		    expression <quote>ugen1*</quote>, just for the
+		    case your working dir is currently <filename
+		    class="directory">/dev</filename> ;-)
+		  </para>
+		  <screen>
+
+/sbin/devfs rule add path 'ugen1*' mode 666
+		  <screen>
+		</listitem>
+	      </orderedlist>
+	    </listitem>
+
+	    <listitem>
+	      <para>
+		Make permanent entries in 
+		<filename>/etc/rc.local</filename>:
+	      </para>
+	      <programlisting>
+
+#! /bin/sh
+/sbin/devfs ruleset 10
+/sbin/devfs rule applyset
+/sbin/devfs rule add path ugen1* mode 666
+/sbin/devfs rule show
+exit 0
+	      </programlisting>
+	      <para>
+		Since rc.local has gone in FreeBSD 5.x (although hooks
+		to use it - if its there - still exist), you might
+		create this file first.
+	      </para>
+	    </listitem>
+
+	    <listitem>
+	      <para>
+		A more "clean/interesting" way would be to use 
+		<filename>/etc/devfs.rules</filename>.
+		This exercise is left to the reader, to get it work.
+		To be honest, I had problems to get it to run
+		properly, so better end with step 3 ;-)
+	      </para>
+	      <formalpara>
+		<title>Editor's note</title>
+		<para>
+		  Please contact us if you have a solution.
+		</para>
+	      </formalpara>
+	    </listitem>
+	  </orderedlist>
+
+	</sect3>
 
       </sect2>
-      -->
 
       <sect2 id="usb-on-others">
 	<title>USB ports on other systems (BSD, MacOS X, OS/2)</title>
