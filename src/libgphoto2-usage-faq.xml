@@ -83,10 +83,12 @@ About this file:
 	<varlistentry>
 	  <term>no (and will never be)</term>
 	  <listitem>
-	    We will not support cameras in USB mass storage
-	    mode. Your operating system already has drivers for
-	    these. Just use the cameras like you would use a USB disk
-	    drive or USB flash disk.
+	    <simpara>
+	      We will not support cameras in USB mass storage
+	      mode. Your operating system already has drivers for
+	      these. Just use the cameras like you would use a USB disk
+	      drive or USB flash disk.
+	    </simpara>
 	  </listitem>
 	</varlistentry>
 
@@ -154,17 +156,17 @@ sure this device is connected to the computer
     </question>
     <answer>
       <para>
-	  First <link linkend="FAQ-camera-support"></simpara>check that your camera is supported</link>.
+	First <link linkend="FAQ-camera-support">check that your camera is supported</link>.
       </para>
       <para>      
-	  Then try to run 
-	  <userinput>gphoto2 <parameter>--list-ports</parameter></userinput>
-	  and look whether the ports  
-	  you want to use are listed there:
+	Then try to run 
+	<userinput>gphoto2 <parameter>--list-ports</parameter></userinput>
+	and look whether the ports  
+	you want to use are listed there:
       </para>
       <itemizedlist>
 	<listitem>
-	  <simpara>	
+	  <simpara>
 	    For serial devices, the port with the appropriate device must be
 	    listed
 	  </simpara>
