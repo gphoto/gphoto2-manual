@@ -1618,8 +1618,9 @@ usb:                             Universal Serial Bus
       </para>
       <para>
 	If you are using pre-built packages (such as SuSE or Redhat
-	RPMs), these packages will already have done this
-	configuration for you.
+	RPMs), these packages should already have done this
+	configuration for you. In reality, however, you often still
+	have to do a varying amount of work.
       </para>
       <para>
         If you are installing and setting up libgphoto2 yourself, then
@@ -1882,7 +1883,8 @@ usb:                             Universal Serial Bus
                     will do - and use that group in 
                     <filename>usbcam.group</filename>. 
                     There is a specially marked line in
-                    the script you have to change.</simpara>
+                    the script you have to change accordingly.
+		  </simpara>
                 </listitem>
               </varlistentry>
 
@@ -1890,15 +1892,19 @@ usb:                             Universal Serial Bus
                 <term><filename>usbcam.console</filename></term>
                 <listitem>
                   <simpara>
-                    The most simple solution is using
+		    The most simple solution for single user
+		    workstations is using
                     <filename>usbcam.console</filename>. This
                     changes the permissions so that the user owning
                     the console according to the 
-                    <systemitem class="library">pam_console</systemitem>
-                    access the camera. This works only if you're logging in with
-                    <systemitem class="library">pam_console</systemitem>, 
+                    <systemitem
+		    class="library">pam_console</systemitem>
+		    module to access the camera. This works only if
+		    you're logging in with 
+		    <systemitem class="library">pam_console</systemitem>, 
                     i.e. e.g. using <command>gdm</command> on Redhat
-		    Linux. It won't work on Debian GNU/Linux at all
+		    Linux, and then only for the user logged in
+		    last. It won't work on Debian GNU/Linux at all 
 		    (they claim security reasons, but I didn't
 		    investigate further into that matter).
                   </simpara>
@@ -2981,16 +2987,17 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>--usbid</option> <replaceable>USBIDS</replaceable></term>
+	  <term><option>--usbid</option> <parameter><replaceable>USBIDS</replaceable></parameter></term>
 	  <listitem>
 	    <para>
 		(Expert only) Override <acronym>USB</acronym> IDs.
-		<replaceable>USBIDS</replaceable> must be of the form	
-		<replaceable>DetectedVendorID</replaceable>:<replaceable>DetectedProductID</replaceable>=<replaceable>TreatAsVendorID</replaceable>:<replaceable>TreatAsProductID</replaceable>
+		<parameter><replaceable>USBIDS</replaceable></parameter>
+		must be of the form		
+		<parameter><replaceable>DetectedVendorID</replaceable>:<replaceable>DetectedProductID</replaceable>=<replaceable>TreatAsVendorID</replaceable>:<replaceable>TreatAsProductID</replaceable></parameter>
 		to treat any USB device detected as 
-		<replaceable>DetectedVendorID</replaceable>:<replaceable>DetectedProductID</replaceable>
+		<parameter><replaceable>DetectedVendorID</replaceable>:<replaceable>DetectedProductID</replaceable></parameter>
 		as 
-		<replaceable>TreatAsVendorID</replaceable>:<replaceable>TreatAsProductID</replaceable>
+		<parameter><replaceable>TreatAsVendorID</replaceable>:<replaceable>TreatAsProductID</replaceable></parameter>
 		instead.
 		All the VendorIDs and ProductIDs should be hexadecimal
 		numbers beginning in C notation, i.e. beginning with
