@@ -20,13 +20,8 @@ About this file:
    system, but you're free to use any other adequate processing tool,
    of course :-)
 
- - stylesheet options which may be interesting: 
-     use.id.as.filename=true
-     make.valid.html=true
-     navig.graphics=true
-     chapter.autolabel=7
-     section.autolabel=8
-     section.label.includes.component.label=9
+ - please use id="xxx" attributes for all elements which get linked to
+   (chapter, sect1, refsect1, etc.)
 
 ================================================================= -->
 
