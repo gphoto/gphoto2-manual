@@ -2843,6 +2843,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<arg choice="opt">--get-audio-data <replaceable>RANGE</replaceable></arg>
 	<arg choice="opt">--get-all-audio-data</arg><sbr/>
 	<arg choice="opt">--force-overwrite</arg><sbr/>
+	<arg choice="opt">--new</arg><sbr/>
 	<group choice="opt">
 	  <arg>-d <replaceable>RANGE</replaceable></arg>
 	  <arg>--delete-file <replaceable>RANGE</replaceable></arg>
@@ -3173,6 +3174,13 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  <term><option>--force-overwrite</option></term>
 	  <listitem>
 	    <para>Overwrite files without asking.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--new</option></term>
+	  <listitem>
+	    <para>Only get not already downloaded files. This option depends on camera support of flagging already downloaded images and is not available for all drivers.</para>
 	  </listitem>
 	</varlistentry>
 
