@@ -82,15 +82,13 @@ dnl ---------------------------------------------------------------------------
 AC_ARG_WITH(html-dir, [  --with-html-dir=PATH      Where to install html docs [default=autodetect]])
 AC_MSG_CHECKING([for html dir])
 if test "x${with_html_dir}" = "x" ; then
-    HTML_DIR="${DOC_DIR}/html"
-    AC_MSG_RESULT([${HTML_DIR} (default)])
+    htmldir="${DOC_DIR}/html"
+    AC_MSG_RESULT([${htmldir} (default)])
 else
-    HTML_DIR="${with_html_dir}"
-    AC_MSG_RESULT([${HTML_DIR} (from parameter)])
+    htmldir="${with_html_dir}"
+    AC_MSG_RESULT([${htmldir} (from parameter)])
 fi
-AC_SUBST(HTML_DIR)
-API_DIR="${HTML_DIR}/api"
-AC_SUBST(API_DIR)
+AC_SUBST(htmldir)
 
 
 doc_formats_list='man html ps pdf'
