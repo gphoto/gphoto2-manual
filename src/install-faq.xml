@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='latin1'?>
+
+<!-- =================================================================
+About this file:
+
+ - It is written in Docbook XML
+
+ - You're best off using an XML editor for this file
+
+ - If you have installed the Docbook XML DTDs properly, 
+   you can do syntax checks
+
+ - You can view this file directly using any XML+CSS capable browser. 
+   Examples are Mozilla, Galeon, Opera.
+
+ - If you need more information about Docbook and XML, have a look at
+   http://docbook.org/ and http://nwalsh.com/
+
+ - We use Tim Waugh's xmlto to process this file within the build
+   system, but you're free to use any other adequate processing tool,
+   of course :-)
+
+ - please use id="xxx" attributes for all qandaentry elements
+
+================================================================= -->
+
+<?xml-stylesheet type="text/css" href="docbook-xml.css"?>
+
+<!--
+  leave DOCTYPE commented out for easy inclusion as external entity 
+-->
+<!--DOCTYPE qandaset PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" 
+  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd"-->
+
+<qandaset>
+
+  <qandaentry id="FAQ-installation-kaputt">
+    <question>
+      <simpara>
+	gphoto2 does not work, the driver reports some error messages.
+	What shall I do?
+      </simpara>
+    </question>
+    <answer>
+      <para>
+	First of all make sure, that you have only one instance of gphoto2 
+	and libgphoto2 installed on your system. 
+	Unless you know what you're doing you should remove all gphoto2
+	installation, then you may do (as root):
+      </para>
+      <screen>
+<prompt>&rprompt;</prompt><command>rm <parameter>-rf</parameter> <parameter><filename>/usr/local/lib/gphoto2*</filename></parameter> <parameter><filename>/usr/local/lib/libgphoto2*</filename></parameter></command>
+<prompt>&rprompt;</prompt><command>rm <parameter>-rf</parameter> <parameter><filename>/usr/lib/gphoto2*</filename></parameter> <parameter><filename>/usr/lib/libgphoto2*</filename></parameter></command>
+      </screen>
+      <para>
+	Above applies especially if you used packaged and CVS versions.
+      </para>
+      <para>
+	After that install newest libgphoto2 and gphoto2 and test
+	whether it works now. 
+      </para>
+    </answer>
+  </qandaentry>
+
+  <qandaentry id="FAQ-stow">
+    <question>
+      <simpara>I want to use GNU stow, but that fails.</simpara>
+    </question>
+    <answer>
+      <simpara>I don't know what stow is, but have a look at #553647.</simpara>
+    </answer>
+  </qandaentry>
+
+</qandaset>

@@ -29,10 +29,29 @@ About this file:
 <!--
   leave DOCTYPE commented out for easy inclusion as external entity 
 -->
-<!-- DOCTYPE qandaset PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
-  "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" -->
+<!--DOCTYPE qandaset PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" 
+  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd"-->
 
 <qandaset>
+
+  <qandaentry id="FAQ-library-revision">
+    <question>
+      <simpara>
+        I just downloaded the libgphoto2-2.1.1 distribution off
+	sourceforge and it builds "libgphoto2.so.2.0.3". Has anyone
+	else reported this?
+      </simpara>
+    </question>
+    <answer>
+      <para>
+        Yes, many times. The release number ("2.1.1") and the
+	library version ("2.0.3") are by their respective definitions 
+	<emphasis>completely unrelated</emphasis>. As we won't
+	<quote>fix</quote> a problem which is not there,
+	please stop bugging us with that <quote>problem</quote>.
+      </para>
+    </answer>
+  </qandaentry>
 
   <qandaentry id="FAQ-could-not-find-usb">
     <question>
@@ -59,7 +78,7 @@ sure this device is connected to the computer
     </question>
     <answer>
       <para>      
-	First try to run "gphoto2 --list-ports" and look whether the ports 
+	First try to run <userinput>gphoto2 <parameter>--list-ports</parameter></userinput> and look whether the ports 
 	you want to use are listed there:
       </para>
       <itemizedlist>
@@ -78,7 +97,7 @@ sure this device is connected to the computer
 	</listitem>
       </itemizedlist>
       <para>
-	Then try to run "gphoto2 --auto-detect" and look whether the camera
+	Then try to run <userinput>gphoto2 <parameter>--auto-detect</parameter></userinput> and look whether the camera
 	is detected.
       </para>
       <para>
@@ -127,7 +146,8 @@ device and you have read/write access to the device.
       <para>
 	This is a longstanding bug with the G1 and Pro 90 IS, and a
 	relatively new bug with the G2. With the G2, it was 
-	introduced with a new camera firmware (G2 1.0.0.0 worked). We
+	introduced with a new camera firmware (G2 1.0.0.0 worked,
+	1.1.0.0 does not). We
 	haven't fixed this bug yet since none of the active gphoto2
 	developers owned one of these cameras until recently (i.e.
 	updated his G2's firmware). 
@@ -188,7 +208,8 @@ device and you have read/write access to the device.
       <para>
 	<citation>
 	  If you are not getting a response from a camera plugged into
-	  the serial port, check your /var/log/boot.msg file for the
+	  the serial port, check your 
+	  <filename>/var/log/boot.msg</filename> file for the
 	  following entry near the end:
 	</citation>
 	<screen>
@@ -221,7 +242,7 @@ device and you have read/write access to the device.
 	    Buy a fast computer, buy Windows and Visual C and some manuals on
 	    how to access USB or serial ports on Windows. Send all that
 	    including a blank cheque to us (ask for the address on
-	    gphoto-devel@gphoto.org).
+	    <email>gphoto-devel@gphoto.org</email>).
 	  </simpara>
 	</listitem>
 	<listitem>
@@ -260,13 +281,75 @@ device and you have read/write access to the device.
 
     <answer>
       <para>     
-	If your name is not listed in gphoto2/MAINTAINERS, and if we
+	If your name is not listed in 
+	<filename>libgphoto2/MAINTAINERS</filename>, and if we
 	haven't heard from you lately, we assume that you finished
 	your work on gphoto2 and that you don't need write access any
 	longer. If this is not the case, please contact one of the
 	project admins.
       </para>
     </answer> 
+  </qandaentry>
+
+  <qandaentry id="FAQ-camlib-readme">
+    <question>
+      <simpara>
+	I have a special problem with CameraXYZ. Where can I find information
+	about it?
+      </simpara>
+    </question>
+    <answer>
+      <para>
+	You can look into the <filename>README</filename> file of your
+	driver <replaceable>driver</replaceable>. It is located in 
+	<filename class="directory">camlibs/<replaceable>driver</replaceable>/</filename>
+	in your source tree. If you do not have a source tree, that is
+	bad luck up to and including release 2.1.1 - we will install
+	the <filename>README</filename> files in a future release, though.
+      </para>
+    </answer>
+  </qandaentry>
+
+  <qandaentry id="FAQ-USB-bulk-fail">
+    <question>
+      <para>
+	I run Linux 2.4.x and I can't get USB to work at all. I keep getting
+	this error message in the syslog:
+      </para>
+      <programlisting>
+kernel: usb_control/bulk_msg: timeout
+kernel: usbdevfs: USBDEVFS_BULK failed dev 3 ep 0x81 len 64 ret -110
+      </programlisting>
+      <para>How can I make USB work?</para>
+    </question>
+    <answer>
+      <para>
+	No idea. Sometimes it works and sometimes it doesn't. If you
+	know a solution, please let us know.
+      </para>
+    </answer>
+  </qandaentry>
+
+  <qandaentry id="FAQ-rotate-jpeg">
+    <question>
+      <simpara>
+	What's the best way to rotate downloaded JPEG images without 
+	losses?
+      </simpara>
+    </question>
+    <answer>
+      <screen>
+<prompt>&prompt;</prompt># If you do not care about preserving EXIF information
+<prompt>&prompt;</prompt><userinput>jpegtran <parameter>-copy all</parameter> <parameter>-rotate 90</parameter></userinput>
+<prompt>&prompt;</prompt>
+<prompt>&prompt;</prompt># If you want to preserve EXIF information
+<prompt>&prompt;</prompt><userinput>jhead <parameter>-cmd</parameter> <parameter>'jpegtran -rotate 90 -outfile &amp;o &amp;i'</parameter> <parameter><filename>my-pic.jpg</filename></parameter></userinput>
+      </screen>
+      <!--para>
+	You can get the jpegtran and jhead utilities from FIXME and
+	FIXME, respectively. 
+      </para-->
+    </answer>
   </qandaentry>
 
 </qandaset>
