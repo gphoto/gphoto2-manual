@@ -245,23 +245,19 @@ manual_html=""
 manual_pdf=""
 manual_ps=""
 if $have_xmltohtml; then
-        manual_html=manual
-        xxx="${xxx} html($manual_html)"
+        xxx="${xxx} html"
 fi
 if $have_xmltoman; then
         xxx="${xxx} man"
 fi
 if $have_xmltopdf; then
-        manual_pdf=gphoto2.pdf
-        xxx="${xxx} pdf($manual_pdf)"
+        xxx="${xxx} pdf"
 fi
 if $have_xmltops; then 
-        manual_ps=gphoto2.ps
-        xxx="${xxx} ps($manual_ps)"
+        xxx="${xxx} ps"
 fi
 if $have_xmltotxt; then 
-        manual_txt=gphoto2.txt
-        xxx="${xxx} txt($manual_txt)"
+        xxx="${xxx} txt"
 fi
 AC_SUBST(manual_html)
 AC_SUBST(manual_pdf)
@@ -275,7 +271,7 @@ then
         else
                 fig_out="out"
         fi
-        manual_msg="in (${xxx} ) format with${fig_out} figures"
+        manual_msg="in (${xxx} ) formats with${fig_out} figures"
 fi
 
 ])dnl
