@@ -2,7 +2,7 @@ CLEANFILES = *.pdf *.eps *.ps *.png *.jpg
 
 EXTRA_DIST = architecture.fig libgphoto2-api.fig libgphoto2-camlib.fig libgphoto2_port.fig gphotofs.fig software-dependencies.dot
 
-magnification = 1.0
+magnification = 1.2
 
 if ENABLE_GRAPHS
 
@@ -55,11 +55,8 @@ figures = \
 %.pdf: %.fig
 	$(FIG2DEV) -L pdf -z A4 -p dummy -c $< $@
 
-if ENABLE_PSTOIMG
-else
 %.png: %.fig
 	$(FIG2DEV) -L png -m $(magnification) $< $@
-endif
 
 %.jpg: %.fig
 	$(FIG2DEV) -L jpeg -m $(magnification) $< $@
