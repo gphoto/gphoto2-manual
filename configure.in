@@ -1,6 +1,6 @@
 AC_INIT(src/gphoto2.xml)
 
-AM_INIT_AUTOMAKE(gphoto2-manual, 2.1.1dev4)
+AM_INIT_AUTOMAKE(gphoto2-manual, 2.1.2)
 
 AM_MAINTAINER_MODE()
 

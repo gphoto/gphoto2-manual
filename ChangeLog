@@ -1,3 +1,16 @@
+2003-09-05  Hubert Figuiere  <hfiguiere@teaser.fr>
+
+	* src/gphoto2.xml: remove gphoto.net reference
+
+	* configure.in: bump version to 2.1.2
+
+	* src/libgphoto2-usage-faq.xml: Add FAQ about webcam
+	Changed mailing list address
+	Fixed a few style problems
+	Fixed answer about JPEG rotation
+
+	* src/install-faq.xml: fix ulink tag
+
 2002-08-30  Lutz Müller <lutz@users.sourceforge.net>
 
 	* help: Basic setup for translatable gtkam documentation.

@@ -98,7 +98,7 @@ About this file:
     </question>
     <answer>
       <simpara>I don't know what stow is, but have a look at 
-	<ulink href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=553647&amp;group_id=8874&amp;atid=108874">#553647</ulink>.
+	<ulink url="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=553647&amp;group_id=8874&amp;atid=108874">#553647</ulink>.
       </simpara>
     </answer>
   </qandaentry>

@@ -55,6 +55,26 @@ About this file:
     </answer>
   </qandaentry>
 
+  <qandaentry id="FAQ-webcam">
+    <question>
+      <simpara>
+        Is my webcam supported by libgphoto2 ? How can I use it ?
+      </simpara>
+    </question>
+    <answer>
+      <para>
+        libgphoto2 is not meant in any way to use webcams. It only works
+	with still image cameras, and is designed to fetch images out of the
+	internal storage of these cameras. It also eventually can be used to 
+	remote control the camera to take pictures, it the camera has support 
+	for it and if the driver can do it. But not at all libgphoto2 has been
+	designed to be tool to operate webcams nor do we support these devices. 
+	There are other solutions about that. Try searching
+	<ulink url="http://www.google.com/">Google</ulink>.
+      </para>
+    </answer>
+  </qandaentry>
+
   <qandaentry id="FAQ-could-not-find-usb">
     <question>
       <simpara>What can I do about the error message "Could not find USB device"?</simpara>
@@ -133,6 +153,17 @@ device and you have read/write access to the device.
 	you have set up the permissions on your USB device correctly,
 	such that you have (non-root) write access to the camera device.
 	How to set this up, is described at <xref linkend="permissions-usb"/>.
+      </para>
+      <para>
+	This can also happen with cameras that works as USB Mass Storage devices.
+	A notable example is if you have an Olympus Camera that gets auto-
+	detected as an Olympus C-2040Z. In this case, you can try, if you run 
+	Linux, to remove the usb-storage kernel module and attempt to use
+	libgphoto2 with it. But, unless you want to control the camera (not all
+	the model supports it), it is not a recommended solution. Keeps using USB
+	Mass Storage. Some of these Olympus supports to be switched to "PC Control"
+	mode in order to be remote controlled with an external program like one using 
+	libgphoto2.
       </para>
     </answer>
   </qandaentry>
@@ -244,7 +275,7 @@ device and you have read/write access to the device.
 	    Buy a fast computer, buy Windows and Visual C and some manuals on
 	    how to access USB or serial ports on Windows. Send all that
 	    including a blank cheque to us (ask for the address on
-	    <email>gphoto-devel@gphoto.org</email>).
+	    <email>gphoto-devel@lists.sourceforge.net</email>).
 	  </simpara>
 	</listitem>
 	<listitem>
@@ -318,10 +349,10 @@ device and you have read/write access to the device.
 	I run Linux 2.4.x and I can't get USB to work at all. I keep getting
 	this error message in the syslog:
       </para>
-      <programlisting>
+      <screen>
 kernel: usb_control/bulk_msg: timeout
 kernel: usbdevfs: USBDEVFS_BULK failed dev 3 ep 0x81 len 64 ret -110
-      </programlisting>
+      </screen>
       <para>How can I make USB work?</para>
     </question>
     <answer>
@@ -347,10 +378,10 @@ kernel: usbdevfs: USBDEVFS_BULK failed dev 3 ep 0x81 len 64 ret -110
 <prompt>&prompt;</prompt># If you want to preserve EXIF information
 <prompt>&prompt;</prompt><userinput>jhead <parameter>-cmd</parameter> <parameter>'jpegtran -rotate 90 -outfile &amp;o &amp;i'</parameter> <parameter><filename>my-pic.jpg</filename></parameter></userinput>
       </screen>
-      <!--para>
-	You can get the jpegtran and jhead utilities from FIXME and
-	FIXME, respectively. 
-      </para-->
+      <para>
+	You can get the jpegtran from the <ulink url="http://www.ijb.org/">libjpeg package</ulink> and jhead from 
+	<ulink url="http://www.sentex.net/~mwandel/jhead/">http://www.sentex.net/~mwandel/jhead</ulink>.
+      </para>
     </answer>
   </qandaentry>
 
