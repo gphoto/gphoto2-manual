@@ -2208,42 +2208,20 @@ Saving file as MVI_5418.AVI                                                     
 	  </variablelist>
 	</refsect2>
 	<refsect2>
-	  <title>Right Click Menu</title>
+	  <title>Right Click (over directory pane) Menu</title>
+	  <screenshot>
+	    <mediaobject>
+	      <imageobject>
+		<imagedata fileref="screenshots/gtkam/rt_click_dir.png" format="PNG"/>
+	      </imageobject>
+	    </mediaobject>
+	  </screenshot>
 	  <variablelist>
 	    <varlistentry>
-	      <term>
-		<menuchoice>
-		  <guimenu>Folder</guimenu>
-		  <guimenuitem>Create</guimenuitem>
-		</menuchoice>
-	      </term>
-	      <listitem>
-		<para>Opens dialog to create new folder (directory).</para>
-		<screenshot>
-		  <mediaobject>
-		    <imageobject>
-		      <imagedata fileref="screenshots/gtkam/fol_create.png" format="PNG"/>
-		    </imageobject>
-		  </mediaobject>
-		</screenshot>
-	      </listitem>
-	    </varlistentry> 
-	  <varlistentry>
 	    <term>
 		<menuchoice>
-		  <guimenu>Folder</guimenu>
-		  <guimenuitem>Remove</guimenuitem>
-		</menuchoice>
-	      </term>
-	    <listitem>
-		<para>Opens a dialog to remove (delete) an existing folder (directory).</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	    <term>
-		<menuchoice>
-		  <guimenu>Folder</guimenu>
-		  <guimenuitem>Upload File...</guimenuitem>
+		  <guimenu>Right Click</guimenu>
+		  <guimenuitem>Upload File</guimenuitem>
 		</menuchoice>
 	      </term>
 	      <listitem>
@@ -2260,8 +2238,38 @@ Saving file as MVI_5418.AVI                                                     
 	    <varlistentry>
 	      <term>
 		<menuchoice>
-		  <guimenu>Camera</guimenu>
-		  <guimenuitem>Capture...</guimenuitem>
+		  <guimenu>Right Click</guimenu>
+		  <guimenuitem>Make directory</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para>Opens dialog to create new directory.</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/fol_create.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
+	      </listitem>
+	    </varlistentry> 
+	    
+	    <varlistentry>
+	    <term>
+		<menuchoice>
+		  <guimenu>Right Click</guimenu>
+		  <guimenuitem>Remove directory</guimenuitem>
+		</menuchoice>
+	      </term>
+	    <listitem>
+		<para>Opens a dialog to remove (delete) an existing folder (directory).</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>Right Click</guimenu>
+		  <guimenuitem>Capture</guimenuitem>
 		</menuchoice>
 	      </term>
 	      <listitem>
@@ -2269,8 +2277,8 @@ Saving file as MVI_5418.AVI                                                     
 	    <varlistentry>
 	      <term>
 		<menuchoice>
-		  <guimenu>Camera</guimenu>
-		  <guimenuitem>Configure Camera...</guimenuitem>
+		  <guimenu>Right Click</guimenu>
+		  <guimenuitem>Preferences</guimenuitem>
 		</menuchoice>
 	      </term>
 	      <listitem>
@@ -2300,8 +2308,8 @@ Saving file as MVI_5418.AVI                                                     
 	    <varlistentry>
 	      <term>
 		<menuchoice>
-		  <guimenu>Camera</guimenu>
-		  <guimenuitem>Information</guimenuitem>
+		  <guimenu>Right Click</guimenu>
+		  <guimenuitem>Summary</guimenuitem>
 		</menuchoice>
 	      </term>
 	      <listitem>
@@ -2318,7 +2326,7 @@ Saving file as MVI_5418.AVI                                                     
 	    <varlistentry>
 	      <term>
 		<menuchoice>
-		  <guimenu>Camera</guimenu>
+		  <guimenu>Right Click</guimenu>
 		  <guimenuitem>Manual</guimenuitem>
 		</menuchoice>
 	      </term>
@@ -2332,8 +2340,8 @@ Saving file as MVI_5418.AVI                                                     
 	    <varlistentry>
 	      <term>
 		<menuchoice>
-		  <guimenu>Camera</guimenu>
-		  <guimenuitem>About the Driver...</guimenuitem>
+		  <guimenu>Right Click</guimenu>
+		  <guimenuitem>About</guimenuitem>
 		</menuchoice>
 	      </term>
 	      <listitem>
@@ -2346,6 +2354,35 @@ Saving file as MVI_5418.AVI                                                     
 		    </imageobject>
 		  </mediaobject>
 		</screenshot>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>Right Click</guimenu>
+		  <guimenuitem>Select Camera</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para>Selects the camera FIXME: what does this really do??</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/cam_driver.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term>
+		<menuchoice>
+		  <guimenu>Right Click</guimenu>
+		  <guimenuitem>Remove Camera</guimenuitem>
+		</menuchoice>
+	      </term>
+	      <listitem>
+		<para>Removes the camera from the directory pane.</para>
 	      </listitem>
 	    </varlistentry>
 
