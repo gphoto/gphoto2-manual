@@ -3,7 +3,7 @@
 here=$(dirname $0)
 
 echo "#### Cleaning directory tree from non-CVS files"
-for dir in $(find . -type d)
+for dir in $(find $here -type d)
 do
 (
     if cd "${dir}" && test -s .cvsignore
@@ -14,6 +14,8 @@ do
 )
 done
 echo "Finished cleaning."
+
+cd $here
 
 cat<<EOF | while read command; do echo "#### Executing \"$command\"..."; $command; done
 aclocal -I m4
