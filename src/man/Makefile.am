@@ -1,3 +1,5 @@
+CLEANFILES = *.1 *.3
+
 if XMLTOMAN
 
 manman_DATA = gphoto2.1 gtkam.1 libgphoto2_port.3 libgphoto2.3

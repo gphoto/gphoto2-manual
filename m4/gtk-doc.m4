@@ -2,7 +2,7 @@ dnl ---------------------------------------------------------------------------
 dnl gtk-doc: We use gtk-doc for building our documentation. However, we
 dnl          require the user to explicitely request the build.
 dnl ---------------------------------------------------------------------------
-AC_DEFUN(GP_CHECK_GTK_DOC,
+AC_DEFUN([GP_CHECK_GTK_DOC],
 [
 try_gtkdoc=false
 gtkdoc_msg="no (not requested)"

@@ -2,7 +2,7 @@ dnl ---------------------------------------------------------------------------
 dnl fig2dev: This program is needed for processing images. If not found,
 dnl          documentation can still be built, but without figures.
 dnl ---------------------------------------------------------------------------
-AC_DEFUN(GP_CHECK_FIG2DEV,
+AC_DEFUN([GP_CHECK_FIG2DEV],
 [
 
 try_fig2dev=true

@@ -2,7 +2,7 @@ dnl ---------------------------------------------------------------------------
 dnl dot: This program is needed for processing images. If not found,
 dnl          documentation can still be built, but without figures.
 dnl ---------------------------------------------------------------------------
-AC_DEFUN(GP_CHECK_DOT,
+AC_DEFUN([GP_CHECK_DOT],
 [
 
 try_dot=true

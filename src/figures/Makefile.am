@@ -1,4 +1,4 @@
-CLEANFILES = *.pdf *.eps *.ps *.png *.jpg
+CLEANFILES = *.pdf *.eps *.ps *.png *.jpg software-dependencies.fig software-dependencies.svg
 
 EXTRA_DIST = architecture.fig libgphoto2-api.fig libgphoto2-camlib.fig libgphoto2_port.fig gphotofs.fig software-dependencies.dot
 

@@ -1,7 +1,7 @@
 dnl ------------------------------------------------------------------------
 dnl try to find xmlto (required for generation of man pages and html docs)
 dnl ------------------------------------------------------------------------
-AC_DEFUN(GP_CHECK_DOCBOOK_XML,
+AC_DEFUN([GP_CHECK_DOCBOOK_XML],
 [
 
 AC_MSG_CHECKING([for XML catalogs])

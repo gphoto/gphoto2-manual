@@ -5,7 +5,7 @@ dnl determines documentation "root directory", i.e. the directory
 dnl where all documentation will be placed in
 dnl
 
-AC_DEFUN(GP_CHECK_DOCDIR,
+AC_DEFUN([GP_CHECK_DOCDIR],
 [
 
 AC_ARG_WITH(doc-dir, [  --with-doc-dir=PATH       Where to install docs  [default=autodetect]])dnl
@@ -48,7 +48,7 @@ AC_SUBST(docdir)
 ])dnl
 
 dnl Solaris hack for grep and tr
-AC_DEFUN(GP_CHECK_TR,
+AC_DEFUN([GP_CHECK_TR],
 [
 if test -n "`echo $host_os | grep '[sS]olaris'`"; then
   TR=/usr/xpg4/bin/tr
@@ -66,7 +66,7 @@ dnl * determine presence of prerequisites (only gtk-doc for now)
 dnl * determine destination directory for HTML files
 dnl
 
-AC_DEFUN(GP_BUILD_DOCS,
+AC_DEFUN([GP_BUILD_DOCS],
 [
 # doc dir has to be determined in advance
 AC_REQUIRE([GP_CHECK_DOCDIR])
