@@ -87,7 +87,7 @@ About this file:
   <!-- =========================================================== --> 
   <!-- =========================================================== --> 
 
-  <preface>
+  <preface id="about-manual">
     <title>About this document</title>
     <subtitle>Mission statement, history and options for the future</subtitle>
 
@@ -172,7 +172,7 @@ About this file:
   <!-- =========================================================== --> 
   <!-- =========================================================== --> 
  
-  <chapter id="whatyouneed">
+  <chapter id="what-you-need">
     <title>Finding what you need</title>
     <abstract>
       <para>This chapter lists information about what you need to run gphoto2.This information is intended to assist you in setting up your computer so that you can connect a camera and use libgphoto2 software to download images.</para>
@@ -263,7 +263,7 @@ About this file:
       cameras, gtkam and the gphoto2 shell.</para>
 
 
-    <sect1 id="using_gtkam">
+    <sect1 id="using-gtkam">
       <title>Using gtkam</title>
       <para>FIXME: gtkam docs under construction. Please report errors, 
 	omissions, and constructive suggestions to 
@@ -458,7 +458,7 @@ Saving file as MVI_5418.AVI                                                     
 	Well, that's about it.
 	You may also want to have a look at the
 	<link linkend="cli-examples">command line examples</link> from
-	the <xref linkend="gphoto2-cli"/> man page and the examples
+	the <xref linkend="ref-gphoto2-cli"/> man page and the examples
 	described on 
 	<ulink url="http://www.gphoto.org/gphoto2/cli.html">http://www.gphoto.org/gphoto2/cli.html</ulink>.
       </para>
@@ -504,22 +504,22 @@ Saving file as MVI_5418.AVI                                                     
         you can use 
         <systemitem class="library">libgphoto2</systemitem>
         with any frontend. However, we will have some examples using
-        the <xref linkend="gphoto2-cli"/> command line frontend, as
+        the <xref linkend="ref-gphoto2-cli"/> command line frontend, as
         this is the frontend which is always provided.
       </para>
     </abstract>
 
-    <section id="system-overview">
+    <sect1 id="system-overview">
       <title>System Overview</title>
       <para>
         gPhoto2 consists of two libraries
         <systemitem class="library">libgphoto2</systemitem> (
-        see <xref linkend="libgphoto2"/>), and
+        see <xref linkend="ref-libgphoto2"/>), and
         <systemitem class="library">libgphoto2_port</systemitem>
-        (see <xref linkend="libgphoto2_port"/>), which is used by the
+        (see <xref linkend="ref-libgphoto2_port"/>), which is used by the
         former, 
         and a command line frontend (<command>gphoto2</command>, 
-        see <xref linkend="gphoto2-cli"/>). 
+        see <xref linkend="ref-gphoto2-cli"/>). 
         Other (GUI) frontends (like e.g. gtkam) are available as
         separate packages.
       </para>
@@ -532,21 +532,21 @@ Saving file as MVI_5418.AVI                                                     
       </para>
       <para>
         For security reasons, we strongly recommend not to run any 
-        <xref linkend="libgphoto2"/>
+        <xref linkend="ref-libgphoto2"/>
         frontend as root. So you have to set up the permissions of your camera
         device accordingly. This is described in the following two sections,
 	<xref linkend="permissions-RS232"/> and <xref linkend="permissions-USB"/>.
       </para>
       <para>
         Then you can run your frontend. For the command line 
-        <xref linkend="libgphoto2"/> frontend 
-        <xref linkend="gphoto2-cli"/>,
-        this is described in the <xref linkend="gphoto2-cli"/> man
+        <xref linkend="ref-libgphoto2"/> frontend 
+        <xref linkend="ref-gphoto2-cli"/>,
+        this is described in the <xref linkend="ref-gphoto2-cli"/> man
         page.
       </para>    
-    </section>
+    </sect1>
 
-    <section id="permissions-RS232">
+    <sect1 id="permissions-RS232">
       <title>Setting up permissions for serial (<acronym>RS232</acronym>) ports</title>
       <note>
 	<simpara>
@@ -558,9 +558,9 @@ Saving file as MVI_5418.AVI                                                     
         If you have a serial port reserved for the camera, you may just chown
         the device file to the user you want to run gphoto2 as.
       </para>    
-    </section>
+    </sect1>
 
-    <section id="permissions-USB">
+    <sect1 id="permissions-USB">
       <title>Setting up permissions for <acronym>USB</acronym> ports</title>
       <para>
         As <acronym>USB</acronym> is designed for hotplugging of
@@ -579,7 +579,7 @@ Saving file as MVI_5418.AVI                                                     
       </para>
 
       <!-- ================================================== -->
-      <section id="usb-on-linux">
+      <sect2 id="usb-on-linux">
 
         <title><acronym>USB</acronym> ports on Linux</title>
 
@@ -764,7 +764,7 @@ Saving file as MVI_5418.AVI                                                     
 	    </formalpara>
             <para>
               This makes hotplug recognise all <acronym>USB</acronym> cameras which your version 
-              of <xref linkend="libgphoto2"/> supports and makes
+              of <xref linkend="ref-libgphoto2"/> supports and makes
               <command>hotplug</command> run the
               <command>usbcam</command> script you choose in step
               <xref linkend="chooseusbcamscript"/>whenever one of these
@@ -887,8 +887,8 @@ Saving file as MVI_5418.AVI                                                     
 
           <listitem>
             <para>
-              Run <xref linkend="gphoto2-cli"/> or any other 
-              <xref linkend="libgphoto2"/> frontend and enjoy:
+              Run <xref linkend="ref-gphoto2-cli"/> or any other 
+              <xref linkend="ref-libgphoto2"/> frontend and enjoy:
             </para>
             <screen>
 <prompt>[user@home ~]$ </prompt><command>gphoto2 <parameter>--list-ports</parameter></command>
@@ -901,11 +901,11 @@ Saving file as MVI_5418.AVI                                                     
 
         </orderedlist>
 
-      </section>
+      </sect2>
 
-    </section>
+    </sect1>
 
-    <section id="port-and-camera">
+    <sect1 id="port-and-camera">
 
       <title>Specifying the port and camera you use</title>
 
@@ -920,7 +920,7 @@ Saving file as MVI_5418.AVI                                                     
         </simpara>
       </abstract>
 
-      <section id="port-names">
+      <sect2 id="port-names">
 
         <title>Port names</title>
 
@@ -955,9 +955,9 @@ Saving file as MVI_5418.AVI                                                     
 	  you're still using the same port.
 	</para>
 	
-      </section>
+      </sect2>
 
-      <section id="camera-names">
+      <sect2 id="camera-names">
 
         <title>Camera name</title>
 
@@ -982,9 +982,9 @@ Saving file as MVI_5418.AVI                                                     
 	  you're still using the same camera.
 	</para>	
 
-      </section>
+      </sect2>
 
-    </section>
+    </sect1>
 
   </chapter>
 
@@ -992,7 +992,7 @@ Saving file as MVI_5418.AVI                                                     
   <!-- =========================================================== --> 
   <!-- =========================================================== --> 
 
-  <chapter id="devel">
+  <chapter id="developer-docs">
     <title>Developer Documentation: The Inner Workings</title>
 
     <abstract>
@@ -1012,7 +1012,7 @@ Saving file as MVI_5418.AVI                                                     
       external documentation.</para>
 
 
-    <section id="software-architecture">
+    <sect1 id="software-architecture">
       <title>The gPhoto2 software architecture</title>
       <figure id="architecture-overview">
         <title>The gPhoto2 system architecture</title>
@@ -1036,10 +1036,10 @@ Saving file as MVI_5418.AVI                                                     
           </caption>
         </mediaobject>
       </figure>
-    </section>
+    </sect1>
 
 
-    <section id="api-libgphoto2">
+    <sect1 id="api-libgphoto2">
       <title>The <systemitem class="library">libgphoto2</systemitem>
         <acronym>API</acronym></title>
 
@@ -1065,10 +1065,10 @@ Saving file as MVI_5418.AVI                                                     
         </mediaobject>
       </figure>
 
-    </section>
+    </sect1>
 
 
-    <section id="api-camlib">
+    <sect1 id="api-camlib">
       <title>The <systemitem class="library">camlib</systemitem>
         <acronym>API</acronym></title>
 
@@ -1094,10 +1094,10 @@ Saving file as MVI_5418.AVI                                                     
         </mediaobject>
       </figure>
 
-    </section>
+    </sect1>
 
 
-    <section id="api-libgphoto2_port">
+    <sect1 id="api-libgphoto2_port">
       <title>The <systemitem class="library">libgphoto2_port</systemitem>
         <acronym>API</acronym></title>
 
@@ -1123,7 +1123,7 @@ Saving file as MVI_5418.AVI                                                     
         </mediaobject>
       </figure>
 
-    </section>
+    </sect1>
 
   </chapter>
 
@@ -1142,7 +1142,7 @@ Saving file as MVI_5418.AVI                                                     
       </para>
     </abstract>
 
-    <section id="language-bindings">
+    <sect1 id="language-bindings">
       <title>Language Bindings</title>
       <para>If somebody is interested in writing a
         <systemitem class="library">libgphoto2</systemitem>
@@ -1150,9 +1150,9 @@ Saving file as MVI_5418.AVI                                                     
         have language bindings for that language. Perl, Python and
         Java (JNI) come to mind...
       </para>
-    </section>
+    </sect1>
 
-    <section id="gphoto2fs">
+    <sect1 id="gphoto2fs">
       <title>The gPhoto2 file system</title>
 
       <figure id="figgphoto2fs">
@@ -1176,7 +1176,7 @@ Saving file as MVI_5418.AVI                                                     
           </caption>
         </mediaobject>
       </figure>
-    </section>
+    </sect1>
 
   </chapter>
 
@@ -1187,7 +1187,7 @@ Saving file as MVI_5418.AVI                                                     
 <reference id="reference">
   <title>The gPhoto2 Reference (the man pages)</title>
 
-  <refentry id="gphoto2-cli">
+  <refentry id="ref-gphoto2-cli">
     <refentryinfo>
       <author>
 	<firstname>The gPhoto2</firstname><surname>Team</surname>
@@ -1322,9 +1322,9 @@ Saving file as MVI_5418.AVI                                                     
     <refsect1>
       <title>Description</title>
 
-      <para><xref linkend="libgphoto2"/> is a 
+      <para><xref linkend="ref-libgphoto2"/> is a 
         cross-platform digital camera library, and
-        <xref linkend="gphoto2-cli"/> is a command-line client for
+        <xref linkend="ref-gphoto2-cli"/> is a command-line client for
         it.</para>
 
       <para>Where an option takes a range of files, thumbnails, or
@@ -1747,7 +1747,7 @@ Saving file as MVI_5418.AVI                                                     
 
     <refsect1>
       <title>See also</title>
-      <para><xref linkend="libgphoto2"/>,
+      <para><xref linkend="ref-libgphoto2"/>,
 	  &docname;,
         <filename path="doc/">gphoto2-cli.txt</filename>, 
 	  <ulink url="http://www.gphoto.org/">http://www.gphoto.org/</ulink>,
@@ -1787,7 +1787,7 @@ Saving file as MVI_5418.AVI                                                     
 
   </refentry>
 
-  <refentry id="libgphoto2">
+  <refentry id="ref-libgphoto2">
     <refentryinfo>
       <author><firstname>The gPhoto2</firstname><surname>Team</surname></author>
       <editor>
@@ -1844,8 +1844,8 @@ Saving file as MVI_5418.AVI                                                     
 
     <refsect1>
       <title>See also</title>
-        <para><xref linkend="gphoto2-cli"/>,
-          <xref linkend="libgphoto2_port"/>,
+        <para><xref linkend="ref-gphoto2-cli"/>,
+          <xref linkend="ref-libgphoto2_port"/>,
 	  &docname;,
 	  the automatically generated <acronym>API</acronym> docs,
           <ulink url="http://www.gphoto.org/">http://www.gphoto.org/</ulink> 
@@ -1854,7 +1854,7 @@ Saving file as MVI_5418.AVI                                                     
 
   </refentry>
 
-    <refentry id="libgphoto2_port">
+    <refentry id="ref-libgphoto2_port">
       <refentryinfo>
         <author><firstname>The gPhoto2</firstname><surname>Team</surname></author>
         <editor>
@@ -1884,7 +1884,7 @@ Saving file as MVI_5418.AVI                                                     
         <title>Description</title>
         <para>The 
           <systemitem class="library">libgphoto2_port</systemitem> 
-          library was written to provide <xref linkend="libgphoto2"/>
+          library was written to provide <xref linkend="ref-libgphoto2"/>
           with a generic way of accessing ports. In this function, 
           <systemitem class="library">libgphoto2_port</systemitem> is the
           successor of the 
@@ -1905,7 +1905,7 @@ Saving file as MVI_5418.AVI                                                     
 
       <refsect1>
         <title>See also</title>
-        <para><xref linkend="libgphoto2"/>,
+        <para><xref linkend="ref-libgphoto2"/>,
           &docname;,
           <ulink url="http://www.gphoto.org/">http://www.gphoto.org/</ulink>,
 	  the automatically generated <acronym>API</acronym> docs,
@@ -1916,7 +1916,7 @@ Saving file as MVI_5418.AVI                                                     
 
       <!-- &camera; -->
 
-    <refentry id="gtkam">
+    <refentry id="ref-gtkam">
       <refentryinfo>
 	<author>
 	  <firstname>The gPhoto2</firstname><surname>Team</surname>
