@@ -112,7 +112,7 @@ About this file:
 	release, Tim Waugh wrote the man pages in Docbook XML. Then 
 	Hans Ulrich Niedermann migrated the text files into the XML 
 	file and began with general improvements. Then after the 2.1.0
-	release, Michael J. Rensing joined us.
+	release, Michael J. Rensing joined us with gtkam documentation.
       </para>
     </formalpara>
 
@@ -135,11 +135,12 @@ About this file:
 	<simpara>
 	  Improve the document structure.
 	</simpara>
-	</listitem>
+      </listitem>
       <listitem>
 	<simpara>
-	  Create a pure ASCII text version in addition to HTML and
-	  PDF.
+	  Create a pure ASCII text version of specific parts (like
+	  e. g. installation FAQs, compilation FAQs etc.) for
+	  inclusion into the respective distributions.
 	</simpara>
       </listitem>
     </orderedlist>
@@ -459,6 +460,8 @@ Saving file as MVI_5418.AVI                                                     
     <sect1 id="using-gnome">
       <title>Using Gnome VFS</title>
       <para>FIXME: We need to write this section</para>
+      <para>This still has to be ported to the new Gnome
+	2 VFS. If you can help, please contact us.</para>
     </sect1>
 
     <sect1 id="using-kde">
@@ -795,7 +798,10 @@ Saving file as MVI_5418.AVI                                                     
                     <systemitem class="library">pam_console</systemitem>
                     access the camera. This works only if you're logging in with
                     <systemitem class="library">pam_console</systemitem>, 
-                    i.e. e.g. using <command>gdm</command> on Redhat Linux.
+                    i.e. e.g. using <command>gdm</command> on Redhat
+		    Linux. It won't work on Debian GNU/Linux at all
+		    (they claim security reasons, but I didn't
+		    investigate further into that matter).
                   </simpara>
                 </listitem>
               </varlistentry>
@@ -925,6 +931,13 @@ Saving file as MVI_5418.AVI                                                     
           </varlistentry>
         </variablelist>
 
+	<para>
+	  The port used is stored in
+	  <filename>~/.gphoto/settings</filename>, so you won't have
+	  to specify it the second time you run your frontend, if
+	  you're still using the same port.
+	</para>
+	
       </section>
 
       <section id="camera-names">
@@ -944,6 +957,13 @@ Saving file as MVI_5418.AVI                                                     
         <screen>
           <prompt>[user@home ~]$ </prompt><command>gphoto2 <parameter>--camera</parameter> <parameter>"<replaceable>Canon PowerShot G2</replaceable>"</parameter> <parameter>--list-files</parameter></command>
         </screen>
+
+	<para>
+	  The camera used is stored in
+	  <filename>~/.gphoto/settings</filename>, so you won't have
+	  to specify it the second time you run your frontend, if
+	  you're still using the same camera.
+	</para>	
 
       </section>
 
