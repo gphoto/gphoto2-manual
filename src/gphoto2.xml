@@ -2007,6 +2007,7 @@ Saving file as MVI_5418.AVI                                                     
 		    <listitem>
 		      <para>Saves selected photos from the camera to the computer.</para>
 		    </listitem>
+
 		  </varlistentry>
 		  <varlistentry>
 		    <term>
@@ -2018,6 +2019,14 @@ Saving file as MVI_5418.AVI                                                     
 		    </term>
 		    <listitem>
 		      <para>Saves all photos in the camera to the computer.</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/file_save_dia.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
+
 		    </listitem>
 		  </varlistentry>
 		</variablelist>
@@ -2045,20 +2054,28 @@ Saving file as MVI_5418.AVI                                                     
 			<guimenuitem>Selected</guimenuitem>
 		      </menuchoice>
 		    </term>
-		    <listitem>
-		      <para>Deletes selected photos from the camera.</para>
-		    </listitem>
-		  </varlistentry>
-		  <varlistentry>
-		    <term>
-		      <menuchoice>
-			<guimenu>File</guimenu>
-			<guisubmenu>Delete Photos</guisubmenu>
-			<guimenuitem>All</guimenuitem>
-		      </menuchoice>
-		    </term>
-		    <listitem>
-		      <para>Deletes all photos in the camera</para>
+		  <listitem>
+		    <para>Deletes selected photos from the camera.</para>
+		  </listitem>
+		</varlistentry>
+		<varlistentry>
+		  <term>
+		    <menuchoice>
+		      <guimenu>File</guimenu>
+		      <guisubmenu>Delete Photos</guisubmenu>
+		      <guimenuitem>All</guimenuitem>
+		    </menuchoice>
+		  </term>
+		  <listitem>
+		    <para>Deletes all photos in the camera</para>
+		    <screenshot>
+		      <mediaobject>
+			<imageobject>
+			  <imagedata fileref="screenshots/gtkam/file_del_dia.png" format="PNG"/>
+			</imageobject>
+		      </mediaobject>
+		    </screenshot>
+		    
 		    </listitem>
 		  </varlistentry>
 		</variablelist>
@@ -2529,7 +2546,7 @@ Saving file as MVI_5418.AVI                                                     
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para></para>
+		<para>Downloads the image under the cursor and displays it in a new window. The window automatically resizes the image to fill the window.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2540,7 +2557,7 @@ Saving file as MVI_5418.AVI                                                     
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para></para>
+		<para>Presents file name, type, size, date and permissions information about the image under the cursor.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2551,7 +2568,7 @@ Saving file as MVI_5418.AVI                                                     
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para></para>
+		<para>Downloads the image under the cursor and opens a dialog to allow it to be saved to the computer.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -2562,7 +2579,7 @@ Saving file as MVI_5418.AVI                                                     
 		</menuchoice>
 	      </term>
 	      <listitem>
-		<para></para>
+		<para>Opens a dialog to allow the user to delete the image under the cursor.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
