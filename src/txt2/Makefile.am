@@ -4,6 +4,7 @@ CLEANFILES = gphoto2.txt
 
 txt_DATA = gphoto2.txt
 
+# FIXME: detect software presence, disable build if necessary
 SED = /bin/sed
 W3M = /usr/bin/w3m
 
