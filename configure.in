@@ -8,9 +8,33 @@ AC_PROG_LN_S()
 
 GP_BUILD_DOCS()
 
+dnl ---------------------------------------------------------------------------
+dnl GNOME support: We can use the GNOME help system if scrollkeeper is
+dnl                installed.
+dnl ---------------------------------------------------------------------------
+scrollkeeper_msg="no"
+try_scrollkeeper=true
+have_scrollkeeper=false
+AC_ARG_WITH(scrollkeeper, [  --without-scrollkeeper   Don't use scrollkeeper], [
+	if test x$withval = xno; then
+		try_scrollkeeper=false
+	fi])
+if $try_scrollkeeper; then
+	AC_PATH_PROG(SCROLLKEEPER_CONFIG,scrollkeeper-config)
+	if test -n "${SCROLLKEEPER_CONFIG}"; then
+		have_scrollkeeper=true
+		scrollkeeper_msg="yes"
+	fi
+else
+	scrollkeeper_msg="no (not requested)"
+fi
+AM_CONDITIONAL(HAVE_SCROLLKEEPER, $have_scrollkeeper)
+
 AC_OUTPUT([
 Makefile
 m4/Makefile
+help/Makefile
+help/C/Makefile
 src/Makefile
 src/gphoto2-manual.pc
 src/css/Makefile
@@ -26,3 +50,10 @@ src/figures/Makefile
 src/screenshots/Makefile
 src/screenshots/gtkam/Makefile
 ])
+
+echo "
+
+Configuration (gphoto2-manual):
+
+        Scrollkeeper support:   $scrollkeeper_msg
+"

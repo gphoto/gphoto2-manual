@@ -1,7 +1,14 @@
-SUBDIRS = src
+
+if HAVE_SCROLLKEEPER
+scrollkeeper_subdirs = help
+endif
+
+SUBDIRS = src $(scrollkeeper_subdirs)
 
 ACLOCAL_AMFLAGS = -I m4
 AUTOMAKE_OPTIONS = gnu
+
+EXTRA_DIST = xmldocs.make
 
 if MAINTAINER_MODE
 
