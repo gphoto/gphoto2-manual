@@ -1982,9 +1982,9 @@ Saving file as MVI_5418.AVI                                                     
 	    <varlistentry>
 	      <term><menuchoice>
 		  <guimenu>File</guimenu>
-		  <guimenuitem>Save Photos</guimenuitem></menuchoice></term>
+		  <guisubmenu>Save Photos</guisubmenu></menuchoice></term>
 	      <listitem>
-		<para>Opens the dialog for saving the selected photos.</para>
+		<para>Gives options to save photos to the computer.</para>
 		<screenshot>
 		  <mediaobject>
 		    <imageobject>
@@ -1992,33 +1992,76 @@ Saving file as MVI_5418.AVI                                                     
 		    </imageobject>
 		  </mediaobject>
 		</screenshot>
-		
+		<variablelist>
+		  <varlistentry>
+		    <term>
+		      <menuchoice>
+			<guimenu>File</guimenu>
+			<guisubmenu>Save Photos</guisubmenu>
+			<guimenuitem>Selected</guimenuitem>
+		      </menuchoice>
+		    </term>
+		    <listitem>
+		      <para>Saves selected photos from the camera to the computer.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>
+		      <menuchoice>
+			<guimenu>File</guimenu>
+			<guisubmenu>Save Photos</guisubmenu>
+			<guimenuitem>All</guimenuitem>
+		      </menuchoice>
+		    </term>
+		    <listitem>
+		      <para>Saves all photos in the camera to the computer.</para>
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
-	      <term>
-		<menuchoice>
+	      <term><menuchoice>
 		  <guimenu>File</guimenu>
-		  <guisubmenu>Delete Photos</guisubmenu>
-		  <guimenuitem>Selected</guimenuitem>
-		</menuchoice>
-	      </term>
+		  <guisubmenu>Delete Photos</guisubmenu></menuchoice></term>
 	      <listitem>
-		<para>Deletes selected photos from the camera.</para>
+		<para>Gives options to delete photos from the camera.</para>
+		<screenshot>
+		  <mediaobject>
+		    <imageobject>
+		      <imagedata fileref="screenshots/gtkam/file_del.png" format="PNG"/>
+		    </imageobject>
+		  </mediaobject>
+		</screenshot>
+		<variablelist>
+		  <varlistentry>
+		    <term>
+		      <menuchoice>
+			<guimenu>File</guimenu>
+			<guisubmenu>Delete Photos</guisubmenu>
+			<guimenuitem>Selected</guimenuitem>
+		      </menuchoice>
+		    </term>
+		    <listitem>
+		      <para>Deletes selected photos from the camera.</para>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term>
+		      <menuchoice>
+			<guimenu>File</guimenu>
+			<guisubmenu>Delete Photos</guisubmenu>
+			<guimenuitem>All</guimenuitem>
+		      </menuchoice>
+		    </term>
+		    <listitem>
+		      <para>Deletes all photos in the camera</para>
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
 	      </listitem>
 	    </varlistentry>
-	    <varlistentry>
-	      <term>
-		<menuchoice>
-		  <guimenu>File</guimenu>
-		  <guisubmenu>Delete Photos</guisubmenu>
-		  <guimenuitem>All</guimenuitem>
-		</menuchoice>
-	      </term>
-	      <listitem>
-		<para>Deletes all photos in the camera</para>
-	      </listitem>
-	    </varlistentry>
+
 	    <varlistentry>
 	      <term><menuchoice>
 		  <guimenu>File</guimenu>
