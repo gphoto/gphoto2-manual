@@ -28,18 +28,20 @@ About this file:
 
 <!--
   leave DOCTYPE commented out for easy inclusion as external entity 
+<!DOCTYPE qandadiv PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" 
+  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
 -->
-<!--DOCTYPE qandaset PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" 
-  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd"-->
 
 <qandadiv id="FAQ-install">
 
   <title>Installation FAQs</title>
 
-  <qandaentry id="FAQ-SuSE>
+  <qandaentry id="FAQ-SuSE">
     <question>
-      I use SuSE Linux 8.0/8.1 and I'm having problems
-      compiling your gphoto2 2.1.1 release. What should I do?
+      <simpara>
+	I use SuSE Linux 8.0/8.1 and I'm having problems
+	compiling your gphoto2 2.1.1 release. What should I do?
+      </simpara>
     </question>
     <answer>
       <para>
@@ -95,7 +97,7 @@ About this file:
     </question>
     <answer>
       <simpara>I don't know what stow is, but have a look at 
-	<ulink href="https://sourceforge.net/tracker/index.php?func=detail&aid=553647&group_id=8874&atid=108874">#553647</ulink>.
+	<ulink href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=553647&amp;group_id=8874&amp;atid=108874">#553647</ulink>.
       </simpara>
     </answer>
   </qandaentry>
