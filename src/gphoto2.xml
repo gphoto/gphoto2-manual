@@ -886,6 +886,8 @@ Saving file as MVI_5418.AVI                                                     
 	      We are going to add new lines there and don't want to
 	      have the old ones get in the way.
             </para>
+	    <!-- FIXME: print-usb-usermap is now installed on target
+	    system, but no gphoto2-usb.usermap file is created -->
 	    <para>
               Add the output of
 	      <command>packaging/linux-hotplug/print-usb-usermap</command>
