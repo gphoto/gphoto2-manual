@@ -77,7 +77,7 @@ AC_REQUIRE([GP_CHECK_TR])
 AC_REQUIRE([GP_CHECK_PSTOIMG])
 AC_REQUIRE([GP_CHECK_DOT])
 
-gphoto2xml='$(top_srcdir)/src/gphoto2.xml $(top_srcdir)/src/libgphoto2-usage-faq.xml $(top_srcdir)/src/install-faq.xml'
+gphoto2xml='$(top_srcdir)/src/gphoto2.xml'
 AC_SUBST(gphoto2xml)
 
 dnl ---------------------------------------------------------------------------
