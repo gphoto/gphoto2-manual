@@ -1,4 +1,4 @@
-<?xml version='1.0' ?>
+<?xml version='1.0' encoding="iso-8859-15"?>
 
 <!-- =================================================================
 About this file:
@@ -102,8 +102,9 @@ About this file:
     <epigraph>
       <attribution>Calvin, in one of Bill Watterson's <quote>Calvin and Hobbes</quote> comic strips</attribution>
       <para>
-	The purpose of writing is to inflate weak ideas, obscure poor
-	reasoning, and inhibit clarity.
+	The purpose of writing is to inflate weak ideas, 
+	obscure poor reasoning, 
+	and inhibit clarity.
       </para>      
     </epigraph>
 
@@ -166,13 +167,20 @@ About this file:
       </listitem>
     </orderedlist>
 
-    <para>
-      The editors want to thank all those who gave us feedback and
-      suggestions about this manual
-      <!-- UNCOMMENT THIS LIST IF YOU HAVE A FEW MORE NAMES
-      (names in alphabetical occurence, list surely is not complete):
-      Cosmin Stroe-->.
-    </para>
+    <formalpara id="manual-credits">
+      <title>Credits</title>
+      <para>
+	The editors want to thank all those who gave us feedback and
+	suggestions about this manual, including (but not limited to)
+	<!-- UNCOMMENT THIS LIST IF YOU HAVE A FEW MORE NAMES
+	(names in alphabetical occurence, list surely is not complete):
+	-->
+	Mikko Hänninen, 
+	Cosmin Stroe,
+	and all the others whom we didn't list here (mail us if
+	you want your name mentioned here).
+      </para>
+    </formalpara>
 
     <!--
     <variablelist>
@@ -1107,8 +1115,13 @@ usb:                             Universal Serial Bus
             </para>
 
 	    <para>
-	      On most of the modern (as of mid-2003) distributions,
-              you don't have to do much.
+	      On most of the modern<footnote id="FN-how-to-find-out-about-usb.usermap">
+		<simpara>FIXME: how can you determine whether a
+		specific system is "modern" in this sense? If you know
+		how, please tell us.</simpara>
+	      </footnote>
+	      (as of mid-2003) distributions,
+              you don't have to do much. 
               Just write the output of
 	      <command>/usr/lib/libgphoto2/print-usb-usermap</command>	      
 	      <footnote id="FOOTNOTE-gphoto2-print-usb-usermap">
@@ -1148,7 +1161,7 @@ usb:                             Universal Serial Bus
 	      Add the output of
 	      <command>/usr/lib/libgphoto2/print-usb-usermap</command>
 	      <footnoteref linkend="FOOTNOTE-gphoto2-print-usb-usermap"/>
-              to the <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable>.usermap</filename> file:
+              to the <filename>/etc/hotplug/usb.usermap</filename> file:
               <screen>
 
 <prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-usb-usermap</userinput> >> <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable>.usermap</filename>
@@ -3475,6 +3488,20 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<listitem>
 	  <simpara>Obi-Wan's page about "Supporting a Canon S110 Elph Digital Camera under Debian Linux
 (with a review of the camera and sample photos)"</simpara>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><ulink url="http://www.reynoldsnet.org/s10sh/">http://www.reynoldsnet.org/s10sh/</ulink></term>
+	<listitem>
+	  <simpara>
+	    s10sh is a standalone application allowing access
+	    to Canon cameras. Some features work only
+	    with s10sh, and some features work only with libgphoto2.
+	    See also
+	    <ulink
+	      url="http://www.kyuzz.org/antirez/s10sh.html">http://www.kyuzz.org/antirez/s10sh.html</ulink>
+	    .
+	  </simpara>
 	</listitem>
       </varlistentry>
     </variablelist>
