@@ -261,6 +261,8 @@ About this file:
 
     <para>FIXME: We need examples using <acronym>RS232</acronym>
       cameras, gtkam and the gphoto2 shell.</para>
+
+
     <sect1 id="using_gtkam">
       <title>Using gtkam</title>
       <para>FIXME: gtkam docs under construction. Please report errors, 
@@ -317,6 +319,8 @@ About this file:
 	<para>If you do not see any images listed, be sure that there are images in the camera. If there are, then you need to do some troubleshooting. Start with the FAQ.</para>
       </sidebar>
     </sect1>
+
+
     <sect1 id="using-gphoto2">
       <title>Using the <command>gphoto2</command> command line
 	interface (<acronym>CLI</acronym>)</title>
@@ -458,6 +462,7 @@ Saving file as MVI_5418.AVI                                                     
       </para>
     </sect1>
     
+
     <sect1 id="using-gnome">
       <title>Using Gnome VFS</title>
       <para>FIXME: We need to write this section</para>
@@ -710,9 +715,6 @@ Saving file as MVI_5418.AVI                                                     
           </listitem>
 
           <listitem>
-	    <para>FIXME: use packaging/linux-hotplug/print-usb-usermap
-	      instead of gphoto2 --print-usb-usermap.
-	    </para>
             <para>
 	      In the file <filename>/etc/hotplug/usb.usermap</filename> 
 	      remove all lines beginning with <quote>usbcam</quote>.
@@ -720,11 +722,20 @@ Saving file as MVI_5418.AVI                                                     
 	    <para>
               Then add the output of
               <screen>
-<prompt>[root@home ~]# </prompt><command>gphoto2 <parameter>--print-usb-usermap</parameter></command>
+<prompt>[root@home ~]# </prompt><command>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap</parameter></command>
               </screen>
               to that file
               (<filename>/etc/hotplug/usb.usermap</filename>).
             </para>
+	    <note>
+	      <para>
+		In older versions of gphoto2/libgphoto2 (up to and
+		including 2.1.0), the functionality of
+		<filename>packaging/linux-hotplug/print-usb-usermap</filename> 
+		was contained in the command 
+		<command>gphoto <parameter>--print-usb-usermap</parameter></command>.
+	      </para>
+	    </note>
 	    <formalpara>
 	      <title>Debian peculiarity</title>
 	      <para>
@@ -741,7 +752,7 @@ Saving file as MVI_5418.AVI                                                     
 		<filename>/etc/hotplug/usb.usermap</filename> file:
 		<screen>
 <prompt>[root@home ~]# </prompt><command>mkdir <parameter>/usr/lib/hotplug/libgphoto2</parameter></command>
-<prompt>[root@home ~]# </prompt><command>gphoto2 <parameter>--print-usb-usermap</parameter> > <filename>/usr/lib/hotplug/libgphoto2/usb.usermap</filename></command>
+<prompt>[root@home ~]# </prompt><command>./path/to/libgphoto2-build/packaging/linux-hotplug/print-usb-usermap > <filename>/usr/lib/hotplug/libgphoto2/usb.usermap</filename></command>
 <prompt>[root@home ~]# </prompt><command>update-usb.usermap</command>
 		</screen>
 	      </para>
@@ -1764,12 +1775,6 @@ Saving file as MVI_5418.AVI                                                     
           <term><userinput><command>gphoto2</command> <option>--get-file</option> <parameter>7-13</parameter></userinput></term>
           <listitem>
             <para>Get files number 7 through 13 from the list output by <userinput><command>gphoto2</command> <option>--list-files</option></userinput>.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term><userinput><command>gphoto2</command> <option>--usb-usermap-script</option> <parameter>gphoto2cam</parameter> <option>--print-usb-usermap</option></userinput> >> <filename>/etc/hotplug/usb.usermap</filename></term>
-          <listitem>
-            <para>Append a line to the <command>hotplug</command> config file <filename>/etc/hotplug/usb.usermap</filename> for every supported camera, using <filename>/etc/hotplug/usb/gphoto2cam</filename> for setting up permissions correctly.</para>
           </listitem>
         </varlistentry>
       </variablelist>
