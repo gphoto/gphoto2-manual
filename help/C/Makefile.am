@@ -1,7 +1,9 @@
-figs =
+figs = $(shell find figures screenshots -name '*.png')
 docname = gtkam
 lang = C
 omffile = gtkam-C.omf
-entities = legal.xml
+entities = $(gphoto2xml) legal.xml
+
 include $(top_srcdir)/xmldocs.make
+
 dist-hook: app-dist-hook

@@ -44,7 +44,7 @@ CLEANFILES = omf_timestamp
 
 all: omf
 
-omf: omf_timestamp
+omf: omf_timestamp $(docname).xml
 
 omf_timestamp: $(omffile)
 	-for file in $(omffile); do \
@@ -53,9 +53,9 @@ omf_timestamp: $(omffile)
 	touch omf_timestamp
 
 $(docname).xml: $(entities)
-        -ourdir=`pwd`;  \
-        cd $(srcdir);   \
-        cp $(entities) $$ourdir
+	-ourdir=`pwd`; cp $(entities) .
+	mv gphoto2.xml gtkam.xml
+	-rm -f figures screenshots; ln -s $(top_builddir)/src/figures $(top_srcdir)/src/screenshots .
 
 app-dist-hook: 
 	-$(mkinstalldirs) $(distdir)/figures
@@ -66,7 +66,7 @@ app-dist-hook:
 install-data-am: omf
 	-$(mkinstalldirs) $(DESTDIR)$(docdir)/figures
 	-cp $(srcdir)/$(xml_files) $(DESTDIR)$(docdir)
-	-for file in $(srcdir)/figures/*.png; do \
+	-for file in $(figs); do \
 	  basefile=`echo $$file | sed -e  's,^.*/,,'`; \
 	  $(INSTALL_DATA) $$file $(DESTDIR)$(docdir)/figures/$$basefile; \
 	done
