@@ -1,1 +1,3 @@
 EXTRA_DIST = cam.png cam_conf_cam.png cam_conf_driver.png cam_driver.png cam_info.png cam_sel.png cam_sel_enh.png cam_sel_portadd.png exp.png file.png file_save.png fol.png fol_create.png fol_uploadfile.png gtkam.png help.png help_about.png help_debug.png sel.png
+
+screenshotsgtkam_DATA = $(EXTRA_DIST)
