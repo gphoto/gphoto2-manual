@@ -223,7 +223,7 @@ AC_ARG_WITH(doc_formats,
   [                            'all' build all doc formats; ]
   [                            possible formats are: ]
   [                            man, html, ps, pdf ],
-  doc_formats="$withval", doc_formats="man html txt pdf")
+  doc_formats="$withval", doc_formats="man html txt")
 
 if test "$doc_formats" = "all"; then
   doc_formats=$doc_formats_list
