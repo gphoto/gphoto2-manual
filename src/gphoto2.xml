@@ -1333,8 +1333,16 @@ usb:                             Universal Serial Bus
 	      with <userinput>ls <parameter>-lR</parameter> <parameter><filename class="directory">/proc/bus/usb</filename></parameter></userinput>. There
 	      should be at least one device file (named something like
 	      <filename class="devicefile">015</filename>) with the
-	      permissions set according to your wishes.
+	      permissions set according to your wishes. 
 	    </para>
+
+	    <para>
+	      Run the <userinput>id</userinput> command to find out
+	      whether your process belongs to the proper groups. If
+	      you have just added a user to a new group, only
+	      processes started after a new login will actually belong
+	      to the newly added group.
+	    </para>	    
 
           </listitem>
 
