@@ -30,7 +30,7 @@ About this file:
 
 ================================================================= -->
 
-<?xml-stylesheet type="text/css" href="docbook-xml.css"?>
+<?xml-stylesheet type="text/css" href="css/docbook-xml.css"?>
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
 "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
@@ -452,7 +452,7 @@ Saving file as MVI_5418.AVI                                                     
 	<link linkend="cli-examples">command line examples</link> from
 	the <xref linkend="gphoto2-cli"/> man page and the examples
 	described on 
-	<ulink url="http://www.gphoto.org/">www.gphoto.org</ulink>.
+	<ulink url="http://www.gphoto.org/gphoto2/cli.html">http://www.gphoto.org/gphoto2/cli.html</ulink>.
       </para>
     </sect1>
     
