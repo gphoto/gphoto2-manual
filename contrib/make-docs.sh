@@ -44,6 +44,17 @@ cmd rm -rf "${builddir}" "${prefixdir}" "${docdir}"
 cmd mkdir -p "${builddir}"
 cmd cd "${builddir}"
 
+if [ -f "${srcdir}/config.status" ]
+then
+    if make -C "${srcdir}" clean distclean
+    then
+	msg "Cleaning up ${srcdir} was successful."
+    else
+	msg "${srcdir} is already configured. Aborting."
+	exit 1
+    fi
+fi
+
 cmd "${srcdir}/autogen.sh"
 
 cmd "${srcdir}/configure" --prefix="${prefixdir}" \
@@ -55,13 +66,18 @@ cmd "${srcdir}/configure" --prefix="${prefixdir}" \
 
 cmd make install
 
+for file in $(find "${docdir}" -type f \( -name 'gphoto2.html' -or -name 'gphoto2.xml' -or -name 'gphoto2.pdf' -or -name 'gphoto2.txt' \) -print)
+do
+    echo "DirectoryIndex $(basename $file)" > $(dirname $file)/.htaccess; \
+done
+
 timeout
 
 cmd chmod -R g-rwx "${docdir}"
 cmd chmod -R o+r "${docdir}"
 cmd rsync -avz -e ssh --delete "${docdir}" "h:n-dimensional.de/digicam/"
 
-cmd rm -rf "${prefixdir}" "${docdir}" "${builddir}"
+cmd rm -rf "${prefixdir}" "${builddir}" "${docdir}"
 
 msg "$(basename $0) finished."
 exit 0
