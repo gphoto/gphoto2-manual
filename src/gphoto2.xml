@@ -2005,7 +2005,7 @@ usb:                             Universal Serial Bus
 <prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--auto-detect</parameter></userinput>
 <prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--summary</parameter></userinput>
 <prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--list-files</parameter></userinput>
-<prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--get-all-images</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>gphoto2 <parameter>--get-all-files</parameter></userinput>
 	    </screen>
           </listitem>
 
