@@ -1389,7 +1389,13 @@ Saving file as MVI_5418.AVI                                                     
 	<varlistentry>
 	  <term><option>--filename</option> <replaceable>FILENAME</replaceable></term>
 	  <listitem>
-	    <para>Specify a filename.</para>
+	      <para>
+		Specify a the name to save downloaded files as. The
+		<option>--filename</option> option accepts
+		%a %A %b %B %d %H %k %I %l %j %m %S %y (see date(1)) and, 
+		in addition, %n for the number, %C for the filename
+		suffix %f for filename without suffix.
+	      </para>
 	  </listitem>
 	</varlistentry>
 
