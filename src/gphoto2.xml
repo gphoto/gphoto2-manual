@@ -2926,7 +2926,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<varlistentry>
 	  <term><option>--auto-detect</option></term>
 	  <listitem>
-	    <para>List auto-detected cameras.</para>
+	    <para>List auto-detected cameras and the ports to which they are connected.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -2935,7 +2935,9 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  <listitem>
 	      <para>Specify port device. The 
 		<link linkend="gphoto2-cli--list-ports"><option>--list-ports</option></link> 
-		prints a list of valid, usable ports.
+		prints a list of valid, usable ports. In case of multiple USB cameras, the
+		<link linkend="gphoto2-cli--auto-detect"><option>--auto-detect</option></link> 
+		shows you the specific port each camera is connected to.
 	      </para>
 	  </listitem>
 	</varlistentry>
