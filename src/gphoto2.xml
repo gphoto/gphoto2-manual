@@ -2005,9 +2005,8 @@ Saving file as MVI_5418.AVI                                                     
 		      </menuchoice>
 		    </term>
 		    <listitem>
-		      <para>Saves selected photos from the camera to the computer.</para>
+		      <para>Saves the selected photos from the camera to the computer.</para>
 		    </listitem>
-
 		  </varlistentry>
 		  <varlistentry>
 		    <term>
@@ -2019,6 +2018,10 @@ Saving file as MVI_5418.AVI                                                     
 		    </term>
 		    <listitem>
 		      <para>Saves all photos in the camera to the computer.</para>
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+		<para>Both menu items open a "Save photos..." dialog box which allows the user to select the folder to save the images in, as well as a number of other options.</para>
 		<screenshot>
 		  <mediaobject>
 		    <imageobject>
@@ -2026,8 +2029,44 @@ Saving file as MVI_5418.AVI                                                     
 		    </imageobject>
 		  </mediaobject>
 		</screenshot>
-
-		    </listitem>
+		<variablelist>
+		  <varlistentry>
+		    <term>What to save:</term>
+		    <listitem>
+		      <variablelist>
+			<varlistentry>
+			  <term>Save photos</term>
+			  <listitem>
+			    <para>This is the default. It causes the photos being saved to be downloaded from the camera and saved to the identified folder.</para>
+			  </listitem>
+			</varlistentry>
+			<varlistentry>
+			  <term>Save raw data</term>
+			  <listitem>
+			    <para>FIXME: What to say?</para>
+			  </listitem>
+			</varlistentry>
+			<varlistentry>
+			  <term>Save audio data</term>
+			  <listitem>
+			    <para>Causes any audio data associated with the image to be saved to the selected folder.</para>
+			  </listitem>
+			</varlistentry>
+			<varlistentry>
+			  <term>Save thumbnails</term>
+			  <listitem>
+			    <para>Saves a small version of the selected images to the identified folder.</para>
+			  </listitem>
+			</varlistentry>
+			<varlistentry>
+			  <term>Save EXIF data</term>
+			  <listitem>
+			    <para>Saves the EXIF data associated with the images. </para>
+			    <para>FIXME: should we say more about the EXIF format?</para>
+			  </listitem>
+			</varlistentry>
+		      </variablelist>
+</listitem>
 		  </varlistentry>
 		</variablelist>
 	      </listitem>
