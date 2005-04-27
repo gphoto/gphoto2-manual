@@ -1632,10 +1632,14 @@ usb:                             Universal Serial Bus
         there have to be some helper applications.
       </para>
       <para>
-	If you are using pre-built packages (such as SuSE or Redhat
-	RPMs), these packages should already have done this
-	configuration for you. In reality, however, you often still
-	have to do a varying amount of work.
+	If you are using pre-built packages for your distribution
+	(such as SuSE or Redhat RPMs or Debian DEBs), these packages
+	should already have done this configuration for you.
+	In reality, however, you often still have to do a varying
+	amount of work. Read the documentation for your package 
+	(usually somewhere in <file>/usr/share/doc/*gphoto2*/</file>)
+	and this guide section to find out if and what work there
+	still is to do for you.
       </para>
       <para>
         If you are installing and setting up libgphoto2 yourself, then
@@ -3010,6 +3014,14 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 		in addition, %n for the number, %C for the filename
 		suffix, and %f for the filename without suffix.
 	      </para>
+	      <para>
+		%n is the only conversion specifier to accept a
+		padding character and width: %03n will pad with zeros
+		to width 3 (e.g. print the number 7 as
+		<quote>007</quote>).
+		Leaving out the padding character (e.g. %3n) will use
+		an implementation specific default padding character.
+	      </para>
 	  </listitem>
 	</varlistentry>
 
@@ -3396,6 +3408,30 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
     </refsect1>
 
     <refsect1>
+      <title>Environment variables</title>
+      <variablelist>
+        <varlistentry>
+	  <term>CAMLIBS</term>
+	  <listitem>
+	    <para>
+	      If set, defines the directory where libgphoto2 looks for
+	      its camera drivers (camlibs).
+	    </para>
+	  </listitem>
+	</varlistentry>
+        <varlistentry>
+	  <term>IOLIBS</term>
+	  <listitem>
+	    <para>
+	      If set, defines the directory where libgphoto2_port looks for
+	      its I/O drivers (camlibs).
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </refsect1>
+
+    <refsect1>
       <title>See also</title>
       <para>
 	  <xref linkend="ref-libgphoto2"/>,
@@ -3493,6 +3529,21 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
     </refsect1>
 
     <refsect1>
+      <title>Environment variables</title>
+      <variablelist>
+        <varlistentry>
+	  <term>CAMLIBS</term>
+	  <listitem>
+	    <para>
+	      If set, defines the directory where libgphoto2 looks for
+	      its camera drivers (camlibs).
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </refsect1>
+
+    <refsect1>
       <title>See also</title>
         <para><xref linkend="ref-gphoto2-cli"/>,
           <xref linkend="ref-libgphoto2_port"/>,
@@ -3554,6 +3605,21 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
         </para>
       </refsect1>
 
+    <refsect1>
+      <title>Environment variables</title>
+      <variablelist>
+        <varlistentry>
+	  <term>IOLIBS</term>
+	  <listitem>
+	    <para>
+	      If set, defines the directory where libgphoto2_port looks for
+	      its I/O drivers (camlibs).
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </refsect1>
+    
       <refsect1>
         <title>See also</title>
         <para><xref linkend="ref-libgphoto2"/>,
