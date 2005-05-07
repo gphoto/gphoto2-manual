@@ -1637,7 +1637,7 @@ usb:                             Universal Serial Bus
 	should already have done this configuration for you.
 	In reality, however, you often still have to do a varying
 	amount of work. Read the documentation for your package 
-	(usually somewhere in <file>/usr/share/doc/*gphoto2*/</file>)
+	(usually somewhere in <filename>/usr/share/doc/*gphoto2*/</filename>)
 	and this guide section to find out if and what work there
 	still is to do for you.
       </para>
