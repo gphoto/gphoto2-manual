@@ -5,10 +5,9 @@ endif
 
 # we have our own macros in m4/, so do not remove it, OK?
 #SUBDIRS = src m4 $(scrollkeeper_subdirs)
-SUBDIRS = src m4 help
+SUBDIRS = src m4m help
 
-ACLOCAL_AMFLAGS = -I m4
-AUTOMAKE_OPTIONS = gnu
+ACLOCAL_AMFLAGS = -I m4m
 
 EXTRA_DIST = xmldocs.make
 
@@ -19,8 +18,6 @@ CLEANFILES = \
 	./html2text-test.txt	\
 	./html2text-test.xxxhtml
 
-if MAINTAINER_MODE
-
 CVS_ENTRIES := $(shell find $(top_srcdir) -type d -name CVS | while read dir; do echo "$${dir}/Entries"; done)
 
 ChangeLog: $(CVS_ENTRIES)
@@ -28,10 +25,3 @@ ChangeLog: $(CVS_ENTRIES)
 
 update-webserver:
 	cd src/html && $(MAKE) $@
-
-else
-
-update-webserver:
-	@echo "Dummy $@ target"
-
-endif

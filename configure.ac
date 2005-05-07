@@ -1,8 +1,23 @@
-AC_INIT(src/gphoto2.xml)
+AC_PREREQ(2.59)
+AC_INIT([gphoto2 manual],[2.1.99], [gphoto-devel@lists.sourceforge.net])
+AC_CONFIG_SRCDIR([src/gphoto2.xml])
+AC_CONFIG_MACRO_DIR([m4m])
+AM_INIT_AUTOMAKE([gnu 1.8 dist-bzip2])
 
-AM_INIT_AUTOMAKE(gphoto2-manual, 2.1.5)
+if test ! -d "$srcdir/m4m"; then
+AC_MSG_ERROR([
+You are missing the m4m/ directory in your top
+$PACKAGE_TARNAME source directory.
 
-AM_MAINTAINER_MODE()
+You are probably using an ill-maintained CVS tree.
+Running
+
+    cd $srcdir
+    cvs co m4m
+
+and re-running autogen.sh might help.
+])
+fi
 
 AC_PROG_LN_S()
 
@@ -15,12 +30,16 @@ dnl ---------------------------------------------------------------------------
 scrollkeeper_msg="no"
 try_scrollkeeper=true
 have_scrollkeeper=false
-AC_ARG_WITH(scrollkeeper, [  --without-scrollkeeper   Don't use scrollkeeper], [
+AC_ARG_WITH([scrollkeeper],[
+	AS_HELP_STRING([--without-scrollkeeper],
+                       [Do not use scrollkeeper])
+],[
 	if test x$withval = xno; then
 		try_scrollkeeper=false
-	fi])
+	fi
+])
 if $try_scrollkeeper; then
-	AC_PATH_PROG(SCROLLKEEPER_CONFIG,scrollkeeper-config)
+	AC_PATH_PROG([SCROLLKEEPER_CONFIG],[scrollkeeper-config])
 	if test -n "${SCROLLKEEPER_CONFIG}"; then
 		have_scrollkeeper=true
 		scrollkeeper_msg="yes"
@@ -28,11 +47,12 @@ if $try_scrollkeeper; then
 else
 	scrollkeeper_msg="no (not requested)"
 fi
-AM_CONDITIONAL(HAVE_SCROLLKEEPER, $have_scrollkeeper)
+AM_CONDITIONAL([HAVE_SCROLLKEEPER], [$have_scrollkeeper])
+GP_CONFIG_MSG([Scrollkeeper support], [$scrollkeeper_msg])
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
-m4/Makefile
+m4m/Makefile
 help/Makefile
 help/C/Makefile
 src/Makefile
@@ -52,10 +72,6 @@ src/figures/Makefile
 src/screenshots/Makefile
 src/screenshots/gtkam/Makefile
 ])
+AC_OUTPUT
 
-echo "
-
-Configuration (gphoto2-manual):
-
-        Scrollkeeper support:   $scrollkeeper_msg
-"
+GP_CONFIG_OUTPUT
