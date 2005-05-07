@@ -3428,6 +3428,15 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	    </para>
 	  </listitem>
 	</varlistentry>
+        <varlistentry>
+	  <term>USB_DEBUG</term>
+	  <listitem>
+	    <para>
+	      If set, defines the numeric libusb debug level with which libusb
+	      will print messages.
+	    </para>
+	  </listitem>
+	</varlistentry>
       </variablelist>
     </refsect1>
 
@@ -3614,6 +3623,15 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	    <para>
 	      If set, defines the directory where libgphoto2_port looks for
 	      its I/O drivers (camlibs).
+	    </para>
+	  </listitem>
+	</varlistentry>
+        <varlistentry>
+	  <term>USB_DEBUG</term>
+	  <listitem>
+	    <para>
+	      If set, defines the numeric libusb debug level with which libusb
+	      will print messages.
 	    </para>
 	  </listitem>
 	</varlistentry>
