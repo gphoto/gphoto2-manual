@@ -3428,6 +3428,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	    </para>
 	  </listitem>
 	</varlistentry>
+	<!-- LD_DEBUG=all (only add this description if this is indeed a "ld" based system) -->
         <varlistentry>
 	  <term>USB_DEBUG</term>
 	  <listitem>
