@@ -43,10 +43,12 @@ And BTW, you can build in a different directory if you wish.
 Web site build instruction:
 ===========================
 
-If your local copy of the gphoto website CVS module is in $(pwd)/../website,
-just run
+If your local copy of the gphoto website CVS module is in the directory
+"$PWD/../website-gphoto", then just run
 
-	./configure --with-html-dir=$(pwd)/../website/doc/manual
-	make -C src/html clean install
+	./configure --with-html-dir=$PWD/../website-gphoto/doc/manual \
+	   --with-figure-dir=$PWD/../website-gphoto/doc/manual/figures \
+	   --with-screenshots-dir=$PWD/../website-gphoto/doc/manual/screenshots
+	make clean all install
 
-to rebuild the manual for the website.
+to (re)build the manual for the website.
