@@ -2780,21 +2780,27 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<group choice="opt">
 	  <arg>-h</arg>
 	  <arg>--help</arg>
-	</group><sbr/>
+	</group>
+	<sbr/>
 	<arg choice="opt">--list-cameras</arg>
 	<arg choice="opt">--list-ports</arg>
-	<arg choice="opt">--stdout</arg><sbr/>
+	<arg choice="opt">--stdout</arg>
 	<arg choice="opt">--stdout-size</arg>
+	<sbr/>
 	<arg choice="opt">--auto-detect</arg>
-	<arg choice="opt">--port <replaceable>PATH</replaceable></arg><sbr/>
+	<arg choice="opt">--port <replaceable>PATH</replaceable></arg>
 	<arg choice="opt">--speed <replaceable>SPEED</replaceable></arg>
 	<arg choice="opt">--camera <replaceable>MODEL</replaceable></arg>
-	<arg choice="opt">--filename <replaceable>FILENAME</replaceable></arg><sbr/>
+	<sbr/>
+	<arg choice="opt">--filename <replaceable>FILENAME</replaceable></arg>
+	<sbr/>
 	<arg choice="opt">--usbid <replaceable>USBIDS</replaceable></arg>
+	<sbr/>
 	<group choice="opt">
 	  <arg>-a</arg>
 	  <arg>--abilities</arg>
 	</group>
+	<sbr/>
 	<group choice="opt">
 	  <arg>--folder <replaceable>FOLDER</replaceable></arg>
 	  <arg>-f <replaceable>FOLDER</replaceable></arg>
@@ -2809,7 +2815,8 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<group choice="opt">
 	  <arg>-l</arg>
 	  <arg>--list-folders</arg>
-	</group><sbr/>
+	</group>
+	<sbr/>
 	<group choice="opt">
 	  <arg>-L</arg>
 	  <arg>--list-files</arg>
@@ -2817,7 +2824,8 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<group choice="opt">
 	  <arg>-m <replaceable>NAME</replaceable></arg>
 	  <arg>--mkdir <replaceable>NAME</replaceable></arg>
-	</group><sbr/>
+	</group>
+	<sbr/>
 	<group choice="opt">
 	  <arg>-r <replaceable>NAME</replaceable></arg>
 	  <arg>--rmdir <replaceable>NAME</replaceable></arg>
@@ -2825,7 +2833,8 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<group choice="opt">
 	  <arg>-n</arg>
 	  <arg>--num-files</arg>
-	</group><sbr/>
+	</group>
+	<sbr/>
 	<group choice="opt">
 	  <arg>-p <replaceable>RANGE</replaceable></arg>
 	  <arg>--get-file <replaceable>RANGE</replaceable></arg>
@@ -2833,21 +2842,28 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<group choice="opt">
 	  <arg>-P</arg>
 	  <arg>--get-all-files</arg>
-	</group><sbr/>
+	</group>
+	<sbr/>
 	<group choice="opt">
 	  <arg>-t <replaceable>RANGE</replaceable></arg>
 	  <arg>--get-thumbnail <replaceable>RANGE</replaceable></arg>
-	</group><sbr/>
+	</group>
+	<sbr/>
 	<group choice="opt">
 	  <arg>-T</arg>
 	  <arg>--get-all-thumbnails</arg>
-	</group><sbr/>
+	</group>
+	<sbr/>
 	<arg choice="opt">--get-raw-data <replaceable>RANGE</replaceable></arg>
-	<arg choice="opt">--get-all-raw-data</arg><sbr/>
+	<arg choice="opt">--get-all-raw-data</arg>
+	<sbr/>
 	<arg choice="opt">--get-audio-data <replaceable>RANGE</replaceable></arg>
-	<arg choice="opt">--get-all-audio-data</arg><sbr/>
-	<arg choice="opt">--force-overwrite</arg><sbr/>
-	<arg choice="opt">--new</arg><sbr/>
+	<arg choice="opt">--get-all-audio-data</arg>
+	<sbr/>
+	<arg choice="opt">--force-overwrite</arg>
+	<sbr/>
+	<arg choice="opt">--new</arg>
+	<sbr/>
 	<group choice="opt">
 	  <arg>-d <replaceable>RANGE</replaceable></arg>
 	  <arg>--delete-file <replaceable>RANGE</replaceable></arg>
@@ -2855,16 +2871,22 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<group choice="opt">
 	  <arg>-D</arg>
 	  <arg>--delete-all-files</arg>
-	</group><sbr/>
+	</group>
+	<sbr/>
 	<group choice="opt">
 	  <arg>-u <replaceable>FILENAME</replaceable></arg>
 	  <arg>--upload-file <replaceable>FILENAME</replaceable></arg>
 	</group>
-	<arg choice="opt">--config</arg><sbr/>
-	<arg choice="opt">--list-config</arg><sbr/>
-	<arg choice="opt">--get-config <replaceable>CONFIGENTRY</replaceable></arg><sbr/>
-	<arg choice="opt">--set-config <replaceable>CONFIGENTRY=CONFIGVALUE</replaceable></arg><sbr/>
-	<arg choice="opt">--capture-preview</arg><sbr/>
+	<arg choice="opt">--config</arg>
+	<sbr/>
+	<arg choice="opt">--list-config</arg>
+	<sbr/>
+	<arg choice="opt">--get-config <replaceable>CONFIGENTRY</replaceable></arg>
+	<sbr/>
+	<arg choice="opt">--set-config <replaceable>CONFIGENTRY=CONFIGVALUE</replaceable></arg>
+	<sbr/>
+	<arg choice="opt">--capture-preview</arg>
+	<sbr/>
 	<group choice="opt">
 	  <arg>-F <replaceable>COUNT</replaceable></arg> 
 	  <arg>--frames <replaceable>COUNT</replaceable></arg> 
@@ -2875,9 +2897,12 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	</group>
 	<arg choice="opt">--capture-image</arg>
 	<arg choice="opt">--capture-movie</arg>
-	<arg choice="opt">--capture-sound</arg><sbr/>
-	<arg choice="opt">--show-info <replaceable>RANGE</replaceable></arg><sbr/>
-	<arg choice="opt">--show-exif <replaceable>RANGE</replaceable></arg><sbr/>
+	<arg choice="opt">--capture-sound</arg>
+	<sbr/>
+	<arg choice="opt">--show-info <replaceable>RANGE</replaceable></arg>
+	<sbr/>
+	<arg choice="opt">--show-exif <replaceable>RANGE</replaceable></arg>
+	<sbr/>
 	<arg choice="opt">--summary</arg>
 	<arg choice="opt">--manual</arg>
 	<arg choice="opt">--about</arg>
