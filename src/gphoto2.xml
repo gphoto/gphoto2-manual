@@ -2103,7 +2103,8 @@ usb:                             Universal Serial Bus
 	<orderedlist>
 	  <listitem>
 	    <para>
-	      Create a group called something like 
+	      Create a group (using <command>pw(8)</command>
+	      called something like 
 	      <systemitem>usb</systemitem>. Add all
 	      users as group members which are supposed to have
 	      read/write access to attached USB devices. This
@@ -2132,8 +2133,11 @@ devfs_system_ruleset="usb_devices"
 	</orderedlist>
 
 	<para>
+	  (FIXME: Do you need a reboot for the devfs reconfiguration
+	  to take effect?)
 	  You should be all set up now and can test now:
 	</para>
+
 	<orderedlist>
 	  <listitem>
 	    <para>
