@@ -257,16 +257,19 @@ About this file:
 	      Debian 3.0 Woody, Debian Unstable Sid, Gentoo, ...)</simpara>
 	  </listitem>
 	  <listitem>
-	    <simpara>OS/2 (yes, there is an OS/2 port, and there are
-	      people who use gphoto2 2.1.0 under OS/2)</simpara>
+	    <simpara>OS/2 (ancient gphoto2 2.1.0 has been ported to
+	    OS/2, but contemporary versions won't work any more like
+	    2.1.0 did)
+	    </simpara>
 	  </listitem>
 	  <listitem>
-	    <simpara>MacOS X (several people are working on that, exact
-	      status is unknown as of 2002-10-16)</simpara>
+	    <simpara>MacOS X (basically working in 2005-06, with a few
+	    quirks still to be ironed out)</simpara>
 	  </listitem>
 	  <listitem>
 	    <simpara>FIXME: Is there a list somewhere, or can we get
-	      contributions of verified OS's?</simpara>
+	    contributions of verified operating systems? IRIX?
+	    Solaris? ...</simpara>
 	  </listitem>
 	</itemizedlist>
 	<para>
@@ -275,7 +278,7 @@ About this file:
 	</para>
 	<para>
 	  For USB cameras, your Unix OS must be supported by
-	  <systemitem class="library">libusb</systemitem>. At
+	  <systemitem class="library">libusb</systemitem>. As of
 	  2002-08-29, this is the case for Linux 2.2 and 2.4, FreeBSD
 	  and OpenBSD. FIXME: Is the USB support for OS/2 independent
 	  of libusb?
@@ -705,7 +708,7 @@ Saving file as MVI_5418.AVI                                                     
     </sect1>
 
     <sect1 id="using-kde">
-      <title>Using kioslave</title>
+      <title>Using kioslave (kamera)</title>
       <para>FIXME: We need to write this section</para>
     </sect1>
 
@@ -2074,30 +2077,31 @@ usb:                             Universal Serial Bus
         <title><acronym>USB</acronym> ports on FreeBSD</title>
 
 	<note>
-	  <simpara>
-	    This section only deals with FreeBSD 5 for now as long as
-            no one contributes information about other BSDs.
-	  </simpara>
+	  <para>
+	    This section only deals with FreeBSD 5 because older
+	    versions of FreeBSD do not have devfs, and thus do not
+	    handle dynamic devices at all (create static devices using
+	    <command>MAKEDEV(8)</command> there).
+	  </para>
+	  <para>
+	    The editors would like to thank these FreeBSD users for
+	    their help (in no particular order):
+	    Tomasz Gucio, 
+	    Georg Wagner, 
+	    Michael Lyngbøl,
+	    Conan Webb,
+	    Bram Abbekerk, and 
+	    <ulink url="http://www.xs4all.nl/~rsmith/freebsd/">Roland Smith</ulink>.
+	  </para>
 	</note>
 
 	<para>
 	  FreeBSD 5.x uses a dynamically created devices filesystem
-	  (devfs). If you use an older version of FreeBSD and miss
-	  instructions for it, feel free to file a patch.
-	</para>
-	
-	<para>
-	  If you want to be able to use gphoto2 as non-root user, you need
+	  (devfs).
+	  In order to use the camera as non-root user, you need
 	  to tell the <systemitem>devfs</systemitem> framework what
-	  permissions it is to use when creating these dynamically
-	  created USB devices.
-	</para>
-	
-	<para>
-	  According to the information from 
-	  <ulink url="http://www.xs4all.nl/~rsmith/freebsd/">Roland
-	  Smith's BSD page</ulink>, the following procedure should
-	  work for you:
+	  permissions it is to use when it dynamically creates
+	  these USB devices.
 	</para>
 	
 	<orderedlist>
@@ -2114,11 +2118,36 @@ usb:                             Universal Serial Bus
 	  </listitem>
 	  <listitem>
 	    <para>
-	      Add this line to <filename>/etc/devfs.rules</filename>:
+	      Add these lines to <filename>/etc/devfs.rules</filename>:
 	    </para>
 	    <programlisting>
 [usb_devices=10]
 add path 'ugen*' mode 0660 group usb
+add path 'da*s*' mode 0660 group usb
+	    </programlisting>
+	    <para>
+	      The <quote>ugen*</quote> line will set the permissions
+	      for cameras using special camera protocols. 
+	      The <quote>da*s*</quote> line will set up the same
+	      permissions for the slices of USB Mass Storage devices,
+	      such as a number of USB digicams.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Tomasz Gucio and Conan Webb report that user processes 
+	      need write access to the <filename>usb*</filename> 
+	      devices when they are supposed to write to
+	      <filename>ugen*</filename>. If you really need that, 
+	      add lines like the following to
+	      <filename>/etc/devfs.conf</filename>.
+	      (FIXME: Can this be verified or invalidated?)
+	    </para>
+	    <programlisting>
+perm    usb0    0660
+own     usb0    root:usb
+perm    usb1    0660
+own     usb1    root:usb
 	    </programlisting>
 	  </listitem>
 	  <listitem>
@@ -2129,12 +2158,18 @@ add path 'ugen*' mode 0660 group usb
 # Set the default devfs ruleset.
 devfs_system_ruleset="usb_devices"
 	    </programlisting>
-	  </listitem>	    
+	  </listitem>
+	  <listitem>
+	    <para>Activate your changes by running the following
+	    command (no reboot required):</para>
+	    <screen>
+
+<prompt>&rprompt;</prompt><userinput>/etc/rc.d/devfs start</userinput>
+	    </screen>
+	  </listitem>
 	</orderedlist>
 
 	<para>
-	  (FIXME: Do you need a reboot for the devfs reconfiguration
-	  to take effect?)
 	  You should be all set up now and can test now:
 	</para>
 
@@ -2149,23 +2184,30 @@ devfs_system_ruleset="usb_devices"
 	  </listitem>
 	  <listitem>
 	    <para>
-	      Attach the camera and look what the permissions look
-	      like:
+	      Now when you connect your camera, you'll get a line like
+	    </para>
+	    <screen>
+ugen1: Canon Inc. Canon Digital Camera, rev 1.10/0.01, addr 2
+	    </screen>
+	    <para>
+	      and the permissions should look something like this:
 	    </para>
 	    <screen>
 <prompt>&prompt;</prompt><userinput>ls -l /dev/ugen*</userinput>
+crw-rw----  1 root  usb       242,  16 Apr  8 15:55 /dev/ugen1
+crw-rw----  1 root  usb       242,  17 Apr  8 15:55 /dev/ugen1.1
+crw-rw----  1 root  usb       242,  18 Apr  8 15:55 /dev/ugen1.2
+crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
+<prompt>&prompt;</prompt>
 	    </screen>
 	  </listitem>
 	</orderedlist>
 	
 	<para>
-	  FIXMEs for the FreeBSD instructions:
+	  FIXME for the FreeBSD instructions:
 	</para>
 	
 	<orderedlist>
-	  <listitem>
-	    <simpara>What about older versions of FreeBSD?</simpara>
-	  </listitem>
 	  <listitem>
 	    <simpara>
 	      How to write rules which only affect a certain
@@ -2173,14 +2215,12 @@ devfs_system_ruleset="usb_devices"
 	      USB device class?
 	    </simpara>
 	  </listitem>
-	  <listitem>
-	    <simpara>Does this really work?</simpara>
-	  </listitem>
 	</orderedlist>
       </sect2>
 
       <sect2 id="usb-on-others">
-	<title>USB ports on other systems (BSD, MacOS X, OS/2)</title>
+	<title>USB ports on other systems (non-FreeBSD BSDs, MacOS X,
+	OS/2)</title>
 	<para>
 	  FIXME: This chapter is still to be written. If you know
 	  about USB on these systems and/or are willing to contribute
