@@ -69,7 +69,9 @@ About this file:
       <author>
         <firstname>Tim</firstname>
         <surname>Waugh</surname>
+	<!--
 	<email>twaugh@redhat.com</email>
+	-->
       </author>
       <author>
         <firstname>Hans Ulrich</firstname>
@@ -81,7 +83,9 @@ About this file:
 	<firstname>Michael</firstname>
 	<othername>J.</othername>
 	<surname>Rensing</surname>
+	<!--
 	<email>michael.rensing@shaw.ca</email>
+	-->
       </author>
       <othercredit>
 	<honorific>Miscellanous Contributors</honorific>
@@ -2104,6 +2108,13 @@ usb:                             Universal Serial Bus
 	  these USB devices.
 	</para>
 	
+	<para>
+	  Follow the following steps as the
+	  <systemitem>root</systemitem> user to grant
+	  write access for the group <systemitem>usb</systemitem>
+	  to USB devices.
+	</para>
+
 	<orderedlist>
 	  <listitem>
 	    <para>
@@ -2170,27 +2181,29 @@ devfs_system_ruleset="usb_devices"
 	</orderedlist>
 
 	<para>
-	  You should be all set up now and can test now:
+	  Your system should be all set up now. Now you can test it as
+	  your normal non-root user:
 	</para>
 
 	<orderedlist>
 	  <listitem>
 	    <para>
 	      Make sure that you're actually member of the
-	      <systemitem>usb</systemitem> group. Check by running
-	      <command>id</command> and possibly fix by logging in
-	      again.
+	      <systemitem>usb</systemitem> group. Check this by
+	      running the <command>id</command> and, if the group
+	      membership is not show, login anew.
 	    </para>
 	  </listitem>
 	  <listitem>
 	    <para>
-	      Now when you connect your camera, you'll get a line like
+	      Now connect your camera, and you'll get a line like
 	    </para>
 	    <screen>
 ugen1: Canon Inc. Canon Digital Camera, rev 1.10/0.01, addr 2
 	    </screen>
 	    <para>
-	      and the permissions should look something like this:
+	      and the permissions to the device files 
+	      should look something like this:
 	    </para>
 	    <screen>
 <prompt>&prompt;</prompt><userinput>ls -l /dev/ugen*</userinput>
