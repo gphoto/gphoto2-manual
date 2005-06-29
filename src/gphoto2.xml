@@ -913,7 +913,11 @@ Saving file as MVI_5418.AVI                                                     
 		<simpara>
 		  For USB devices, you need the "usb:" port in the list. If you
 		  don't see it, check whether you compiled gphoto2 with libusb
-		  support.
+		  support <emphasis>and that you have mounted the 
+		  <systemitem>usbfs</systemitem> 
+		  (or <systemitem>usbdevfs</systemitem>)
+		  on <filename>/proc/bus/usb</filename>
+		  (usbfs applies to Linux systems only)</emphasis>.
 		</simpara>
 	      </listitem>
 	    </itemizedlist>
