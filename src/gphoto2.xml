@@ -3251,7 +3251,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>-d</option>, <option>--delete-files</option>
+	  <term><option>-d</option>, <option>--delete-file</option>
 	   <replaceable>RANGE</replaceable></term>
 	  <listitem>
 	    <para>Delete files given in range.</para>
