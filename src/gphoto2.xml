@@ -757,6 +757,20 @@ Saving file as MVI_5418.AVI                                                     
 	      </varlistentry>
 
 	      <varlistentry>
+		<term>no, but it is listed as PictBridge(tm) or PTP compatible</term>
+		<listitem>
+		  <simpara>
+                    Then the camera will likely work without changes to the sourcecode.
+		  </simpara>
+		  <simpara>
+                    <command>gphoto2 --auto-detect</command> will detect it as
+		    USB PTP Class camera and it will work (depending on permissions problems
+                    perhaps only as root user).
+		  </simpara>
+		</listitem>
+	      </varlistentry>
+
+	      <varlistentry>
 		<term>not any more</term>
 		<listitem>
 		  <simpara>
