@@ -713,7 +713,14 @@ Saving file as MVI_5418.AVI                                                     
 
     <sect1 id="using-kde">
       <title>Using kioslave (kamera)</title>
-      <para>FIXME: We need to write this section</para>
+      <para>Open konqueror, enter <command>camera:/</command> into the URL bar. You can then
+            select the camera (USB cameras are autodetected) and descend into the camera
+            filesystem like any other UNIX directory.
+      </para>
+      <para>
+            To configure the camera, or to add serial cameras, use the KDE Control Center,
+            it has a camera configuration module.
+      </para>
     </sect1>
 
   </chapter>
@@ -815,9 +822,7 @@ Saving file as MVI_5418.AVI                                                     
 	      Check
 	      <ulink
 		url="http://gphoto.org/proj/libgphoto2/support.php">http://gphoto.org/proj/libgphoto2/support.php</ulink>
-	      for camera support in the latest libgphoto2 release and 
-	      <ulink
-		url="http://n-dimensional.de/projects/digicam/software/snapshots/SUPPORTED-CAMERAS">http://n-dimensional.de/projects/digicam/software/snapshots/SUPPORTED-CAMERAS</ulink> for supported cameras in the lates CVS snapshot.
+	      for camera support in the latest libgphoto2 release.
 	    </para>
 	  </answer>
 	</qandaentry>
@@ -1302,24 +1307,6 @@ Saving file as MVI_5418.AVI                                                     
 		  </para>
 		</listitem>
 	      </orderedlist>
-	    </para>
-	  </answer>
-	</qandaentry>
-
-	<qandaentry id="FAQ-SuSE">
-	  <question>
-	    <simpara>
-	      I use SuSE Linux 8.0/8.1 and I'm having problems
-	      compiling your gphoto2 2.1.1 release. What should I do?
-	    </simpara>
-	  </question>
-	  <answer>
-	    <para>
-	      The easiest solution is probably to use the RPM packages from 
-	      <ulink
-		url="ftp://ftp.suse.com/pub/people/meissner/gphoto/2.1.1/8.0-i386/">ftp://ftp.suse.com/pub/people/meissner/gphoto/2.1.1/8.0-i386/</ulink> or
-	      <ulink
-		url="ftp://ftp.suse.com/pub/people/meissner/gphoto/2.1.1/8.1-i386/">ftp://ftp.suse.com/pub/people/meissner/gphoto/2.1.1/8.1-i386/</ulink>, respectively.
 	    </para>
 	  </answer>
 	</qandaentry>
