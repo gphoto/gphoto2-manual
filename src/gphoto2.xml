@@ -1748,6 +1748,14 @@ usb:                             Universal Serial Bus
 	  if you don't have it installed already.
         </para>
 
+	<formalpara>
+	  <title>Note (TODO)</title>
+	  <para>
+	    print-usb-usermap is deprecated as of 2.1.99.1. Use print-camera-list instead.
+	    Description of udev rules and HAL setup missing here.
+	  </para>
+	</formalpara>
+
         <para>
           To find out whether your kernel has hotplug support,
 	  look for the file
