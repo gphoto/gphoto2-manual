@@ -392,7 +392,7 @@ About this file:
 	    </listitem>
 	  </varlistentry>
 	  <varlistentry>
-	    <term>CVS sources</term>
+	    <term>SVN sources</term>
 	    <listitem>
 	      <simpara>
 		Building requires a certain set of build tools
@@ -1129,11 +1129,11 @@ Saving file as MVI_5418.AVI                                                     
 
 	<qandaentry id="FAQ-CVS-get-access">
 	  <question>
-	    <simpara>I wanna have CVS write access. How do I get one?</simpara>
+	    <simpara>I wanna have CVS/SVN write access. How do I get one?</simpara>
 	  </question>
 	  <answer>
-	    <simpara>
-	      We provide CVS write access to persons that show 
+	    <para>
+	      We provide SVN write access to persons that show 
 	      <emphasis>continued</emphasis> interest in a 
 	      <emphasis>specific part</emphasis>
 	      of gphoto2. 
@@ -1141,13 +1141,17 @@ Saving file as MVI_5418.AVI                                                     
 	      specific part of gphoto2 (i.e. a camera driver), we prefer you
 	      submit patches to the maintainer who will then check them in
 	      or request modifications.
-	    </simpara>
+	    </para>
+	    <para>
+	      Note that CVS has been discontinued. We are using
+	      Subversion (SVN) since 2006-03-14.
+	    </para>
 	  </answer>
 	</qandaentry>
 
 	<qandaentry id="FAQ-CVS-lost-access">
 	  <question>
-	    <simpara>You took away my CVS write access! What did I do
+	    <simpara>You took away my SVN/CVS write access! What did I do
 	      wrong?</simpara>
 	  </question>
 
@@ -1159,6 +1163,10 @@ Saving file as MVI_5418.AVI                                                     
 	      your work on gphoto2 and that you don't need write access any
 	      longer. If this is not the case, please contact one of the
 	      project admins.
+	    </para>
+	    <para>
+	      Note that CVS has been discontinued. We are using
+	      Subversion (SVN) since 2006-03-14.
 	    </para>
 	  </answer> 
 	</qandaentry>
@@ -1339,7 +1347,8 @@ Saving file as MVI_5418.AVI                                                     
 	      <prompt>&rprompt;</prompt><command>rm <parameter>-rf</parameter> <parameter><filename>/usr/lib/gphoto2*</filename></parameter> <parameter><filename>/usr/lib/libgphoto2*</filename></parameter></command>
 	    </screen>
 	    <para>
-	      Above applies especially if you used packaged and CVS versions.
+	      Above applies especially if you use both pre-packaged
+	      and CVS/SVN versions.
 	    </para>
 	    <para>
 	      After that, install the newest version of 
@@ -1832,7 +1841,7 @@ usb:                             Universal Serial Bus
 		id="FOOTNOTE-gphoto2-print-usb-usermap">
 		<para>
 		  In older versions of gphoto2 (gphoto2 2.0, gphoto2
-		  2.1.0, and the CVS versions in between and shortly
+		  2.1.0, and the SVN/CVS versions in between and shortly
 		  after 2.1.0), the functionality of
 		  <command>print-usb-usermap</command>
 		  was contained in the command 
@@ -3348,7 +3357,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	<varlistentry>
 	  <term><option>--set-config</option> <replaceable>CONFIGENTRY=CONFIGVALUE</replaceable></term>
 	  <listitem>
-	    <para>Get the specified configuration entry.</para>
+	    <para>Set the specified configuration entry.</para>
 	  </listitem>
 	</varlistentry>
 
