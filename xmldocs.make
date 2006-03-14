@@ -34,7 +34,7 @@
 
 docdir = $(datadir)/gnome/help/$(docname)/$(lang)
 
-xml_files = $(entities) $(srcdir)/$(docname).xml
+xml_files = $(entities) $(docname).xml
 
 omf_dir=$(top_srcdir)/omf-install
 
@@ -44,7 +44,7 @@ CLEANFILES = omf_timestamp
 
 all: omf
 
-omf: omf_timestamp $(srcdir)/$(docname).xml
+omf: omf_timestamp $(docname).xml
 
 omf_timestamp: $(srcdir)/$(omffile)
 	-for file in $<; do \
@@ -54,7 +54,7 @@ omf_timestamp: $(srcdir)/$(omffile)
 
 $(docname).xml: $(entities)
 	-ourdir=`pwd`; cp $(entities) .
-	mv gphoto2.xml gtkam.xml
+	cp $(gphoto2xml) $@
 	-rm -f figures screenshots; ln -s $(top_builddir)/src/figures $(top_srcdir)/src/screenshots .
 
 app-dist-hook: 

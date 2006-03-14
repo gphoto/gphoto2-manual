@@ -23,6 +23,10 @@ graphs = \
 %.fig: $(srcdir)/%.dot
 	$(DOT) -Tfig $< -o $@
 
+# FIXME: Check for ps2pdf first.
+%.pdf: %.ps
+	ps2pdf14 $< $@
+
 if ENABLE_PSTOIMG
 
 %.png: $(srcdir)/%.ps
