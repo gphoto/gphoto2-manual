@@ -700,6 +700,15 @@ Saving file as MVI_5418.AVI                                                     
       </para>
     </sect1>
     
+    <sect1 id="using-gphotofs">
+      <title>Using gphotofs</title>
+      <para>FIXME: We need to write this section</para>
+      <para>
+	<systemitem>gphotofs</systemitem> is a libgphoto2 frontend
+	which acts as user space filesystem. It is based on FUSE, the
+	Linux user space filesystem.
+      </para>
+    </sect1>
 
     <sect1 id="using-gnome">
       <title>Using Gnome VFS</title>
@@ -1841,7 +1850,7 @@ usb:                             Universal Serial Bus
 		id="FOOTNOTE-gphoto2-print-usb-usermap">
 		<para>
 		  In older versions of gphoto2 (gphoto2 2.0, gphoto2
-		  2.1.0, and the SVN/CVS versions in between and shortly
+		  2.1.0, and the unreleased developer versions in between and shortly
 		  after 2.1.0), the functionality of
 		  <command>print-usb-usermap</command>
 		  was contained in the command 
@@ -2257,7 +2266,7 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
 	<title>USB ports on other systems (non-FreeBSD BSDs, MacOS X,
 	OS/2)</title>
 	<para>
-	  FIXME: This chapter is still to be written. If you know
+	  FIXME: This chapter still is to be written. If you know
 	  about USB on these systems and/or are willing to contribute
 	  text or hints, please contact the developers at
 	  <email>&devellist;</email>.
@@ -2407,137 +2416,24 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
       </para>
       <para>
 	You can see that this quite some work to do. This is why we
-	created gphoto-meta, which lets you build everything in just
-	one step. Continue reading in 
-	<xref linkend="compile-gphoto-meta"/> 
-	for a quick demonstration of gphoto-meta. If you want to do
-	everything manually, skip that chapter and continue with
-	<xref linkend="compilation-from-cvs"/>.
+	created gphoto-meta and gphoto-suite, which lets you build
+	everything in just one step. Unfortunately, gphoto-meta and
+	gphoto-suite have not made the step from CVS to SVN yet, so in
+	the mean time you'll have to compile each and every package
+	manually, as described in
+	<xref linkend="compilation-from-svn"/>.
       </para>
     </sect1>
 
-    <sect1 id="compile-gphoto-meta">
-      <title>Using CVS sources via gphoto-meta</title>
-      <abstract>
-	<simpara>
-	  Fed up with typing 
-	  <command>cvs up &amp;&amp; ./autogen.sh &amp;&amp;
-	    ./configure &amp;&amp; make install</command> 
-	  for each and every package? No problem. Use gphoto-meta.
-	  You just have to run one script which fetches and updates
-	  all required packages from CVS, fetches some build tools if
-	  necessary and then builds and installs all software packages
-	  in the correct sequence.
-	</simpara>
-      </abstract>
-      <important>
-	<para>
-	  Beginning in the summer of 2003, sourceforge.net anonymous
-	  CVS began severely lagging behind developer CVS. Until that
-	  problem is fixed, using gphoto-meta won't be of much use for
-	  non-developers.
-	</para>
-      </important>
-      <screen>
-<prompt>&prompt;</prompt><userinput>cvs -d :pserver:anonymous@cvs.sourceforge.net:/cvsroot/gphoto login</userinput>
-<computeroutput>Logging in to :pserver:anonymous@cvs.sourceforge.net:2401/cvsroot/gphoto
-CVS password:</computeroutput><userinput><keycap>ENTER</keycap></userinput>
-<prompt>&prompt;</prompt><userinput>cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/gphoto co gphoto-meta</userinput>
-<computeroutput>co gphoto-meta
-cvs server: Updating gphoto-meta
-U gphoto-meta/.htaccess
-U gphoto-meta/.htfixupload
-U gphoto-meta/AUTHORS
-U gphoto-meta/ChangeLog
-U gphoto-meta/Makefile.am
-U gphoto-meta/NEWS
-U gphoto-meta/README
-U gphoto-meta/autogen.sh
-U gphoto-meta/bootstrap.sh
-U gphoto-meta/build-tool-list
-U gphoto-meta/clean.sh
-U gphoto-meta/compileinstall.sh
-U gphoto-meta/configure.in
-U gphoto-meta/cvs-module-list
-U gphoto-meta/cvs-module-list-candidates
-U gphoto-meta/gettextize.patch
-U gphoto-meta/upload-dist
-cvs server: Updating gphoto-meta/utils
-U gphoto-meta/utils/Makefile.am
-U gphoto-meta/utils/common.sh
-</computeroutput><prompt>&prompt;</prompt><userinput>cd gphoto-meta</userinput>
-<prompt>&mprompt;</prompt><userinput>./bootstrap.sh --tools</userinput>
-<computeroutput><replaceable>[ ... a few 10000 lines deleted ... ]</replaceable></computeroutput>
-<computeroutput>##########################################################################
-# Installed test versions of everything into $HOME/gphoto-meta/dist-root
-# You may want to set the following variables to use the gphoto suite
-# installed there:
-##########################################################################
-export PATH="$HOME/gphoto-meta/dist-root/bin:$HOME/gphoto-meta/tool-root/bin:$PATH"
-export LD_LIBRARY_PATH="$HOME/gphoto-meta/dist-root/lib:$HOME/gphoto-meta/tool-root/lib:"
-export PKG_CONFIG_PATH="$HOME/gphoto-meta/dist-root/lib/pkgconfig:/usr/lib/pkgconfig"
-########################################################################
-#> cd $HOME/gphoto-meta/dist-files
-Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
- really work, run
-      $HOME/gphoto-meta/compileinstall.sh</computeroutput>
-<prompt>&mprompt;</prompt>
-      </screen>
-      <para>
-	That's it :-) Read the last few lines. If you just want to
-	use what you just compiled, then just execute the three export
-	statements given:
-      </para>
-      <screen>
-<prompt>&mprompt;</prompt><userinput>export PATH="$HOME/gphoto-meta/dist-root/bin:$HOME/gphoto-meta/tool-root/bin:$PATH"</userinput>
-<prompt>&mprompt;</prompt><userinput>export LD_LIBRARY_PATH="$HOME/gphoto-meta/dist-root/lib:$HOME/gphoto-meta/tool-root/lib:"</userinput>
-<prompt>&mprompt;</prompt><userinput>export PKG_CONFIG_PATH="$HOME/gphoto-meta/dist-root/lib/pkgconfig:/usr/lib/pkgconfig"</userinput>
-      </screen>
-      <para>
-	However, if you want to install the software into another
-	directory (called 
-	<filename class="directory"><replaceable>$HOME/root</replaceable></filename>
-	here), then use <command>compileinstall.sh</command>:
-      </para>
-      <screen>
-<prompt>&mprompt;</prompt><userinput>./compileinstall.sh <replaceable>$HOME/root</replaceable></userinput>
-<computeroutput><replaceable>another few 10000 lines deleted</replaceable></computeroutput>
-<prompt>&mprompt;</prompt><userinput>export PATH=<replaceable>$HOME/root</replaceable>/bin:$PATH</userinput>
-<prompt>&mprompt;</prompt><userinput>export LD_LIBRARY_PATH=<replaceable>$HOME/root</replaceable>/lib:$LD_LIBRARY_PATH</userinput>
-<prompt>&mprompt;</prompt>
-      </screen>
-      <para>
-	You now have installed everything into the 
-	<filename class="directory"><replaceable>$HOME/root</replaceable></filename>
-	directory.
-      </para>
-      <para>
-	If you want to update an existing installation of gphoto-meta,
-	you run the following to update your packages:
-      </para>
-      <screen>
-<prompt>&mprompt;</prompt><userinput>cvs up</userinput>
-<computeroutput><replaceable>output snipped</replaceable></computeroutput>
-<prompt>&mprompt;</prompt><userinput>./bootstrap.sh --tools --update</userinput>
-<computeroutput><replaceable>output snipped</replaceable></computeroutput>
-<prompt>&mprompt;</prompt>
-      </screen>
-      <para>
-	Run <command>compileinstall.sh</command> if you want to
-	install the newly created packages somewhere.
-      </para>
-      
-    </sect1>
-
-    <sect1 id="compilation-from-cvs">
-      <title>Starting from CVS</title>
+    <sect1 id="compilation-from-svn">
+      <title>Starting from SVN (SubVersioN)</title>
       <para>
 	First find out what software packages you want. Fetch all
 	these software packages with the packages they depend on,
 	according to <xref linkend="software-dependencies"/>.
       </para>
       <para>
-	You can get these programs via CVS. Detailed instructions
+	You can get these programs via CVS or SVN. Detailed instructions
 	are available from the project pages (
 	<ulink url="http://sf.net/projects/libusb">libusb</ulink>,
 	<ulink url="http://sf.net/projects/libexif">libexif</ulink>,
@@ -2547,28 +2443,20 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	All the software modules libusb, libexif, libexif-gtk, exif,
 	gexif, libgphoto2, gphoto2, and gtkam use an automake-based
 	build system. This build system has to be initialized before
-	you can use it in the 
+	you can use it in the well known
 	<command>./configure &amp;&amp; make &amp;&amp; make install</command>
-	manner you know.
+	manner.
       </para>
       <para>
 	This initialization requires a few specialized build tools
-	like <command>libtoolize</command>,
-	<command>gettextize</command> and 
-	<command>pkg-config</command>. Make sure you have these
-	installed. Then run the
+	like <command>libtoolize</command> (libtool),
+	<command>gettext</command> (gettext) and 
+	<command>pkg-config</command> (pkg-config).
+	Make sure you have these installed. Then run the
 	<command>./autogen.sh</command> script contained in each of
-	the CVS modules which does the build system initialization for
+	the modules which does the build system initialization for
 	you.
       </para>
-      <note>
-	<simpara>If <command>autogen.sh</command> (or rather 
-	  the <command>gettextize</command> script it calls) asks you
-	  to acknowledge a few paragraphs and press
-	  <keysym>enter</keysym>, just press <keysym>enter</keysym>.
-	  <command>autogen.sh</command> already does the setup for you.	 
-	</simpara>
-      </note>
       <para>
 	When the build system of all modules is initialized, you can
 	start configuring and building the source, as described in
@@ -4523,7 +4411,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	  <simpara>Hubert Figuiere's digicam support list</simpara>
 	</listitem>
       </varlistentry>
-      <varlistentry>
+      <!--varlistentry>
 	<term><ulink url="http://n-dimensional.de/projects/digicam/">http://n-dimensional.de/projects/digicam/</ulink></term>
 	<listitem>
 	  <simpara>Hans Ulrich Niedermann's home page (one of the
@@ -4537,7 +4425,7 @@ Note: To be sure that the packages in $HOME/gphoto-meta/dist-files
 	    which are updated from time to time.
 	  </simpara>
 	</listitem>
-      </varlistentry>
+      </varlistentry-->
       <varlistentry>
 	<term><ulink url="http://aamot.org/ole/photography.html">http://aamot.org/ole/photography.html</ulink></term>
 	<listitem>
