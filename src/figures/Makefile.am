@@ -11,26 +11,26 @@ graphs = \
 	software-dependencies.png software-dependencies.jpg \
 	software-dependencies.svg software-dependencies.fig
 
-%.ps: %.dot
+%.ps: $(srcdir)/%.dot
 	$(DOT) -Tps $< -o $@
 
-%.jpg: %.dot
+%.jpg: $(srcdir)/%.dot
 	$(DOT) -Tjpeg $< -o $@
 
-%.svg: %.dot
+%.svg: $(srcdir)/%.dot
 	$(DOT) -Tsvg $< -o $@
 
-%.fig: %.dot
+%.fig: $(srcdir)/%.dot
 	$(DOT) -Tfig $< -o $@
 
 if ENABLE_PSTOIMG
 
-%.png: %.ps
+%.png: $(srcdir)/%.ps
 	$(PSTOIMG) -type png -scale $(magnification) -antialias -crop a $<
 
 else
 
-%.png: %.dot
+%.png: $(srcdir)/%.dot
 	$(DOT) -Tpng $< -o $@
 
 endif
@@ -43,22 +43,22 @@ figures = \
 	architecture.png libgphoto2-api.png libgphoto2-camlib.png libgphoto2_port.png gphotofs.png
 #	architecture.eps libgphoto2-api.eps libgphoto2-camlib.eps libgphoto2_port.eps gphotofs.eps
 
-%.eps: %.fig
+%.eps: $(srcdir)/%.fig
 	$(FIG2DEV) -L eps $< $@
 
-%.tex: %.fig
+%.tex: $(srcdir)/%.fig
 	$(FIG2DEV) -L latex $< $@
 
-%.ps: %.fig
+%.ps: $(srcdir)/%.fig
 	$(FIG2DEV) -L ps -z A4 -c $< $@
 
-%.pdf: %.fig
+%.pdf: $(srcdir)/%.fig
 	$(FIG2DEV) -L pdf -z A4 -p dummy -c $< $@
 
-%.png: %.fig
+%.png: $(srcdir)/%.fig
 	$(FIG2DEV) -L png -m $(magnification) $< $@
 
-%.jpg: %.fig
+%.jpg: $(srcdir)/%.fig
 	$(FIG2DEV) -L jpeg -m $(magnification) $< $@
 
 endif

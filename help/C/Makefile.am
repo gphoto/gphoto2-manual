@@ -1,8 +1,8 @@
-figs = $(shell find figures screenshots -name '*.png')
+figs = $(shell find $(srcdir)/figures $(srcdir)/screenshots -name '*.png')
 docname = gtkam
 lang = C
 omffile = gtkam-C.omf
-entities = $(gphoto2xml) legal.xml
+entities = $(gphoto2xml) $(srcdir)/legal.xml
 
 include $(top_srcdir)/xmldocs.make
 

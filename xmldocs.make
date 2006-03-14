@@ -34,7 +34,7 @@
 
 docdir = $(datadir)/gnome/help/$(docname)/$(lang)
 
-xml_files = $(entities) $(docname).xml
+xml_files = $(entities) $(srcdir)/$(docname).xml
 
 omf_dir=$(top_srcdir)/omf-install
 
@@ -44,10 +44,10 @@ CLEANFILES = omf_timestamp
 
 all: omf
 
-omf: omf_timestamp $(docname).xml
+omf: omf_timestamp $(srcdir)/$(docname).xml
 
-omf_timestamp: $(omffile)
-	-for file in $(omffile); do \
+omf_timestamp: $(srcdir)/$(omffile)
+	-for file in $<; do \
 	  scrollkeeper-preinstall $(docdir)/`awk 'BEGIN {RS = ">" } /identifier/ {print $$0}' $${file} | awk 'BEGIN {FS="\""} /url/ {print $$2}'` $${file} $(omf_dir)/$${file}; \
 	done
 	touch omf_timestamp
