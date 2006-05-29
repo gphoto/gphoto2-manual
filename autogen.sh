@@ -19,7 +19,7 @@ debug="false"
 recursive="false"
 dryrun="false"
 self="$(basename "$0")"
-autogen_version="0.4.5"
+autogen_version="0.4.7"
 
 
 ########################################################################
@@ -305,7 +305,7 @@ if cd "${dir}"; then
     if test "x$AG_LIBLTDL_DIR" != "x"; then
 	# We have to run libtoolize --ltdl ourselves because
 	#   - autoreconf doesn't run it at all
-	execute_command "${LIBTOOLIZE-"libtoolize"}" --ltdl
+	execute_command "${LIBTOOLIZE-"libtoolize"}" --ltdl --copy
 	# And we have to clean up the generated files after libtoolize because
 	#   - we still want symlinks for the files
 	#   - but we want to (implicitly) AC_CONFIG_SUBDIR and that writes to
@@ -345,6 +345,53 @@ fi
 	exit "$status"
     fi
 }
+
+
+########################################################################
+# If not explicitly given, try to find most convenient tools in $PATH
+#
+# This method only works for tools made for parallel installation with
+# a version suffix, i.e. autoconf and automake.
+#
+# libtool and gettext do not support that, so you'll still have to
+# manually set the respective variables if the default does not work
+# for you.
+
+skip="false"
+oldversion="oldversion"
+while read flag variable binary version restofline; do
+	case "$flag" in
+	+)
+		if "$skip"; then skip=false; fi
+		if test -n "`eval echo \$\{$variable+"set"\}`"; then
+			skip=:
+		else
+			if test -x "`which ${binary}${version} 2> /dev/null`"; then
+				export "$variable"="${binary}${version}"
+				oldversion="${version}"
+			else
+				skip=:
+			fi
+		fi
+		;;
+	-)
+		if "$skip"; then :; else
+			export "$variable"="${binary}${oldversion}"
+		fi
+		;;
+	esac
+done<<EOF
++ AUTOMAKE	automake	-1.9
+- ACLOCAL	aclocal
++ AUTOMAKE	automake	-1.8
+- ACLOCAL	aclocal
++ AUTOCONF	autoconf	2.59
+- AUTOHEADER	autoheader
+- AUTORECONF	autoreconf
++ AUTOCONF	autoconf	2.50
+- AUTOHEADER	autoheader
+- AUTORECONF	autoreconf
+EOF
 
 
 ########################################################################
@@ -407,53 +454,6 @@ fi
 
 
 ########################################################################
-# If not explicitly given, try to find most convenient tools in $PATH
-#
-# This method only works for tools made for parallel installation with
-# a version suffix, i.e. autoconf and automake.
-#
-# libtool and gettext do not support that, so you'll still have to
-# manually set the respective variables if the default does not work
-# for you.
-
-skip="false"
-oldversion="oldversion"
-while read flag variable binary version restofline; do
-	case "$flag" in
-	+)
-		if "$skip"; then skip=false; fi
-		if test -n "`eval echo \$\{$variable+"set"\}`"; then
-			skip=:
-		else
-			if test -x "`which ${binary}${version}`"; then
-				export "$variable"="${binary}${version}"
-				oldversion="${version}"
-			else
-				skip=:
-			fi
-		fi
-		;;
-	-)
-		if "$skip"; then :; else
-			export "$variable"="${binary}${oldversion}"
-		fi
-		;;
-	esac
-done<<EOF
-+ AUTOMAKE	automake	-1.9
-- ACLOCAL	aclocal
-+ AUTOMAKE	automake	-1.8
-- ACLOCAL	aclocal
-+ AUTOCONF	autoconf	2.59
-- AUTOHEADER	autoheader
-- AUTORECONF	autoreconf
-+ AUTOCONF	autoconf	2.50
-- AUTOHEADER	autoheader
-- AUTORECONF	autoreconf
-EOF
-
-
-########################################################################
 # Check that tool versions satisfy our needs
 
 if "$check_versions"; then
@@ -461,21 +461,22 @@ if "$check_versions"; then
 	errors=false
 	lf="
 "
-	while read tool minversion; do
+	while read tool minversion package; do
 		version="$("$tool" --version | sed 's/^.*(.*) *\(.*\)$/\1/g;1q')"
 		# compare version and minversion
 		first="$(echo "$version$lf$minversion" | sort -n | sed '1q')"
 		if test "x$minversion" != "x$first" && test "x$version" = "x$first"; then
-			echo "Version \`$version' of \`$tool' not sufficient. At least \`$minversion' required."
+			echo "Version \`$version' of \`$tool' from the \`$package' (dev/devel) package is not sufficient."
+			echo "At least \`$minversion' required."
 			errors=:
 		fi
 	done <<EOF
-${ACLOCAL-"aclocal"}	1.8
-${AUTOMAKE-"automake"}	1.8
-${AUTOCONF-"autoconf"}	2.59
-${AUTOHEADER-"autoheader"}	2.59
-${AUTOPOINT-"autopoint"}	0.14.1
-${LIBTOOLIZE-"libtoolize"}	1.4
+${ACLOCAL-"aclocal"}	1.8	automake
+${AUTOMAKE-"automake"}	1.8	automake
+${AUTOCONF-"autoconf"}	2.59	autoconf
+${AUTOHEADER-"autoheader"}	2.59	autoconf
+${AUTOPOINT-"autopoint"}	0.14.1	gettext
+${LIBTOOLIZE-"libtoolize"}	1.4	libtool
 EOF
 	if "$errors"; then
 		echo "Please update your toolset."
