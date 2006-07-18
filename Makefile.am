@@ -1,4 +1,3 @@
-
 if HAVE_SCROLLKEEPER
 scrollkeeper_subdirs = help
 endif
