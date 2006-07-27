@@ -2704,6 +2704,7 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
       <cmdsynopsis>
 	<command>gphoto2</command>
 	<arg choice="opt">--debug</arg>
+	<arg choice="opt">--debug-logfile <replaceable>FILENAME</replaceable></arg>
 	<group choice="opt">
 	  <arg>-q</arg>
 	  <arg>--quiet</arg>
@@ -2864,7 +2865,14 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
 	<varlistentry>
 	  <term><option>--debug</option></term>
 	  <listitem>
-	    <para>Turn on debugging.</para>
+	    <para>Turn on debugging output. Debugging output is written to stderr by default, or to the filename given to the <option>--debug-logfile</option> option.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--debug-logfile</option> <replaceable>FILENAME</replaceable></term>
+	  <listitem>
+	    <para>The logfile to write the debugging info into, if --debug is given.</para>
 	  </listitem>
 	</varlistentry>
 
