@@ -69,7 +69,7 @@ digraph "software dependencies" {
 	libfuse -> gphotofs;
 	libgphoto2 -> gphotofs;
 
-	libpopt -> gphoto2 [style=dashed];
+	libpopt -> gphoto2;
 	libexif -> gphoto2 [style=dashed];
 	libgphoto2 -> gphoto2;
 }
