@@ -2854,7 +2854,7 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
         <xref linkend="ref-gphoto2-cli"/> is a command-line client for
         it.</para>
 
-      <para>Where an option takes a range of files, thumbnails, or
+      <para>Where an option takes a <replacable>RANGE</replacable> of files, thumbnails, or
        other data, they are numbered beginning at 1.  A range is a
        comma-separated list of numbers or spans
        (<quote><replaceable>first</replaceable>-<replaceable>last</replaceable></quote>).
