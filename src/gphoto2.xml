@@ -2975,12 +2975,25 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
 	  <term><option>--filename</option> <replaceable>FILENAME</replaceable></term>
 	  <listitem>
 	      <para>
-		Specify the filename to use when saving downloaded files.
+	        When downloading files from the camera, specify the
+	  file name or file name pattern to use when storing the
+	  downloaded file on the local disk. When uploading a file to
+	  the camera, specify the filename to store the uploaded file
+	  as on the camera.
+	      </para>
+	      <para>
 		The <option>--filename</option> option accepts
 		%a, %A, %b, %B, %d, %H, %k, %I, %l, %j, %m, %M, %S,
 		%y, %%, (see date(1)) and, 
 		in addition, %n for the number, %C for the filename
-		suffix, and %f for the filename without suffix.
+		suffix, %f for the filename without suffix, %: for the
+		complete filename in lowercase.
+	      </para>
+	      <para>
+	        Note that %: is still in alpha stage, and the actual
+	  character or syntax may still be changed. E.g. it might be
+	  possible to use %#f and %#C for lower case versions, and %^f
+	  and %^C for upper case versions.
 	      </para>
 	      <para>
 		%n is the only conversion specifier to accept a
@@ -2988,7 +3001,9 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
 		to width 3 (e.g. print the number 7 as
 		<quote>007</quote>).
 		Leaving out the padding character (e.g. %3n) will use
-		an implementation specific default padding character.
+		an implementation specific default padding character
+		which may or may not be suitable for use in file
+	        names.
 	      </para>
 	  </listitem>
 	</varlistentry>
