@@ -28,7 +28,7 @@ About this file:
 <?xml-stylesheet type="text/css" href="css/docbook-xml.css"?>
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
- "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+ "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
 <!-- "file:///usr/share/sgml/docbook/dtd/xml/4.2/docbookx.dtd" [ -->
 
 <!ENTITY themanual "The gPhoto2 Manual">
@@ -231,10 +231,14 @@ About this file:
 	</para>
 	<important>
 	  <para>
-	    If you want to use a camera using the USB mass storage
-	    protocol, libgphoto2 will not help you. Your operating
-	    system already contains an USB mass storage driver, so
-	    there is no need to write another one.
+	    If you want to use a camera using the 
+	    <systemitem class="protocol">USB mass storage</systemitem>
+	    protocol, <systemitem
+	    class="library">libgphoto2</systemitem>
+	    will not help you. Your operating
+	    system already contains an 
+	    <systemitem class="protocol">USB mass storage</systemitem> driver, so
+	    there is no need for us to write another one.
 	  </para>
 	  <para>
 	    For information on how to use a USB mass storage
@@ -244,7 +248,7 @@ About this file:
 	    (which is more a USB mass storage camera HOWTO). There is
 	    another nice description at the
 	    <ulink
-	     url="http://digikam.sourceforge.net/docs.html#q3">digicam
+	     url="http://digikam.sourceforge.net/docs.html#q3">digikam
 	     web site</ulink>.
 	  </para>
 	</important>
@@ -2416,12 +2420,8 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
       </para>
       <para>
 	You can see that this quite some work to do. This is why we
-	created gphoto-meta and gphoto-suite, which lets you build
-	everything in just one step. Unfortunately, gphoto-meta and
-	gphoto-suite have not made the step from CVS to SVN yet, so in
-	the mean time you'll have to compile each and every package
-	manually, as described in
-	<xref linkend="compilation-from-svn"/>.
+	created gphoto-suite, which lets you build everything in just
+	one step.
       </para>
     </sect1>
 
@@ -2429,8 +2429,9 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
       <title>Starting from SVN (SubVersioN)</title>
       <para>
 	First find out what software packages you want. Fetch all
-	these software packages with the packages they depend on,
-	according to <xref linkend="software-dependencies"/>.
+	the software packages you require with the packages they
+	depend on, according to <xref
+	linkend="software-dependencies"/>.
       </para>
       <para>
 	You can get these programs via CVS or SVN. Detailed instructions
@@ -2449,7 +2450,9 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
       </para>
       <para>
 	This initialization requires a few specialized build tools
-	like <command>libtoolize</command> (libtool),
+	like <command>automake</command>, 
+	<command>autoreconf</command> (autoconf), 
+	<command>libtoolize</command> (libtool),
 	<command>gettext</command> (gettext) and 
 	<command>pkg-config</command> (pkg-config).
 	Make sure you have these installed. Then run the
@@ -2870,9 +2873,13 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>--debug-logfile</option> <replaceable>FILENAME</replaceable></term>
+	  <term><option>--debug-logfile</option>
+	  <replaceable>FILENAME</replaceable> (new in version 2.2.x SVN trunk)</term>
 	  <listitem>
-	    <para>The logfile to write the debugging info into, if --debug is given.</para>
+	    <para>
+	      The logfile to write the debugging info to, if
+	      <option>--debug</option> is given.
+	    </para>
 	  </listitem>
 	</varlistentry>
 
@@ -3041,16 +3048,6 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
            <replaceable>FOLDER</replaceable></term>
 	  <listitem>
 	    <para>Specify camera folder (default="/").</para>
-	  </listitem>
-	</varlistentry>
-
-	<varlistentry>
-	  <term><option>--filename</option> <replaceable>FILENAME</replaceable></term>
-	  <listitem>
-	    <para>Specify the filename to use when saving downloaded files. The <option>--filename</option> option
-		accepts %a, %A, %b, %B, %d, %H, %k, %I, %l, %j, %m, %M, %S, %y, %%, (see date(1)) and, in addition,
-		%n for the number, %C for the filename suffix, and %f for the filename without suffix.
-	    </para>
 	  </listitem>
 	</varlistentry>
 
@@ -3462,6 +3459,13 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
           </listitem>
         </varlistentry>
       </variablelist>
+      <para>
+	To track down errors, you can add the
+	<option>--debug</option> parameter to the
+	<command>gphoto2</command> command line and, if dealing with
+	USB problems, setting the environment variable
+	<envar>USB_DEBUG</envar><replaceable>=1</replaceable>.
+      </para>
     </refsect1>
 
   </refentry>
