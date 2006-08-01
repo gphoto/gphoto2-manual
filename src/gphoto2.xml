@@ -2434,20 +2434,53 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
 	linkend="software-dependencies"/>.
       </para>
       <para>
-	You can get these programs via CVS or SVN. Detailed instructions
-	are available from the project pages (
+	You can get these programs via SVN or CVS (detailed instructions
+	are available from the project pages for
 	<ulink url="http://sf.net/projects/libusb">libusb</ulink>,
 	<ulink url="http://sf.net/projects/libexif">libexif</ulink>,
-	<ulink url="http://sf.net/projects/gphoto">gphoto</ulink>).
+	<ulink url="http://sf.net/projects/gphoto">gphoto</ulink>):
       </para>
+      <screen>
+
+<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://svn.sourceforge.net/svnroot/gphoto/trunk/gphoto-suite</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>vi <parameter>checkout-config.txt</parameter></userinput> # comment out unwanted software
+<prompt>&prompt;</prompt><userinput>./checkout-config.sh</userinput> # only if you want/need software described in checkout-config.txt
+<prompt>&prompt;</prompt><userinput>rm -rf src/{what,you,do,not,want}</userinput> # optional
+
+or select your desired software from these:
+
+<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://svn.sourceforge.net/svnroot/libusb/trunk/libusb</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>cvs <parameter>-z3</parameter> <parameter>-d:pserver:anonymous@libexif.cvs.sourceforge.net:/cvsroot/libexif</parameter> <parameter>checkout</parameter> <parameter>-P</parameter> <parameter>libexif</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>cvs <parameter>-z3</parameter> <parameter>-d:pserver:anonymous@libexif.cvs.sourceforge.net:/cvsroot/libexif</parameter> <parameter>checkout</parameter> <parameter>-P</parameter> <parameter>exif</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>cvs <parameter>-z3</parameter> <parameter>-d:pserver:anonymous@libexif.cvs.sourceforge.net:/cvsroot/libexif</parameter> <parameter>checkout</parameter> <parameter>-P</parameter> <parameter>libexif-gtk</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://svn.sourceforge.net/svnroot/gphoto/trunk/libgphoto2</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://svn.sourceforge.net/svnroot/gphoto/trunk/gphoto2</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://svn.sourceforge.net/svnroot/gphoto/trunk/gphotofs</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://svn.sourceforge.net/svnroot/gphoto/trunk/gtkam</parameter></userinput>
+      </screen>
       <para>
 	All the software modules libusb, libexif, libexif-gtk, exif,
 	gexif, libgphoto2, gphoto2, and gtkam use an automake-based
 	build system. This build system has to be initialized before
 	you can use it in the well known
 	<command>./configure &amp;&amp; make &amp;&amp; make install</command>
-	manner.
+	manner:
       </para>
+      <screen>
+
+<prompt>&prompt;</prompt><userinput>(cd gphoto-suite &amp;&amp; ./autogen.sh</userinput>
+
+or
+
+<prompt>&prompt;</prompt><userinput>(cd libusb &amp;&amp; ./autogen.sh)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd libexif &amp;&amp; ./autogen.sh)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd exif &amp;&amp; ./autogen.sh)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd libexif-gtk &amp;&amp; ./autogen.sh)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd libgphoto2 &amp;&amp; ./autogen.sh)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd gphoto2 &amp;&amp; ./autogen.sh)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd gphotofs &amp;&amp; ./autogen.sh)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd gtkam &amp;&amp; ./autogen.sh)</userinput>
+      </screen>
       <para>
 	This initialization requires a few specialized build tools
 	like <command>automake</command>, 
@@ -2678,8 +2711,10 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
 
   <refentry id="ref-gphoto2-cli">
     <refentryinfo>
+      <authorgroup>
       <author>
-	<firstname>The gPhoto2</firstname><surname>Team</surname>
+	<firstname>The gPhoto2</firstname>
+	<surname>Team</surname>	
       </author>
 
       <editor>
@@ -2688,9 +2723,23 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
 	<affiliation>
 	  <address><email>twaugh@redhat.com</email></address>
 	</affiliation>
+	<authorblurb>
+	  <para>Original man page author.</para>
+	</authorblurb>
       </editor>
 
-      <date>September 2004</date>
+      <editor>
+	<firstname>Hans Ulrich</firstname>
+	<surname>Niedermann</surname>
+	<affiliation>
+	  <address><email>gp@n-dimensional.de</email></address>
+	</affiliation>
+	<authorblurb>
+	  <para>Current man page editor.</para>
+	</authorblurb>
+      </editor>
+      </authorgroup>
+      <date>August 2006</date>
     </refentryinfo>
 
     <refmeta>
@@ -3391,30 +3440,47 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
       <title>Environment variables</title>
       <variablelist>
         <varlistentry>
-	  <term>CAMLIBS</term>
+	  <term><envar>CAMLIBS</envar></term>
 	  <listitem>
 	    <para>
-	      If set, defines the directory where libgphoto2 looks for
-	      its camera drivers (camlibs).
+	      If set, defines the directory where the
+	      <systemitem class="library">libgphoto2</systemitem>
+	      library looks for its camera drivers (camlibs). You only
+	      need to set this on OS/2 systems and broken/test
+	      installations.
 	    </para>
 	  </listitem>
 	</varlistentry>
         <varlistentry>
-	  <term>IOLIBS</term>
+	  <term><envar>IOLIBS</envar></term>
 	  <listitem>
 	    <para>
-	      If set, defines the directory where libgphoto2_port looks for
-	      its I/O drivers (camlibs).
+	      If set, defines the directory where the
+	      <systemitem class="library">libgphoto2_port</systemitem>
+	      library looks for its I/O drivers (iolibs). You only
+	      need to set this on OS/2 systems and broken/test
+	      installations.
 	    </para>
 	  </listitem>
 	</varlistentry>
-	<!-- LD_DEBUG=all (only add this description if this is indeed a "ld" based system) -->
-        <varlistentry>
-	  <term>USB_DEBUG</term>
+	<varlistentry>
+	  <term><envar>LD_DEBUG</envar></term>
 	  <listitem>
 	    <para>
-	      If set, defines the numeric libusb debug level with which libusb
-	      will print messages.
+	      Set this to <replaceable>all</replaceable> to receive
+	      lots of debug information regarding library loading on
+	      <command>ld</command> based systems.
+	    </para>
+	  </listitem>
+	</varlistentry>
+        <varlistentry>
+	  <term><envar>USB_DEBUG</envar></term>
+	  <listitem>
+	    <para>
+	      If set, defines the numeric debug level with which the
+	      <systemitem class="library">libusb</systemitem> library 
+	      will print messages. In order to get some
+	      debug output, set it to <replaceable>1</replaceable>.
 	    </para>
 	  </listitem>
 	</varlistentry>
@@ -3425,9 +3491,11 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
       <title>See also</title>
       <para>
 	  <xref linkend="ref-libgphoto2"/>,
-	  &themanual;,
+	  <ulink url="http://www.gphoto.org/doc/manual/">&themanual;</ulink>,
 	  <!--xref linkend="using-gphoto2"/-->
-	  <ulink url="http://www.gphoto.org/">http://www.gphoto.org/</ulink>
+	  <ulink url="http://www.gphoto.org/">The gphoto.org
+	  website</ulink>,
+	  <ulink url="http://www.teaser.fr/~hfiguiere/linux/digicam.html">Digital Camera Support for UNIX, Linux and BSD</ulink>
       </para>
     </refsect1>
 
@@ -3440,18 +3508,21 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
             <para>Shows what kinds of ports (<acronym>USB</acronym> and serial) you have.</para>
           </listitem>
         </varlistentry>
+
         <varlistentry>
           <term><userinput>gphoto2 <option>--auto-detect</option></userinput></term>
           <listitem>
             <para>Shows what camera(s) you have connected.</para>
           </listitem>
         </varlistentry>
+
         <varlistentry>
           <term><userinput>gphoto2 <option>--list-files</option></userinput></term>
           <listitem>
             <para>List files on camera.</para>
           </listitem>
         </varlistentry>
+
         <varlistentry>
           <term><userinput>gphoto2 <option>--get-file</option> <parameter>7-13</parameter></userinput></term>
           <listitem>
@@ -3523,17 +3594,60 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
           </listitem>
         </varlistentry>
       </variablelist>
+      <para>
+	To track down errors, you can add the
+	<option>--debug</option> parameter to the
+	<command>gphoto2</command> command line and, if dealing with
+	USB problems, setting the environment variable
+	<envar>USB_DEBUG</envar><replaceable>=1</replaceable>.
+      </para>
     </refsect1>
 
     <refsect1>
       <title>Environment variables</title>
       <variablelist>
         <varlistentry>
-	  <term>CAMLIBS</term>
+	  <term><envar>CAMLIBS</envar></term>
 	  <listitem>
 	    <para>
-	      If set, defines the directory where libgphoto2 looks for
-	      its camera drivers (camlibs).
+	      If set, defines the directory where the
+	      <systemitem class="library">libgphoto2</systemitem>
+	      library looks for its camera drivers (camlibs). You only
+	      need to set this on OS/2 systems and broken/test
+	      installations.
+	    </para>
+	  </listitem>
+	</varlistentry>
+        <varlistentry>
+	  <term><envar>IOLIBS</envar></term>
+	  <listitem>
+	    <para>
+	      If set, defines the directory where the
+	      <systemitem class="library">libgphoto2_port</systemitem>
+	      library looks for its I/O drivers (iolibs). You only
+	      need to set this on OS/2 systems and broken/test
+	      installations.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><envar>LD_DEBUG</envar></term>
+	  <listitem>
+	    <para>
+	      Set this to <replaceable>all</replaceable> to receive
+	      lots of debug information regarding library loading on
+	      <command>ld</command> based systems.
+	    </para>
+	  </listitem>
+	</varlistentry>
+        <varlistentry>
+	  <term><envar>USB_DEBUG</envar></term>
+	  <listitem>
+	    <para>
+	      If set, defines the numeric debug level with which the
+	      <systemitem class="library">libusb</systemitem> library 
+	      will print messages. In order to get some
+	      debug output, set it to <replaceable>1</replaceable>.
 	    </para>
 	  </listitem>
 	</varlistentry>
@@ -3606,20 +3720,35 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
       <title>Environment variables</title>
       <variablelist>
         <varlistentry>
-	  <term>IOLIBS</term>
+	  <term><envar>IOLIBS</envar></term>
 	  <listitem>
 	    <para>
-	      If set, defines the directory where libgphoto2_port looks for
-	      its I/O drivers (camlibs).
+	      If set, defines the directory where the
+	      <systemitem class="library">libgphoto2_port</systemitem>
+	      library looks for its I/O drivers (iolibs). You only
+	      need to set this on OS/2 systems and broken/test
+	      installations.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><envar>LD_DEBUG</envar></term>
+	  <listitem>
+	    <para>
+	      Set this to <replaceable>all</replaceable> to receive
+	      lots of debug information regarding library loading on
+	      <command>ld</command> based systems.
 	    </para>
 	  </listitem>
 	</varlistentry>
         <varlistentry>
-	  <term>USB_DEBUG</term>
+	  <term><envar>USB_DEBUG</envar></term>
 	  <listitem>
 	    <para>
-	      If set, defines the numeric libusb debug level with which libusb
-	      will print messages.
+	      If set, defines the numeric debug level with which the
+	      <systemitem class="library">libusb</systemitem> library 
+	      will print messages. In order to get some
+	      debug output, set it to <replaceable>1</replaceable>.
 	    </para>
 	  </listitem>
 	</varlistentry>
