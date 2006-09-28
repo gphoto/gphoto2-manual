@@ -3564,7 +3564,7 @@ or
     </refnamediv>
 
     <refsynopsisdiv>
-      <synopsis>#include &lt;gphoto2.h&gt;</synopsis>
+      <synopsis>#include &lt;gphoto2/gphoto2.h&gt;</synopsis>
     </refsynopsisdiv>
 
     <refsect1>
@@ -3690,7 +3690,7 @@ or
       </refnamediv>
 
       <refsynopsisdiv>
-        <synopsis>#include &lt;gphoto2_port.h&gt;</synopsis>
+        <synopsis>#include &lt;gphoto2/gphoto2_port.h&gt;</synopsis>
       </refsynopsisdiv>
 
       <refsect1>
