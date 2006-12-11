@@ -1658,9 +1658,9 @@ usb:                             Universal Serial Bus
 
       <para>
         As <acronym>USB</acronym> is designed for hotplugging of
-	devices, there is a mechanism that dynamically creates the
-	device files for the devices currently connected and switched
-	on.
+	devices, the operating system also needs a mechanism that
+	dynamically creates devices (device files) for the devices
+	currently connected and switched on.
       </para>
       <para>
         The operating system has to determine which users may access a device
@@ -1679,14 +1679,61 @@ usb:                             Universal Serial Bus
       </para>
       <para>
         If you are installing and setting up libgphoto2 yourself, then
-	the configuration of these helper applications is explained
-	for you the following section.
+	the following sections explain the configuration of these helpers.
       </para>
 
       <!-- ================================================== -->
       <sect2 id="usb-on-linux">
-
         <title><acronym>USB</acronym> ports on Linux</title>
+	<para>
+	  XXX Linux Kernel, kernel space drivers and user space drivers XXX
+	  XXX possible conflicts with kernel space drivers XXX
+	  XXX Kernel invokes hotplug/udev on device add XXX
+	  XXX udev calls HAL to provide graphical desktop with information XXX
+	</para>
+      </sect2>
+
+      <sect2 id="usb-on-linux-HAL">
+	<title><acronym>USB</acronym> ports on Linux using HAL</title>
+	<para>
+	  XXX 2 part HAL configuration: Device list and policy XXX
+	  XXX How to generate and where to store device list XXX
+	  XXX How to generate and where to store policy XXX
+	  XXX Example scripts enforcing policy XXX
+	</para>
+      </sect2>
+
+      <sect2 id="usb-on-linux-udev">
+	<title><acronym>USB</acronym> ports on Linux using udev</title>
+	<para>
+	  XXX How to generate and where to store udev rules (format 0.98 etc) XXX
+	  XXX PTP class match workaround using script XXX
+	  XXX Example script XXX
+	</para>
+      </sect2>
+
+      <sect2 id="usb-on-linux-hotplug">
+	<title><acronym>USB</acronym> ports on Linux using hotplug</title>
+	<para>
+	  XXX Obsolete: Is for Linux 2.2 and 2.4 XXX
+	  XXX How to generate and where to store the device list XXX
+	  XXX Example script XXX
+	</para>
+      </sect2>
+
+      <sect2 id="usb-on-linux-dirty">
+	<title><acronym>USB</acronym> ports on Linux (dirty world-writable hack)</title>
+	<para>
+	  XXX DANGEROUS, DO NOT USE XXX
+	  XXX Hardly usable for 2.6/udev systems XXX
+	  XXX How to set up (fstab) XXX
+	</para>
+      </sect2>
+
+      <!-- ================================================== -->
+      <sect2 id="usb-on-linux-old">
+
+        <title><acronym>USB</acronym> ports on Linux (OLD)</title>
 
         <para>
           libgphoto2 provides a user space driver for cameras, which conflicts with having a kernel driver for the camera.
@@ -2468,18 +2515,18 @@ or select your desired software from these:
       </para>
       <screen>
 
-<prompt>&prompt;</prompt><userinput>(cd gphoto-suite &amp;&amp; ./autogen.sh</userinput>
+<prompt>&prompt;</prompt><userinput>(cd gphoto-suite &amp;&amp; autoreconf --install --symlink</userinput>
 
 or
 
-<prompt>&prompt;</prompt><userinput>(cd libusb &amp;&amp; ./autogen.sh)</userinput>
-<prompt>&prompt;</prompt><userinput>(cd libexif &amp;&amp; ./autogen.sh)</userinput>
-<prompt>&prompt;</prompt><userinput>(cd exif &amp;&amp; ./autogen.sh)</userinput>
-<prompt>&prompt;</prompt><userinput>(cd libexif-gtk &amp;&amp; ./autogen.sh)</userinput>
-<prompt>&prompt;</prompt><userinput>(cd libgphoto2 &amp;&amp; ./autogen.sh)</userinput>
-<prompt>&prompt;</prompt><userinput>(cd gphoto2 &amp;&amp; ./autogen.sh)</userinput>
-<prompt>&prompt;</prompt><userinput>(cd gphotofs &amp;&amp; ./autogen.sh)</userinput>
-<prompt>&prompt;</prompt><userinput>(cd gtkam &amp;&amp; ./autogen.sh)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd libusb &amp;&amp; autoreconf --install --symlink)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd libexif &amp;&amp; autoreconf --install --symlink)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd exif &amp;&amp; autoreconf --install --symlink)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd libexif-gtk &amp;&amp; autoreconf --install --symlink)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd libgphoto2 &amp;&amp; autoreconf --install --symlink)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd gphoto2 &amp;&amp; autoreconf --install --symlink)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd gphotofs &amp;&amp; autoreconf --install --symlink)</userinput>
+<prompt>&prompt;</prompt><userinput>(cd gtkam &amp;&amp; autoreconf --install --symlink)</userinput>
       </screen>
       <para>
 	This initialization requires a few specialized build tools
@@ -2489,7 +2536,7 @@ or
 	<command>gettext</command> (gettext) and 
 	<command>pkg-config</command> (pkg-config).
 	Make sure you have these installed. Then run the
-	<command>./autogen.sh</command> script contained in each of
+	<command>autoreconf --install --symlink</command> command in each of
 	the modules which does the build system initialization for
 	you.
       </para>
