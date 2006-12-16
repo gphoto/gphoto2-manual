@@ -382,6 +382,28 @@ About this file:
 		uploaded to a web server.
 	      </simpara> 
 	    </listitem>
+	    <!--+
+		| FIXME: Missing:
+		|
+		| lphoto - http://lphoto.com/
+		|          Chose the most inconvenient interface: Calls gphoto2 command line.
+		| camera life - http://fdcl.sourceforge.net/
+		| f-spot
+		|          C#/mono/Gnome.
+		| banshee
+		|          C#/mono digital audio player
+		| gthumb
+		|          C/Gnome
+		| sane
+		|          C
+		| ...
+		| Special purpose software:
+		|  * Amusement park ride
+		|  * scientific experiments
+		|  * ...
+		| ...
+		| XXX Bindings, software using bindings, ... XXX
+		+-->
 	  </varlistentry>
 	</variablelist>
 
@@ -573,7 +595,7 @@ serial:/dev/ttyS0                Serial Port 0
 serial:/dev/ttyS2                Serial Port 2                   
 serial:/dev/ttyS3                Serial Port 3                   
 usb:                             Universal Serial Bus	  </computeroutput>
-<prompt>&prompt;</prompt>
+<prompt>&prompt;</prompt><!-- XXX FIXME usb:001,002 ports XXX FIXME-->
       </screen>
       <para>
 	In this example, we see that we have the three serial devices
@@ -2817,6 +2839,8 @@ or
 	  <arg>--help</arg>
 	</group>
 	<sbr/>
+	<arg choice="opt">--hook-script <replaceable>FILENAME</replaceable></arg>
+	<sbr/>
 	<arg choice="opt">--list-cameras</arg>
 	<arg choice="opt">--list-ports</arg>
 	<arg choice="opt">--stdout</arg>
@@ -2970,12 +2994,64 @@ or
 
 	<varlistentry>
 	  <term><option>--debug-logfile</option>
-	  <replaceable>FILENAME</replaceable> (new in version 2.2.x SVN trunk)</term>
+	  <replaceable>FILENAME</replaceable> (since 2.3.0)</term>
 	  <listitem>
 	    <para>
 	      The logfile to write the debugging info to, if
 	      <option>--debug</option> is given.
 	    </para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--hook-script</option> <replaceable>FILENAME</replaceable>
+	  (new after 2.3.0)</term>
+	  <listitem>
+	    <para>
+	      Hook script to execute when something has happened. The
+	      hook script reads the environment variable
+	      <envar>ACTION</envar>.
+	    </para>
+	    <variablelist>
+	      <varlistentry>
+		<term><envar>ACTION</envar>=init</term>
+		<listitem>
+		  <para>
+		    indicates that gphoto2 has
+		    just initialized. If the hook script returns 
+		    with a non-zero exit code now,
+		    <command>gphoto2</command> will abort.
+		  </para>
+		</listitem>
+	      </varlistentry>
+	      <varlistentry>
+		<term><envar>ACTION</envar>=start</term>
+		<listitem>
+		  <para>
+		    indicates that gphoto2 has finished parsing the command
+		    line and ise about to execute the requested commands.
+		  </para>
+		</listitem>
+	      </varlistentry>
+	      <varlistentry>
+		<term><envar>ACTION</envar>=download</term>
+		<listitem>
+		  <para>
+		    indicates that a file has just been downloaded to
+		    the computer and stored in the file indicated by
+		    the environment variable <envar>ARGUMENT</envar>.
+		  </para>
+		</listitem>
+	      </varlistentry>
+	      <varlistentry>
+		<term><envar>ACTION</envar>=stop</term>
+		<listitem>
+		  <para>
+		    indicates that gphoto2 is about to finish.
+		  </para>
+		</listitem>
+	      </varlistentry>
+	    </variablelist>
 	  </listitem>
 	</varlistentry>
 
