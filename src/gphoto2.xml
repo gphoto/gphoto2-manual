@@ -1903,34 +1903,117 @@ chown $console_user /proc/bus/usb/$bus_num/$dev_num
       <sect2 id="usb-on-linux-udev">
 	<title><acronym>USB</acronym> ports on Linux using udev</title>
 	<para>
-	
-	  XXX How to generate and where to store udev rules (format
-	  0.98 etc) XXX
+	  <ulink
+	      url="http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev.html">udev</ulink>
+	  is the mechanism called by Linux Kernel 2.6 to add and
+	  remove device files in <filename>/dev</filename>. udev is an
+	  integral part of the system, and thus installed directly in
+	  <filename>/</filename>, not in
+	  <filename>/usr/</filename>. This means that helper programs
+	  and scripts are installed in <filename>/lib/udev/</filename>,
+	  and the udev rules are stored in
+	  <filename>/etc/udev/rules.d/</filename>.
+	</para>
+	<para>
+	  There are multiple versions of udev around with slightly
+	  different rule formats, so libgphoto2's
+	  <filename>/usr/lib/libgphoto2/print-camera</filename>
+	  supports a <option>version</option> argument.
 	</para>
 	<screen>
-<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list udev-rules script foobar version 0.98 > /etc/udev/rules.d/90-libgphoto2.rules</userinput>
+# call script /lib/udev/foobar
+<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list
+udev-rules version 0.98 script foobar > /etc/udev/rules.d/90-libgphoto2.rules</userinput>
+
+# call script /path/to/foobar
+<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list
+udev-rules version 0.98 script /path/to/foobar > /etc/udev/rules.d/90-libgphoto2.rules</userinput>
+
+# set up permissions with "chmod 0660 $device; chgrp plugdev $device"
+<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list
+udev-rules version 0.98 group plugdev mode 0660 > /etc/udev/rules.d/90-libgphoto2.rules</userinput>
 	</screen>
 	<para>
-	  XXX PTP class match workaround using script XXX
-	  XXX Example script XXX
+	  These udev rule files contain two sorts of matches: Lots of
+	  listings by USB VendorID/ProductID, and one special case each
+	  for matching PTP and MTP devices. These two special cases
+	  run special scripts/programs, which should also be installed
+	  in <filename>/lib/udev/</filename>.
 	</para>
+	<programlisting><![CDATA[
+#!/bin/sh
+# UNTESTED SCRIPT (but you get the idea)
+
+test "x$ACTION" != "xadd" || exit 0
+test "x$SUBSYSTEM" != "xusb_device" || exit 0
+
+if test -e "$DEVNAME"
+then
+  user="photoripper"
+  chown "$user" "$DEVNAME"
+  chmod 0600 "$DEVNAME"
+
+  # SUBSYSTEM == "usb_device" implies that DEVNAME == "/dev/bus/usb/123/456"
+  # Determine device ID and bus ID.
+  dev="$(basename "$DEVNAME")"
+  bus="$(basename "$(dirname "$DEVNAME")")"
+
+  # Download all files from that camera to incoming directory with
+  # lowercase filenames
+  su "$photoripper" -c "/usr/bin/gphoto2 --port usb:${bus},${dev} --get-all-files --filename /var/local/photodump/incoming/%:"
+else
+  echo "photoripper: Given device named $DEVNAME not found."
+  exit 1
+fi
+]]></programlisting>
       </sect2>
 
       <sect2 id="usb-on-linux-hotplug">
 	<title><acronym>USB</acronym> ports on Linux using hotplug</title>
 	<para>
-	  XXX Obsolete: Is for Linux 2.2 and 2.4 XXX
-	  XXX How to generate and where to store the device list XXX
-	  XXX Example script XXX
+	  <ulink
+	      url="http://linux-hotplug.sourceforge.net/">linux-hotplug</ulink>
+	  was the first solution for hooks to run when hotplugging
+	  devices, introduced with the 2.4 kernel's USB code.
 	</para>
+	<para>
+	  linux-hotplug stores its files in pairs: One file
+	  <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable>.usermap</filename>
+	  is a list of device descriptions, and the other
+	  <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable></filename>
+	  is a script to call in
+	  case a newly added device matches that description.
+	</para>
+	<para>
+	  libgphoto2 supports linux-hotplug via a device list
+	  generated using <command>print-camera-list</command> and a
+	  few example scripts shipped in 
+	  <filename>packaging/linux-hotplug/</filename>.
+	</para>
+	<screen>
+<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list usb-usermap</userinput> > <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable>.usermap</filename>
+	</screen>
+	<programlisting>
+	</programlisting>
       </sect2>
 
       <sect2 id="usb-on-linux-dirty">
-	<title><acronym>USB</acronym> ports on Linux (dirty world-writable hack)</title>
+	<title><acronym>USB</acronym> ports on Linux (obsoleted by
+	udev, dirty world-writable hack)</title>
 	<para>
-	  XXX DANGEROUS, DO NOT USE XXX
-	  XXX Hardly usable for 2.6/udev systems XXX
-	  XXX How to set up (fstab) XXX
+	  In ancient times, before the arrival of udev, one usually
+	  needed to mount the "usbdevfs" or later "usbfs" to
+	  <filename>/proc/bus/usb</filename>. One particular mount
+	  option allowed the whole usb filesystem (i.e. all mice, card
+	  readers, and all other USB devices) to be made group or
+	  world writeable.
+	</para>
+	<para>
+	  Obviously, this kind of <quote>security</quote> is no
+	  security and should thus be avoided. Additionally, since
+	  udev exists now, just use udev. You can look up how to shoot
+	  yourself in the foot with usbdevfs... XXX where? well, just
+	  use udev. XXX
 	</para>
       </sect2>
 
