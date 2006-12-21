@@ -3235,6 +3235,11 @@ or
 		</listitem>
 	      </varlistentry>
 	    </variablelist>
+	    <para>
+	      All other environment variables are passed to the hook
+	      script unchanged. You can make use of that to pass data
+	      to the hook script.
+	    </para>
 	  </listitem>
 	</varlistentry>
 
