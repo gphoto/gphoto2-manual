@@ -1680,7 +1680,6 @@ usb:                             Universal Serial Bus
 
     <sect1 id="permissions-usb">
       <title>Setting up permissions for <acronym>USB</acronym> ports</title>
-
       <para>
         As <acronym>USB</acronym> is designed for hotplugging of
 	devices, the operating system also needs a mechanism that
@@ -1710,6 +1709,17 @@ usb:                             Universal Serial Bus
       <!-- ================================================== -->
       <sect2 id="usb-on-linux">
         <title><acronym>USB</acronym> ports on Linux</title>
+
+	<important>
+	  <para>
+	    This section is currently (2006-12) under review. However,
+	    with the old text being so outdated, we have decided to
+	    publish this work in progress as-is. Slightly disorganized
+	    but accurate information is more useful than horribly
+	    outdated one.
+	  </para>
+	</important>
+
 	<para>
 	  The Linux Kernel contains both generic USB interface drivers
 	  and higher level USB device drivers for some devices like
