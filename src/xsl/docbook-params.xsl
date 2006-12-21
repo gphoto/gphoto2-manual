@@ -40,7 +40,7 @@
     <xsl:param name="node"/>
     <!-- ==================================================================
          the following <p></p> element was taken from the PHP code of the 
-         new gphoto2 web site 
+         gphoto2 web site (bottom of include.php)
          ================================================================== -->
     <p align="center" class="menu">
       <a href="/">Home</a> :: 
@@ -49,11 +49,16 @@
       <a href="/doc/">Documentation</a> :: 
       <a href="http://www.sf.net/projects/gphoto/">Developers</a> :: 
       <a href="/mailinglists/">Mailing lists</a> :: 
-      <a href="http://sourceforge.net/project/showfiles.php?group_id=8874&amp;release_id=96632">Download</a> :: 
+      <a href="/download/">Download</a> :: 
+      <a href="/feedback/">Feedback</a> :: 
+      <a href="/manufacturers/">About Manufacturers</a> :: 
       <a href="/links/">Links</a>
-      <br/>
+      <br />
       <a href="/doc/manual/">User's manual</a> ::
-      <a href="/doc/faq/">FAQ</a>
+      <a href="/doc/api/">API</a> ::
+      <a href="/doc/ptpip.php">PTP/IP</a> ::
+      <a href="/doc/faq/">FAQ</a> ::
+      <a href="/doc/remote/">Remote control</a>
     </p>
   </xsl:template>
 
