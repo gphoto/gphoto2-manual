@@ -1732,13 +1732,13 @@ usb:                             Universal Serial Bus
 	<para>
 	  Unfortunately, for some devices there are drivers both in
 	  the kernel and in libgphoto2, creating a conflict situation.
-	  If that happens with your device and you want to use
-	  libgphoto2 instead of the kernel driver, you may have a
-	  problem. In later (XXX which version?) kernels, the kernel
-	  will unload its kernel driver for the device as soon as
-	  libgphoto2 "claims" the device. On older kernels, you will
-	  have to prevent the kernel from loading its kernel space
-	  driver in some fashion.
+	  If that happens with your device and you want to use libgphoto2
+	  instead of the kernel driver, you may have a problem. In
+	  later kernels and current libusb versions, libgphoto2 will
+	  try to unload the kernel driver for the interface as soon
+	  as libgphoto2 wants to claim the device. On older kernels,
+	  you will have to prevent the kernel from loading its kernel
+	  space driver in some fashion.
 	</para>
 	<para>
 	  Hotplugging of devices is a central feature of USB, and thus
