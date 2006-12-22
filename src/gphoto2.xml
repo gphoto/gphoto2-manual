@@ -4308,13 +4308,14 @@ or
 		  </varlistentry>
 		</variablelist>
 		<para>Both menu items open a "Save photos..." dialog box which allows the user to select the folder to save the images in, as well as a number of other options.</para>
-		<screenshot>
+		<!--screenshot>
 		  <mediaobject>
 		    <imageobject>
+			XXX corrupt file in SVN XXX
 		      <imagedata fileref="screenshots/gtkam/file_save_dia.png" format="PNG"/>
 		    </imageobject>
 		  </mediaobject>
-		</screenshot>
+		</screenshot-->
 		<variablelist>
 		  <varlistentry>
 		    <term>What to save:</term>
@@ -4436,13 +4437,14 @@ or
 		  </varlistentry>
 		</variablelist>
 
-		<screenshot>
+		<!--screenshot>
 		  <mediaobject>
 		    <imageobject>
+			XXX CORRUPT FILE IN SVN XXX
 		      <imagedata fileref="screenshots/gtkam/file_del_dia.png" format="PNG"/>
 		    </imageobject>
 		  </mediaobject>
-		</screenshot>
+		</screenshot-->
 	      </listitem>
 	    </varlistentry>
 
@@ -4930,13 +4932,14 @@ or
 	      </term>
 	      <listitem>
 		<para>Presents file name, type, size, date and permissions information about the image under the cursor.</para>
-		<screenshot>
+		<!--screenshot>
 		  <mediaobject>
 		    <imageobject>
+			XXX CORRUPT FILE IN SVN XXx
 		      <imagedata fileref="screenshots/gtkam/rt_click_list_info.png" format="PNG"/>
 		    </imageobject>
 		  </mediaobject>
-		</screenshot>
+		</screenshot-->
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
