@@ -304,7 +304,7 @@ About this file:
 	    <term>gphoto2</term>
 	    <listitem>
 	      <simpara>
-		Official command line interface (CLI) frontend.
+		Our own official command line interface (CLI) frontend.
 		Simple command line interface and kind of a reference
 		implementation. This libgphoto2 frontend i very useful
 		for debugging camera drivers and other problems.
@@ -315,10 +315,11 @@ About this file:
 	    <term>gtkam</term>
 	    <listitem>
 	      <simpara>	   
-		Official GUI frontend using GTK+ 2.
+		Our own official GUI frontend using GTK+ 2.
 		Shows
 		thumbnails of pictures on the camera, and supports
-		upload, download, capturing of pictures.
+		upload, download, capturing of pictures. No advanced
+		album management or stuff.
 	      </simpara>
 	    </listitem>
 	  </varlistentry>
@@ -326,9 +327,9 @@ About this file:
 	    <term>gnocam</term>
 	    <listitem>
 	      <simpara>
-		The Gnome VFS interface.
-		Still has to be ported to Gnome 2. 
-		Volunteers are welcome.
+		Our own Gnome VFS interface. Has been quite dead for
+		several years. Still has to be ported to Gnome 2. 
+		Volunteers welcome.
 	      </simpara>
 	    </listitem>
 	  </varlistentry>
@@ -339,8 +340,8 @@ About this file:
 		The KDE IO slave interface.
 		Using kamera is simple: Just open 
 		<ulink url="camera:/">camera:/</ulink> 
-		in Konqueror.
-		That's it.
+		in Konqueror. That's it. Has been and still is a
+		standard feature of most KDE installations.
 	      </simpara>
               <simpara>
 		It also features a configuration frontend in the KDE control center..
@@ -348,12 +349,11 @@ About this file:
 	    </listitem>
 	  </varlistentry>
 	  <varlistentry>
-	    <term>digikam</term>
+	    <term><ulink url="http://digikam.sourceforge.net/">digikam</ulink></term>
 	    <listitem>
 	      <simpara>
-		3rd party software available from 
-		<ulink url="http://digikam.sourceforge.net/">http://digikam.sourceforge.net/</ulink>.
-		Digikam is a standalone KDE frontend.
+		Digikam is a standalone KDE frontend with advanced
+		image management functions.
 	      </simpara>
 	    </listitem>
 	  </varlistentry>
@@ -361,22 +361,20 @@ About this file:
 	    <term>kipi-plugins</term>
 	    <listitem>
 	      <simpara>
-		gPhoto support integrated into KDE image plugins architecture, originating
-		from the former digikam.
+		gPhoto support integrated into KDE image plugins
+		architecture, originating from the former digikam.
 	      </simpara>
 	    </listitem>
 	  </varlistentry>
 	  <varlistentry>
-	    <term>flPhoto</term>
+	    <term><ulink url="http://www.easysw.com/~mike/flphoto/">flPhoto</ulink></term>
 	    <listitem>
 	      <simpara>
-		3rd party software available from 
-		<ulink url="http://www.easysw.com/~mike/flphoto/">http://www.easysw.com/~mike/flphoto/</ulink>.
-		FLTK-based frontend for gPhoto called
-		"flphoto" which provides some nice functionality
-		beyond the current GTK-based frontend.  Aside from
+		FLTK-based frontend for gPhoto
+		which provides some nice functionality
+		beyond the current GTK-based gtkam frontend.  Aside from
 		downloading images from a camera, you can also
-		"import" you existing files on disk, adjust/transform
+		"import" your existing files on disk, adjust/transform
 		the images, print them, and do slideshows.  The final
 		version will also offer a web export to a directory or
 		uploaded to a web server.
@@ -384,28 +382,73 @@ About this file:
 	    </listitem>
 	  </varlistentry>
 	  <varlistentry>
-	    <term>Others</term>
+	    <term><ulink
+		      url="http://lphoto.com/">lphoto</ulink></term>
 	    <listitem>
-	      <programlisting>
-		| lphoto - http://lphoto.com/
-		|          Chose the most inconvenient interface: Calls gphoto2 command line.
-		| camera life - http://fdcl.sourceforge.net/
-		| f-spot
-		|          C#/mono/Gnome.
-		| banshee
-		|          C#/mono digital audio player
-		| gthumb
-		|          C/Gnome
-		| sane
-		|          C
-		| ...
-		| Special purpose software:
-		|  * Amusement park ride
-		|  * scientific experiments
-		|  * ...
-		| ...
-		| XXX Bindings, software using bindings, ... XXX
-	      </programlisting>
+	      <simpara>
+		Chose the most inconvenient interface: Calls the
+		gphoto2 command line.
+	      </simpara> 
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><ulink
+		      url="http://fdcl.sourceforge.net/">camera life</ulink></term>
+	    <listitem>
+	      <simpara>
+		XXX write a few lines here XXX
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><ulink
+		      url="http://f-spot.org/">f-spot</ulink></term>
+	    <listitem>
+	      <simpara>
+		C#/mono/Gnome.
+		XXX write a few lines here XXX
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><ulink
+		      url="http://www.banshee-project.org/">banshee</ulink></term>
+	    <listitem>
+	      <simpara>
+		C#/mono digital audio player.
+		XXX write a few lines here XXX
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><ulink
+		      url="http://gthumb.sourceforge.net/">gthumb</ulink></term>
+	    <listitem>
+	      <simpara>
+		C/Gnome.
+		XXX write a few lines here XXX
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><ulink
+		      url="http://www.sane-project.org/">sane</ulink></term>
+	    <listitem>
+	      <simpara>
+		C software, properly a scanner interface ("Scanner
+		Access Now Easy").
+		XXX write a few lines here XXX
+	      </simpara>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term>Special purpose applications</term>
+	    <listitem>
+	      <simpara>
+		Automatically take pictures of visitors on amusement
+		park rides, to record data in scientific experiments,
+		...
+	      </simpara>
 	    </listitem>
 	  </varlistentry>
 	</variablelist>
@@ -1855,7 +1898,7 @@ usb:                             Universal Serial Bus
         <append key="info.callouts.add" type="strlist">/usr/libexec/gphoto-set-procperm</append>
       </match>
       <match key="camera.access_method" string="ptp">
-              <append key="info.callouts.add" type="strlist">/usr/libexec/gphoto-set-procperm</append>
+        <append key="info.callouts.add" type="strlist">/usr/libexec/gphoto-set-procperm</append>
       </match>
     </match>
   </device>
@@ -1970,7 +2013,10 @@ then
 
   # Download all files from that camera to incoming directory with
   # lowercase filenames
-  su "$photoripper" -c "/usr/bin/gphoto2 --port usb:${bus},${dev} --get-all-files --filename /var/local/photodump/incoming/%:"
+  command="/usr/bin/gphoto2 --port usb:${bus},${dev} --get-all-files"
+  command="$command --filename /var/local/photodump/incoming/%:"
+  echo "Executing command: $command"
+  su "$photoripper" -c "$command"
 else
   echo "photoripper: Given device named $DEVNAME not found."
   exit 1
