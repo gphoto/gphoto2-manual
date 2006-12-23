@@ -27,7 +27,7 @@ About this file:
 
 <?xml-stylesheet type="text/css" href="css/docbook-xml.css"?>
 
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
  "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
 <!-- "file:///usr/share/sgml/docbook/dtd/xml/4.2/docbookx.dtd" [ -->
 
@@ -231,14 +231,12 @@ About this file:
 	</para>
 	<important>
 	  <para>
-	    If you want to use a camera using the 
+	    If you want to use a camera using the <systemitem
+	    class="protocol">USB mass storage</systemitem> protocol,
+	    <systemitem class="library">libgphoto2</systemitem> will
+	    not help you. Your operating system already contains an
 	    <systemitem class="protocol">USB mass storage</systemitem>
-	    protocol, <systemitem
-	    class="library">libgphoto2</systemitem>
-	    will not help you. Your operating
-	    system already contains an 
-	    <systemitem class="protocol">USB mass storage</systemitem> driver, so
-	    there is no need for us to write another one.
+	    driver, so there is no need for us to write another one.
 	  </para>
 	  <para>
 	    For information on how to use a USB mass storage
@@ -1829,9 +1827,7 @@ usb:                             Universal Serial Bus
 	  generate this file using the print-camera-list utility
 	  shipped with libgphoto2:
 	</para>
-	<screen>
-<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list &gt; hal-fdi</userinput>
-	</screen>
+	<screen><prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list &gt; hal-fdi</userinput></screen>
 	<para>
 	  The <acronym>FC6</acronym> gphoto2 package stores this file
 	  as
