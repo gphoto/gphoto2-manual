@@ -1737,13 +1737,14 @@ usb:                             Universal Serial Bus
       </para>
       <para>
 	If you are using pre-built packages for your distribution
-	(such as SuSE or Redhat RPMs or Debian DEBs), these packages
-	should already have done this configuration for you.
-	In reality, however, you often still have to do a varying
-	amount of work. Read the documentation for your package 
-	(usually somewhere in <filename>/usr/share/doc/*gphoto2*/</filename>)
-	and this guide section to find out if and what work there
-	still is to do for you.
+	(such as SuSE or Redhat <acronym>RPM</acronym>s or Debian
+	<acronym>DEB</acronym>s), these packages should already have
+	done this configuration for you.  In reality, however, you
+	often still have to do a varying amount of work. Read the
+	documentation for your package (usually somewhere in
+	<filename>/usr/share/doc/*gphoto2*/</filename>) and this guide
+	section to find out if and what work there still is to do for
+	you.
       </para>
       <para>
         If you are installing and setting up libgphoto2 yourself, then
@@ -1778,41 +1779,48 @@ usb:                             Universal Serial Bus
 	  the kernel and in libgphoto2, creating a conflict situation.
 	  If that happens with your device and you want to use libgphoto2
 	  instead of the kernel driver, you may have a problem. In
-	  later kernels and current libusb versions, libgphoto2 will
+	  later kernels <!--XXX version?--> and current libusb versions
+	  <!--XXX which version?-->, 
+	  libgphoto2 will
 	  try to unload the kernel driver for the interface as soon
 	  as libgphoto2 wants to claim the device. On older kernels,
-	  you will have to prevent the kernel from loading its kernel
+	  you need to prevent the kernel from loading its kernel
 	  space driver in some fashion.
 	</para>
 	<para>
-	  Hotplugging of devices is a central feature of USB, and thus
-	  the Linux Kernel's USB system must also handle the addition
+	  Hotplugging of devices is a central feature of
+	  <acronym>USB</acronym>, and thus the Linux Kernel's
+	  <acronym>USB</acronym> system must also handle the addition
 	  of new devices at run-time. Over the course of time,
-	  multiple solutions for this have been invented: linux-hotplug
-	  (kernels 2.4), udev (kernel 2.6), and nowadays HAL (which
-	  provides complete desktop integration).
-	  The basic mechanism is the same: When the Kernel notices
-	  that a new USB device has been plugged in (or switched on),
-	  it runs a program. That program can then walk through its
-	  configured set of rules and apply them to the new device.
+	  multiple solutions for this have been invented:
+	  linux-hotplug (kernels 2.4), udev (kernel 2.6), and nowadays
+	  <acronym>HAL</acronym> (which provides complete desktop
+	  integration).  The basic mechanism is the same: When the
+	  Kernel notices that a new <acronym>USB</acronym> device has
+	  been plugged in (or switched on), it runs a program. That
+	  program can then walk through its configured set of rules
+	  and apply them to the new device.
 	</para>
       </sect2>
 
       <sect2 id="usb-on-linux-HAL">
-	<title><acronym>USB</acronym> ports on Linux using HAL</title>
+	<title><acronym>USB</acronym> ports on Linux using
+	<acronym>HAL</acronym></title>
 	<para>
-	  This section describes how to set up USB device permissions
-	  using
-	  <ulink url="http://freedesktop.org/wiki/Software_2fhal">HAL</ulink>.
-	  Due to this article's author's cluelessness about HAL, it
-	  just describes the HAL setup provided by the <ulink
-	  url="http://fedoraproject.org">Fedora Core</ulink> 6 (FC6)
-	  gphoto2 RPM package.
+	  This section describes how to set up <acronym>USB</acronym>
+	  device permissions using <ulink
+	  url="http://freedesktop.org/wiki/Software_2fhal"><acronym>HAL</acronym></ulink>.
+	  Due to this article's author's cluelessness about
+	  <acronym>HAL</acronym>, it just describes the
+	  <acronym>HAL</acronym> setup provided by the <ulink
+	  url="http://fedoraproject.org">Fedora Core</ulink> 6
+	  (<acronym>FC6</acronym>) gphoto2 <acronym>RPM</acronym>
+	  package.
 	</para>
 	<para>
-	  The libgphoto2 specific part of the HAL configuration
-	  consists of two parts: The device list and a policy. Each is
-	  stored in its own file.
+	  The libgphoto2 specific part of the <acronym>HAL</acronym>
+	  configuration consists of two parts: The device list and a
+	  policy. Each is stored in its own file.
 	</para>
 	<para>
 	  The device list file contains a list of all devices
@@ -1825,7 +1833,8 @@ usb:                             Universal Serial Bus
 <prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list &gt; hal-fdi</userinput>
 	</screen>
 	<para>
-	  The FC6 gphoto2 package stores this file as
+	  The <acronym>FC6</acronym> gphoto2 package stores this file
+	  as
 	  <filename>/usr/share/hal/fdi/information/20thirdparty/10-camera-libgphoto2.fdi</filename>.
 	  Its content looks like:
 	</para>
@@ -1859,11 +1868,12 @@ usb:                             Universal Serial Bus
 </deviceinfo>
 ]]></programlisting>
 	<para>
-	  Note that FC6's hal RPM already ships the following
+	  Note that <acronym>FC6</acronym>'s hal
+	  <acronym>RPM</acronym> already ships the following
 	  <filename>/usr/share/hal/fdi/information/10freedesktop/10-camera-ptp.fdi</filename>
-	  file which matches all PTP class cameras, so their missing
-	  in the device list file generated by print-camera-list does
-	  not matter:
+	  file which matches all <acronym>PTP</acronym> class cameras,
+	  so their missing in the device list file generated by
+	  print-camera-list does not matter:
 	</para>
 	<programlisting><![CDATA[
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1884,9 +1894,10 @@ usb:                             Universal Serial Bus
 </deviceinfo>
 ]]></programlisting>
 	<para>
-	  The policy file defines what HAL is to do with devices which
-	  have a "camera" capability.
-	  The FC6 gphoto2 package stores the policy file as
+	  The policy file defines what <acronym>HAL</acronym> is to do
+	  with devices which have a "camera" capability.  The
+	  <acronym>FC6</acronym> gphoto2 package stores the policy
+	  file as
 	  <filename>/usr/share/hal/fdi/policy/20thirdparty/90-gphoto-camera-policy.fdi</filename>.
 	  It just calls a script, as the content shows:
 	</para>
@@ -1906,13 +1917,15 @@ usb:                             Universal Serial Bus
 </deviceinfo>
 ]]></programlisting>
 	<para>
-	  The FC6 gphoto2 package stores the permission setup script
-	  as <filename>/usr/libexec/gphoto-set-procperm</filename>.
-	  It uses <command>printf(1)</command> to construct the name
-	  of the device file from USB bus and device numbers given by
-	  HAL, waits a few seconds to make sure the device file
-	  actually exists, and then finally hands ownership of the
-	  device file to the pam_console user:
+	  The <acronym>FC6</acronym> gphoto2 package stores the
+	  permission setup script as
+	  <filename>/usr/libexec/gphoto-set-procperm</filename>.  It
+	  uses <command>printf(1)</command> <!-- man page ref? --> to
+	  construct the name of the device file from
+	  <acronym>USB</acronym> bus and device numbers given by
+	  <acronym>HAL</acronym>, waits a few seconds to make sure the
+	  device file actually exists, and then finally hands
+	  ownership of the device file to the pam_console user:
 	</para>
 	<programlisting><![CDATA[
 #!/bin/bash
@@ -1976,21 +1989,25 @@ chown $console_user /proc/bus/usb/$bus_num/$dev_num
 	</para>
 	<screen>
 # call script /lib/udev/foobar
-<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list
-udev-rules version 0.98 script foobar > /etc/udev/rules.d/90-libgphoto2.rules</userinput>
+<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list \
+    udev-rules version 0.98 script foobar \
+    > /etc/udev/rules.d/90-libgphoto2.rules</userinput>
 
 # call script /path/to/foobar
-<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list
-udev-rules version 0.98 script /path/to/foobar > /etc/udev/rules.d/90-libgphoto2.rules</userinput>
+<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list \
+    udev-rules version 0.98 script /path/to/foobar \
+    > /etc/udev/rules.d/90-libgphoto2.rules</userinput>
 
 # set up permissions with "chmod 0660 $device; chgrp plugdev $device"
-<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list
-udev-rules version 0.98 group plugdev mode 0660 > /etc/udev/rules.d/90-libgphoto2.rules</userinput>
+<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list \
+    udev-rules version 0.98 group plugdev mode 0660 \
+    > /etc/udev/rules.d/90-libgphoto2.rules</userinput>
 	</screen>
 	<para>
 	  These udev rule files contain two sorts of matches: Lots of
-	  listings by USB VendorID/ProductID, and one special case each
-	  for matching PTP and MTP devices. These two special cases
+	  listings by <acronym>USB</acronym> VendorID/ProductID, and
+	  one special case each for matching <acronym>PTP</acronym>
+	  and <acronym>MTP</acronym> devices. These two special cases
 	  run special scripts/programs, which should also be installed
 	  in <filename>/lib/udev/</filename>.
 	</para>
@@ -2026,12 +2043,13 @@ fi
       </sect2>
 
       <sect2 id="usb-on-linux-hotplug">
-	<title><acronym>USB</acronym> ports on Linux using hotplug</title>
+	<title><acronym>USB</acronym> ports on Linux using linux-hotplug</title>
 	<para>
 	  <ulink
-	      url="http://linux-hotplug.sourceforge.net/">linux-hotplug</ulink>
+	  url="http://linux-hotplug.sourceforge.net/">linux-hotplug</ulink>
 	  was the first solution for hooks to run when hotplugging
-	  devices, introduced with the 2.4 kernel's USB code.
+	  devices, introduced with the 2.4 kernel's
+	  <acronym>USB</acronym> code.
 	</para>
 	<para>
 	  linux-hotplug stores its files in pairs: One file
@@ -2047,11 +2065,10 @@ fi
 	  few example scripts shipped in 
 	  <filename>packaging/linux-hotplug/</filename>.
 	</para>
-	<screen>
-<prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list usb-usermap</userinput> > <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable>.usermap</filename>
-	</screen>
-	<programlisting>
-	</programlisting>
+	<screen><prompt>&rprompt;</prompt><userinput>/usr/lib/libgphoto2/print-camera-list usb-usermap \
+    > <filename>/etc/hotplug/usb/<replaceable>&usbcam;</replaceable>.usermap</filename></userinput></screen>
+	<!--programlisting>
+	</programlisting-->
       </sect2>
 
       <sect2 id="usb-on-linux-dirty">
@@ -2062,15 +2079,16 @@ fi
 	  needed to mount the "usbdevfs" or later "usbfs" to
 	  <filename>/proc/bus/usb</filename>. One particular mount
 	  option allowed the whole usb filesystem (i.e. all mice, card
-	  readers, and all other USB devices) to be made group or
-	  world writeable.
+	  readers, and all other <acronym>USB</acronym> devices) to be
+	  made group or world writeable.
 	</para>
 	<para>
 	  Obviously, this kind of <quote>security</quote> is no
 	  security and should thus be avoided. Additionally, since
 	  udev exists now, just use udev. You can look up how to shoot
-	  yourself in the foot with usbdevfs... XXX where? well, just
-	  use udev. XXX
+	  yourself in the foot with usbdevfs... where? Well, just
+	  use udev. After all, this is almost the year 2007, not
+	  1997.
 	</para>
       </sect2>
 
@@ -2151,7 +2169,7 @@ fi
 
       <sect2 id="setting-up-linux-hotplug">
 
-	<title>Setting up linux-hotplug</title>
+	<title>Setting up linux-hotplug (OLD)</title>
 
         <para>
           On Linux systems, from the 2.4 kernel series on, the kernel supports
