@@ -3220,6 +3220,7 @@ or
 	  </group>
 	  <arg choice="opt">--no-recurse</arg>
 	</group>
+	<sbr/>
 	<group choice="opt">
 	  <arg>-l</arg>
 	  <arg>--list-folders</arg>
@@ -3303,7 +3304,9 @@ or
 	  <arg>-I <replaceable>SECONDS</replaceable></arg> 
 	  <arg>--interval <replaceable>SECONDS</replaceable></arg> 
 	</group>
+	<sbr/>
 	<arg>--reset-capture-interval-on-signal</arg>
+	<sbr/>
 	<arg choice="opt">--capture-image</arg>
 	<arg choice="opt">--capture-movie</arg>
 	<arg choice="opt">--capture-sound</arg>
@@ -3746,24 +3749,24 @@ or
 	  <listitem>
 	    <para>Time between capture of multiple frames.</para>
 	    <para>
-	      If SIGUSR1 is received, a picture is taken immediately
-	      without waiting for the end of the current interval
-	      period (see <xref linkend="ref-gphoto2-signals"/>). A
-	      value of -1 will let gphoto2 wait forever (i.e. until a
-	      signal arrives). (SIGUSR1 handling introduced in gphoto2
-	      2.4)
+	      (Since 2.4) If SIGUSR1 is received, a picture is taken
+	      immediately without waiting for the end of the current
+	      interval period (see <xref
+	      linkend="ref-gphoto2-signals"/>). A value of -1 will let
+	      gphoto2 wait forever (i.e. until a signal arrives).
 	    </para>
 	  </listitem>
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>--reset-capture-interval-on-signal</option></term>
+	  <term><option>--reset-capture-interval-on-signal</option>
+	  (since 2.4)</term>
 	  <listitem>
 	    <para>
 	      Setting this option will reset the time interval to the
 	      value given by the <option>-I|--interval</option> option
 	      when a SIGUSR1 is received in time-lapse
-	      mode. (Option introduced in gphoto2 2.4)
+	      mode.
 	    </para>
 	  </listitem>
 	</varlistentry>
@@ -3999,16 +4002,19 @@ or
       <title>Signals</title>
       <variablelist>
 	<varlistentry>
-	  <term>SIGUSR1</term>
+	  <term>SIGUSR1 (since 2.4)</term>
 	  <listitem>
 	    <para>
-	      When in time-lapse capture mode, if a SIGUSR1 is
-	      received a picture is taken immediately and the time
-	      counter is reset to the value given by the
-	      <option>-I|--interval</option> option. Note that the
-	      camera will need some time (from 50ms to a few seconds)
-	      to actually capture the image. SIGUSR1 handling was
-	      first introduced in gphoto2 2.4.
+	      In time-lapse capture mode, receiving a SIGUSR1 signal
+	      makes gphoto2 take a picture immediately.
+	    </para>
+	    <para>
+	      If the
+	      <option>--reset-capture-interval-on-signal</option>
+	      option is given, the time counter is reset to the value
+	      given by the <option>-I|--interval</option> option. Note
+	      that the camera will need some time (from 50ms to a few
+	      seconds) to actually capture the image.
 	    </para>
 	  </listitem>
 	</varlistentry>
