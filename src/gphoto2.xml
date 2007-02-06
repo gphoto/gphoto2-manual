@@ -3305,7 +3305,7 @@ or
 	  <arg>--interval <replaceable>SECONDS</replaceable></arg> 
 	</group>
 	<sbr/>
-	<arg>--reset-capture-interval-on-signal</arg>
+	<arg>--reset-interval</arg>
 	<sbr/>
 	<arg choice="opt">--capture-image</arg>
 	<arg choice="opt">--capture-movie</arg>
@@ -3744,29 +3744,33 @@ or
 	  </listitem>
 	</varlistentry>
 
-	<varlistentry>
+	<varlistentry id="ref-gphoto2-interval">
 	  <term><option>-I <replaceable>SECONDS</replaceable></option>, <option>--interval <replaceable>SECONDS</replaceable></option></term>
 	  <listitem>
 	    <para>Time between capture of multiple frames.</para>
 	    <para>
-	      (Since 2.4) If SIGUSR1 is received, a picture is taken
-	      immediately without waiting for the end of the current
-	      interval period (see <xref
+	      (Since 2.4) If <link
+	      linkend="ref-gphoto2-SIGUSR1">SIGUSR1 signal</link> is
+	      received, a picture is taken immediately without waiting
+	      for the end of the current interval period (see <xref
 	      linkend="ref-gphoto2-signals"/>). A value of -1 will let
-	      gphoto2 wait forever (i.e. until a signal arrives).
+	      gphoto2 wait forever, i.e. until a signal arrives. See
+	      also <xref linkend="ref-gphoto2-reset-interval"/>.
 	    </para>
 	  </listitem>
 	</varlistentry>
 
-	<varlistentry>
-	  <term><option>--reset-capture-interval-on-signal</option>
+	<varlistentry id="ref-gphoto2-reset-interval">
+	  <term><option>--reset-interval</option>
 	  (since 2.4)</term>
 	  <listitem>
 	    <para>
 	      Setting this option will reset the time interval to the
-	      value given by the <option>-I|--interval</option> option
-	      when a SIGUSR1 is received in time-lapse
-	      mode.
+	      value given by the <link
+	      linkend="ref-gphoto2-interval"><option>-I|--interval</option>
+	      option</link> when a <link
+	      linkend="ref-gphoto2-SIGUSR1">SIGUSR1 signal</link> is received
+	      in time-lapse mode.
 	    </para>
 	  </listitem>
 	</varlistentry>
@@ -4001,7 +4005,7 @@ or
     <refsect1 id="ref-gphoto2-signals">
       <title>Signals</title>
       <variablelist>
-	<varlistentry>
+	<varlistentry id="ref-gphoto2-SIGUSR1">
 	  <term>SIGUSR1 (since 2.4)</term>
 	  <listitem>
 	    <para>
@@ -4009,12 +4013,14 @@ or
 	      makes gphoto2 take a picture immediately.
 	    </para>
 	    <para>
-	      If the
-	      <option>--reset-capture-interval-on-signal</option>
-	      option is given, the time counter is reset to the value
-	      given by the <option>-I|--interval</option> option. Note
-	      that the camera will need some time (from 50ms to a few
-	      seconds) to actually capture the image.
+	      If the <link
+	      linkend="ref-gphoto2-reset-interval"><option>--reset-interval</option>
+	      option</link> is given, the time counter is reset to the
+	      value given by the <link
+	      linkend="ref-gphoto2-interval"><option>-I|--interval</option>
+	      option</link>. Note that the camera will need some time
+	      (from 50ms to a few seconds) to actually capture the
+	      image.
 	    </para>
 	  </listitem>
 	</varlistentry>
