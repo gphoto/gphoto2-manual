@@ -1736,13 +1736,14 @@ usb:                             Universal Serial Bus
       <para>
 	If you are using pre-built packages for your distribution
 	(such as SuSE or Redhat <acronym>RPM</acronym>s or Debian
-	<acronym>DEB</acronym>s), these packages should already have
-	done this configuration for you.  In reality, however, you
-	often still have to do a varying amount of work. Read the
-	documentation for your package (usually somewhere in
+	<acronym>DEB</acronym>s, Gentoo Ebuilds, FreeBSD pots, ...),
+	simply installing those packages should do this configuration
+	for you.  In reality, however, you often still have to do a
+	varying amount of work. Read the documentation for your
+	package (usually somewhere in
 	<filename>/usr/share/doc/*gphoto2*/</filename>) and this guide
-	section to find out if and what work there still is to do for
-	you.
+	section to find out if and what work there still is or may be
+	to do for you.
       </para>
       <para>
         If you are installing and setting up libgphoto2 yourself, then
@@ -2094,8 +2095,9 @@ fi
         <title><acronym>USB</acronym> ports on Linux (OLD)</title>
 
         <para>
-          libgphoto2 provides a user space driver for cameras, which 
+	  libgphoto2 provides a user space driver for cameras, which
 	  conflicts with having a kernel driver for the camera.
+
 	  So in order to use libgphoto2, you have to disable all kernel drivers which want
           to handle the camera themselves (e.g. the Linux
           <systemitem class="resource">dc2xx</systemitem> or
@@ -3301,6 +3303,7 @@ or
 	  <arg>-I <replaceable>SECONDS</replaceable></arg> 
 	  <arg>--interval <replaceable>SECONDS</replaceable></arg> 
 	</group>
+	<arg>--reset-capture-interval-on-signal</arg>
 	<arg choice="opt">--capture-image</arg>
 	<arg choice="opt">--capture-movie</arg>
 	<arg choice="opt">--capture-sound</arg>
@@ -3742,6 +3745,26 @@ or
 	  <term><option>-I <replaceable>SECONDS</replaceable></option>, <option>--interval <replaceable>SECONDS</replaceable></option></term>
 	  <listitem>
 	    <para>Time between capture of multiple frames.</para>
+	    <para>
+	      If SIGUSR1 is received, a picture is taken immediately
+	      without waiting for the end of the current interval
+	      period (see <xref linkend="ref-gphoto2-signals"/>). A
+	      value of -1 will let gphoto2 wait forever (i.e. until a
+	      signal arrives). (SIGUSR1 handling introduced in gphoto2
+	      2.4)
+	    </para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--reset-capture-interval-on-signal</option></term>
+	  <listitem>
+	    <para>
+	      Setting this option will reset the time interval to the
+	      value given by the <option>-I|--interval</option> option
+	      when a SIGUSR1 is received in time-lapse
+	      mode. (Option introduced in gphoto2 2.4)
+	    </para>
 	  </listitem>
 	</varlistentry>
 
@@ -3966,6 +3989,26 @@ or
 	      <systemitem class="library">libusb</systemitem> library 
 	      will print messages. In order to get some
 	      debug output, set it to <replaceable>1</replaceable>.
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </refsect1>
+
+    <refsect1>
+      <title>Signals</title>
+      <variablelist>
+	<varlistentry>
+	  <term>SIGUSR1</term>
+	  <listitem>
+	    <para>
+	      When in time-lapse capture mode, if a SIGUSR1 is
+	      received a picture is taken immediately and the time
+	      counter is reset to the value given by the
+	      <option>-I|--interval</option> option. Note that the
+	      camera will need some time (from 50ms to a few seconds)
+	      to actually capture the image. SIGUSR1 handling was
+	      first introduced in gphoto2 2.4.
 	    </para>
 	  </listitem>
 	</varlistentry>
