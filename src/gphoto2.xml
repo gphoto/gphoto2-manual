@@ -3380,7 +3380,7 @@ or
 		<listitem>
 		  <para>
 		    indicates that gphoto2 has finished parsing the command
-		    line and ise about to execute the requested commands.
+		    line and is about to execute the requested commands.
 		  </para>
 		</listitem>
 	      </varlistentry>
@@ -3995,7 +3995,7 @@ or
       </variablelist>
     </refsect1>
 
-    <refsect1>
+    <refsect1 id="ref-gphoto2-signals">
       <title>Signals</title>
       <variablelist>
 	<varlistentry>
