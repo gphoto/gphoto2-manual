@@ -3411,6 +3411,10 @@ or
 	      script unchanged. You can make use of that to pass data
 	      to the hook script.
 	    </para>
+	    <para>
+	      Hook script may be specified in the <filename>~/.gphoto/settings</filename> file as
+<envar>gphoto2=hook-script=</envar><replaceable>filename</replaceable>.
+	    </para>
 	  </listitem>
 	</varlistentry>
 
@@ -3543,6 +3547,11 @@ or
 		which may or may not be suitable for use in file
 	        names.
 	      </para>
+              <para>
+		Default value for this option can be specified in the
+		<filename>~/.gphoto/settings</filename> file as
+<envar>gphoto2=filename=value</envar>.
+              </para>
 	  </listitem>
 	</varlistentry>
 
@@ -3814,13 +3823,22 @@ or
 	  <term><option>--get-config</option> <replaceable>CONFIGENTRY</replaceable></term>
 	  <listitem>
 	    <para>Get the specified configuration entry.</para>
+	    <para>
+		This command will list the type, the current value and also the available options 
+		of this configuration value.
+	    </para>
 	  </listitem>
 	</varlistentry>
 
 	<varlistentry>
 	  <term><option>--set-config</option> <replaceable>CONFIGENTRY=CONFIGVALUE</replaceable></term>
 	  <listitem>
-	    <para>Set the specified configuration entry.</para>
+	    <para>
+		Set the specified configuration entry.
+	    </para>
+	    <para>
+		Look at the output of <option>--get-config</option> to see what values are possible to set here.
+	    </para>
 	  </listitem>
 	</varlistentry>
 
