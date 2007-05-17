@@ -9,7 +9,7 @@ if ENABLE_GRAPHS
 graphs = \
 	software-dependencies.ps software-dependencies.pdf \
 	software-dependencies.png software-dependencies.jpg \
-	software-dependencies.svg software-dependencies.fig
+	software-dependencies.svg # software-dependencies.fig
 
 %.ps: $(srcdir)/%.dot
 	$(DOT) -Tps $< -o $@
@@ -20,8 +20,8 @@ graphs = \
 %.svg: $(srcdir)/%.dot
 	$(DOT) -Tsvg $< -o $@
 
-%.fig: $(srcdir)/%.dot
-	$(DOT) -Tfig $< -o $@
+# %.fig: $(srcdir)/%.dot
+#	$(DOT) -Tfig $< -o $@
 
 # FIXME: Check for ps2pdf first.
 %.pdf: %.ps
@@ -30,7 +30,7 @@ graphs = \
 if ENABLE_PSTOIMG
 
 %.png: $(srcdir)/%.ps
-	$(PSTOIMG) -type png -scale $(magnification) -antialias -crop a $<
+	$(PSTOIMG) -type png -scale $(magnification) -antialias -crop a -out $@ $<
 
 else
 
