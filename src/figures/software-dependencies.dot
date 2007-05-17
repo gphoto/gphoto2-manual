@@ -5,6 +5,8 @@
 
 digraph "software dependencies" {
 
+	rankdir=LR;
+
 	/* end user programs (frontends) */
 	{
 		rank=same;
