@@ -2818,7 +2818,8 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
 	</mediaobject>
 	<synopsis>
 	  Arrows mean <quote>required for</quote>, dashed lines mean
-	  <quote>can optionally be used with</quote>.
+	  <quote>should be used with, even though being
+	  optional</quote>.
 	</synopsis>
       </figure>
       <para>
