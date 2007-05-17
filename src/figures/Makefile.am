@@ -27,17 +27,8 @@ graphs = \
 %.pdf: %.ps
 	ps2pdf14 $< $@
 
-if ENABLE_PSTOIMG
-
-%.png: $(srcdir)/%.ps
-	$(PSTOIMG) -type png -scale $(magnification) -antialias -crop a -out $@ $<
-
-else
-
 %.png: $(srcdir)/%.dot
 	$(DOT) -Tpng $< -o $@
-
-endif
 
 endif
 
