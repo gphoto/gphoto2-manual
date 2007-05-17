@@ -18,5 +18,12 @@ CLEANFILES = \
 	./html2text-test.txt	\
 	./html2text-test.xxxhtml
 
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = gphoto2-manual.pc
+EXTRA_DIST    += gphoto2-manual.pc.in
+
+noinst_DATA = gphoto2-manual-uninstalled.pc
+EXTRA_DIST += gphoto2-manual-uninstalled.pc.in
+
 update-webserver:
 	cd src/html && $(MAKE) $@

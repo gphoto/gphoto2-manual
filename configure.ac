@@ -52,11 +52,12 @@ GP_CONFIG_MSG([Scrollkeeper support], [$scrollkeeper_msg])
 
 AC_CONFIG_FILES([
 Makefile
+gphoto2-manual.pc
+gphoto2-manual-uninstalled.pc
 m4m/Makefile
 help/Makefile
 help/C/Makefile
 src/Makefile
-src/gphoto2-manual.pc
 src/css/Makefile
 src/xsl/Makefile
 src/html/Makefile

@@ -2,9 +2,8 @@
 # images may be required when building other subdirectories
 SUBDIRS = figures screenshots css man html txt xhtml html-nochunks xhtml-nochunks txt2 ps xsl pdf
 
-EXTRA_DIST = gphoto2.xml gphoto2-manual.pc.in
+EXTRA_DIST = gphoto2.xml
 
 xml_DATA = gphoto2.xml
 
-pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = gphoto2-manual.pc
+
