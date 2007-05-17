@@ -1,6 +1,7 @@
 prefix=@prefix@
 exec_prefix=@exec_prefix@
 datadir=@datadir@
+datarootdir=@datarootdir@
 libdir=@libdir@
 docdir=@docdir@
 htmldir=@htmldir@
