@@ -1611,7 +1611,7 @@ usb:                             Universal Serial Bus
 	<filename class="devicefile">/dev/ttyS0</filename>.
       </para>
 
-      <sect2>
+      <sect2 id="serial--a-few-examples">
 	<title>A few examples</title>
 
 	<para>
