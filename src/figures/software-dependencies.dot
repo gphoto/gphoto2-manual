@@ -5,73 +5,105 @@
 
 digraph "software dependencies" {
 
-	rankdir=LR;
+	/* rankdir=LR; */
 
-	/* end user programs (frontends) */
+	/* edges:
+	 * dashed edges denote optional stuff
+ 	 */
+
+
+	subgraph libexifstuff {
+		/* software from the libexif project */
+		node[style=filled, color=".0 .3 1.0"];
+		libexif;
+		libexifgtk[label="libexif-gtk"];
+
+		{
+			rank=same;
+			node[shape="diamond"];
+			exif;
+			gexif;
+		}
+
+		libexifgtk -> gexif;
+		libexif -> libexifgtk;
+		libexif -> exif;
+		label="libexif software";
+		style=filled;
+		color=lightgrey;
+	}
+
+	subgraph gphotostuff {
+		/* software from the gphoto project */
+		/* colors */
+		node[style=filled,color=".7 .3 1.0"];
+		{
+			rank=same;
+			node[shape="diamond"];
+			gphoto2; gphotofs; gtkam;
+		}
+		libgphoto2;
+		libgphoto2sharp;
+		libgphoto2python;
+
+		libgphoto2 -> gphotofs;
+		libgphoto2 -> gtkam;
+		libgphoto2 -> gphoto2;
+		libgphoto2 -> libgphoto2sharp;
+		libgphoto2 -> libgphoto2python;
+
+		libgphoto2sharp[label="libgphoto2-sharp"];
+		libgphoto2python[label="libgphoto2-python"];
+
+		color=blue;
+		label="gphoto software";
+	}
+
+
+	/* external dependencies */
+	{
+		rank=same;
+		node[shape=polygon,skew=0];
+		libgtk[label="libgtk2.0"];
+		libglib[label="libglib2.0"];
+		libfuse[label="libfuse2"];
+		libusb[label="libusb\n(required for\nUSB cameras)"];
+		libusb[style=filled,color=".3 .3 .9"];
+		libpopt;
+		python;
+		mono;
+	}
+	
+
+	/* edges */
+	libgtk -> gexif;
+	libgtk -> libexifgtk;
+
+	libexif -> gtkam [style=dashed];
+
+	libexif -> gphoto2 [style=dashed];
+
+	libgtk -> gtkam;
+	libexif -> libgphoto2 [style=dashed];
+	libusb -> libgphoto2 [style=dashed];
+	libexifgtk -> gtkam [style=dashed];
+
+	libglib -> gphotofs;
+	libfuse -> gphotofs;
+
+	libpopt -> exif;
+	libpopt -> gphoto2;
+
+	python -> libgphoto2python;
+	mono -> libgphoto2sharp;
+
+	/* end user programs (frontends)
 	{
 		rank=same;
 		node [shape=box];
 		gphoto2;gtkam;
 		exif;gexif;
 	}
-
-	/* external libraries */
-	{
-		rank=same;
-		node [shape=polygon,skew=0];
-		libgtk; libpopt; libglib; libfuse;
-	}
+	*/
 	
-	/* colors */
-
-	/* software from gphoto project */
-	gphoto2 [style=filled,color=".7 .3 1.0"];
-	gphotofs [style=filled,color=".7 .3 1.0"];
-	gtkam [style=filled,color=".7 .3 1.0"];
-	libgphoto2 [style=filled,color=".7 .3 1.0"];
-
-	/* software from libexif project */
-	exif [style=filled,color=".0 .3 1.0"];
-	gexif [style=filled,color=".0 .3 1.0"];
-	libexif [style=filled,color=".0 .3 1.0"];
-	/* obsolete libmnote [style=filled,color=".0 .3 1.0"]; */
-	libexifgtk [style=filled,color=".0 .3 1.0"];
-
-	/* naming */
-	libexifgtk [label="libexif-gtk"];
-	libgtk [label="libgtk2.0"];
-	libglib [label="libglib2.0"];
-	libfuse [label="libfuse2"];
-	libusb [label="libusb\n(required for\nUSB cameras)"];
-	
-	/* software from libusb project */
-	libusb [style=filled,color=".3 .3 .9"];
-
-	/* edges */
-	/* dashed edges denote optional stuff */
-	libgtk -> gexif;
-	libexifgtk -> gexif;
-
-	/* obsolete libmnote -> libexif [style=dashed]; */
-
-	libgtk -> libexifgtk;
-	libexif -> libexifgtk;
-
-	libpopt -> exif;
-	libexif -> exif;
-
-	libexif -> libgphoto2 [style=dashed];
-	libusb -> libgphoto2 [style=dashed];
-
-	libexif -> gtkam [style=dashed];
-	libgtk -> gtkam;
-	libgphoto2 -> gtkam;
-
-	libglib -> gphotofs;
-	libfuse -> gphotofs;
-	libgphoto2 -> gphotofs;
-
-	libpopt -> gphoto2;
-	libexif -> gphoto2 [style=dashed];
-	libgphoto2 -> gphoto2;
 }
