@@ -13,6 +13,7 @@ EXTRA_DIST = xmldocs.make
 .PHONY: update-webserver
 
 CLEANFILES = \
+	./tesseract.png	\
 	./tesseract.ps	\
 	./html2text-test.txt	\
 	./html2text-test.xxxhtml
