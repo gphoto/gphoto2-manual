@@ -18,7 +18,7 @@ CLEANFILES = \
 	./html2text-test.txt	\
 	./html2text-test.xxxhtml
 
-pkgconfigdir = $(libdir)/pkgconfig
+pkgconfigdir = $(datadir)/pkgconfig
 pkgconfig_DATA = gphoto2-manual.pc
 EXTRA_DIST    += gphoto2-manual.pc.in
 
