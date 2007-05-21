@@ -1,18 +1,12 @@
-#prefix=@prefix@
-#exec_prefix=@exec_prefix@
-#datadir=@datadir@
-#datarootdir=@datarootdir@
-#libdir=@libdir@
-#docdir=@docdir@
-#htmldir=@htmldir@
-#xhtmldir=@xhtmldir@
-#htmlnochunksdir=@htmlnochunksdir@
-#xhtmlnochunksdir=@xhtmlnochunksdir@
-#pdfdir=@pdfdir@
-#txtdir=@txtdir@
-#xmldir=@xmldir@
+mandir=@top_builddir@/src/man
+htmldir=@top_builddir@/src/html
+xhtmldir=@top_builddir@/src/xhtml
+htmlnochunksdir=@top_builddir@/src/html-nochunks
+xhtmlnochunksdir=@top_builddir@/src/xhtml-nochunks
+pdfdir=@top_builddir@/src/pdf
+psdir=@top_builddir@/src/ps
+txtdir=@top_builddir@/src/txt
 
 Name: gphoto2-manual
 Description: The gPhoto2 Manual (covers libgphoto2, gphoto2, gtkam)
-Requires:
 Version: @VERSION@

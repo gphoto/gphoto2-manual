@@ -9,10 +9,10 @@ xhtmldir=@xhtmldir@
 htmlnochunksdir=@htmlnochunksdir@
 xhtmlnochunksdir=@xhtmlnochunksdir@
 pdfdir=@pdfdir@
+psdir=@psdir@
 txtdir=@txtdir@
 xmldir=@xmldir@
 
 Name: gphoto2-manual
 Description: The gPhoto2 Manual (covers libgphoto2, gphoto2, gtkam)
-Requires:
 Version: @VERSION@
