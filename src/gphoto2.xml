@@ -3363,19 +3363,22 @@ or
 	  (new after 2.3.0)</term>
 	  <listitem>
 	    <para>
-	      Hook script to execute when something has happened. The
+	      Execute the hook script
+	      <replaceable>FILENAME</replaceable> every time a certain
+	      event happens within <command>gphoto2</command>.  The
 	      hook script reads the environment variable
-	      <envar>ACTION</envar>.
+	      <envar>ACTION</envar>. It must ignore
+	      <envar>ACTION</envar> values unknown to it.
 	    </para>
 	    <variablelist>
 	      <varlistentry>
 		<term><envar>ACTION</envar>=init</term>
 		<listitem>
 		  <para>
-		    indicates that gphoto2 has
-		    just initialized. If the hook script returns 
-		    with a non-zero exit code now,
-		    <command>gphoto2</command> will abort.
+		    <command>gphoto2</command> has just been
+		    initialized. If the hook script returns with a
+		    non-zero exit code now, <command>gphoto2</command>
+		    will abort.
 		  </para>
 		</listitem>
 	      </varlistentry>
@@ -3383,8 +3386,9 @@ or
 		<term><envar>ACTION</envar>=start</term>
 		<listitem>
 		  <para>
-		    indicates that gphoto2 has finished parsing the command
-		    line and is about to execute the requested commands.
+		    <command>gphoto2</command> has just finished
+		    parsing the command line and is about to start
+		    executing the commands given on the command line.
 		  </para>
 		</listitem>
 	      </varlistentry>
@@ -3392,9 +3396,10 @@ or
 		<term><envar>ACTION</envar>=download</term>
 		<listitem>
 		  <para>
-		    indicates that a file has just been downloaded to
-		    the computer and stored in the file indicated by
-		    the environment variable <envar>ARGUMENT</envar>.
+		    <command>gphoto2</command> has just downloaded a
+		    file to the computer, storing it in the file
+		    indicated by the environment variable
+		    <envar>ARGUMENT</envar>.
 		  </para>
 		</listitem>
 	      </varlistentry>
@@ -3402,7 +3407,8 @@ or
 		<term><envar>ACTION</envar>=stop</term>
 		<listitem>
 		  <para>
-		    indicates that gphoto2 is about to finish.
+		    <command>gphoto2</command> is about to finish. Do
+		    your final cleanups here.
 		  </para>
 		</listitem>
 	      </varlistentry>
@@ -4088,6 +4094,17 @@ or
             <para>Get files number 7 through 13 from the list output by <userinput><command>gphoto2</command> <option>--list-files</option></userinput>.</para>
           </listitem>
         </varlistentry>
+
+	<varlistentry>
+	  <term><userinput>gphoto2 <option>--capture-image</option> <option>--interval</option> <parameter>60</parameter> <option>--hook-script</option> <parameter>/usr/share/doc/gphoto2/test-hook.sh</parameter></userinput></term>
+	  <listitem>
+	    <para>
+	      Capture one image every 60 seconds from now to
+	      eternity. The example hook script will be called after
+	      each captured image has been stored on the computer.
+	    </para>
+	  </listitem>
+	</varlistentry>
       </variablelist>
       <para>
 	To track down errors, you can add the
