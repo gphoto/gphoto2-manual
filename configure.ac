@@ -1,5 +1,5 @@
 AC_PREREQ(2.59)
-AC_INIT([gphoto2 manual],[2.2.0.2.trunk], [gphoto-devel@lists.sourceforge.net])
+AC_INIT([gphoto2 manual],[2.3.1.trunk], [gphoto-devel@lists.sourceforge.net])
 AC_CONFIG_SRCDIR([src/gphoto2.xml])
 AC_CONFIG_MACRO_DIR([m4m])
 AM_INIT_AUTOMAKE([gnu 1.8 dist-bzip2])
