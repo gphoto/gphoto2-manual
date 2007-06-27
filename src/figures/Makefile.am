@@ -11,23 +11,23 @@ graphs = \
 	software-dependencies.png software-dependencies.jpg \
 	software-dependencies.svg # software-dependencies.fig
 
-%.ps: $(srcdir)/%.dot
+.dot.ps:
 	$(DOT) -Tps $< -o $@
 
-%.jpg: $(srcdir)/%.dot
+.dot.jpg:
 	$(DOT) -Tjpeg $< -o $@
 
-%.svg: $(srcdir)/%.dot
+.dot.svg:
 	$(DOT) -Tsvg $< -o $@
 
 # %.fig: $(srcdir)/%.dot
 #	$(DOT) -Tfig $< -o $@
 
 # FIXME: Check for ps2pdf first.
-%.pdf: %.ps
+.ps.pdf:
 	ps2pdf14 $< $@
 
-%.png: $(srcdir)/%.dot
+.dot.png:
 	$(DOT) -Tpng $< -o $@
 
 endif
@@ -38,22 +38,22 @@ figures = \
 	architecture.png libgphoto2-api.png libgphoto2-camlib.png libgphoto2_port.png gphotofs.png
 #	architecture.eps libgphoto2-api.eps libgphoto2-camlib.eps libgphoto2_port.eps gphotofs.eps
 
-%.eps: $(srcdir)/%.fig
+.fig.eps:
 	$(FIG2DEV) -L eps $< $@
 
-%.tex: $(srcdir)/%.fig
+.fig.tex:
 	$(FIG2DEV) -L latex $< $@
 
-%.ps: $(srcdir)/%.fig
+.fig.ps:
 	$(FIG2DEV) -L ps -z A4 -c $< $@
 
-%.pdf: $(srcdir)/%.fig
+.fig.pdf:
 	$(FIG2DEV) -L pdf -z A4 -p dummy -c $< $@
 
-%.png: $(srcdir)/%.fig
+.fig.png:
 	$(FIG2DEV) -L png -m $(magnification) $< $@
 
-%.jpg: $(srcdir)/%.fig
+.fig.jpg:
 	$(FIG2DEV) -L jpeg -m $(magnification) $< $@
 
 endif
