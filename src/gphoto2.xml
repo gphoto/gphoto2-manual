@@ -3312,6 +3312,8 @@ or
 	<arg choice="opt">--capture-movie</arg>
 	<arg choice="opt">--capture-sound</arg>
 	<sbr/>
+	<arg choice="opt">--capture-tethered</arg>
+	<sbr/>
 	<arg choice="opt">--show-info <replaceable>RANGE</replaceable></arg>
 	<sbr/>
 	<arg choice="opt">--show-exif <replaceable>RANGE</replaceable></arg>
@@ -3809,6 +3811,25 @@ or
 	  <term><option>--capture-sound</option></term>
 	  <listitem>
 	    <para>Capture an audio clip.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--capture-tethered</option></term>
+	  <listitem>
+	    <para>
+		Lets gphoto2 wait for notifications from the camera that an object was added.
+		This is useful for tethered capture, where pressing the shutter on the camera
+		immediately transfer the image to the machine for processing.
+	    </para>
+	    <para>
+		Together with the <option>--hook-script</option> to immediately postprocess or
+		display the images this can help a studio workflow.
+	    </para>
+	    <para>
+		This option requires support in the driver and by the camera, currently only
+		Nikon DSC are known to work.
+	    </para>
 	  </listitem>
 	</varlistentry>
 
