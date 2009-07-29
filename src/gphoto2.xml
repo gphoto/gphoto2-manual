@@ -3292,8 +3292,9 @@ or
 	<arg choice="opt">--list-config</arg>
 	<sbr/>
 	<arg choice="opt">--get-config <replaceable>CONFIGENTRY</replaceable></arg>
-	<sbr/>
 	<arg choice="opt">--set-config <replaceable>CONFIGENTRY=CONFIGVALUE</replaceable></arg>
+	<arg choice="opt">--set-config-index <replaceable>CONFIGENTRY=CONFIGINDEX</replaceable></arg>
+	<arg choice="opt">--set-config-value <replaceable>CONFIGENTRY=CONFIGVALUE</replaceable></arg>
 	<sbr/>
 	<arg choice="opt">--capture-preview</arg>
 	<sbr/>
@@ -3862,10 +3863,40 @@ or
 	  <term><option>--set-config</option> <replaceable>CONFIGENTRY=CONFIGVALUE</replaceable></term>
 	  <listitem>
 	    <para>
-		Set the specified configuration entry.
+		Set the specified configuration entry. For lists of choices of values this setting
+                first looks up CONFIGVALUE as value and then as index into the choice list. Since this
+                is not fully clear, you can use <option>--set-config-index</option> or <option>--set-config-value</option>
+                to be more clear what is searched for.
 	    </para>
 	    <para>
 		Look at the output of <option>--get-config</option> to see what values are possible to set here.
+	    </para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--set-config-index</option> <replaceable>CONFIGENTRY=CONFIGINDEX</replaceable></term>
+	  <listitem>
+	    <para>
+		Set the specified configuration entry by specifying the index into the list of choices for
+	        the configuration value. This of course only works for configuration settings that offer
+                list of choices.
+	    </para>
+	    <para>
+		Look at the output of <option>--get-config</option> to see what indices are possible to set here.
+	    </para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--set-config-value</option> <replaceable>CONFIGENTRY=CONFIGVALUE</replaceable></term>
+	  <listitem>
+	    <para>
+		Set the specified configuration entry by specifying its new value. For lists of choices
+                the value is looked up and set.
+	    </para>
+	    <para>
+		Look at the output of <option>--get-config</option> to see what indices are possible to set here.
 	    </para>
 	  </listitem>
 	</varlistentry>
