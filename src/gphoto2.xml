@@ -56,7 +56,7 @@ About this file:
 
   <bookinfo>
     <title>&themanual;</title>
-    <pubdate>2006-12-21</pubdate>
+    <pubdate>2009-08-09</pubdate>
     <authorgroup>
       <!--author>
         <firstname>The gPhoto2</firstname>
@@ -86,6 +86,11 @@ About this file:
 	<!--
 	<email>michael.rensing@shaw.ca</email>
 	-->
+      </author>
+      <author>
+        <firstname>Marcus</firstname>
+        <surname>Meissner</surname>
+	<email>marcus@jet.franken.de</email>
       </author>
       <othercredit>
 	<honorific>Miscellanous Contributors</honorific>
@@ -137,6 +142,8 @@ About this file:
 	Hans Ulrich Niedermann migrated the text files into the XML 
 	file and began with general improvements. Then after the 2.1.0
 	release, Michael J. Rensing joined us with gtkam documentation.
+	Marcus Meissner improved documentation with the new options after
+	the 2.4 release series.
       </para>
     </formalpara>
 
