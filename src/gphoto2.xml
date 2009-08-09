@@ -3313,7 +3313,10 @@ or
 	<arg choice="opt">--capture-movie</arg>
 	<arg choice="opt">--capture-sound</arg>
 	<sbr/>
-	<arg choice="opt">--capture-tethered</arg>
+	<arg choice="opt">--capture-tethered <replaceable>SECONDS or COUNT</replaceable></arg>
+	<sbr/>
+	<arg choice="opt">--wait-event <replaceable>SECONDS or COUNT</replaceable></arg>
+	<arg choice="opt">--wait-event-and-download <replaceable>SECONDS or COUNT</replaceable></arg>
 	<sbr/>
 	<arg choice="opt">--show-info <replaceable>RANGE</replaceable></arg>
 	<sbr/>
@@ -3797,14 +3800,22 @@ or
 	<varlistentry>
 	  <term><option>--capture-image</option></term>
 	  <listitem>
-	    <para>Capture an image.</para>
+	    <para>Capture an image and keep it on the camera.</para>
 	  </listitem>
 	</varlistentry>
 
 	<varlistentry>
+	  <term><option>--capture-image-and-download</option></term>
+	  <listitem>
+	    <para>Capture an image and download it immediately to the computer.</para>
+	  </listitem>
+	</varlistentry>
+
+
+	<varlistentry>
 	  <term><option>--capture-movie</option></term>
 	  <listitem>
-	    <para>Capture a movie.</para>
+	    <para>Capture a movie. (No driver supports this at this time.)</para>
 	  </listitem>
 	</varlistentry>
 
@@ -3816,7 +3827,7 @@ or
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>--capture-tethered</option></term>
+	  <term><option>--capture-tethered</option> </term>
 	  <listitem>
 	    <para>
 		Lets gphoto2 wait for notifications from the camera that an object was added.
@@ -3828,8 +3839,42 @@ or
 		display the images this can help a studio workflow.
 	    </para>
 	    <para>
-		This option requires support in the driver and by the camera, currently only
-		Nikon DSC are known to work.
+		This option requires support in the driver and by the camera, currently
+		newer Canon EOS and Nikon DSC are known to work.
+	    </para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--wait-event <replaceable>SECONDS or COUNT</replaceable></option></term>
+	  <term><option>--wait-event-and-download <replaceable>SECONDS or COUNT</replaceable></option></term>
+	  <listitem>
+	    <para>
+		Lets gphoto2 wait for notifications from the camera for various things.
+		This is useful for seeing what the camera does and waiting for 
+		objects to be added. The objects are kept on camera in the <quote>--wait-event</quote>
+		version, with <quote>--wait-event-and-download</quote> they are downloaded.
+	    </para>
+            <para>
+		--wait-event-and-download is equivalent to --capture-tethered.
+	    </para>
+            <para>
+		The time to wait can be either specified as full seconds with a "s" suffix,
+		or as a number of events (just a number).
+		If nothing happens, a timeout is generated after 1 second, so a <quote>wait-event=5</quote>
+		will take at most 5 seconds. A <quote>--wait-event=5s</quote> will take exactly 5 second.
+	    </para>
+            <para>
+		If no argument is given, the wait time is 1 million events (basically forever).
+	    </para>
+	    <para>
+		In the download variant this can be used together with the
+		<option>--hook-script</option> to immediately postprocess
+		or display the images this can help a studio workflow.
+	    </para>
+	    <para>
+		This option requires support in the driver and by the camera, currently
+		newer Canon EOS and Nikon DSC are known to work.
 	    </para>
 	  </listitem>
 	</varlistentry>
@@ -3964,8 +4009,7 @@ or
         <varlistentry>
           <term>lcd</term>
           <listitem>
-            <para>Change to a directory on the local
-              machine.</para>
+            <para>Change to a directory on the local machine.</para>
           </listitem>
         </varlistentry>
 
@@ -4005,11 +4049,92 @@ or
         </varlistentry>
 
         <varlistentry>
+          <term>mkdir <replaceable>DIRECTORY</replaceable></term>
+          <listitem>
+            <para>Creates a directory named <quote>DIRECTORY</quote>.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>rmdir <replaceable>DIRECTORY</replaceable></term>
+          <listitem>
+            <para>Removes a directory named <quote>DIRECTORY</quote>.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
           <term>show-exif</term>
           <listitem>
             <para>Show EXIF information (only if compiled with EXIF support).</para>
           </listitem>
         </varlistentry>
+
+        <varlistentry>
+          <term>capture-image</term>
+          <listitem>
+            <para>Captures a single image and keeps it on the camera.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>capture-image-and-download</term>
+          <listitem>
+            <para>Captures a single image and downloads it from the camera.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>list-config</term>
+          <listitem>
+            <para>Lists all configuration values.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>get-config <replaceable>NAME</replaceable></term>
+          <listitem>
+            <para>Gets the configuration specified by <quote>NAME</quote>.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>set-config <replaceable>NAME=VALUE</replaceable></term>
+          <listitem>
+            <para>Sets the configuration specified by <quote>NAME</quote> to <quote>VALUE</quote>.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>set-config-value <replaceable>NAME=VALUE</replaceable></term>
+          <listitem>
+            <para>Sets the configuration specified by <quote>NAME</quote> to <quote>VALUE</quote>.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>set-config-index <replaceable>NAME=VALUE</replaceable></term>
+          <listitem>
+            <para>Sets the configuration specified by <quote>NAME</quote> to the <quote>INDEX</quote> into the list of choices. Works only for Menu or Radio button entries.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>wait-event <replaceable>COUNT or SECONDS</replaceable></term>
+          <listitem>
+            <para>Waits for events from the camera for the specified time in SECONDS (if suffixed with s) or the COUNT of events from the camera, where every seconds a timeout event happens. Newly added images are kept on the camera.</para>
+	    <para>Default is 1 event.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>wait-event-and-download <replaceable>COUNT or SECONDS</replaceable></term>
+          <term>capture-tethered <replaceable>COUNT or SECONDS</replaceable></term>
+          <listitem>
+            <para>Waits for events from the camera for the specified time in SECONDS (if suffixed with s) or the COUNT of events from the camera, where every seconds a timeout event happens. Newly added images are downloaded from the camera.</para>
+	    <para>Default is 1 event.</para>
+          </listitem>
+        </varlistentry>
+
 
         <varlistentry>
           <term>help, ?</term>
