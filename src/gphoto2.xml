@@ -2859,21 +2859,21 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
       </para>
       <screen>
 
-<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://svn.gphoto.sourceforge.net/svnroot/gphoto/trunk/gphoto-suite</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://gphoto.svn.sourceforge.net/svnroot/gphoto/trunk/gphoto-suite</parameter></userinput>
 <prompt>&prompt;</prompt><userinput>vi <parameter>checkout-config.txt</parameter></userinput> # comment out unwanted software
 <prompt>&prompt;</prompt><userinput>./checkout-config.sh</userinput> # only if you want/need software described in checkout-config.txt
 <prompt>&prompt;</prompt><userinput>rm -rf src/{what,you,do,not,want}</userinput> # optional
 
 or select your desired software from these:
 
-<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://svn.libusb.sourceforge.net/svnroot/libusb/trunk/libusb</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://libusb.svn.sourceforge.net/svnroot/libusb/trunk/libusb</parameter></userinput>
 <prompt>&prompt;</prompt><userinput>cvs <parameter>-z3</parameter> <parameter>-d:pserver:anonymous@libexif.cvs.sourceforge.net:/cvsroot/libexif</parameter> <parameter>checkout</parameter> <parameter>-P</parameter> <parameter>libexif</parameter></userinput>
 <prompt>&prompt;</prompt><userinput>cvs <parameter>-z3</parameter> <parameter>-d:pserver:anonymous@libexif.cvs.sourceforge.net:/cvsroot/libexif</parameter> <parameter>checkout</parameter> <parameter>-P</parameter> <parameter>exif</parameter></userinput>
 <prompt>&prompt;</prompt><userinput>cvs <parameter>-z3</parameter> <parameter>-d:pserver:anonymous@libexif.cvs.sourceforge.net:/cvsroot/libexif</parameter> <parameter>checkout</parameter> <parameter>-P</parameter> <parameter>libexif-gtk</parameter></userinput>
-<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://svn.gphoto.sourceforge.net/svnroot/gphoto/trunk/libgphoto2</parameter></userinput>
-<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://svn.gphoto.sourceforge.net/svnroot/gphoto/trunk/gphoto2</parameter></userinput>
-<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://svn.gphoto.sourceforge.net/svnroot/gphoto/trunk/gphotofs</parameter></userinput>
-<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://svn.gphoto.sourceforge.net/svnroot/gphoto/trunk/gtkam</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://gphoto.svn.sourceforge.net/svnroot/gphoto/trunk/libgphoto2</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://gphoto.svn.sourceforge.net/svnroot/gphoto/trunk/gphoto2</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://gphoto.svn.sourceforge.net/svnroot/gphoto/trunk/gphotofs</parameter></userinput>
+<prompt>&prompt;</prompt><userinput>svn <parameter>checkout</parameter> <parameter>https://gphoto.svn.sourceforge.net/svnroot/gphoto/trunk/gtkam</parameter></userinput>
       </screen>
       <para>
 	All the software modules libusb, libexif, libexif-gtk, exif,
