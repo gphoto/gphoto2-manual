@@ -2533,7 +2533,7 @@ fi
 
 	<note>
 	  <para>
-	    This section only deals with FreeBSD 5 because older
+	    This section only deals with FreeBSD 5 and over because older
 	    versions of FreeBSD do not have devfs, and thus do not
 	    handle dynamic devices at all (create static devices using
 	    <command>MAKEDEV(8)</command> there).
@@ -2545,13 +2545,14 @@ fi
 	    Georg Wagner, 
 	    Michael Lyngbøl,
 	    Conan Webb,
-	    Bram Abbekerk, and 
-	    <ulink url="http://www.xs4all.nl/~rsmith/freebsd/">Roland Smith</ulink>.
+	    Bram Abbekerk, 
+	    <ulink url="http://www.xs4all.nl/~rsmith/">Roland Smith</ulink>, and
+	    Guillermo A. Amaral (gamaral).
 	  </para>
 	</note>
 
 	<para>
-	  FreeBSD 5.x uses a dynamically created devices filesystem
+	  FreeBSD uses a dynamically created devices filesystem
 	  (devfs).
 	  In order to use the camera as non-root user, you need
 	  to tell the <systemitem>devfs</systemitem> framework what
@@ -2580,7 +2581,7 @@ fi
 	  </listitem>
 	  <listitem>
 	    <para>
-	      Add these lines to <filename>/etc/devfs.rules</filename>:
+	      For FreeBSD 7 and under add these lines to <filename>/etc/devfs.rules</filename>:
 	    </para>
 	    <programlisting>
 [usb_devices=10]
@@ -2594,6 +2595,30 @@ add path 'da*s*' mode 0660 group usb
 	      permissions for the slices of USB Mass Storage devices,
 	      such as a number of USB digicams.
 	    </para>
+	    <para>
+	      For FreeBSD 8 and over add these lines to <filename>/etc/devfs.rules</filename>:
+	    </para>
+	    <programlisting>
+[usb_devices=10]
+add path 'usb/*' mode 0660 group usb
+add path 'da*s*' mode 0660 group usb
+	    </programlisting>
+	    <para>
+	      The <quote>usb/*</quote> line will set the permissions
+	      for cameras using special camera protocols. 
+	      The <quote>da*s*</quote> line will set up the same
+	      permissions for the slices of USB Mass Storage devices,
+	      such as a number of USB digicams.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Add a line to <filename>/etc/rc.conf</filename>:
+	    </para>
+	    <programlisting>
+# Set the default devfs ruleset.
+devfs_system_ruleset="usb_devices"
+	    </programlisting>
 	  </listitem>
 	  <listitem>
 	    <para>
@@ -2604,21 +2629,14 @@ add path 'da*s*' mode 0660 group usb
 	      add lines like the following to
 	      <filename>/etc/devfs.conf</filename>.
 	      (FIXME: Can this be verified or invalidated?)
+
+	      This is *not* required for FreeBSD 8.
 	    </para>
 	    <programlisting>
 perm    usb0    0660
 own     usb0    root:usb
 perm    usb1    0660
 own     usb1    root:usb
-	    </programlisting>
-	  </listitem>
-	  <listitem>
-	    <para>
-	      Add a line to <filename>/etc/rc.conf</filename>:
-	    </para>
-	    <programlisting>
-# Set the default devfs ruleset.
-devfs_system_ruleset="usb_devices"
 	    </programlisting>
 	  </listitem>
 	  <listitem>
@@ -2654,7 +2672,7 @@ ugen1: Canon Inc. Canon Digital Camera, rev 1.10/0.01, addr 2
 	    </screen>
 	    <para>
 	      and the permissions to the device files 
-	      should look something like this:
+	      should look something like this on FreeBSD 7 and under:
 	    </para>
 	    <screen>
 <prompt>&prompt;</prompt><userinput>ls -l /dev/ugen*</userinput>
@@ -2662,6 +2680,17 @@ crw-rw----  1 root  usb       242,  16 Apr  8 15:55 /dev/ugen1
 crw-rw----  1 root  usb       242,  17 Apr  8 15:55 /dev/ugen1.1
 crw-rw----  1 root  usb       242,  18 Apr  8 15:55 /dev/ugen1.2
 crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/ugen1.3
+<prompt>&prompt;</prompt>
+	    </screen>
+	    <para>
+	      on FreeBSD 8 and over they should look something like this:
+	    </para>
+	    <screen>
+<prompt>&prompt;</prompt><userinput>ls -l /dev/usb/</userinput>
+crw-rw----  1 root  usb       242,  16 Apr  8 15:55 /dev/usb/0.1.0
+crw-rw----  1 root  usb       242,  17 Apr  8 15:55 /dev/usb/0.1.1
+crw-rw----  1 root  usb       242,  18 Apr  8 15:55 /dev/usb/1.1.0
+crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/usb/1.1.1
 <prompt>&prompt;</prompt>
 	    </screen>
 	  </listitem>
