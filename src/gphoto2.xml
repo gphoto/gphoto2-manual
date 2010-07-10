@@ -3776,7 +3776,7 @@ or
 	<varlistentry>
 	  <term><option>-D</option>, <option>--delete-all-files</option></term>
 	  <listitem>
-	    <para>Delete all files in folder.</para>
+	    <para>Delete all files in folder (defaults to <option>--no-recurse</option>).</para>
 	  </listitem>
 	</varlistentry>
 
