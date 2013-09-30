@@ -1,23 +1,9 @@
 AC_PREREQ(2.59)
 AC_INIT([gphoto2 manual],[2.3.1.trunk], [gphoto-devel@lists.sourceforge.net])
 AC_CONFIG_SRCDIR([src/gphoto2.xml])
-AC_CONFIG_MACRO_DIR([m4m])
-AM_INIT_AUTOMAKE([gnu 1.8 dist-bzip2])
-
-if test ! -d "$srcdir/m4m"; then
-AC_MSG_ERROR([
-You are missing the m4m/ directory in your top
-$PACKAGE_TARNAME source directory.
-
-You are probably using an ill-maintained CVS tree.
-Running
-
-    cd $srcdir
-    cvs co m4m
-
-and re-running autogen.sh might help.
-])
-fi
+AC_CONFIG_AUX_DIR([auto-aux])
+AC_CONFIG_MACRO_DIR([m4])
+AM_INIT_AUTOMAKE([gnu 1.9 dist-bzip2])
 
 AC_PROG_LN_S()
 
@@ -54,7 +40,7 @@ AC_CONFIG_FILES([
 Makefile
 gphoto2-manual.pc
 gphoto2-manual-uninstalled.pc
-m4m/Makefile
+gphoto-m4/Makefile
 help/Makefile
 help/C/Makefile
 src/Makefile

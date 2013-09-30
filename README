@@ -15,7 +15,7 @@ Detailed information:
 Short build instructions:
 =========================
 
-If you use CVS, run autogen.sh first.
+If you use a git clone, run autogen.sh first.
 
 If you are a developer, add --enable-maintainer-mode to your configure
 parameters.
@@ -43,12 +43,12 @@ And BTW, you can build in a different directory if you wish.
 Web site build instruction:
 ===========================
 
-If your local copy of the gphoto website CVS module is in the directory
-"$PWD/../website-gphoto", then just run
+If your local copy of the gphoto website git repo is in the directory
+"$PWD/../gphoto.github.io", then just run
 
-	./configure --with-html-dir=$PWD/../website-gphoto/doc/manual \
-	   --with-figure-dir=$PWD/../website-gphoto/doc/manual/figures \
-	   --with-screenshots-dir=$PWD/../website-gphoto/doc/manual/screenshots
+	./configure --with-html-dir=$PWD/../gphoto.github.io/doc/manual \
+	   --with-figure-dir=$PWD/../gphoto.github.io/doc/manual/figures \
+	   --with-screenshots-dir=$PWD/../gphoto.github.io/doc/manual/screenshots
 	make clean all install
 
 to (re)build the manual for the website.

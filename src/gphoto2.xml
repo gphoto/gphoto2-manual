@@ -469,7 +469,7 @@ About this file:
 	    </listitem>
 	  </varlistentry>
 	  <varlistentry>
-	    <term>SVN sources</term>
+	    <term>git sources</term>
 	    <listitem>
 	      <simpara>
 		Building requires a certain set of build tools
