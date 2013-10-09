@@ -51,14 +51,14 @@
       <a href="/mailinglists/">Mailing lists</a> :: 
       <a href="/download/">Download</a> :: 
       <a href="/feedback/">Feedback</a> :: 
-      <a href="/manufacturers/">About Manufacturers</a> :: 
       <a href="/links/">Links</a>
       <br />
       <a href="/doc/manual/">User's manual</a> ::
       <a href="/doc/api/">API</a> ::
       <a href="/doc/ptpip/">PTP/IP</a> ::
       <a href="/doc/faq/">FAQ</a> ::
-      <a href="/doc/remote/">Remote control</a>
+      <a href="/doc/remote/">Remote control</a> ::
+      <a href="/manufacturers/">About Manufacturers</a>
     </p>
   </xsl:template>
 
