@@ -15,7 +15,7 @@
 
   <!-- location of CSS stylesheet for HTML files -->
   <xsl:param name="html.stylesheet"    select="'../../styles.css'"/>
-  
+
   <!-- use navigation graphics? -->
   <xsl:param name="navig.graphics"     select="0"/>
 
@@ -47,7 +47,7 @@
       <a href="/news">News</a> :: 
       <a href="/proj/">Projects</a> :: 
       <a href="/doc/">Documentation</a> :: 
-      <a href="http://www.sf.net/projects/gphoto/">Developers</a> :: 
+      <a href="/dev/">Developers</a> :: 
       <a href="/mailinglists/">Mailing lists</a> :: 
       <a href="/download/">Download</a> :: 
       <a href="/feedback/">Feedback</a> :: 
@@ -56,7 +56,7 @@
       <br />
       <a href="/doc/manual/">User's manual</a> ::
       <a href="/doc/api/">API</a> ::
-      <a href="/doc/ptpip.php">PTP/IP</a> ::
+      <a href="/doc/ptpip/">PTP/IP</a> ::
       <a href="/doc/faq/">FAQ</a> ::
       <a href="/doc/remote/">Remote control</a>
     </p>
