@@ -77,10 +77,11 @@ install-data-am: omf
 uninstall-local:
 	-for file in $(srcdir)/figures/*.png; do \
 	  basefile=`echo $$file | sed -e  's,^.*/,,'`; \
-	  rm -f $(docdir)/figures/$$basefile; \
+	  rm -f "$(DESTDIR)$(docdir)/figures/$$basefile"; \
 	done
 	-for file in $(xml_files); do \
-	  rm -f $(DESTDIR)$(docdir)/$$file; \
+	  basefile=`echo "$$file" | sed -e  's,^.*/,,'`; \
+	  rm -f "$(DESTDIR)$(docdir)/$$basefile"; \
 	done
 	-rmdir $(DESTDIR)$(docdir)/figures
 	-rmdir $(DESTDIR)$(docdir)

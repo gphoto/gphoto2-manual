@@ -26,6 +26,9 @@ uninstall-local:
 	rm -f $(DESTDIR)$(htmldir)/screenshots
 	-rmdir $(DESTDIR)$(htmldir)
 
+distclean-local:
+	rm -f gphoto2.proc
+
 update-webserver: install
 	@echo "########## Synchronizing..."
 	rsync -vz -rtL -C -e ssh "$(DESTDIR)$(htmldir)/" "$(SERVER):$(TARGET_DIR)"
