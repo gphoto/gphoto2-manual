@@ -908,7 +908,7 @@ Saving file as MVI_5418.AVI                                                     
 	    <para>
 	      Check
 	      <ulink
-		url="http://gphoto.org/proj/libgphoto2/support/">http://gphoto.org/proj/libgphoto2/support/</ulink>
+		url="http://gphoto.org/proj/libgphoto2/support.php">http://gphoto.org/proj/libgphoto2/support.php</ulink>
 	      for camera support in the latest libgphoto2 release.
 	    </para>
 	  </answer>
@@ -990,6 +990,52 @@ Saving file as MVI_5418.AVI                                                     
 	      Mass Storage. Some of these Olympus supports to be switched to "PC Control"
 	      mode in order to be remote controlled with an external program like one using 
 	      libgphoto2.
+	    </para>
+	  </answer>
+	</qandaentry>
+
+	<qandaentry id="FAQ-already-in-use">
+	  <question>
+	    <simpara>Why do I get the error message "Could not lock the device"?</simpara>
+	  </question>
+	  <answer>
+	    <para>
+	      The exact message looks like
+	    </para>
+	    <screen>
+		*** Error ***
+		An error occurred in the io-library ('Could not lock the device'): Camera is
+		already in use.
+
+		*** Error (-60: 'Could not lock the device') ***
+	    </screen>
+	    <para>
+	      This means another process on the system is using the camera already. Cameras
+              supported by libgphoto2 can be accessed by file managers like Nautilus or Dolphin
+              via their virtual file filesystem and their technology opens the cameras as soon
+              as they are plugged in.
+            </para>
+            <para>
+              One major system in use is the GNOME virtual filesystem
+              <code>gvfs</code>.  To detect if this is the case, you
+              can run <code>gvfs-mount -l</code>. If this reports GPhoto
+              device, your camera is likely blocked by it. In that case
+              you can try using <code>gvfs-mount -s gphoto2</code> to
+              umount the virtual filesystem and replugin the camera.
+              Verify with <code>gvfs-mount -l</code> if it is really
+              unmounted.
+            </para>
+            <para>
+              On MacOS X the built-in PTP camera tool might
+              block libgphoto2 usage. It is a process called
+              <code>PTPCamera</code> which can be found using the
+              UNIX <code>ps</code> command and killed with the UNIX
+              <code>kill</code> command.
+            </para>
+            <para>
+              If this does not help, and you still get "Could not claim the device" errors,
+              try this user supplied tool <ulink url="https://github.com/mejedi/mac-gphoto-enabler">https://github.com/mejedi/mac-gphoto-enabler</ulink>
+              which does slightly more intrusive changes to MacOS to avoid it grabbing the camera.
 	    </para>
 	  </answer>
 	</qandaentry>
@@ -2048,6 +2094,10 @@ fi
 
       <sect2 id="usb-on-linux-hotplug">
 	<title><acronym>USB</acronym> ports on Linux using linux-hotplug</title>
+	<para>
+	Please note that this method is outdated, in Linux kernel 2.6, 3.x and
+	newer versions, udev rules are used for rule setting.
+	</para>
 	<para>
 	  <ulink
 	  url="http://linux-hotplug.sourceforge.net/">linux-hotplug</ulink>
@@ -3212,6 +3262,7 @@ or
 	<command>gphoto2</command>
 	<arg choice="opt">--debug</arg>
 	<arg choice="opt">--debug-logfile <replaceable>FILENAME</replaceable></arg>
+	<arg choice="opt">--debug-loglevel <replaceable>LEVEL</replaceable></arg>
 	<group choice="opt">
 	  <arg>-q</arg>
 	  <arg>--quiet</arg>
@@ -3224,6 +3275,7 @@ or
 	  <arg>-h</arg>
 	  <arg>--help</arg>
 	</group>
+        <arg>--usage</arg>
 	<sbr/>
 	<arg choice="opt">--hook-script <replaceable>FILENAME</replaceable></arg>
 	<sbr/>
@@ -3282,8 +3334,8 @@ or
 	</group>
 	<sbr/>
 	<group choice="opt">
-	  <arg>-p <replaceable>RANGE</replaceable></arg>
-	  <arg>--get-file <replaceable>RANGE</replaceable></arg>
+	  <arg>-p <replaceable>RANGE or NAME</replaceable></arg>
+	  <arg>--get-file <replaceable>RANGE or NAME</replaceable></arg>
 	</group>
 	<group choice="opt">
 	  <arg>-P</arg>
@@ -3291,8 +3343,8 @@ or
 	</group>
 	<sbr/>
 	<group choice="opt">
-	  <arg>-t <replaceable>RANGE</replaceable></arg>
-	  <arg>--get-thumbnail <replaceable>RANGE</replaceable></arg>
+	  <arg>-t <replaceable>RANGE or NAME</replaceable></arg>
+	  <arg>--get-thumbnail <replaceable>RANGE or NAME</replaceable></arg>
 	</group>
 	<sbr/>
 	<group choice="opt">
@@ -3300,19 +3352,23 @@ or
 	  <arg>--get-all-thumbnails</arg>
 	</group>
 	<sbr/>
-	<arg choice="opt">--get-raw-data <replaceable>RANGE</replaceable></arg>
+	<arg choice="opt">--get-raw-data <replaceable>RANGE or NAME</replaceable></arg>
 	<arg choice="opt">--get-all-raw-data</arg>
 	<sbr/>
-	<arg choice="opt">--get-audio-data <replaceable>RANGE</replaceable></arg>
+	<arg choice="opt">--get-audio-data <replaceable>RANGE or NAME</replaceable></arg>
 	<arg choice="opt">--get-all-audio-data</arg>
+	<sbr/>
+	<arg choice="opt">--get-meta-data <replaceable>RANGE or NAME</replaceable></arg>
+	<arg choice="opt">--get-all-meta-data</arg>
+	<arg choice="opt">--upload-meta-data <replaceable>FILENAME</replaceable></arg>
 	<sbr/>
 	<arg choice="opt">--force-overwrite</arg>
 	<sbr/>
 	<arg choice="opt">--new</arg>
 	<sbr/>
 	<group choice="opt">
-	  <arg>-d <replaceable>RANGE</replaceable></arg>
-	  <arg>--delete-file <replaceable>RANGE</replaceable></arg>
+	  <arg>-d <replaceable>RANGE or NAME</replaceable></arg>
+	  <arg>--delete-file <replaceable>RANGE or NAME</replaceable></arg>
 	</group>
 	<group choice="opt">
 	  <arg>-D</arg>
@@ -3326,13 +3382,16 @@ or
 	<arg choice="opt">--config</arg>
 	<sbr/>
 	<arg choice="opt">--list-config</arg>
+	<arg choice="opt">--list-all-config</arg>
 	<sbr/>
 	<arg choice="opt">--get-config <replaceable>CONFIGENTRY</replaceable></arg>
 	<arg choice="opt">--set-config <replaceable>CONFIGENTRY=CONFIGVALUE</replaceable></arg>
 	<arg choice="opt">--set-config-index <replaceable>CONFIGENTRY=CONFIGINDEX</replaceable></arg>
 	<arg choice="opt">--set-config-value <replaceable>CONFIGENTRY=CONFIGVALUE</replaceable></arg>
+	<arg choice="opt">--reset</arg>
 	<sbr/>
 	<arg choice="opt">--capture-preview</arg>
+	<arg choice="opt">--show-preview</arg>
 	<sbr/>
 	<group choice="opt">
 	  <arg>-F <replaceable>COUNT</replaceable></arg> 
@@ -3346,22 +3405,30 @@ or
 	<arg>--reset-interval</arg>
 	<sbr/>
 	<arg choice="opt">--capture-image</arg>
-	<arg choice="opt">--capture-movie</arg>
+	<arg choice="opt">--trigger-capture</arg>
+	<arg choice="opt">--capture-movie <replaceable>SECONDS or COUNT</replaceable></arg>
 	<arg choice="opt">--capture-sound</arg>
 	<sbr/>
-	<arg choice="opt">--capture-tethered <replaceable>SECONDS or COUNT</replaceable></arg>
+	<arg choice="opt">--capture-tethered <replaceable>SECONDS, COUNT or STRING</replaceable></arg>
 	<sbr/>
-	<arg choice="opt">--wait-event <replaceable>SECONDS or COUNT</replaceable></arg>
-	<arg choice="opt">--wait-event-and-download <replaceable>SECONDS or COUNT</replaceable></arg>
+	<arg choice="opt">--wait-event <replaceable>SECONDS, COUNT or STRING</replaceable></arg>
+	<arg choice="opt">--wait-event-and-download <replaceable>SECONDS, COUNT or STRING</replaceable></arg>
 	<sbr/>
-	<arg choice="opt">--show-info <replaceable>RANGE</replaceable></arg>
+	<arg choice="opt">--keep</arg>
+	<arg choice="opt">--no-keep</arg>
 	<sbr/>
-	<arg choice="opt">--show-exif <replaceable>RANGE</replaceable></arg>
+	<arg choice="opt">--show-info <replaceable>RANGE or NAME</replaceable></arg>
+	<sbr/>
+	<arg choice="opt">--show-exif <replaceable>RANGE or NAME</replaceable></arg>
 	<sbr/>
 	<arg choice="opt">--storage-info</arg>
+	<sbr/>
 	<arg choice="opt">--summary</arg>
+	<sbr/>
 	<arg choice="opt">--manual</arg>
+	<sbr/>
 	<arg choice="opt">--about</arg>
+	<sbr/>
 	<arg choice="opt">--shell</arg>
       </cmdsynopsis>
     </refsynopsisdiv>
@@ -3396,6 +3463,19 @@ or
 	    <para>
 	      The logfile to write the debugging info to, if
 	      <option>--debug</option> is given.
+	    </para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--debug-loglevel</option>
+	  <replaceable>LEVEL</replaceable> (since 2.5.5)</term>
+	  <listitem>
+	    <para>
+              The verbosity of debug logging. Possible values with
+              incrementing verbosity are: <option>error</option>,
+              <option>debug</option>, <option>data</option>,
+              <option>all</option>. Default is <option>all</option>.
 	    </para>
 	  </listitem>
 	</varlistentry>
@@ -3483,6 +3563,13 @@ or
 
 	<varlistentry>
 	  <term><option>-h</option>, <option>--help</option></term>
+	  <listitem>
+	    <para>Display options and short description.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--usage</option></term>
 	  <listitem>
 	    <para>Display a short usage message.</para>
 	  </listitem>
@@ -3577,8 +3664,8 @@ or
 		%a, %A, %b, %B, %d, %H, %k, %I, %l, %j, %m, %M, %S,
 		%y, %%, (see date(1)) and, 
 		in addition, %n for the number, %C for the filename
-		suffix, %f for the filename without suffix, %: for the
-		complete filename in lowercase.
+		suffix, %f for the filename without suffix, %F for the foldername,
+                %: for the complete filename in lowercase.
 	      </para>
 	      <para>
 	        Note that %: is still in alpha stage, and the actual
@@ -3628,7 +3715,7 @@ or
 	<varlistentry>
 	  <term><option>-a</option>, <option>--abilities</option></term>
 	  <listitem>
-	    <para>Display camera abilities.</para>
+	    <para>Display the camera and driver abilities specified in the libgphoto2 driver. This all does not query the camera, it uses data provided by the library. Use <option>--summary</option> to query an overview of the camera.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -3752,12 +3839,41 @@ or
 	</varlistentry>
 
 	<varlistentry>
+	  <term><option>--upload-meta-data</option>
+	   <replaceable>FILENAME</replaceable></term>
+	  <listitem>
+	    <para>Upload meta data for the specific file, taken from a file prefix with meta_ .</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--get-meta-data</option>
+	   <replaceable>RANGE</replaceable></term>
+	  <listitem>
+	    <para>Get meta data given in range.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--get-all-meta-data</option></term>
+	  <listitem>
+	    <para>Get all meta data from folder.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
 	  <term><option>--force-overwrite</option></term>
 	  <listitem>
 	    <para>Overwrite files without asking.</para>
 	  </listitem>
 	</varlistentry>
 
+	<varlistentry>
+	  <term><option>--skip-existing</option></term>
+	  <listitem>
+	    <para>Skip files if they exist already on the local directory.</para>
+	  </listitem>
+	</varlistentry>
 	<varlistentry>
 	  <term><option>--new</option></term>
 	  <listitem>
@@ -3796,6 +3912,13 @@ or
 	</varlistentry>
 
 	<varlistentry>
+	  <term><option>--show-preview</option></term>
+	  <listitem>
+	    <para>Capture a quick preview and displays it in the terminal using Ascii Art (if aalib was used during build).</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
 	  <term><option>-F <replaceable>COUNT</replaceable></option>, <option>--frames <replaceable>COUNT</replaceable></option></term>
 	  <listitem>
 	    <para>Number of frames to capture in one run. Default is infinite number of frames.</para>
@@ -3819,8 +3942,7 @@ or
 	</varlistentry>
 
 	<varlistentry id="ref-gphoto2-reset-interval">
-	  <term><option>--reset-interval</option>
-	  (since 2.4)</term>
+	  <term><option>--reset-interval</option></term>
 	  <listitem>
 	    <para>
 	      Setting this option will reset the time interval to the
@@ -3847,23 +3969,54 @@ or
 	  </listitem>
 	</varlistentry>
 
+	<varlistentry>
+	  <term><option>--trigger-capture</option></term>
+	  <listitem>
+	    <para>Triggers the capture an image and return. If you want to get the image downloaded, see --wait-event-and-download.</para>
+	    <para>This feature is only available for some camera brands and drivers.</para>
+	  </listitem>
+	</varlistentry>
 
 	<varlistentry>
-	  <term><option>--capture-movie</option></term>
+	  <term><option>--keep</option></term>
 	  <listitem>
-	    <para>Capture a movie. (No driver supports this at this time.)</para>
+	    <para>When doing --capture-image-and-download or interval capture, this option will keep the images on the memory card of the camera.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--no-keep</option></term>
+	  <listitem>
+	    <para>When doing --capture-image-and-download or interval capture, this option will not keep the images on the memory card of the camera after downloading them during capture. (default)</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--keep-raw</option></term>
+	  <listitem>
+	    <para>When doing --capture-image-and-download or interval capture, this option will keep the RAW images on the memory card of the camera, but still download the JPEG images. This is useful when doing dual mode capture and you want to review the JPEGs already during capture.</para>
+	  </listitem>
+	</varlistentry>
+
+
+	<varlistentry>
+	  <term><option>--capture-movie <replaceable>SECONDS</replaceable></option></term>
+	  <listitem>
+	    <para>Capture a movie. If the camera supports previews, this will capture a stream of previews (motion-jpeg) as fast as the camera can.</para>
+	    <para>If not argument is specified, it will capture preview frames until you press Ctrl-C. Arguments that can be specified are either seconds of capture
+		or number of preview frames.</para> 
 	  </listitem>
 	</varlistentry>
 
 	<varlistentry>
 	  <term><option>--capture-sound</option></term>
 	  <listitem>
-	    <para>Capture an audio clip.</para>
+	    <para>Capture an audio clip. No driver supports this at this time.</para>
 	  </listitem>
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>--capture-tethered</option> </term>
+	  <term><option>--capture-tethered <replaceable>SECONDS, MILLISECONDS, COUNT or MATCHSTRING</replaceable></option> </term>
 	  <listitem>
 	    <para>
 		Lets gphoto2 wait for notifications from the camera that an object was added.
@@ -3876,17 +4029,17 @@ or
 	    </para>
 	    <para>
 		This option requires support in the driver and by the camera, currently
-		newer Canon EOS and Nikon DSC are known to work.
+		newer Canon EOS and Nikon DLSR work.
 	    </para>
 	  </listitem>
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>--wait-event <replaceable>SECONDS or COUNT</replaceable></option></term>
-	  <term><option>--wait-event-and-download <replaceable>SECONDS or COUNT</replaceable></option></term>
+	  <term><option>--wait-event <replaceable>SECONDS, MILLISECONDS, COUNT or MATCHSTRING</replaceable></option></term>
+	  <term><option>--wait-event-and-download <replaceable>SECONDS, MILLISECONDS, COUNT or MATCHSTRING</replaceable></option></term>
 	  <listitem>
 	    <para>
-		Lets gphoto2 wait for notifications from the camera for various things.
+		Lets gphoto2 wait for notifications from the camera for various events.
 		This is useful for seeing what the camera does and waiting for 
 		objects to be added. The objects are kept on camera in the <quote>--wait-event</quote>
 		version, with <quote>--wait-event-and-download</quote> they are downloaded.
@@ -3895,8 +4048,9 @@ or
 		--wait-event-and-download is equivalent to --capture-tethered.
 	    </para>
             <para>
-		The time to wait can be either specified as full seconds with a "s" suffix,
-		or as a number of events (just a number).
+		The time to wait can be either specified as full seconds with a "s" suffix, a number of
+		milliseconds with a "ms" suffix, as a number of events (just a number), or a sub-string
+		to match.
 		If nothing happens, a timeout is generated after 1 second, so a <quote>wait-event=5</quote>
 		will take at most 5 seconds. A <quote>--wait-event=5s</quote> will take exactly 5 second.
 	    </para>
@@ -3918,7 +4072,14 @@ or
 	<varlistentry>
 	  <term><option>--show-info</option> <replaceable>RANGE</replaceable></term>
 	  <listitem>
-	    <para>Show info.</para>
+	    <para>Show information for a single or multiple images, like width, height, size and/or the capture time</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--config</option></term>
+	  <listitem>
+	    <para>Starts a ncurses based text configuration menu. gphoto2 needs to built against CDK for this feature.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -3926,6 +4087,14 @@ or
 	  <term><option>--list-config</option></term>
 	  <listitem>
 	    <para>List all configuration entries.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--list-all-config</option></term>
+	  <listitem>
+	    <para>List all configuration entries and their values and choices.</para>
+	    <para>This command is a combination of <option>--list-config</option> and calling <option>--get-config</option> on all the entries.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -3977,7 +4146,20 @@ or
                 the value is looked up and set.
 	    </para>
 	    <para>
-		Look at the output of <option>--get-config</option> to see what indices are possible to set here.
+		Look at the output of <option>--get-config</option> to see what values are possible to set here.
+	    </para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--reset</option></term>
+	  <listitem>
+	    <para>Resets the specified (or autodetected) USB port.</para>
+	    <para>
+		This command resets the USB port of either the first auto-detected camera,
+		or the port specified with <option>--port usb:XXX,YYY</option>.
+		This option is useful if somehow the protocol talking to the camera locked up
+		and simulates plugging out and in the camera.
 	    </para>
 	  </listitem>
 	</varlistentry>
@@ -4028,9 +4210,9 @@ or
       
       <variablelist>
         <varlistentry>
-          <term>cd</term>
+          <term>cd <replaceable>DIRECTORY</replaceable></term>
           <listitem>
-            <para>Change to a directory on the camera.</para>
+            <para>Change to the specified directory on the camera.</para>
           </listitem>
         </varlistentry>
 
@@ -4043,44 +4225,51 @@ or
         </varlistentry>
 
         <varlistentry>
-          <term>lcd</term>
+          <term>lcd <replaceable>DIRECTORY</replaceable></term>
           <listitem>
-            <para>Change to a directory on the local machine.</para>
+            <para>Change to the specified directory on the local machine.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>get</term>
+          <term>get <replaceable>FILENAME</replaceable></term>
           <listitem>
-            <para>Download the file to the current directory.</para>
+            <para>Download the specified file to the current directory.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>get-thumbnail</term>
+          <term>put <replaceable>FILENAME</replaceable></term>
           <listitem>
-            <para>Download the thumbnail to the current directory.</para>
+            <para>Upload the specified file from the current system directory to the cameras current directory.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>get-raw</term>
+          <term>get-thumbnail <replaceable>FILENAME</replaceable></term>
           <listitem>
-            <para>Download raw data to the current directory.</para>
+            <para>Download the specified thumbnail to the current directory.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>show-info</term>
+          <term>get-raw <replaceable>FILENAME</replaceable></term>
           <listitem>
-            <para>Show information.</para>
+            <para>Download the specified raw data to the current directory.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>delete</term>
+          <term>show-info <replaceable>FILENAME</replaceable></term>
           <listitem>
-            <para>Delete a file or directory.</para>
+            <para>Show information of the specified file.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>delete <replaceable>FILENAME</replaceable></term>
+          <listitem>
+            <para>Delete the specified file or directory.</para>
           </listitem>
         </varlistentry>
 
@@ -4099,7 +4288,7 @@ or
         </varlistentry>
 
         <varlistentry>
-          <term>show-exif</term>
+          <term>show-exif <replaceable>FILENAME</replaceable></term>
           <listitem>
             <para>Show EXIF information (only if compiled with EXIF support).</para>
           </listitem>
@@ -4116,6 +4305,13 @@ or
           <term>capture-image-and-download</term>
           <listitem>
             <para>Captures a single image and downloads it from the camera.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>capture-preview</term>
+          <listitem>
+            <para>Captures a preview image and downloads it from the camera.</para>
           </listitem>
         </varlistentry>
 
