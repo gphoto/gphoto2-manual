@@ -56,7 +56,7 @@ About this file:
 
   <bookinfo>
     <title>&themanual;</title>
-    <pubdate>2009-08-09</pubdate>
+    <pubdate>2015-08-01</pubdate>
     <authorgroup>
       <!--author>
         <firstname>The gPhoto2</firstname>
@@ -3358,9 +3358,9 @@ or
 	<arg choice="opt">--get-audio-data <replaceable>RANGE or NAME</replaceable></arg>
 	<arg choice="opt">--get-all-audio-data</arg>
 	<sbr/>
-	<arg choice="opt">--get-meta-data <replaceable>RANGE or NAME</replaceable></arg>
-	<arg choice="opt">--get-all-meta-data</arg>
-	<arg choice="opt">--upload-meta-data <replaceable>FILENAME</replaceable></arg>
+	<arg choice="opt">--get-metadata <replaceable>RANGE or NAME</replaceable></arg>
+	<arg choice="opt">--get-all-metadata</arg>
+	<arg choice="opt">--upload-metadata <replaceable>FILENAME</replaceable></arg>
 	<sbr/>
 	<arg choice="opt">--force-overwrite</arg>
 	<sbr/>
@@ -3839,7 +3839,7 @@ or
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>--upload-meta-data</option>
+	  <term><option>--upload-metadata</option>
 	   <replaceable>FILENAME</replaceable></term>
 	  <listitem>
 	    <para>Upload meta data for the specific file, taken from a file prefix with meta_ .</para>
@@ -3847,7 +3847,7 @@ or
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>--get-meta-data</option>
+	  <term><option>--get-metadata</option>
 	   <replaceable>RANGE</replaceable></term>
 	  <listitem>
 	    <para>Get meta data given in range.</para>
@@ -3855,7 +3855,7 @@ or
 	</varlistentry>
 
 	<varlistentry>
-	  <term><option>--get-all-meta-data</option></term>
+	  <term><option>--get-all-metadata</option></term>
 	  <listitem>
 	    <para>Get all meta data from folder.</para>
 	  </listitem>
@@ -3908,6 +3908,15 @@ or
 	  <term><option>--capture-preview</option></term>
 	  <listitem>
 	    <para>Capture a quick preview.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>-B</option><option>--bulb</option>
+	   <replaceable>SECONDS</replaceable>
+	  </term>
+	  <listitem>
+	    <para>Do a bulb capture for the specified amount of seconds.</para>
 	  </listitem>
 	</varlistentry>
 
