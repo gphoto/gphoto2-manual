@@ -5,6 +5,7 @@ AC_CONFIG_AUX_DIR([auto-aux])
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([gnu 1.9 dist-bzip2])
 
+AC_PROG_SED
 AC_PROG_LN_S()
 
 GP_BUILD_DOCS()
