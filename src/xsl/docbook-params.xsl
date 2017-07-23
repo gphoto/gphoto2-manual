@@ -14,7 +14,7 @@
   <xsl:param name="make.valid.html"    select="1"/>
 
   <!-- location of CSS stylesheet for HTML files -->
-  <xsl:param name="html.stylesheet"    select="'../../styles.css'"/>
+  <xsl:param name="html.stylesheet"    select="'../css/gphoto-docbook-html.css'"/>
 
   <!-- use navigation graphics? -->
   <xsl:param name="navig.graphics"     select="0"/>
