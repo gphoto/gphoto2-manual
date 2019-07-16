@@ -4064,6 +4064,10 @@ or
 		will take at most 5 seconds. A <quote>--wait-event=5s</quote> will take exactly 5 second.
 	    </para>
             <para>
+                It is also possible to wait for MATCHSTRING, for things like CAPTURECOMPLETE, FILEADDED,
+                TIMEOUT or other events printed out.
+	    </para>
+            <para>
 		If no argument is given, the wait time is 1 million events (basically forever).
 	    </para>
 	    <para>
