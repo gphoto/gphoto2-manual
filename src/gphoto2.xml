@@ -4475,11 +4475,12 @@ or
 	      image.
 	    </para>
 	  </listitem>
+	</varlistentry>
+	<varlistentry id="ref-gphoto2-SIGUSR2">
 	  <term>SIGUSR2 (since 2.5.26)</term>
 	  <listitem>
 	    <para>
 	      In tethering or wait-event mode, receiving a SIGUSR2 signal ends the tethering or wait-event mode. This is useful if you do not know the end before hand, but still want to safely exit the waiting.
-	    </para>
 	    </para>
 	  </listitem>
 	</varlistentry>
