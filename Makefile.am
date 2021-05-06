@@ -1,10 +1,9 @@
-if HAVE_SCROLLKEEPER
-scrollkeeper_subdirs = help
-endif
+SUBDIRS = src gphoto-m4
 
-# we have our own macros in m4/, so do not remove it, OK?
-#SUBDIRS = src m4 $(scrollkeeper_subdirs)
-SUBDIRS = src gphoto-m4 help
+# Skip the help subdir until we have replaced ancient system
+# scrollkeeper with something more current (rarian/yelp?)
+
+# SUBDIRS += help
 
 ACLOCAL_AMFLAGS = -I m4 -I gphoto-m4
 

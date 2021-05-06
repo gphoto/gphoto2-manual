@@ -22,34 +22,14 @@ dnl ---------------------------------------------------------------------------
 dnl GNOME support: We can use the GNOME help system if scrollkeeper is
 dnl                installed.
 dnl ---------------------------------------------------------------------------
-scrollkeeper_msg="no"
-try_scrollkeeper=true
-have_scrollkeeper=false
-AC_ARG_WITH([scrollkeeper],[dnl
-AS_HELP_STRING([--without-scrollkeeper],
-               [Do not use scrollkeeper])
-],[dnl
-AS_VAR_IF([withval], [no], [try_scrollkeeper=false])
-])
-AS_IF([$try_scrollkeeper], [dnl
-	AC_PATH_PROG([SCROLLKEEPER_CONFIG],[scrollkeeper-config])
-	if test -n "${SCROLLKEEPER_CONFIG}"; then
-		have_scrollkeeper=true
-		scrollkeeper_msg="yes"
-	fi
-], [dnl
-	scrollkeeper_msg="no (not requested)"
-])
-AM_CONDITIONAL([HAVE_SCROLLKEEPER], [$have_scrollkeeper])
-GP_CONFIG_MSG([Scrollkeeper support], [$scrollkeeper_msg])
+dnl scrollkeeper has been replaced around 2008 by rarian/yelp.
+
 
 AC_CONFIG_FILES([
   Makefile
   gphoto2-manual.pc
   gphoto2-manual-uninstalled.pc
   gphoto-m4/Makefile
-  help/Makefile
-  help/C/Makefile
   src/Makefile
   src/css/Makefile
   src/xsl/Makefile
