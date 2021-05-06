@@ -25,23 +25,21 @@ dnl ---------------------------------------------------------------------------
 scrollkeeper_msg="no"
 try_scrollkeeper=true
 have_scrollkeeper=false
-AC_ARG_WITH([scrollkeeper],[
-	AS_HELP_STRING([--without-scrollkeeper],
-                       [Do not use scrollkeeper])
-],[
-	if test x$withval = xno; then
-		try_scrollkeeper=false
-	fi
+AC_ARG_WITH([scrollkeeper],[dnl
+AS_HELP_STRING([--without-scrollkeeper],
+               [Do not use scrollkeeper])
+],[dnl
+AS_VAR_IF([withval], [no], [try_scrollkeeper=false])
 ])
-if $try_scrollkeeper; then
+AS_IF([$try_scrollkeeper], [dnl
 	AC_PATH_PROG([SCROLLKEEPER_CONFIG],[scrollkeeper-config])
 	if test -n "${SCROLLKEEPER_CONFIG}"; then
 		have_scrollkeeper=true
 		scrollkeeper_msg="yes"
 	fi
-else
+], [dnl
 	scrollkeeper_msg="no (not requested)"
-fi
+])
 AM_CONDITIONAL([HAVE_SCROLLKEEPER], [$have_scrollkeeper])
 GP_CONFIG_MSG([Scrollkeeper support], [$scrollkeeper_msg])
 
