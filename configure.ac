@@ -1,5 +1,9 @@
 AC_PREREQ(2.69)
-AC_INIT([gphoto2 manual],[2.3.1.trunk], [gphoto-devel@lists.sourceforge.net])
+AC_INIT([gphoto2 manual],
+        [2.3.2git],
+        [https://github.com/gphoto/gphoto2-manual/issues],
+        [gphoto2-manual],
+        [https://github.com/gphoto/gphoto2-manual])
 AC_CONFIG_SRCDIR([src/gphoto2.xml])
 AC_CONFIG_AUX_DIR([auto-aux])
 AC_CONFIG_MACRO_DIR([m4])
