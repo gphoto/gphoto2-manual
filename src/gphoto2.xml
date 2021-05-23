@@ -3283,6 +3283,7 @@ or
 	<arg choice="opt">--list-ports</arg>
 	<arg choice="opt">--stdout</arg>
 	<arg choice="opt">--stdout-size</arg>
+	<arg choice="opt">--parsable</arg>
 	<sbr/>
 	<arg choice="opt">--auto-detect</arg>
 	<arg choice="opt">--port <replaceable>PATH</replaceable></arg>
@@ -3600,6 +3601,13 @@ or
 	  <term><option>--stdout-size</option></term>
 	  <listitem>
 	    <para>Print filesize before data.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--parsable</option></term>
+	  <listitem>
+	    <para>Outputs the filelist in a line based format that could be passed into a shellscript or other filter.</para>
 	  </listitem>
 	</varlistentry>
 
