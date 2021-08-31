@@ -270,12 +270,6 @@ About this file:
 	      Debian 3.0 Woody, Debian Unstable Sid, Gentoo, ...)</simpara>
 	  </listitem>
 	  <listitem>
-	    <simpara>OS/2 (ancient gphoto2 2.1.0 has been ported to
-	    OS/2, but contemporary versions won't work any more like
-	    2.1.0 did)
-	    </simpara>
-	  </listitem>
-	  <listitem>
 	    <simpara>MacOS X (basically working in 2005-06, with a few
 	    quirks still to be ironed out)</simpara>
 	  </listitem>
@@ -293,8 +287,7 @@ About this file:
 	  For USB cameras, your Unix OS must be supported by
 	  <systemitem class="library">libusb</systemitem>. As of
 	  2002-08-29, this is the case for Linux 2.2 and 2.4, FreeBSD
-	  and OpenBSD. FIXME: Is the USB support for OS/2 independent
-	  of libusb?
+	  and OpenBSD.
 	</para>
       </listitem>
 
@@ -2762,8 +2755,7 @@ crw-rw----  1 root  usb       242,  19 Apr  8 15:55 /dev/usb/1.1.1
       </sect2>
 
       <sect2 id="usb-on-others">
-	<title>USB ports on other systems (non-FreeBSD BSDs, MacOS X,
-	OS/2)</title>
+	<title>USB ports on other systems (non-FreeBSD BSDs, MacOS X, Windows)</title>
 	<para>
 	  FIXME: This chapter still is to be written. If you know
 	  about USB on these systems and/or are willing to contribute
@@ -4434,7 +4426,7 @@ or
 	      If set, defines the directory where the
 	      <systemitem class="library">libgphoto2</systemitem>
 	      library looks for its camera drivers (camlibs). You only
-	      need to set this on OS/2 systems and broken/test
+	      need to set this on Windows systems and broken/test
 	      installations.
 	    </para>
 	  </listitem>
@@ -4446,7 +4438,7 @@ or
 	      If set, defines the directory where the
 	      <systemitem class="library">libgphoto2_port</systemitem>
 	      library looks for its I/O drivers (iolibs). You only
-	      need to set this on OS/2 systems and broken/test
+	      need to set this on Windoes systems and broken/test
 	      installations.
 	    </para>
 	  </listitem>
@@ -4645,7 +4637,7 @@ or
 	      If set, defines the directory where the
 	      <systemitem class="library">libgphoto2</systemitem>
 	      library looks for its camera drivers (camlibs). You only
-	      need to set this on OS/2 systems and broken/test
+	      need to set this on Windows systems and broken/test
 	      installations.
 	    </para>
 	  </listitem>
@@ -4657,7 +4649,7 @@ or
 	      If set, defines the directory where the
 	      <systemitem class="library">libgphoto2_port</systemitem>
 	      library looks for its I/O drivers (iolibs). You only
-	      need to set this on OS/2 systems and broken/test
+	      need to set this on Windows systems and broken/test
 	      installations.
 	    </para>
 	  </listitem>
@@ -4758,7 +4750,7 @@ or
 	      If set, defines the directory where the
 	      <systemitem class="library">libgphoto2_port</systemitem>
 	      library looks for its I/O drivers (iolibs). You only
-	      need to set this on OS/2 systems and broken/test
+	      need to set this on Windows systems and broken/test
 	      installations.
 	    </para>
 	  </listitem>
