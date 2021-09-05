@@ -3291,6 +3291,7 @@ or
 	<arg choice="opt">--camera <replaceable>MODEL</replaceable></arg>
 	<sbr/>
 	<arg choice="opt">--filename <replaceable>FILENAME</replaceable></arg>
+	<arg choice="opt">--filenumber <replaceable>FILENUMBER</replaceable></arg>
 	<sbr/>
 	<arg choice="opt">--usbid <replaceable>USBIDS</replaceable></arg>
 	<sbr/>
@@ -3696,6 +3697,18 @@ or
 		<filename>~/.gphoto/settings</filename> file as
 <envar>gphoto2=filename=value</envar>.
               </para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--filenumber</option> <replaceable>FILENUMBER</replaceable></term>
+	  <listitem>
+	      <para>
+          If you specify the filename using the <option>--filename</option>
+          option and use the %n pattern, this pattern usually starts at 1.
+ 	  For incremental usage, you can use <option>--filenumber</option>
+	  to have it start at another number FILENUMBER.
+	      </para>
 	  </listitem>
 	</varlistentry>
 
