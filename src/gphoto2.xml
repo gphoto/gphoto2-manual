@@ -4426,8 +4426,7 @@ or
 	      If set, defines the directory where the
 	      <systemitem class="library">libgphoto2</systemitem>
 	      library looks for its camera drivers (camlibs). You only
-	      need to set this on Windows systems and broken/test
-	      installations.
+	      need to set this with non-standard installations.
 	    </para>
 	  </listitem>
 	</varlistentry>
@@ -4438,8 +4437,7 @@ or
 	      If set, defines the directory where the
 	      <systemitem class="library">libgphoto2_port</systemitem>
 	      library looks for its I/O drivers (iolibs). You only
-	      need to set this on Windoes systems and broken/test
-	      installations.
+	      need to set this with non-standard installations.
 	    </para>
 	  </listitem>
 	</varlistentry>
@@ -4637,8 +4635,7 @@ or
 	      If set, defines the directory where the
 	      <systemitem class="library">libgphoto2</systemitem>
 	      library looks for its camera drivers (camlibs). You only
-	      need to set this on Windows systems and broken/test
-	      installations.
+	      need to set this with non-standard installations.
 	    </para>
 	  </listitem>
 	</varlistentry>
@@ -4649,8 +4646,7 @@ or
 	      If set, defines the directory where the
 	      <systemitem class="library">libgphoto2_port</systemitem>
 	      library looks for its I/O drivers (iolibs). You only
-	      need to set this on Windows systems and broken/test
-	      installations.
+	      need to set this with non-standard installations.
 	    </para>
 	  </listitem>
 	</varlistentry>
@@ -4750,8 +4746,7 @@ or
 	      If set, defines the directory where the
 	      <systemitem class="library">libgphoto2_port</systemitem>
 	      library looks for its I/O drivers (iolibs). You only
-	      need to set this on Windows systems and broken/test
-	      installations.
+	      need to set this with non-standard installations.
 	    </para>
 	  </listitem>
 	</varlistentry>
