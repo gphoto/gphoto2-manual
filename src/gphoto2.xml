@@ -3411,6 +3411,8 @@ or
 	<arg choice="opt">--keep</arg>
 	<arg choice="opt">--no-keep</arg>
 	<sbr/>
+	<arg choice="opt">--reverse</arg>
+	<sbr/>
 	<arg choice="opt">--show-info <replaceable>RANGE or NAME</replaceable></arg>
 	<sbr/>
 	<arg choice="opt">--show-exif <replaceable>RANGE or NAME</replaceable></arg>
@@ -3996,6 +3998,13 @@ or
 	  <listitem>
 	    <para>Triggers the capture an image and return. If you want to get the image downloaded, see --wait-event-and-download.</para>
 	    <para>This feature is only available for some camera brands and drivers.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--reverse</option></term>
+	  <listitem>
+	    <para>When doing file operations like --get-all-files, -P or -T it reverts the order of files to download.</para>
 	  </listitem>
 	</varlistentry>
 
