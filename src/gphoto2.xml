@@ -3352,6 +3352,9 @@ or
 	<arg choice="opt">--get-audio-data <replaceable>RANGE or NAME</replaceable></arg>
 	<arg choice="opt">--get-all-audio-data</arg>
 	<sbr/>
+	<arg choice="opt">--get-exif <replaceable>RANGE or NAME</replaceable></arg>
+	<arg choice="opt">--get-all-exif</arg>
+	<sbr/>
 	<arg choice="opt">--get-metadata <replaceable>RANGE or NAME</replaceable></arg>
 	<arg choice="opt">--get-all-metadata</arg>
 	<arg choice="opt">--upload-metadata <replaceable>FILENAME</replaceable></arg>
@@ -3854,6 +3857,21 @@ or
 	</varlistentry>
 
 	<varlistentry>
+		<term><option>--get-exif</option>
+		<replaceable>RANGE</replaceable></term>
+	  <listitem>
+	    <para>Get Exif given in range.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
+	  <term><option>--get-all-exif</option></term>
+	  <listitem>
+	    <para>Get all Exif from folder.</para>
+	  </listitem>
+	</varlistentry>
+
+	<varlistentry>
 	  <term><option>--upload-metadata</option>
 	   <replaceable>FILENAME</replaceable></term>
 	  <listitem>
@@ -4296,6 +4314,13 @@ or
           <term>get-raw <replaceable>FILENAME</replaceable></term>
           <listitem>
             <para>Download the specified raw data to the current directory.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>get-exif <replaceable>FILENAME</replaceable></term>
+          <listitem>
+            <para>Download the specified Exif data to the current directory.</para>
           </listitem>
         </varlistentry>
 
